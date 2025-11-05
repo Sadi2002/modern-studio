@@ -1,3 +1,9 @@
+import Link from "next/link";
+
 export default function Home() {
-  return <></>;
+  return (
+    <>
+      <Link href="/portfolio">Go to Portfolio</Link>
+    </>
+  );
 }
