@@ -46,6 +46,48 @@ export default function Portfolio() {
         subtitle: "Hospitality",
         image: house,
       },
+      {
+        title: "Son Del North",
+        location: "Aspen, CO",
+        subtitle: "Hospitality",
+        image: house,
+      },
+      {
+        title: "Son Del North",
+        location: "Aspen, CO",
+        subtitle: "Hospitality",
+        image: house,
+      },
+      {
+        title: "Son Del North",
+        location: "Aspen, CO",
+        subtitle: "Hospitality",
+        image: house,
+      },
+      {
+        title: "Son Del North",
+        location: "Aspen, CO",
+        subtitle: "Hospitality",
+        image: house,
+      },
+      {
+        title: "Son Del North",
+        location: "Aspen, CO",
+        subtitle: "Hospitality",
+        image: house,
+      },
+      {
+        title: "Son Del North",
+        location: "Aspen, CO",
+        subtitle: "Hospitality",
+        image: house,
+      },
+      {
+        title: "Son Del North",
+        location: "Aspen, CO",
+        subtitle: "Hospitality",
+        image: house,
+      },
     ],
     []
   );
@@ -254,7 +296,7 @@ export default function Portfolio() {
         </div>
       </div>
 
-      <div className="flex flex-col w-full xl:w-[60%] gap-[30px] xl:gap-[100px]">
+      <div className="flex flex-col w-full xl:w-[60%] gap-[50px] xl:gap-[100px]">
         {projects.map((p, i) => (
           <div
             key={i}

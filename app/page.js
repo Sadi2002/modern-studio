@@ -1,6 +1,9 @@
-import Link from "next/link";
-import Portfolio from "./portfolio/page";
+import Hero from "./homePage/sections/Hero";
 
 export default function Home() {
-  return <></>;
+  return (
+    <>
+      <Hero />
+    </>
+  );
 }

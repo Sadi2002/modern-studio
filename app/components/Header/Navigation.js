@@ -1,15 +1,36 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+
 import Link from "next/link";
 
 export default function Navigation() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   return (
-    <nav className="flex items-center justify-between mx-mobile pt-mobile-navigation-top md:mx-tablet xl:mx-desktop xl:pt-desktop-navigation-top ">
+    <nav
+      className={`flex items-center justify-between mx-mobile pt-mobile-navigation-top md:mx-tablet xl:mx-desktop xl:pt-desktop-navigation-top ${
+        isHome ? "text-white" : "text-black"
+      }`}
+    >
       {/* LOGO PO LEWEJ */}
-      <span className="md:text-[22px]">Sadowski Studio</span>
+      <span className="md:text-[22px]">
+        <Link href="/">Sadowski Studio</Link>
+      </span>
 
       {/* MOBILE BURGER */}
       <div className="md:hidden flex flex-col gap-1.5 items-end">
-        <span className="h-[1px] w-[17px] bg-black"></span>
-        <span className="h-[1px] w-[24px] bg-black"></span>
+        <span
+          className={`h-[1px] w-[17px] bg-black ${
+            isHome ? "bg-white" : "bg-black"
+          }`}
+        ></span>
+        <span
+          className={`h-[1px] w-[24px] bg-black ${
+            isHome ? "bg-white" : "bg-black"
+          }`}
+        ></span>
       </div>
 
       {/* DESKTOP MENU */}
