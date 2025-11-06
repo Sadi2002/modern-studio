@@ -35,13 +35,13 @@ export default function Portfolio() {
         image: house,
       },
       {
-        title: "Riverside Studio",
+        title: "Sequoia House",
         location: "Chicago, IL",
         subtitle: "Workspace",
         image: house,
       },
       {
-        title: "Mountain Retreat",
+        title: "Son Del North",
         location: "Aspen, CO",
         subtitle: "Hospitality",
         image: house,
@@ -61,7 +61,7 @@ export default function Portfolio() {
   const [hasMeasured, setHasMeasured] = useState(false);
 
   // Constants for visual tuning
-  const OPACITY_FLOOR = 0.01;
+  const OPACITY_FLOOR = 0;
   const GAUSS_K = 0.85; // slightly steeper falloff so titles reach full opacity closer to exact center
   const HEADER_SPEED = 5.4;
   const HEADER_FLOOR = 0; // header can fully disappear
@@ -254,7 +254,7 @@ export default function Portfolio() {
         </div>
       </div>
 
-      <div className="flex flex-col w-full xl:w-[60%] gap-[50px] xl:gap-[100px]">
+      <div className="flex flex-col w-full xl:w-[60%] gap-[30px] xl:gap-[100px]">
         {projects.map((p, i) => (
           <div
             key={i}
@@ -276,7 +276,7 @@ export default function Portfolio() {
                   <Image src={p.image} alt={p.title} className="w-full block" />
                 </div>
               </div>
-              <div className="flex justify-between mt-2.5 items-center">
+              <div className="flex justify-between mt-[5px] xl:mt-[7px] 2xl:mt-[10px] items-center">
                 <span className="text-[12px] xl:text-[15px]">{`${p.title} | ${p.subtitle}`}</span>
                 <div className="flex items-center gap-4">
                   <span className="sm:inline text-[12px] xl:text-[15px]">
