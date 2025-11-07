@@ -18,10 +18,14 @@ export default function Hero() {
       </div>
       <div className="mx-mobile flex flex-col h-full relative">
         <div className="absolute bottom-20">
-          <h1 className="text-white text-[clamp(2.2rem,10vw,5rem)] leading-[clamp(2.2rem,10vw,5rem)] font-medium mb-2.5 ">
+          <h1 className="text-white text-[clamp(2rem,10vw,3rem)] leading-[clamp(2.2rem,10vw,3rem)] font-medium mb-2.5 ">
             OSIEDLE ZACISZE W Warszawie
           </h1>
-          <p className="text-white text-[12px] font-light leading-[18px] mb-[50px]">
+          <p
+            className="text-white font-light  mb-[50px] text-[clamp(0.75rem,3.35vw,1rem)]
+          leading-[clamp(0.75rem,10vw, 1.5rem)]
+          "
+          >
             Oferujemy doświadczenie wyrafinowanego komfortu, ponadczasowej
             elegancji szczerej gościnności. Położona w romantycznym
           </p>
