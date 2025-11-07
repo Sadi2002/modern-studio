@@ -4,7 +4,7 @@ import Button from "@/app/components/Button";
 
 export default function Hero() {
   return (
-    <section className="h-screen absolute top-0 left-0 w-full">
+    <section className="h-[100dvh] absolute top-0 left-0 w-full">
       <div>
         <div className="absolute top-0 left-0 w-full h-screen bg-[rgba(0,0,0,0.55)] -z-1"></div>
         <Image
