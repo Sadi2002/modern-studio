@@ -29,8 +29,14 @@
   */
 
   /* MARGIN DESKTOP */
-  --margin-desktop: 90px;
+  --margin-desktop: 70px;
 
   /* PADDING DESKTOP - NAWIGACJA */
   --padding-desktop-navigation-top: 27px;
+
+  /**
+  *  RESPONSYWNOSC
+  */
+
+  --breakpoint-mobile-text: 420px;
 }

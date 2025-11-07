@@ -16,23 +16,25 @@ export default function Hero() {
           className="object-cover -z-10 absolute"
         />
       </div>
-      <div className="mx-mobile flex flex-col h-full relative">
-        <div className="absolute bottom-45">
-          <h1 className="text-white text-[clamp(2rem,10vw,3rem)] leading-[clamp(2.2rem,10vw,3rem)] font-medium mb-2.5 ">
-            OSIEDLE ZACISZE W Warszawie
+      <div className="mx-mobile flex flex-col h-full relative md:mx-tablet 2xl:mx-desktop">
+        <div className="absolute bottom-30  w-full">
+          <h1 className="text-white text-[clamp(2rem,10vw,3rem)] leading-[clamp(2.2rem,10vw,3rem)] font-medium mb-2.5 lg:text-[70px] lg:leading-[70px] xl:text-[100px] xl:max-w-[952px] xl:font-normal xl:leading-[100px] uppercase 2xl:leading-[120px] 2xl:text-[120px] ">
+            OSIEDLE ZACISZE
+            <br />W Warszawie
           </h1>
           <p
             className="text-white font-light  mb-[50px] text-[clamp(0.75rem,3.35vw,1rem)]
-          leading-[clamp(0.75rem,10vw, 1.5rem)]
+          leading-[clamp(0.75rem,10vw, 1.5rem)] max-w-[300px] lg:max-w-[450px] mobile-text:max-w-[360px] xl:max-w-[740px] xl:mb-[70px]  
           "
           >
             Oferujemy doświadczenie wyrafinowanego komfortu, ponadczasowej
-            elegancji szczerej gościnności. Położona w romantycznym
+            elegancji i szczerej gościnności. Położona w romantycznym sercu
+            Paryża.
           </p>
-          <Button>Read more</Button>
+          <Button>Czytaj więcej</Button>
         </div>
       </div>
-      <span className="absolute bottom-[20px] left-0 mx-mobile font-normal text-[#C6C6C6] text-[10px]">
+      <span className="absolute bottom-[20px] left-0 mx-mobile font-normal text-[#C6C6C6] text-[10px] md:mx-tablet md:bottom-[50px] md:left-auto md:right-0 md:text-[14px] opacity-[64%]">
         (scroll down)
       </span>
     </section>

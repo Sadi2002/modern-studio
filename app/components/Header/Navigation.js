@@ -10,7 +10,7 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`flex items-center justify-between mx-mobile pt-mobile-navigation-top md:mx-tablet xl:mx-desktop xl:pt-desktop-navigation-top ${
+      className={`flex items-center justify-between mx-mobile pt-mobile-navigation-top md:mx-tablet 2xl:mx-desktop xl:pt-desktop-navigation-top ${
         isHome ? "text-white" : "text-black"
       }`}
     >
