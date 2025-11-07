@@ -17,7 +17,7 @@ export default function Hero() {
         />
       </div>
       <div className="mx-mobile flex flex-col h-full relative">
-        <div className="absolute bottom-20">
+        <div className="absolute bottom-45">
           <h1 className="text-white text-[clamp(2rem,10vw,3rem)] leading-[clamp(2.2rem,10vw,3rem)] font-medium mb-2.5 ">
             OSIEDLE ZACISZE W Warszawie
           </h1>
