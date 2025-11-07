@@ -39,4 +39,8 @@
   */
 
   --breakpoint-mobile-text: 420px;
+
+  --breakpoint-mid-desktop-about-title: 1500px;
+
+  --breakpoint-desktop-about-title: 1800px;
 }
