@@ -4,9 +4,9 @@ import Button from "@/app/components/Button";
 
 export default function Hero() {
   return (
-    <section className="h-[100dvh] relative top-0 left-0 w-full">
+    <section className="h-hero-height relative top-0 left-0 w-full">
       <div>
-        <div className="absolute top-0 left-0 w-full h-[100dvh] bg-[rgba(0,0,0,0.55)] -z-1"></div>
+        <div className="absolute top-0 left-0 w-full h-hero-height bg-[rgba(0,0,0,0.55)] -z-1"></div>
         <Image
           src={heroImage}
           fill

@@ -3,9 +3,9 @@ import AboutImage from "../../../public/about.png";
 
 export default function About() {
   return (
-    <section className="pt-[80px] flex flex-col gap-10 xl:gap-20 xl:pt-[150px] 2xl:gap-[100px]">
+    <section className="pt-[80px] flex flex-col gap-10 xl:gap-20 xl:pt-[150px] 2xl:gap-[100px] mb-[80px]">
       <div className=" mx-mobile lg:flex lg:mx-tablet lg:justify-between xl:justify-between 2xl:mx-desktop">
-        <h2 className="text-[clamp(1.9rem,7.5vw,2.5rem)] leading-[clamp(2.2rem,7.5vw,2.5rem)] font-medium mb-[30px] max- md:max-w-[500px] max-w-[500px] lg:text-[30px] lg:text-[clamp(2rem,3.5vw,64px)] lg:leading-[clamp(2rem,3.5vw,64px)] lg:max-w-[700px]  lg:w-[50%] 2xl:max-w-[850px]  2xl:font-normal">
+        <h2 className="text-[clamp(1.6rem,7.5vw,2.5rem)] leading-[clamp(2.1rem,7.5vw,2.5rem)] font-medium mb-[30px] max- md:max-w-[500px] max-w-[500px] lg:text-[30px] lg:text-[clamp(2rem,3.5vw,64px)] lg:leading-[clamp(2rem,3.5vw,64px)] lg:max-w-[700px]  lg:w-[50%] 2xl:max-w-[850px]  2xl:font-normal">
           Witamy w Visual Studio Twoje eleganckie
         </h2>
         <div className="flex flex-col items-end lg:items-start lg:w-[50%]">
@@ -29,7 +29,7 @@ export default function About() {
           </button>
         </div>
       </div>
-      <div className="relative max-w-[90%] xl:w-[80%] aspect-[5/3]">
+      <div className="relative max-w-[90%] xl:w-[80%] aspect-[3/1.7]">
         <Image
           src={AboutImage}
           alt="pokój"

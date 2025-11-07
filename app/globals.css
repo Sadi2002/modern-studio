@@ -1,46 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  /**
-  * KOLORY GLOBALNE
-  */
+  /* =========================================================
+     🎨 KOLORY GLOBALNE
+  ========================================================== */
   --color-black: #000000;
   --color-white: #ffffff;
 
-  /**
-  *  MOBILE
-  */
-
-  /* MARGIN MOBILE */
+  /* =========================================================
+     ⚙️ UKŁAD GLOBALNY / ODSTĘPY / BREAKPOINTY
+  ========================================================== */
   --margin-mobile: 20px;
-
-  /* PADDING MOBILE - NAWIGACJA */
   --padding-mobile-navigation-top: 24px;
 
-  /**
-  *  TABLET
-  */
-
-  /* MARGIN TABLET */
   --margin-tablet: 50px;
 
-  /**
-  *  DESKTOP
-  */
-
-  /* MARGIN DESKTOP */
   --margin-desktop: 70px;
-
-  /* PADDING DESKTOP - NAWIGACJA */
   --padding-desktop-navigation-top: 27px;
 
-  /**
-  *  RESPONSYWNOSC
-  */
-
   --breakpoint-mobile-text: 420px;
-
   --breakpoint-mid-desktop-about-title: 1500px;
-
   --breakpoint-desktop-about-title: 1800px;
+
+  /* =========================================================
+     🏠 HOME PAGE
+     Sekcje: HERO, ABOUT, PROEJCTS, HOW WE WORK, BLOG, FAQ
+  ========================================================== */
+
+  /* HERO */
+  --height-hero-height: 100dvh;
 }

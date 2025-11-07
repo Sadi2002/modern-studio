@@ -255,7 +255,7 @@ export default function Portfolio() {
   }, [measure]);
 
   return (
-    <div className="xl:flex mx-mobile md:mx-tablet xl:mx-desktop mt-[100px] xl:mt-[30px]">
+    <div className="xl:flex mx-mobile md:mx-tablet xl:mx-desktop mt-[100px]">
       <div className="hidden xl:flex w-[40%]">
         <div
           ref={linksViewportRef}
