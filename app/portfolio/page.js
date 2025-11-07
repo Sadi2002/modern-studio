@@ -12,6 +12,11 @@ import {
   useState,
 } from "react";
 
+export const metadata = {
+  title: "Sadowski Studio",
+  description: "Strona portfolio Sadowski Studio",
+};
+
 export default function Portfolio() {
   // Sample data; replace with your real projects when ready
   const projects = useMemo(
