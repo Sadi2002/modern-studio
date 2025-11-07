@@ -29,13 +29,17 @@ export default function About() {
           </button>
         </div>
       </div>
-      <Image
-        src={AboutImage}
-        alt="pokoj"
-        placeholder="blur"
-        quality={65}
-        className="max-w-[90%] xl:w-[80%] "
-      />
+      <div className="relative max-w-[90%] xl:w-[80%] aspect-[5/3]">
+        <Image
+          src={AboutImage}
+          alt="pokój"
+          placeholder="blur"
+          fill
+          sizes="(max-width: 768px) 90vw, (max-width: 1280px) 80vw, 60vw"
+          className="object-cover"
+          quality={75}
+        />
+      </div>
     </section>
   );
 }
