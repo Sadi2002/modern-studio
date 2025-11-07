@@ -14,6 +14,11 @@ const poppins = Poppins({
   display: "swap",
 });
 
+export const metadata = {
+  title: "Sadowski Studio",
+  description: "Strona portfolio Sadowski Studio",
+};
+
 export default function RootLayout({ children }) {
   useEffect(() => {
     const lenis = new Lenis({
