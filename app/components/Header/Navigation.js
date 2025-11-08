@@ -10,31 +10,31 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`flex items-center justify-between mx-mobile pt-mobile-navigation-top md:mx-tablet 2xl:mx-desktop xl:pt-desktop-navigation-top ${
+      className={`flex items-center justify-between mx-margin-mobile pt-mobile-navigation-top md:mx-tablet 2xl:mx-desktop xl:pt-desktop-navigation-top ${
         isHome ? "text-white" : "text-black"
       }`}
     >
       {/* LOGO PO LEWEJ */}
-      <span className="md:text-[22px]">
+      <span className="md:text-logo-font-size">
         <Link href="/">Sadowski Studio</Link>
       </span>
 
       {/* MOBILE BURGER */}
-      <div className="md:hidden flex flex-col gap-1.5 items-end">
+      <div className="md:hidden flex flex-col gap-burger-line-gap items-end">
         <span
-          className={`h-[1px] w-[17px] bg-black ${
+          className={`h-burger-line-height w-[17px] bg-black ${
             isHome ? "bg-white" : "bg-black"
           }`}
         ></span>
         <span
-          className={`h-[1px] w-[24px] bg-black ${
+          className={`h-burger-line-height w-[24px] bg-black ${
             isHome ? "bg-white" : "bg-black"
           }`}
         ></span>
       </div>
 
       {/* DESKTOP MENU */}
-      <ul className="hidden md:flex gap-[30px] items-center xl:gap-[50px]">
+      <ul className="hidden md:flex gap-between-navigation-links items-center xl:gap-between-navigation-links-xl">
         <li>
           <Link href={"#"} className="text-[14px] xl:text-[16px]">
             About us

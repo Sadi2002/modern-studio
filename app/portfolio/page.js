@@ -21,72 +21,70 @@ export default function Portfolio() {
         location: "Accord, NY",
         subtitle: "New, single-family",
         image: house,
+        slug: "beehive-house",
       },
       {
         title: "Broadway Loft",
         location: "New York, NY",
         subtitle: "Adaptive reuse",
         image: house,
+        slug: "broadway-loft",
       },
       {
         title: "Ocean Parkway",
         location: "Brooklyn, NY",
         subtitle: "Residential",
         image: house,
+        slug: "ocean-parkway",
       },
       {
         title: "Sequoia House",
         location: "Chicago, IL",
         subtitle: "Workspace",
         image: house,
+        slug: "sequoia-house",
       },
       {
         title: "Son Del North",
         location: "Aspen, CO",
         subtitle: "Hospitality",
         image: house,
+        slug: "son-del-north",
       },
       {
         title: "Son Del North",
         location: "Aspen, CO",
         subtitle: "Hospitality",
         image: house,
+        slug: "son-del-north-2",
       },
       {
         title: "Son Del North",
         location: "Aspen, CO",
         subtitle: "Hospitality",
         image: house,
+        slug: "son-del-north-3",
       },
       {
         title: "Son Del North",
         location: "Aspen, CO",
         subtitle: "Hospitality",
         image: house,
+        slug: "son-del-north-4",
       },
       {
         title: "Son Del North",
         location: "Aspen, CO",
         subtitle: "Hospitality",
         image: house,
+        slug: "son-del-north-5",
       },
       {
         title: "Son Del North",
         location: "Aspen, CO",
         subtitle: "Hospitality",
         image: house,
-      },
-      {
-        title: "Son Del North",
-        location: "Aspen, CO",
-        subtitle: "Hospitality",
-        image: house,
-      },
-      {
-        title: "Son Del North",
-        location: "Aspen, CO",
-        subtitle: "Hospitality",
-        image: house,
+        slug: "son-del-north-6",
       },
     ],
     []
@@ -116,11 +114,11 @@ export default function Portfolio() {
   // Helper: linear interpolation
   const lerp = (a, b, t) => a + (b - a) * t;
   const clamp01 = (v) => Math.max(0, Math.min(1, v));
-  const slugify = (s) =>
-    s
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)+/g, "");
+  // const slugify = (s) =>
+  //   s
+  //     .toLowerCase()
+  //     .replace(/[^a-z0-9]+/g, "-")
+  //     .replace(/(^-|-$)+/g, "");
 
   // Shared measure function so we can run it synchronously on first paint
   const measure = useCallback(() => {
@@ -255,7 +253,7 @@ export default function Portfolio() {
   }, [measure]);
 
   return (
-    <div className="xl:flex mx-mobile md:mx-tablet xl:mx-desktop mt-[100px]">
+    <div className="xl:flex mx-margin-mobile md:mx-tablet xl:mx-desktop mt-[100px]">
       <div className="hidden xl:flex w-[40%]">
         <div
           ref={linksViewportRef}
@@ -279,7 +277,7 @@ export default function Portfolio() {
             {projects.map((p, i) => (
               <div key={i} className="">
                 <Link
-                  href={`/portfolio/${slugify(p.title)}`}
+                  href={`/portfolio/${p.slug}`}
                   ref={(el) => (linkRefs.current[i] = el)}
                   className="block text-[50px] 2xl:text-[80px] leading-[0.9] font-light whitespace-nowrap transition-opacity duration-150 ease-linear will-change-opacity"
                   style={{
@@ -304,7 +302,7 @@ export default function Portfolio() {
             className="flex flex-col"
           >
             <Link
-              href={`/portfolio/${slugify(p.title)}`}
+              href={`/portfolio/${p.slug}`}
               className="group block cursor-pointer"
               aria-label={`Zobacz ${p.title}`}
             >

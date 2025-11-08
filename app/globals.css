@@ -10,17 +10,35 @@
   /* =========================================================
      ⚙️ UKŁAD GLOBALNY / ODSTĘPY / BREAKPOINTY
   ========================================================== */
-  --margin-mobile: 20px;
+
+  /* MOBILE */
+  --margin-margin-mobile: 20px;
   --padding-mobile-navigation-top: 24px;
 
+  /* TABLET */
   --margin-tablet: 50px;
 
+  /* DESKTOP */
   --margin-desktop: 70px;
   --padding-desktop-navigation-top: 27px;
 
+  /* BREAKPOINTY */
   --breakpoint-mobile-text: 420px;
   --breakpoint-mid-desktop-about-title: 1500px;
   --breakpoint-desktop-about-title: 1800px;
+
+  /* =========================================================
+    NAWIGACJA
+  ========================================================== */
+
+  /* MOBILE */
+  --text-logo-font-size: 22px;
+  --gap-burger-line-gap: 0.375rem;
+  --height-burger-line-height: 1px;
+
+  /* DESKTOP */
+  --gap-between-navigation-links: 30px;
+  --gap-between-navigation-links-xl: 50px;
 
   /* =========================================================
      🏠 HOME PAGE

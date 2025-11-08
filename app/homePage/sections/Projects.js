@@ -6,7 +6,7 @@ import Project4 from "../../../public/project4.png";
 
 export default function Projects() {
   return (
-    <section className="mx-mobile">
+    <section className="mx-margin-mobile">
       <h3 className="text-[36px] font-medium uppercase relative after:content-['(04)'] after:absolute after:top-[0px] after:text-[8px] mb-5">
         Our projects
       </h3>

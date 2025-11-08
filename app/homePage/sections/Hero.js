@@ -1,5 +1,6 @@
 import Image from "next/image";
 import heroImage from "../../../public/main.png";
+import heroImagePlaceholder from "../../../public/placeholders/placeholder-heroImage.jpg";
 import Button from "@/app/components/Button";
 
 export default function Hero() {
@@ -11,12 +12,13 @@ export default function Hero() {
           src={heroImage}
           fill
           quality={75}
-          alt="nowoczesny dom"
           placeholder="blur"
+          alt="nowoczesny dom"
           className="object-cover -z-10 absolute"
+          blurDataURL={heroImagePlaceholder.blurDataURL}
         />
       </div>
-      <div className="mx-mobile flex flex-col h-full relative md:mx-tablet 2xl:mx-desktop">
+      <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet 2xl:mx-desktop">
         <div className="absolute bottom-30  w-full">
           <h1 className="text-white text-[clamp(2rem,10vw,3rem)] leading-[clamp(2.2rem,10vw,3rem)] font-medium mb-2.5 lg:text-[70px] lg:leading-[70px] xl:text-[100px] xl:font-normal xl:leading-[100px] uppercase 2xl:leading-[120px] 2xl:text-[120px] max-w-[400px] lg:max-w-[600px] xl:max-w-[800px] 2xl:max-w-[1000px] ">
             OSIEDLE ZACISZE W Warszawie
@@ -33,7 +35,7 @@ export default function Hero() {
           <Button>Czytaj więcej</Button>
         </div>
       </div>
-      <span className="absolute bottom-[20px] left-0 mx-mobile font-normal text-[#C6C6C6] text-[10px] md:mx-tablet md:bottom-[50px] md:left-auto md:right-0 md:text-[14px] opacity-[64%] 2xl:mx-desktop">
+      <span className="absolute bottom-[20px] left-0 mx-margin-mobile font-normal text-[#C6C6C6] text-[10px] md:mx-tablet md:bottom-[50px] md:left-auto md:right-0 md:text-[14px] opacity-[64%] 2xl:mx-desktop">
         (scroll down)
       </span>
     </section>
