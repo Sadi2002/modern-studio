@@ -1,6 +1,5 @@
 import Image from "next/image";
 import heroImage from "../../../public/main.png";
-import heroImagePlaceholder from "../../../public/placeholders/placeholder-heroImage.jpg";
 import Button from "@/app/components/Button";
 
 export default function Hero() {
@@ -15,7 +14,6 @@ export default function Hero() {
           placeholder="blur"
           alt="nowoczesny dom"
           className="object-cover -z-10 absolute"
-          blurDataURL={heroImagePlaceholder.blurDataURL}
         />
       </div>
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet 2xl:mx-desktop">
