@@ -12,7 +12,7 @@ export default function Hero() {
         <Image
           src={heroImage}
           fill
-          quality={75}
+          quality={40}
           placeholder="blur"
           alt="nowoczesny dom"
           className="object-cover -z-10 absolute"

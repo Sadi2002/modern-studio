@@ -19,7 +19,7 @@ export default function Projects() {
               <Image
                 src={Project1}
                 alt="projekt 1"
-                quality={50}
+                quality={40}
                 placeholder="blur"
                 className="object-cover"
                 fill
@@ -36,7 +36,7 @@ export default function Projects() {
               <Image
                 src={Project2}
                 alt="projekt 2"
-                quality={50}
+                quality={40}
                 placeholder="blur"
                 className="object-cover lg:hidden"
                 fill
@@ -44,7 +44,7 @@ export default function Projects() {
               <Image
                 src={Project4}
                 alt="projekt 4"
-                quality={50}
+                quality={40}
                 placeholder="blur"
                 className="object-cover hidden lg:block"
                 fill
@@ -62,7 +62,7 @@ export default function Projects() {
               <Image
                 src={Project3}
                 alt="projekt 3"
-                quality={50}
+                quality={40}
                 placeholder="blur"
                 className="object-cover lg:hidden"
                 fill
@@ -70,7 +70,7 @@ export default function Projects() {
               <Image
                 src={Project2}
                 alt="projekt 2"
-                quality={50}
+                quality={40}
                 placeholder="blur"
                 className="object-cover hidden lg:block"
                 fill
@@ -86,7 +86,7 @@ export default function Projects() {
               <Image
                 src={Project4}
                 alt="projekt 4"
-                quality={50}
+                quality={40}
                 placeholder="blur"
                 className="object-cover lg:hidden"
                 fill
@@ -94,7 +94,7 @@ export default function Projects() {
               <Image
                 src={Project3}
                 alt="projekt 2"
-                quality={50}
+                quality={40}
                 placeholder="blur"
                 className="object-cover hidden lg:block"
                 fill

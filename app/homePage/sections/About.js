@@ -36,7 +36,7 @@ export default function About() {
           fill
           sizes="(max-width: 768px) 90vw, (max-width: 1280px) 80vw, 60vw"
           className="object-cover"
-          quality={75}
+          quality={40}
         />
       </div>
     </section>
