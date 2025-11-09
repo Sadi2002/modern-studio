@@ -16,6 +16,7 @@ export default function Hero() {
           placeholder="blur"
           alt="nowoczesny dom"
           className="object-cover -z-10 absolute"
+          priority
         />
       </div>
       <div className="mx-margin-mobile flex flex-col h-full-height relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">

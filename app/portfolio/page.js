@@ -317,6 +317,7 @@ export default function Portfolio() {
                     src={p.image}
                     alt={p.title}
                     className="w-full-width block"
+                    placeholder="blur"
                   />
                 </div>
               </div>
