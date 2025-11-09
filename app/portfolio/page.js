@@ -42,7 +42,7 @@ export default function Portfolio() {
         location: "Chicago, IL",
         subtitle: "Workspace",
         image: house,
-        slug: "sequoia-house",
+        slug: "#",
       },
       {
         title: "Son Del North",
