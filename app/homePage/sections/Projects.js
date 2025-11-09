@@ -108,7 +108,7 @@ export default function Projects() {
           <div className="leading-[26px] flex flex-col gap-[40px] items-end lg:gap-[50px]">
             <p className="self-start text-[clamp(20px,6.5vw,30px)] leading-[clamp(26px,7.5vw,2.7rem)] max-w-[450px] min-[900px]:max-w-[750px] lg:text-[26px] lg:ml-10 lg:leading-[36px]">
               Oferujemy doświadczenie wyrafinowanego komfortu, ponadczasowej
-              elegancji i szczerej gościnności. Położona w romantycznym sercu.
+              elegancji i szczerej gościnności. Położona w romantycznym sercu
             </p>
             <ButtonWithArrow
               bg="main-black"
