@@ -11,7 +11,6 @@ export default function Hero() {
           src={heroImage}
           fill
           quality={40}
-          placeholder="blur"
           alt="nowoczesny dom"
           className="object-cover -z-10 absolute"
           priority
