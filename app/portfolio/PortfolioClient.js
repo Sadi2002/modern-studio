@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import house from "../../public/1.png";
+import house from "../../public/1.webp";
 import Link from "next/link";
 import {
   useCallback,

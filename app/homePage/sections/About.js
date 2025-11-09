@@ -1,5 +1,5 @@
 import Image from "next/image";
-import AboutImage from "../../../public/about.png";
+import AboutImage from "../../../public/about.webp";
 import ButtonWithoutArrow from "@/app/components/ButtonWithoutArrow";
 
 export default function About() {

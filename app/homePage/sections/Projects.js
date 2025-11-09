@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Project1 from "../../../public/project1.png";
-import Project2 from "../../../public/project2.png";
-import Project3 from "../../../public/project3.png";
-import Project4 from "../../../public/project4.png";
+import Project1 from "../../../public/project1.webp";
+import Project2 from "../../../public/project2.webp";
+import Project3 from "../../../public/project3.webp";
+import Project4 from "../../../public/project4.webp";
 import ArrowWhite from "../../../public/arrow-right-white.png";
 import ButtonWithArrow from "@/app/components/ButtonWithArrow";
 

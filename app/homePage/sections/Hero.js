@@ -1,5 +1,5 @@
 import Image from "next/image";
-import heroImage from "../../../public/main.png";
+import heroImage from "../../../public/main.webp";
 import ButtonWithArrow from "@/app/components/ButtonWithArrow";
 import ArrowBlack from "../../../public/arrow.png";
 import Overlay from "@/app/components/Overlay";
