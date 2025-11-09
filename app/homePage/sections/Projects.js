@@ -1,3 +1,5 @@
+// "use client";
+
 import Image from "next/image";
 import Project1 from "../../../public/project1.webp";
 import Project2 from "../../../public/project2.webp";
@@ -5,7 +7,11 @@ import Project3 from "../../../public/project3.webp";
 import Project4 from "../../../public/project4.webp";
 import ArrowWhite from "../../../public/arrow-right-white.png";
 
+// import { useMediaQuery } from "usehooks-ts";
+
 export default function Projects() {
+  // const isDesktop = useMediaQuery("(min-width: 1024px)");
+
   return (
     <section className="mx-margin-mobile md:mx-tablet lg:mx-small-laptop">
       <h3 className="text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(04)'] after:absolute after:top-[5px] after:text-[8px] mb-5">
@@ -18,11 +24,10 @@ export default function Projects() {
               <Image
                 src={Project1}
                 alt="projekt 1"
-                quality={40}
+                quality={50}
                 placeholder="blur"
                 className="object-cover"
                 fill
-                sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 30vw"
               />
             </div>
             <div className="flex justify-between mt-[5px]  w-full-width text-[clamp(12px,3.35vw,1rem)]">
@@ -36,20 +41,10 @@ export default function Projects() {
               <Image
                 src={Project2}
                 alt="projekt 2"
-                quality={40}
+                quality={50}
                 placeholder="blur"
-                className="object-cover lg:hidden"
+                className="object-cover "
                 fill
-                sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 30vw"
-              />
-              <Image
-                src={Project4}
-                alt="projekt 4"
-                quality={40}
-                placeholder="blur"
-                className="object-cover hidden lg:block"
-                fill
-                sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 30vw"
               />
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)]">
@@ -64,20 +59,10 @@ export default function Projects() {
               <Image
                 src={Project3}
                 alt="projekt 3"
-                quality={40}
+                quality={50}
                 placeholder="blur"
-                className="object-cover lg:hidden"
+                className="object-cover"
                 fill
-                sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 30vw"
-              />
-              <Image
-                src={Project2}
-                alt="projekt 2"
-                quality={40}
-                placeholder="blur"
-                className="object-cover hidden lg:block"
-                fill
-                sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 30vw"
               />
             </div>
             <div className="flex justify-between mt-[5px]  w-full-width text-[clamp(12px,3.35vw,1rem)]">
@@ -89,21 +74,11 @@ export default function Projects() {
             <div className="relative aspect-7/8 ">
               <Image
                 src={Project4}
-                alt="projekt 4"
-                quality={40}
+                alt="projekt 5"
+                quality={50}
                 placeholder="blur"
-                className="object-cover lg:hidden"
+                className="object-cover"
                 fill
-                sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 30vw"
-              />
-              <Image
-                src={Project3}
-                alt="projekt 2"
-                quality={40}
-                placeholder="blur"
-                className="object-cover hidden lg:block"
-                fill
-                sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 30vw"
               />
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)]">
@@ -114,7 +89,7 @@ export default function Projects() {
           <div className="leading-[26px] flex flex-col gap-[40px] items-end lg:gap-[50px]">
             <p className="self-start text-[clamp(20px,6.5vw,30px)] leading-[clamp(26px,7.5vw,2.7rem)] max-w-[450px] min-[900px]:max-w-[750px] lg:text-[26px] lg:ml-10 lg:leading-[36px]">
               Oferujemy doświadczenie wyrafinowanego komfortu, ponadczasowej
-              elegancji i szczerej gościnności. Położona w romantycznym sercu
+              elegancji i szczerej gościnności. Położona w romantycznym sercu.
             </p>
             <button
               className={`bg-main-black rounded-buttonWithArrow-rounded px-buttonWithArrow-padding-x py-buttonWithArrow-padding-y  text-main-white ml-buttonWithArrow-margin-left-mobile mr-buttonWithArrow-margin-right-mobile font-medium flex items-center md:ml-buttonWithArrow-margin-left-tablet text-hero-text-size-mobile`}
