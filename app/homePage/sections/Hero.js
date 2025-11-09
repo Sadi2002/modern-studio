@@ -1,15 +1,6 @@
-"use client";
-
 import Image from "next/image";
 import heroImage from "../../../public/main.webp";
-import ArrowBlack from "../../../public/arrow.png";
-
-import dynamic from "next/dynamic";
-
-const ButtonWithArrow = dynamic(
-  () => import("@/app/components/ButtonWithArrow"),
-  { ssr: false }
-);
+import arrow from "../../../public/arrow.png";
 
 export default function Hero() {
   return (
@@ -40,13 +31,16 @@ export default function Hero() {
             elegancji i szczerej gościnności. Położona w romantycznym sercu
             Paryża.
           </p>
-          <ButtonWithArrow
-            bg="main-white"
-            color="main-black"
-            source={ArrowBlack}
+          <button
+            className={`bg-main-white rounded-buttonWithArrow-rounded px-buttonWithArrow-padding-x py-buttonWithArrow-padding-y  text-main-black ml-buttonWithArrow-margin-left-mobile mr-buttonWithArrow-margin-right-mobile font-medium flex items-center md:ml-buttonWithArrow-margin-left-tablet text-hero-text-size-mobile`}
           >
             Czytaj więcej
-          </ButtonWithArrow>
+            <Image
+              src={arrow}
+              alt="strzałka"
+              className="w-buttonWithArrow-icon-width h-buttonWithArrow-icon-height top-[0.5px] relative"
+            />
+          </button>
         </div>
       </div>
       <span className="absolute bottom-hero-scrollDown-position-bottom-mobile left-hero-scrollDown-position-left-mobile mx-margin-mobile font-normal-font-weight text-hero-scrollDown-color text-hero-scrollDown-size-mobile md:mx-tablet md:bottom-hero-scrollDown-position-bottom-tablet md:left-hero-scrollDown-position-left-tablet md:right-hero-scrollDown-position-right-tablet md:text-hero-scrollDown-size-tablet opacity-hero-scrollDown-opacity 2xl:mx-desktop">

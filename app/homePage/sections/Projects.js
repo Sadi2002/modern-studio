@@ -1,16 +1,9 @@
-"use client";
 import Image from "next/image";
 import Project1 from "../../../public/project1.webp";
 import Project2 from "../../../public/project2.webp";
 import Project3 from "../../../public/project3.webp";
 import Project4 from "../../../public/project4.webp";
 import ArrowWhite from "../../../public/arrow-right-white.png";
-import dynamic from "next/dynamic";
-
-const ButtonWithArrow = dynamic(
-  () => import("@/app/components/ButtonWithArrow"),
-  { ssr: false } // tylko po stronie klienta
-);
 
 export default function Projects() {
   return (
@@ -123,13 +116,16 @@ export default function Projects() {
               Oferujemy doświadczenie wyrafinowanego komfortu, ponadczasowej
               elegancji i szczerej gościnności. Położona w romantycznym sercu
             </p>
-            <ButtonWithArrow
-              bg="main-black"
-              color="main-white"
-              source={ArrowWhite}
+            <button
+              className={`bg-main-black rounded-buttonWithArrow-rounded px-buttonWithArrow-padding-x py-buttonWithArrow-padding-y  text-main-white ml-buttonWithArrow-margin-left-mobile mr-buttonWithArrow-margin-right-mobile font-medium flex items-center md:ml-buttonWithArrow-margin-left-tablet text-hero-text-size-mobile`}
             >
               Zobacz wszystkie
-            </ButtonWithArrow>
+              <Image
+                src={ArrowWhite}
+                alt="strzałka"
+                className="w-buttonWithArrow-icon-width h-buttonWithArrow-icon-height top-[0.5px] relative"
+              />
+            </button>
           </div>
         </div>
       </div>
