@@ -45,7 +45,7 @@ export default function Navigation() {
 
       {/* MOBILE MENU */}
       {isOpen && (
-        <div className="h-[100dvh] w-full fixed top-0 left-0 bg-main-black z-50 md:hidden">
+        <div className="h-[100vh] w-full fixed top-0 left-0 bg-main-black z-50 md:hidden">
           <div className="flex justify-between items-center mx-margin-mobile pt-mobile-navigation-top">
             <Link href="/">Sadowski Studio</Link>
             <span
