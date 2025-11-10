@@ -55,7 +55,7 @@ export default function Navigation() {
               Close
             </span>
           </div>
-          <ul className="flex flex-col gap-[5px] ml-margin-mobile absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(22px,6vw,32px)] font-normal-font-weight uppercase">
+          <ul className="flex flex-col gap-[5px] ml-margin-mobile absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(30px,9vw,40px)] font-normal-font-weight uppercase">
             <li>
               <Link href="#">About us</Link>
             </li>
@@ -70,7 +70,7 @@ export default function Navigation() {
             </li>
           </ul>
           <div className="absolute bottom-[20px] left-0 w-full flex justify-between items-end">
-            <ul className="flex flex-col text-[8px] gap-[8px] ml-margin-mobile">
+            <ul className="flex flex-col text-[12px] gap-[8px] ml-margin-mobile">
               <li>
                 <Link href={"#"}>Facebook</Link>
               </li>
@@ -81,7 +81,7 @@ export default function Navigation() {
                 <Link href={"#"}>Tiktok</Link>
               </li>
             </ul>
-            <ul className="flex flex-col text-[8px] gap-[8px] text-right mr-margin-mobile">
+            <ul className="flex flex-col text-[12px] gap-[8px] text-right mr-margin-mobile">
               <Link href={"#"}>Polityka prywatności</Link>
               <span>2025 wszelkie prawa zastrzeżone</span>
             </ul>
