@@ -5,16 +5,31 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function About() {
-  const [src, setSrc] = useState("/test3.jpg");
+  const [src, setSrc] = useState("/test3-lq.jpg");
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const img = new window.Image();
-    img.src = "/test2.jpg";
-    img.onload = () => {
-      setSrc("/test2.jpg");
-      setLoaded(true);
-    };
+    // Ładujemy duży obraz dopiero, gdy przeglądarka jest „idle”
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(() => {
+        const img = new window.Image();
+        img.src = "/test2.jpg"; // pełne 4K
+        img.onload = () => {
+          setSrc("/test2.jpg");
+          setLoaded(true);
+        };
+      });
+    } else {
+      // fallback jeśli brak requestIdleCallback
+      window.addEventListener("load", () => {
+        const img = new window.Image();
+        img.src = "/test2.jpg";
+        img.onload = () => {
+          setSrc("/test2.jpg");
+          setLoaded(true);
+        };
+      });
+    }
   }, []);
   return (
     <section className="pt-about-section-padding-top-mobile flex flex-col gap-about-section-gap-mobile xl:gap-about-section-gap-laptop xl:pt-about-section-padding-top-laptop 2xl:gap-about-section-gap-desktop mb-about-section-margin-bottom xl:mb-[150px]">
