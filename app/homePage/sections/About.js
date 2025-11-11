@@ -42,7 +42,8 @@ export default function About() {
           </button>
         </div>
       </div>
-      <div className="relative max-w-about-image-max-width-mobile xl:w-about-image-width-laptop aspect-about-image-aspect-ratio">
+      {/* Dodano overflow-hidden, aby uniknąć ewentualnych artefaktów podczas fade'u */}
+      <div className="relative max-w-about-image-max-width-mobile xl:w-about-image-width-laptop aspect-about-image-aspect-ratio overflow-hidden">
         <Image
           src="/about-small.jpg"
           alt="pokój"
@@ -50,6 +51,8 @@ export default function About() {
           className={`object-cover transition-opacity duration-700 ${
             loaded ? "opacity-0" : "opacity-50"
           }`}
+          // Wymusza object-fit: cover natychmiast (eliminuje efekt "fill -> cover" zanim załaduje się CSS)
+          style={{ objectFit: "cover" }}
           unoptimized
           priority
         />
@@ -62,6 +65,8 @@ export default function About() {
           className={`object-cover transition-opacity duration-700 ${
             loaded ? "opacity-100" : "opacity-0"
           }`}
+          // Wymusza object-fit: cover natychmiast
+          style={{ objectFit: "cover" }}
           unoptimized
         />
       </div>
