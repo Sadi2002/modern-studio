@@ -3,20 +3,28 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-export default function ProgressiveImageHighQuality({
+export default function ProgressiveImagePerfect({
   smallSrc,
   largeSrc,
   alt,
-  className = "",
   aspectRatio = "16/9",
 }) {
-  const [showLarge, setShowLarge] = useState(false);
+  const [src, setSrc] = useState(smallSrc);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
+    // Gdy tylko strona się załaduje — startuj pobieranie dużych obrazków
     const handleLoad = () => {
       const img = new window.Image();
       img.src = largeSrc;
-      img.onload = () => setShowLarge(true);
+      img.decoding = "async";
+      img.fetchPriority = "low";
+      img.loading = "lazy";
+
+      img.onload = () => {
+        setSrc(largeSrc); // podmień źródło
+        setLoaded(true);
+      };
     };
 
     if (document.readyState === "complete") {
@@ -32,30 +40,19 @@ export default function ProgressiveImageHighQuality({
       className="relative w-full h-full overflow-hidden"
       style={{ aspectRatio }}
     >
-      {/* Małe zdjęcie — ładowane natychmiast */}
       <Image
-        src={smallSrc}
+        key={src} // wymusza przeładowanie komponentu przy zmianie źródła
+        src={src}
         alt={alt}
         fill
+        sizes="100vw"
+        priority={false}
         loading="eager"
         decoding="async"
-        sizes="100vw"
-        className={`object-cover transition-opacity duration-700 ease-in-out ${
-          showLarge ? "opacity-0" : "opacity-100"
-        } ${className}`}
+        fetchPriority="low"
+        unoptimized
+        className="object-cover"
       />
-
-      {/* Duże zdjęcie — pojawia się dopiero po pełnym załadowaniu strony */}
-      {showLarge && (
-        <img
-          src={largeSrc}
-          alt={alt}
-          className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-100 ${className}`}
-          loading="lazy"
-          fetchPriority="low"
-          decoding="async"
-        />
-      )}
     </div>
   );
 }
