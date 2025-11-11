@@ -43,14 +43,15 @@ export default function Projects() {
       <div className="flex flex-col lg:flex-row lg:justify-between">
         <div className="flex flex-col lg:w-[calc(50%-10px)]">
           <div className="max-w-[80%] mb-[50px] lg:mb-[30px] lg:max-w-[100%]">
-            <div className="relative aspect-8/7 ">
+            <div className="relative aspect-8/7 overflow-hidden ">
               <Image
                 src="/projekt2-small.jpg"
                 alt="pokój"
                 fill
                 className={`object-cover transition-opacity duration-700 ${
-                  loaded ? "opacity-0" : "opacity-50"
+                  loaded2 ? "opacity-0" : "opacity-50"
                 }`}
+                style={{ objectFit: "cover" }}
                 unoptimized
                 priority
               />
@@ -60,8 +61,9 @@ export default function Projects() {
                 alt="pokój"
                 fill
                 className={`object-cover transition-opacity duration-700 ${
-                  loaded ? "opacity-100" : "opacity-0"
+                  loaded2 ? "opacity-100" : "opacity-0"
                 }`}
+                style={{ objectFit: "cover" }}
                 unoptimized
               />
             </div>
@@ -72,14 +74,15 @@ export default function Projects() {
           </div>
 
           <div className="w-[86%] flex flex-col items-end self-end mb-[50px] lg:mb-[0px] lg:w-[100%] lg:h-full">
-            <div className="flex flex-col justify-end w-full-width relative aspect-5/3 lg:h-full">
+            <div className="flex flex-col justify-end w-full-width relative aspect-5/3 overflow-hidden lg:h-full">
               <Image
                 src="/projekt4-small.jpg"
                 alt="pokój"
                 fill
                 className={`object-cover transition-opacity duration-700 ${
-                  loaded ? "opacity-0" : "opacity-50"
+                  loaded4 ? "opacity-0" : "opacity-50"
                 }`}
+                style={{ objectFit: "cover" }}
                 unoptimized
                 priority
               />
@@ -89,8 +92,9 @@ export default function Projects() {
                 alt="pokój"
                 fill
                 className={`object-cover transition-opacity duration-700 ${
-                  loaded ? "opacity-100" : "opacity-0"
+                  loaded4 ? "opacity-100" : "opacity-0"
                 }`}
+                style={{ objectFit: "cover" }}
                 unoptimized
               />
             </div>
@@ -102,14 +106,15 @@ export default function Projects() {
         </div>
         <div className="lg:flex lg:flex-col lg:w-[calc(50%-10px)]">
           <div className="w-full-width mb-[50px] lg:mb-[30px]">
-            <div className="relative aspect-8/5">
+            <div className="relative aspect-8/5 overflow-hidden">
               <Image
                 src="/projekt3-small.jpg"
                 alt="pokój"
                 fill
                 className={`object-cover transition-opacity duration-700 ${
-                  loaded ? "opacity-0" : "opacity-50"
+                  loaded3 ? "opacity-0" : "opacity-50"
                 }`}
+                style={{ objectFit: "cover" }}
                 unoptimized
                 priority
               />
@@ -119,8 +124,9 @@ export default function Projects() {
                 alt="pokój"
                 fill
                 className={`object-cover transition-opacity duration-700 ${
-                  loaded ? "opacity-100" : "opacity-0"
+                  loaded3 ? "opacity-100" : "opacity-0"
                 }`}
+                style={{ objectFit: "cover" }}
                 unoptimized
               />
             </div>
@@ -130,7 +136,7 @@ export default function Projects() {
             </div>
           </div>
           <div className="max-w-[78%] mb-[30px] lg:w-[100%] lg:max-w-[100%] lg:mb-[60px]">
-            <div className="relative aspect-7/8 lg:aspect-8/7 ">
+            <div className="relative aspect-7/8 overflow-hidden lg:aspect-8/7 ">
               <Image
                 src="/projekt1-small.jpg"
                 alt="pokój"
@@ -138,6 +144,7 @@ export default function Projects() {
                 className={`object-cover transition-opacity duration-700 ${
                   loaded ? "opacity-0" : "opacity-50"
                 }`}
+                style={{ objectFit: "cover" }}
                 unoptimized
                 priority
               />
@@ -149,6 +156,7 @@ export default function Projects() {
                 className={`object-cover transition-opacity duration-700 ${
                   loaded ? "opacity-100" : "opacity-0"
                 }`}
+                style={{ objectFit: "cover" }}
                 unoptimized
               />
             </div>

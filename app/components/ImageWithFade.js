@@ -22,6 +22,7 @@ export default function ImageWithFade({ smallSrc, largeSrc, alt }) {
         className={`object-cover transition-opacity duration-700 ${
           loaded ? "opacity-0" : "opacity-50"
         }`}
+        style={{ objectFit: "cover" }}
         unoptimized
         priority
       />
@@ -34,6 +35,7 @@ export default function ImageWithFade({ smallSrc, largeSrc, alt }) {
         className={`object-cover transition-opacity duration-700 ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
+        style={{ objectFit: "cover" }}
         unoptimized
       />
     </div>
