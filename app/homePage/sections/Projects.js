@@ -50,7 +50,6 @@ export default function Projects() {
                 className={`object-cover transition-filter duration-700 ease-in-out ${
                   loaded2 ? "blur-0" : "blur-lg"
                 }`}
-                style={{ objectFit: "cover" }}
               />
 
               {/* DUŻY OBRAZ - Renderowany i widoczny TYLKO po załadowaniu */}
@@ -60,7 +59,6 @@ export default function Projects() {
                   alt="pokój"
                   fill
                   className={`object-cover transition-filter duration-700 blur-0`}
-                  style={{ objectFit: "cover" }}
                   unoptimized
                 />
               )}
@@ -81,7 +79,6 @@ export default function Projects() {
                 className={`object-cover transition-filter duration-700 ease-in-out ${
                   loaded4 ? "blur-0" : "blur-lg"
                 }`}
-                style={{ objectFit: "cover" }}
               />
 
               {/* DUŻY OBRAZ */}
@@ -91,7 +88,6 @@ export default function Projects() {
                   alt="pokój"
                   fill
                   className={`object-cover transition-filter duration-700 blur-0`}
-                  style={{ objectFit: "cover" }}
                   unoptimized
                 />
               )}
@@ -113,7 +109,6 @@ export default function Projects() {
                 className={`object-cover transition-filter duration-700 ease-in-out ${
                   loaded3 ? "blur-0" : "blur-lg"
                 }`}
-                style={{ objectFit: "cover" }}
               />
 
               {/* DUŻY OBRAZ */}
@@ -123,7 +118,6 @@ export default function Projects() {
                   alt="pokój"
                   fill
                   className={`object-cover transition-filter duration-700 blur-0`}
-                  style={{ objectFit: "cover" }}
                   unoptimized
                 />
               )}
@@ -143,7 +137,6 @@ export default function Projects() {
                 className={`object-cover transition-filter duration-700 ease-in-out ${
                   loaded ? "blur-0" : "blur-lg"
                 }`}
-                style={{ objectFit: "cover" }}
               />
 
               {/* DUŻY OBRAZ */}
@@ -153,7 +146,6 @@ export default function Projects() {
                   alt="pokój"
                   fill
                   className={`object-cover transition-filter duration-700 blur-0`}
-                  style={{ objectFit: "cover" }}
                   unoptimized
                 />
               )}
