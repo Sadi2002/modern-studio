@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import house from "../../public/1.webp";
 import Link from "next/link";
 import {
   useCallback,
@@ -12,6 +11,46 @@ import {
   useState,
 } from "react";
 
+// 🔹 Mały helper – ładuje duże obrazy w tle
+function ProgressiveImage({ smallSrc, largeSrc, alt }) {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const img = new window.Image();
+    img.src = largeSrc;
+    img.onload = () => setLoaded(true);
+  }, [largeSrc]);
+
+  return (
+    <div className="relative w-full h-full overflow-hidden">
+      {/* Mały obraz */}
+      <Image
+        src={smallSrc}
+        alt={alt}
+        fill
+        className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-700 ${
+          loaded ? "opacity-0" : "opacity-100"
+        }`}
+        unoptimized
+      />
+
+      {/* Duży obraz */}
+      <Image
+        src={largeSrc}
+        alt={alt}
+        fill
+        className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-700 ${
+          loaded ? "opacity-100" : "opacity-0"
+        }`}
+        unoptimized
+        priority
+      />
+    </div>
+  );
+}
+
 export default function PortfolioClient() {
   const projects = useMemo(
     () => [
@@ -19,117 +58,82 @@ export default function PortfolioClient() {
         title: "Beehive House",
         location: "Accord, NY",
         subtitle: "New, single-family",
-        image: house,
+        imageSmall: "/projekt3-small.jpg",
+        imageLarge: "/projekt3-large.jpg",
         slug: "#",
       },
       {
         title: "Broadway Loft",
         location: "New York, NY",
         subtitle: "Adaptive reuse",
-        image: house,
+        imageSmall: "/projekt2-small.jpg",
+        imageLarge: "/projekt2-large.jpg",
         slug: "#",
       },
       {
         title: "Ocean Parkway",
         location: "Brooklyn, NY",
         subtitle: "Residential",
-        image: house,
+        imageSmall: "/projekt1-small.jpg",
+        imageLarge: "/projekt1-large.jpg",
         slug: "#",
       },
       {
         title: "Sequoia House",
         location: "Chicago, IL",
         subtitle: "Workspace",
-        image: house,
+        imageSmall: "/projekt4-small.jpg",
+        imageLarge: "/projekt4-large.jpg",
         slug: "#",
       },
       {
         title: "Son Del North",
         location: "Aspen, CO",
         subtitle: "Hospitality",
-        image: house,
+        imageSmall: "/projekt5-small.jpg",
+        imageLarge: "/projekt5-large.jpg",
         slug: "#",
       },
       {
         title: "Son Del North",
         location: "Aspen, CO",
         subtitle: "Hospitality",
-        image: house,
-        slug: "#",
-      },
-      {
-        title: "Son Del North",
-        location: "Aspen, CO",
-        subtitle: "Hospitality",
-        image: house,
-        slug: "#",
-      },
-      {
-        title: "Son Del North",
-        location: "Aspen, CO",
-        subtitle: "Hospitality",
-        image: house,
-        slug: "#",
-      },
-      {
-        title: "Son Del North",
-        location: "Aspen, CO",
-        subtitle: "Hospitality",
-        image: house,
-        slug: "#",
-      },
-      {
-        title: "Son Del North",
-        location: "Aspen, CO",
-        subtitle: "Hospitality",
-        image: house,
+        imageSmall: "/projekt6-small.jpg",
+        imageLarge: "/projekt6-large.jpg",
         slug: "#",
       },
     ],
     []
   );
 
-  const cardRefs = useRef([]); // DOM refs for right-side cards
-  const linkRefs = useRef([]); // DOM refs for left-side links
-  const linksViewportRef = useRef(null); // sticky container (visible area for links)
-  const linksInnerRef = useRef(null); // inner list we translate
-  const headerRef = useRef(null); // ref for the small header line
+  const cardRefs = useRef([]);
+  const linkRefs = useRef([]);
+  const linksViewportRef = useRef(null);
+  const linksInnerRef = useRef(null);
+  const headerRef = useRef(null);
 
   const [headerOpacity, setHeaderOpacity] = useState(1);
   const [translateY, setTranslateY] = useState(0);
   const [hasMeasured, setHasMeasured] = useState(false);
 
-  // Constants for visual tuning
   const OPACITY_FLOOR = 0;
-  const GAUSS_K = 0.85; // slightly steeper falloff so titles reach full opacity closer to exact center
+  const GAUSS_K = 0.85;
   const HEADER_SPEED = 5.4;
-  const HEADER_FLOOR = 0; // header can fully disappear
+  const HEADER_FLOOR = 0;
 
-  // Initialize lower items as hidden by default
   const [opacities, setOpacities] = useState(() =>
     projects.map((_, i) => (i === 0 ? 1 : OPACITY_FLOOR))
   );
 
-  // Helper: linear interpolation
-  const lerp = (a, b, t) => a + (b - a) * t;
-  const clamp01 = (v) => Math.max(0, Math.min(1, v));
-  // const slugify = (s) =>
-  //   s
-  //     .toLowerCase()
-  //     .replace(/[^a-z0-9]+/g, "-")
-  //     .replace(/(^-|-$)+/g, "");
-
-  // Shared measure function so we can run it synchronously on first paint
   const measure = useCallback(() => {
     const viewportCenter = window.innerHeight / 2;
     const centers = cardRefs.current.map((el) => {
       if (!el) return 0;
       const r = el.getBoundingClientRect();
-      return r.top + r.height / 2; // center of card relative to viewport
+      return r.top + r.height / 2;
     });
     if (!centers.length) return;
 
-    // Compute average spacing between cards (px) for normalization
     let spacing = 1;
     if (centers.length > 1) {
       const diffs = [];
@@ -142,7 +146,6 @@ export default function PortfolioClient() {
       spacing = Math.max(1, spacing);
     }
 
-    // Smooth, continuous opacity by distance (Gaussian falloff)
     const nextOpacities = centers.map((c) => {
       const norm = Math.abs(c - viewportCenter) / spacing;
       const o =
@@ -151,22 +154,19 @@ export default function PortfolioClient() {
     });
     setOpacities(nextOpacities);
 
-    // Header opacity based on its own distance to viewport center (fade faster)
     if (headerRef.current) {
       const hr = headerRef.current.getBoundingClientRect();
       const hCenter = hr.top + hr.height / 2;
       const hNorm = Math.abs(hCenter - viewportCenter) / spacing;
       const w = window.innerWidth;
-
-      // XL: start with opacity 1 at page top, then enable fading up to <1800px
       if (w >= 1280 && w < 1800 && window.scrollY <= 0) {
         setHeaderOpacity(1);
       } else {
         let xNorm = hNorm;
         if (w >= 1280 && w < 1800) {
-          xNorm *= HEADER_SPEED * 1.05; // jeszcze trochę wolniejsze wygaszanie w XL..<1800 (z 1.15 -> 1.05)
+          xNorm *= HEADER_SPEED * 1.05;
         } else {
-          xNorm *= HEADER_SPEED; // zachowaj dotychczasowe na innych szerokościach
+          xNorm *= HEADER_SPEED;
         }
         const hOpacity =
           HEADER_FLOOR +
@@ -175,7 +175,6 @@ export default function PortfolioClient() {
       }
     }
 
-    // Compute link centers (relative to inner list top) directly here for stability
     const linkCenters = linkRefs.current.map((el) => {
       if (!el) return 0;
       const rect = el.getBoundingClientRect();
@@ -183,10 +182,8 @@ export default function PortfolioClient() {
       return rect.top - (innerRect?.top || 0) + rect.height / 2;
     });
 
-    // Compute continuous target translate between adjacent links (no jumps)
     const linksViewport = linksViewportRef.current;
     if (linksViewport && linkCenters.length >= 2) {
-      // Find bounding indices i0 <= center <= i1 using card centers
       let i1 = linkCenters.length - 1;
       for (let i = 0; i < centers.length; i++) {
         if (centers[i] >= viewportCenter) {
@@ -201,32 +198,24 @@ export default function PortfolioClient() {
       const t = Math.max(0, Math.min(1, (viewportCenter - c0) / denom));
 
       const desiredCenter = linkCenters[i0] * (1 - t) + linkCenters[i1] * t;
-
-      // Center target without extra bias so the box does not shift up/down additionally
       const containerCenter = linksViewport.clientHeight / 2;
-
       const targetTranslate = containerCenter - desiredCenter;
       setTranslateY(targetTranslate);
     }
 
-    // Mark as measured to reveal UI without jump
     if (!hasMeasured) setHasMeasured(true);
   }, [GAUSS_K, HEADER_SPEED, OPACITY_FLOOR, HEADER_FLOOR, hasMeasured]);
 
-  // Run measure synchronously before paint to avoid initial jump
   useLayoutEffect(() => {
     measure();
-    // Also measure after images load (if Next/Image changes layout)
     const handleLoad = () => measure();
     window.addEventListener("load", handleLoad);
     return () => window.removeEventListener("load", handleLoad);
   }, [measure]);
 
-  // Scroll/resize listeners using rAF
   useEffect(() => {
     let rafId = 0;
     let ticking = false;
-
     const onScroll = () => {
       if (!ticking) {
         ticking = true;
@@ -236,20 +225,16 @@ export default function PortfolioClient() {
         });
       }
     };
-
-    const onResize = () => {
-      onScroll();
-    };
-
+    const onResize = () => onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
-
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
       window.cancelAnimationFrame(rafId);
     };
   }, [measure]);
+
   return (
     <div className="xl:flex mx-margin-mobile md:mx-tablet xl:mx-desktop mt-[100px]">
       <div className="hidden xl:flex w-[40%]">
@@ -273,7 +258,7 @@ export default function PortfolioClient() {
               A national practice for design—
             </div>
             {projects.map((p, i) => (
-              <div key={i} className="">
+              <div key={i}>
                 <Link
                   href={`/portfolio/${p.slug}`}
                   ref={(el) => (linkRefs.current[i] = el)}
@@ -304,25 +289,19 @@ export default function PortfolioClient() {
               className="group block cursor-pointer"
               aria-label={`Zobacz ${p.title}`}
             >
-              <div className="overflow-hidden">
-                <div
-                  style={{
-                    transform: "scale(1.08)",
-                    willChange: "transform",
-                  }}
-                >
-                  <Image
-                    src={p.image}
-                    alt={p.title}
-                    className="w-full-width block"
-                    placeholder="blur"
-                  />
-                </div>
+              <div className="relative overflow-hidden aspect-[16/9]">
+                <ProgressiveImage
+                  smallSrc={p.imageSmall}
+                  largeSrc={p.imageLarge}
+                  alt={p.title}
+                />
               </div>
               <div className="flex justify-between mt-[5px] xl:mt-[7px] 2xl:mt-[10px] items-center">
-                <span className="text-[12px] xl:text-[15px]">{`${p.title} | ${p.subtitle}`}</span>
+                <span className="text-[12px] xl:text-[15px]">
+                  {`${p.title} | ${p.subtitle}`}
+                </span>
                 <div className="flex items-center gap-4">
-                  <span className="sm:inline text-[12px] xl:text-[15px]">
+                  <span className="text-[12px] xl:text-[15px]">
                     {p.location}
                   </span>
                 </div>
