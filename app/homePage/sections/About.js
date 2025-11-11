@@ -1,8 +1,21 @@
+"use client";
+
 import Image from "next/image";
-import AboutImage from "../../../public/test2.jpg";
-import AboutImage2 from "../../../public/1.webp";
+
+import { useState, useEffect } from "react";
 
 export default function About() {
+  const [src, setSrc] = useState("/test3.jpg");
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new window.Image();
+    img.src = "/test2.jpg";
+    img.onload = () => {
+      setSrc("/test2.jpg");
+      setLoaded(true);
+    };
+  }, []);
   return (
     <section className="pt-about-section-padding-top-mobile flex flex-col gap-about-section-gap-mobile xl:gap-about-section-gap-laptop xl:pt-about-section-padding-top-laptop 2xl:gap-about-section-gap-desktop mb-about-section-margin-bottom xl:mb-[150px]">
       <div className=" mx-margin-mobile lg:flex md:mx-tablet lg:mx-small-laptop lg:justify-between xl:justify-between 2xl:mx-desktop">
@@ -32,15 +45,14 @@ export default function About() {
       </div>
       <div className="relative max-w-about-image-max-width-mobile xl:w-about-image-width-laptop aspect-about-image-aspect-ratio">
         <Image
-          src={AboutImage}
+          src={src}
           alt="pokój"
           fill
-          className="object-cover"
-          placeholder="blur"
-          quality={100}
-          priority={false}
-          blurDataURL="/1.webp"
+          className={`object-cover transition-opacity duration-500 ${
+            loaded ? "opacity-100" : "opacity-50"
+          }`}
           unoptimized
+          priority={false}
         />
       </div>
     </section>
