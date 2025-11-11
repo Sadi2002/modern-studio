@@ -1,12 +1,41 @@
+"use client";
+
 import Image from "next/image";
 import Project1 from "../../../public/1.webp";
 import Project2 from "../../../public/1.webp";
 import Project3 from "../../../public/project.webp";
 import Project4 from "../../../public/1.webp";
 import ArrowWhite from "../../../public/arrow-right-white.png";
-// import { useMediaQuery } from "usehooks-ts";
+// import { useMediaQuery } from "usehooks-ts"
+
+import { useState, useEffect } from "react";
 
 export default function Projects() {
+  const [src, setSrc] = useState("/test3-lq.jpg");
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    // Ładujemy duży obraz dopiero, gdy przeglądarka jest „idle”
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(() => {
+        const img = new window.Image();
+        img.src = "/test2.jpg"; // pełne 4K
+        img.onload = () => {
+          setSrc("/test2.jpg");
+          setLoaded(true);
+        };
+      });
+    } else {
+      // fallback jeśli brak requestIdleCallback
+      window.addEventListener("load", () => {
+        const img = new window.Image();
+        img.src = "/test2.jpg";
+        img.onload = () => {
+          setSrc("/test2.jpg");
+          setLoaded(true);
+        };
+      });
+    }
+  }, []);
   // const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   return (
@@ -19,12 +48,12 @@ export default function Projects() {
           <div className="max-w-[80%] mb-[50px] lg:mb-[30px] lg:max-w-[100%]">
             <div className="relative aspect-8/7 ">
               <Image
-                src={Project1}
+                src={src}
                 alt="projekt 1"
-                quality={50}
-                placeholder="blur"
                 className="object-cover"
                 fill
+                unoptimized
+                priority={false}
               />
             </div>
             <div className="flex justify-between mt-[5px]  w-full-width text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
@@ -36,12 +65,12 @@ export default function Projects() {
           <div className="w-[86%] flex flex-col items-end self-end mb-[50px] lg:mb-[0px] lg:w-[100%] lg:h-full">
             <div className="flex flex-col justify-end w-full-width relative aspect-5/3 lg:h-full">
               <Image
-                src={Project2}
+                src={src}
                 alt="projekt 2"
-                quality={50}
-                placeholder="blur"
                 className="object-cover "
                 fill
+                unoptimized
+                priority={false}
               />
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)]">
@@ -54,12 +83,12 @@ export default function Projects() {
           <div className="w-full-width mb-[50px] lg:mb-[30px]">
             <div className="relative aspect-8/5">
               <Image
-                src={Project3}
+                src={src}
                 alt="projekt 3"
-                quality={50}
-                placeholder="blur"
                 className="object-cover"
                 fill
+                unoptimized
+                priority={false}
               />
             </div>
             <div className="flex justify-between mt-[5px]  w-full-width text-[clamp(12px,3.35vw,1rem)]">
@@ -70,12 +99,12 @@ export default function Projects() {
           <div className="max-w-[78%] mb-[30px] lg:w-[100%] lg:max-w-[100%] lg:mb-[60px]">
             <div className="relative aspect-7/8 lg:aspect-8/7 ">
               <Image
-                src={Project4}
+                src={src}
                 alt="projekt 5"
-                quality={50}
-                placeholder="blur"
                 className="object-cover"
                 fill
+                unoptimized
+                priority={false}
               />
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)]">
