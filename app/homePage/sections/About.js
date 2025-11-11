@@ -5,14 +5,13 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function About() {
-  const [src, setSrc] = useState("/about-small.jpg");
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const img = new window.Image();
     img.src = "/about-large.jpg";
     img.onload = () => {
-      setSrc("/about-large.jpg");
+      setLoaded(true);
     };
   }, []);
 
@@ -45,13 +44,24 @@ export default function About() {
       </div>
       <div className="relative max-w-about-image-max-width-mobile xl:w-about-image-width-laptop aspect-about-image-aspect-ratio">
         <Image
-          src={src}
+          src="/about-small.jpg"
           alt="pokój"
           fill
           className={`object-cover transition-opacity duration-700 ${
-            src === "/about-small.jpg" ? "opacity-50" : "opacity-100"
+            loaded ? "opacity-0" : "opacity-50"
           }`}
-          onLoadingComplete={() => setIsLoaded(true)}
+          unoptimized
+          priority
+        />
+
+        {/* Duże zdjęcie — fade-in po załadowaniu */}
+        <Image
+          src="/about-large.jpg"
+          alt="pokój"
+          fill
+          className={`object-cover transition-opacity duration-700 ${
+            loaded ? "opacity-100" : "opacity-0"
+          }`}
           unoptimized
         />
       </div>
