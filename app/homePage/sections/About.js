@@ -47,19 +47,19 @@ export default function About() {
           src="/about-small.jpg"
           alt="pokój"
           fill
-          className={`object-cover transition-opacity ${
+          className={`object-cover transition-opacity duration-700 ${
             loaded ? "opacity-0" : "opacity-50"
           }`}
           unoptimized
           priority
         />
 
-        {/* Duże zdjęcie — fade-in po załaowani */}
+        {/* Duże zdjęcie — fade-in po załadowaniu */}
         <Image
           src="/about-large.jpg"
           alt="pokój"
           fill
-          className={`object-cover transition-opacity ${
+          className={`object-cover transition-opacity duration-700 ${
             loaded ? "opacity-100" : "opacity-0"
           }`}
           unoptimized
