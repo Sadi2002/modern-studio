@@ -1,48 +1,17 @@
 "use client";
 
-import Image from "next/image";
-import { useState, useEffect } from "react";
+import ProgressiveImageHighQuality from "../../components/ProgressiveImageHighQuality";
 
 export default function About() {
-  const [largeLoaded, setLargeLoaded] = useState(false); // duże zdjęcie załadowane
-  const [pageLoaded, setPageLoaded] = useState(false); // strona w pełni załadowana
-  const [showLargeImage, setShowLargeImage] = useState(false); // kontroluje render dużego obrazka
-
-  // Sprawdzanie, czy cała strona się załadowała
-  useEffect(() => {
-    const handleLoad = () => setPageLoaded(true);
-
-    if (document.readyState === "complete") {
-      handleLoad();
-    } else {
-      window.addEventListener("load", handleLoad);
-      return () => window.removeEventListener("load", handleLoad);
-    }
-  }, []);
-
-  // Wczytywanie dużego obrazka dopiero po pełnym załadowaniu strony
-  useEffect(() => {
-    if (pageLoaded) {
-      const img = new window.Image();
-      img.src = "/about-large.jpg";
-      img.onload = () => {
-        setLargeLoaded(true);
-        setShowLargeImage(true); // renderujemy dopiero po załadowaniu
-      };
-    }
-  }, [pageLoaded]);
-
   return (
     <section className="pt-about-section-padding-top-mobile flex flex-col gap-about-section-gap-mobile xl:gap-about-section-gap-laptop xl:pt-about-section-padding-top-laptop 2xl:gap-about-section-gap-desktop mb-about-section-margin-bottom xl:mb-[150px]">
       <div className="mx-margin-mobile lg:flex md:mx-tablet lg:mx-small-laptop lg:justify-between xl:justify-between 2xl:mx-desktop">
         <h2 className="text-about-title-size-mobile leading-about-title-line-height-mobile font-medium mb-about-title-margin-bottom max-w-about-title-max-width-mobile lg:text-about-title-size-laptop lg:leading-about-title-line-height-laptop lg:max-w-about-title-max-width-laptop lg:w-about-title-width-laptop 2xl:max-w-about-title-max-width-desktop xl:font-normal">
           Witamy w Visual Studio Twoje eleganckie
         </h2>
+
         <div className="flex flex-col items-end lg:items-start lg:w-about-text-width-laptop">
-          <div
-            className="flex flex-col gap-about-text-box-gap font-light-font-weight mb-about-text-box-margin-bottom items-start text-about-text-box-size
-          leading-[clamp(0.75rem,10vw,1.5rem)] w-full-width"
-          >
+          <div className="flex flex-col gap-about-text-box-gap font-light-font-weight mb-about-text-box-margin-bottom items-start text-about-text-box-size leading-[clamp(0.75rem,10vw,1.5rem)] w-full-width">
             <p className="lg:max-w-about-text-max-width-small-laptop 2xl:max-w-full-width">
               Projektując przestrzeń, poszukuję harmonii między światłem a
               materią. Perfekcja detalu prowadzi do ponadczasowej formy, która
@@ -54,34 +23,21 @@ export default function About() {
               użytkownika prowadzi każdy detal, czyniąc architekturę.
             </p>
           </div>
+
           <button className="font-semibold-font-weight text-[clamp(0.75rem,3.5vw,1rem)] relative uppercase after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:w-full-width after:h-[1px]">
             Więcej o nas
           </button>
         </div>
       </div>
 
-      {/* Obrazki */}
+      {/* Obraz — mały od razu, duży po załadowaniu strony */}
       <div className="relative max-w-about-image-max-width-mobile xl:w-about-image-width-laptop aspect-about-image-aspect-ratio overflow-hidden">
-        {/* Małe zdjęcie — zawsze w tle, rozmyte */}
-        <Image
-          src="/about-small.jpg"
+        <ProgressiveImageHighQuality
+          smallSrc="/about-small.jpg"
+          largeSrc="/about-large.jpg"
           alt="pokój"
-          fill
-          className={`object-cover transition-filter duration-700 ease-in-out ${
-            largeLoaded ? "blur-0" : "blur-lg"
-          }`}
+          aspectRatio="3/1.7"
         />
-
-        {/* Duże zdjęcie renderowane dopiero po pełnym załadowaniu */}
-        {showLargeImage && (
-          <Image
-            src="/about-large.jpg"
-            alt="pokój"
-            fill
-            className="object-cover transition-filter duration-700 ease-in-out blur-0"
-            unoptimized
-          />
-        )}
       </div>
     </section>
   );
