@@ -25,7 +25,7 @@ function ProgressiveImage({ smallSrc, largeSrc, alt }) {
 
   return (
     <div className="relative w-full h-full overflow-hidden">
-      {/* Mały obraz – od razu wida */}
+      {/* Mały obraz – od razu wid */}
       <Image
         src={smallSrc}
         alt={alt}
