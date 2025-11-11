@@ -46,7 +46,9 @@ export default function Projects() {
               <Image
                 src={src}
                 alt="projekt 1"
-                className="object-cover"
+                className={`object-cover transition-opacity duration-500 ${
+                  loaded ? "opacity-100" : "opacity-50"
+                }`}
                 fill
                 unoptimized
                 priority={false}
@@ -63,7 +65,9 @@ export default function Projects() {
               <Image
                 src={src}
                 alt="projekt 2"
-                className="object-cover "
+                className={`object-cover transition-opacity duration-500 ${
+                  loaded ? "opacity-100" : "opacity-50"
+                }`}
                 fill
                 unoptimized
                 priority={false}
@@ -81,7 +85,9 @@ export default function Projects() {
               <Image
                 src={src}
                 alt="projekt 3"
-                className="object-cover"
+                className={`object-cover transition-opacity duration-500 ${
+                  loaded ? "opacity-100" : "opacity-50"
+                }`}
                 fill
                 unoptimized
                 priority={false}
@@ -97,7 +103,9 @@ export default function Projects() {
               <Image
                 src={src}
                 alt="projekt 5"
-                className="object-cover"
+                className={`object-cover transition-opacity duration-500 ${
+                  loaded ? "opacity-100" : "opacity-50"
+                }`}
                 fill
                 unoptimized
                 priority={false}
