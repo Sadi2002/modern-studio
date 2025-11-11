@@ -3,11 +3,14 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-export function ProgressiveImage({ smallSrc, largeSrc, alt, className = "" }) {
-  const [loaded, setLoaded] = useState(false);
+export default function ProgressiveImage({
+  smallSrc,
+  largeSrc,
+  alt,
+  className = "",
+}) {
   const [bigLoaded, setBigLoaded] = useState(false);
 
-  // Pobranie dużego obrazu w tle dopiero po pierwszym renderze
   useEffect(() => {
     const img = new Image();
     img.src = largeSrc;
@@ -16,7 +19,6 @@ export function ProgressiveImage({ smallSrc, largeSrc, alt, className = "" }) {
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      {/* Mały obrazek */}
       <Image
         src={smallSrc}
         alt={alt}
@@ -28,7 +30,6 @@ export function ProgressiveImage({ smallSrc, largeSrc, alt, className = "" }) {
         unoptimized
       />
 
-      {/* Duży obrazek — dopiero gdy załadowany */}
       {bigLoaded && (
         <Image
           src={largeSrc}

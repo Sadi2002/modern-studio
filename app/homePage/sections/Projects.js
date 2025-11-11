@@ -1,6 +1,6 @@
 "use client";
 
-import { ProgressiveImage } from "../../components/ProgressiveImage"; // import komponentu
+import ProgressiveImage from "../../components/ProgressiveImage"; // import komponentu
 import Image from "next/image";
 import ArrowWhite from "../../../public/arrow-right-white.png";
 
