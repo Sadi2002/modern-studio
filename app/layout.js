@@ -12,6 +12,14 @@ export const poppins = Poppins({
 export default function RootLayout({ children }) {
   return (
     <html lang="pl">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className={`${poppins.className} min-h-screen bg-bg-main`}>
         <Header />
         <main>{children}</main>
