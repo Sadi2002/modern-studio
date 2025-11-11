@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function About() {
-  const [src, setSrc] = useState("/test3-lq.jpg");
+  const [src, setSrc] = useState("/test3.jpg");
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
