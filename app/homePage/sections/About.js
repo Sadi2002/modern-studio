@@ -60,7 +60,7 @@ export default function About() {
       </div>
       <div className="relative max-w-about-image-max-width-mobile xl:w-about-image-width-laptop aspect-about-image-aspect-ratio">
         <Image
-          src="/test3-lq.jpg"
+          src="/test3.jpg"
           alt="pokój"
           fill
           className="object-cover"
