@@ -1,11 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
+import ProgressiveImage from "../../components/ProgressiveImage"; // popraw ścieżkę do swojego komponentu
 
 export default function About() {
-  const [loaded, setLoaded] = useState(false);
-
   return (
     <section className="pt-about-section-padding-top-mobile flex flex-col gap-about-section-gap-mobile xl:gap-about-section-gap-laptop xl:pt-about-section-padding-top-laptop 2xl:gap-about-section-gap-desktop mb-about-section-margin-bottom xl:mb-[150px]">
       <div className="mx-margin-mobile lg:flex md:mx-tablet lg:mx-small-laptop lg:justify-between xl:justify-between 2xl:mx-desktop">
@@ -32,28 +29,11 @@ export default function About() {
       </div>
 
       <div className="relative max-w-about-image-max-width-mobile xl:w-about-image-width-laptop aspect-about-image-aspect-ratio">
-        {/* Mały obrazek — widoczny od razu */}
-        <Image
-          src="/about-small.jpg"
+        <ProgressiveImage
+          smallSrc="/about-small.jpg"
+          largeSrc="/about-large.jpg"
           alt="pokój"
-          fill
-          className={`object-cover transition-opacity duration-700 ${
-            loaded ? "opacity-0" : "opacity-100"
-          }`}
-          style={{ filter: "blur(10px)" }} // opcjonalny efekt blur
-          unoptimized
-        />
-
-        {/* Duży obrazek — fade-in po załadowaniu */}
-        <Image
-          src="/about-large.jpg"
-          alt="pokój"
-          fill
-          className={`object-cover transition-opacity duration-700 ${
-            loaded ? "opacity-100" : "opacity-0"
-          }`}
-          onLoadingComplete={() => setLoaded(true)}
-          unoptimized
+          className="w-full h-full"
         />
       </div>
     </section>

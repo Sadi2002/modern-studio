@@ -12,13 +12,15 @@ export default function ProgressiveImage({
   const [bigLoaded, setBigLoaded] = useState(false);
 
   useEffect(() => {
-    const img = new Image();
+    // Używamy globalnego Image z okna przeglądarki
+    const img = new window.Image();
     img.src = largeSrc;
     img.onload = () => setBigLoaded(true);
   }, [largeSrc]);
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
+      {/* Mały obrazek */}
       <Image
         src={smallSrc}
         alt={alt}
@@ -30,6 +32,7 @@ export default function ProgressiveImage({
         unoptimized
       />
 
+      {/* Duży obrazek */}
       {bigLoaded && (
         <Image
           src={largeSrc}
