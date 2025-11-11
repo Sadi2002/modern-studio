@@ -1,36 +1,43 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function ProgressiveImage({ smallSrc, largeSrc, alt, className = "" }) {
   const [loaded, setLoaded] = useState(false);
+  const [bigLoaded, setBigLoaded] = useState(false);
+
+  // Pobranie dużego obrazu w tle dopiero po pierwszym renderze
+  useEffect(() => {
+    const img = new Image();
+    img.src = largeSrc;
+    img.onload = () => setBigLoaded(true);
+  }, [largeSrc]);
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      {/* Mały obrazek — zawsze widoczny */}
+      {/* Mały obrazek */}
       <Image
         src={smallSrc}
         alt={alt}
         fill
         className={`object-cover transition-opacity duration-700 ${
-          loaded ? "opacity-0" : "opacity-100"
+          bigLoaded ? "opacity-0" : "opacity-100"
         }`}
-        style={{ filter: "blur(10px)" }} // opcjonalnie, efekt blur
+        style={{ filter: "blur(10px)" }}
         unoptimized
       />
 
-      {/* Duży obrazek — fade-in po załadowaniu */}
-      <Image
-        src={largeSrc}
-        alt={alt}
-        fill
-        className={`object-cover transition-opacity duration-700 ${
-          loaded ? "opacity-100" : "opacity-0"
-        }`}
-        onLoadingComplete={() => setLoaded(true)}
-        unoptimized
-      />
+      {/* Duży obrazek — dopiero gdy załadowany */}
+      {bigLoaded && (
+        <Image
+          src={largeSrc}
+          alt={alt}
+          fill
+          className="object-cover transition-opacity duration-700 opacity-100"
+          unoptimized
+        />
+      )}
     </div>
   );
 }
