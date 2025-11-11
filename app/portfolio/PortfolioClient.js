@@ -32,6 +32,7 @@ function ProgressiveImage({ smallSrc, largeSrc, alt }) {
         fill
         className="absolute top-0 left-0 w-full h-full object-cover opacity-50"
         unoptimized
+        sizes="100vw"
       />
 
       {/* Duży obraz – fade-in nad małym */}
@@ -44,6 +45,7 @@ function ProgressiveImage({ smallSrc, largeSrc, alt }) {
         }`}
         unoptimized
         priority
+        sizes="100vw"
       />
     </div>
   );
