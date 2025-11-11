@@ -25,16 +25,18 @@ function ProgressiveImage({ smallSrc, largeSrc, alt }) {
 
   return (
     <div className="relative w-full h-full overflow-hidden">
-      {/* Mały obraz – od razu widać */}
+      {/* Mały obraz */}
       <Image
         src={smallSrc}
         alt={alt}
         fill
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-700 ${
+          loaded ? "opacity-0" : "opacity-100"
+        }`}
         unoptimized
       />
 
-      {/* Duży obraz – fade-in nad małym */}
+      {/* Duży obraz */}
       <Image
         src={largeSrc}
         alt={alt}
