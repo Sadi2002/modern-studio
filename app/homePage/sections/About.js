@@ -4,14 +4,20 @@ import { useEffect, useState } from "react";
 
 export default function About() {
   const [largeImageLoaded, setLargeImageLoaded] = useState(false);
+  const [fadeInLarge, setFadeInLarge] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const img = new window.Image();
       img.src = "/about-large.jpg";
-      img.onload = () => setLargeImageLoaded(true);
+      img.onload = () => {
+        setLargeImageLoaded(true);
+        // małe opóźnienie, żeby transition zadziałało
+        requestAnimationFrame(() => setFadeInLarge(true));
+      };
     }
   }, []);
+
   return (
     <section className="pt-about-section-padding-top-mobile flex flex-col gap-about-section-gap-mobile xl:gap-about-section-gap-laptop xl:pt-about-section-padding-top-laptop 2xl:gap-about-section-gap-desktop mb-about-section-margin-bottom xl:mb-[150px]">
       <div className="mx-margin-mobile lg:flex md:mx-tablet lg:mx-small-laptop lg:justify-between xl:justify-between 2xl:mx-desktop">
@@ -19,10 +25,7 @@ export default function About() {
           Witamy w Visual Studio Twoje eleganckie
         </h2>
         <div className="flex flex-col items-end lg:items-start lg:w-about-text-width-laptop">
-          <div
-            className="flex flex-col gap-about-text-box-gap font-light-font-weight mb-about-text-box-margin-bottom items-start text-about-text-box-size
-          leading-[clamp(0.75rem,10vw,1.5rem)] w-full-width"
-          >
+          <div className="flex flex-col gap-about-text-box-gap font-light-font-weight mb-about-text-box-margin-bottom items-start text-about-text-box-size leading-[clamp(0.75rem,10vw,1.5rem)] w-full-width">
             <p className="lg:max-w-about-text-max-width-small-laptop 2xl:max-w-full-width">
               Projektując przestrzeń, poszukuję harmonii między światłem a
               materią. Perfekcja detalu prowadzi do ponadczasowej formy, która
@@ -39,6 +42,7 @@ export default function About() {
           </button>
         </div>
       </div>
+
       <div className="relative max-w-about-image-max-width-mobile xl:w-about-image-width-laptop aspect-[3/1.7]">
         {/* Małe zdjęcie placeholder */}
         <Image
@@ -46,7 +50,7 @@ export default function About() {
           alt="pokój"
           fill
           className="object-cover transition-opacity duration-700 w-full h-full"
-          style={{ opacity: largeImageLoaded ? 0 : 0.5 }} // małe zdjęcie 50% dopóki duże się nie załaduje
+          style={{ opacity: largeImageLoaded ? 0 : 0.5 }}
         />
 
         {/* Duże zdjęcie po załadowaniu */}
@@ -55,7 +59,8 @@ export default function About() {
             src="/about-large.jpg"
             alt="pokój"
             fill
-            className="object-cover absolute top-0 left-0 transition-opacity duration-700 opacity-100 w-full h-full"
+            className="object-cover absolute top-0 left-0 transition-opacity duration-700 w-full h-full"
+            style={{ opacity: fadeInLarge ? 1 : 0.5 }}
             unoptimized
           />
         )}

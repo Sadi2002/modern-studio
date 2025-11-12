@@ -5,6 +5,7 @@ import ArrowWhite from "../../../public/arrow-right-white.png";
 
 export default function Projects() {
   const [loadedImages, setLoadedImages] = useState({});
+  const [fadeInImages, setFadeInImages] = useState({});
 
   useEffect(() => {
     const images = [
@@ -17,25 +18,36 @@ export default function Projects() {
     images.forEach(({ key, src }) => {
       const img = new window.Image();
       img.src = src;
-      img.onload = () => setLoadedImages((prev) => ({ ...prev, [key]: true }));
+      img.onload = () => {
+        // najpierw ustawiamy loadedImages → duże zdjęcie jest gotowe, ale opacity nadal 0.5
+        setLoadedImages((prev) => ({ ...prev, [key]: true }));
+        // po krótkiej chwili animujemy opacity do 1
+        setTimeout(() => {
+          setFadeInImages((prev) => ({ ...prev, [key]: true }));
+        }, 300); // 300ms opóźnienia można dopasować
+      };
     });
   }, []);
 
   const renderProjectImage = (smallSrc, largeSrc, key) => (
     <div className="relative w-full h-full">
+      {/* Małe zdjęcie */}
       <Image
         src={smallSrc}
         alt="pokój"
         fill
-        className="object-cover transition-opacity duration-700"
-        style={{ opacity: loadedImages[key] ? 0 : 0.5 }}
+        className="object-cover transition-opacity duration-700 w-full h-full"
+        style={{ opacity: fadeInImages[key] ? 0 : 0.5 }}
       />
+
+      {/* Duże zdjęcie */}
       {loadedImages[key] && (
         <Image
           src={largeSrc}
           alt="pokój"
           fill
-          className="object-cover absolute top-0 left-0 transition-opacity duration-700 opacity-100"
+          className="object-cover absolute top-0 left-0 w-full h-full transition-opacity duration-700"
+          style={{ opacity: fadeInImages[key] ? 1 : 0.5 }}
           unoptimized
         />
       )}
@@ -57,7 +69,7 @@ export default function Projects() {
                 "projekt2"
               )}
             </div>
-            <div className="flex justify-between mt-[5px]  w-full-width text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+            <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
               <span>Our project</span>
               <span>View project</span>
             </div>
@@ -87,7 +99,7 @@ export default function Projects() {
                 "projekt3"
               )}
             </div>
-            <div className="flex justify-between mt-[5px]  w-full-width text-[clamp(12px,3.35vw,1rem)]">
+            <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)]">
               <span>Our project</span>
               <span>View project</span>
             </div>
