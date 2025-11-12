@@ -96,7 +96,7 @@
   --spacing-hero-title-max-width-mobile: 400px;
   --spacing-hero-title-max-width-small-laptop: 600px;
   --spacing-hero-title-max-width-laptop: 800px;
-  --spacing-hero-title-max-width-desktop: 900px;
+  --spacing-hero-title-max-width-desktop: 1000px;
   --spacing-hero-text-margin-bottom-mobile: 50px;
   --spacing-hero-text-margin-bottom-laptop: 70px;
   --text-hero-text-size-mobile: clamp(0.75rem, 3.35vw, 1rem);
