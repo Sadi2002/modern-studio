@@ -28,8 +28,7 @@ export default function About() {
           </button>
         </div>
       </div>
-      =
-      <div className="relative max-w-about-image-max-width-mobile xl:w-about-image-width-laptop aspect-about-image-aspect-ratio overflow-hidden">
+      <div className="relative max-w-about-image-max-width-mobile xl:w-about-image-width-laptop aspect-about-image-aspect-ratio">
         <Image
           src="/about-small.jpg"
           alt="pokój"
