@@ -1,37 +1,6 @@
-"use client";
-
 import Image from "next/image";
-import { useState, useEffect } from "react";
 
 export default function About() {
-  const [largeLoaded, setLargeLoaded] = useState(false); // duże zdjęcie załadowane
-  const [pageLoaded, setPageLoaded] = useState(false); // strona w pełni załadowana
-  const [showLargeImage, setShowLargeImage] = useState(false); // kontroluje render dużego obrazka
-
-  // Sprawdzanie, czy cała strona się załadowała
-  useEffect(() => {
-    const handleLoad = () => setPageLoaded(true);
-
-    if (document.readyState === "complete") {
-      handleLoad();
-    } else {
-      window.addEventListener("load", handleLoad);
-      return () => window.removeEventListener("load", handleLoad);
-    }
-  }, []);
-
-  // Wczytywanie dużego obrazka dopiero po pełnym załadowaniu strony
-  useEffect(() => {
-    if (pageLoaded) {
-      const img = new window.Image();
-      img.src = "/about-large.jpg";
-      img.onload = () => {
-        setLargeLoaded(true);
-        setShowLargeImage(true); // renderujemy dopiero po załadowaniu
-      };
-    }
-  }, [pageLoaded]);
-
   return (
     <section className="pt-about-section-padding-top-mobile flex flex-col gap-about-section-gap-mobile xl:gap-about-section-gap-laptop xl:pt-about-section-padding-top-laptop 2xl:gap-about-section-gap-desktop mb-about-section-margin-bottom xl:mb-[150px]">
       <div className="mx-margin-mobile lg:flex md:mx-tablet lg:mx-small-laptop lg:justify-between xl:justify-between 2xl:mx-desktop">
@@ -59,29 +28,14 @@ export default function About() {
           </button>
         </div>
       </div>
-
-      {/* Obrazki */}
+      =
       <div className="relative max-w-about-image-max-width-mobile xl:w-about-image-width-laptop aspect-about-image-aspect-ratio overflow-hidden">
-        {/* Małe zdjęcie — zawsze w tle, rozmyte */}
         <Image
           src="/about-small.jpg"
           alt="pokój"
           fill
-          className={`object-cover transition-filter duration-700 ease-in-out ${
-            largeLoaded ? "blur-0" : "blur-lg"
-          }`}
+          className={"object-cover"}
         />
-
-        {/* Duże zdjęcie renderowane dopiero po pełnym załadowaniu */}
-        {showLargeImage && (
-          <Image
-            src="/about-large.jpg"
-            alt="pokój"
-            fill
-            className="object-cover transition-filter duration-700 ease-in-out blur-0"
-            unoptimized
-          />
-        )}
       </div>
     </section>
   );
