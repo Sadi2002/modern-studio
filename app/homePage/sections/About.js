@@ -23,7 +23,7 @@ export default function About() {
               użytkownika prowadzi każdy detal, czyniąc architekturę.
             </p>
           </div>
-          <button className="font-semibold-font-weight text-[clamp(0.75rem,3.5vw,1rem)] relative uppercase after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:w-full-width after:h-[1px]">
+          <button className="font-medium-font-weight text-[clamp(0.75rem,3.5vw,1rem)] relative uppercase after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:w-full-width after:h-[1px]">
             Więcej o nas
           </button>
         </div>
