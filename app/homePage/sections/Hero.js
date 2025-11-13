@@ -14,6 +14,7 @@ export default function Hero() {
         placeholder="blur"
         blurDataURL="/projekt3-small.webp"
         unoptimized
+        priority
       />
 
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
