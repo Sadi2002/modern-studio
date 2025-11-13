@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import ArrowWhite from "../../../public/arrow-right-white.png";
+import Link from "next/link";
 
 export default function Projects() {
   return (
@@ -90,7 +91,7 @@ export default function Projects() {
               elegancji i szczerej gościnności. Położona w romantycznym sercu.
             </p>
             <button className="bg-main-black rounded-buttonWithArrow-rounded px-buttonWithArrow-padding-x py-buttonWithArrow-padding-y text-main-white ml-buttonWithArrow-margin-left-mobile mr-buttonWithArrow-margin-right-mobile font-medium flex items-center md:ml-buttonWithArrow-margin-left-tablet text-hero-text-size-mobile">
-              Zobacz wszystkie
+              <Link href="/portfolio">Zobacz wszystkie</Link>
               <Image
                 src={ArrowWhite}
                 alt="strzałka"
