@@ -140,3 +140,15 @@
   --spacing-about-image-width-laptop: 80%;
   --aspect-about-image-aspect-ratio: 3/1.7;
 }
+
+html {
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+body {
+  overflow-y: scroll; /* zachowuje przewijanie */
+}
