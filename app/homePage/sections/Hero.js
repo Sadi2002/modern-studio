@@ -5,29 +5,47 @@ import arrow from "../../../public/arrow.png";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
+  // mały obraz do natychmiastowego wyświetlenia
   const [bgImage, setBgImage] = useState("/projekt3-small.webp");
-  const [isLoaded, setIsLoaded] = useState(false);
+  // duży obraz załadowany
+  const [isLargeLoaded, setIsLargeLoaded] = useState(false);
 
   useEffect(() => {
-    const img = new window.Image();
-    img.src = "/projekt3-large.jpg";
-
-    img.onload = () => {
-      setBgImage("/projekt3-large.jpg");
-      setIsLoaded(true);
+    // czekamy, aż strona się w pełni załaduje
+    const handleLoad = () => {
+      const img = new window.Image();
+      img.src = "/projekt3-large.jpg";
+      img.onload = () => {
+        setBgImage("/projekt3-large.jpg");
+        setIsLargeLoaded(true);
+      };
     };
+
+    // jeśli strona już załadowana, od razu startujemy preload dużego obrazka
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
+    }
   }, []);
 
   return (
     <section className="h-hero-height relative w-full overflow-hidden bg-no-repeat bg-center bg-cover">
+      {/* Warstwa tła z background-image */}
       <div
-        className="absolute top-0 left-0 w-full h-full bg-center bg-cover transition-all bg-black"
+        className="absolute top-0 left-0 w-full h-full bg-center bg-cover transition-opacity duration-1000"
         style={{
           backgroundImage: `url(${bgImage})`,
+          // opcjonalnie możesz dodać fade
+          opacity: isLargeLoaded ? 1 : 1, // już pełna widoczność, mały obraz od razu widoczny
         }}
       ></div>
+
+      {/* Overlay półprzezroczysty */}
       <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.55)] z-10"></div>
 
+      {/* Treść */}
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
         <div className="absolute bottom-hero-text-position-mobile w-full xl:bottom-hero-text-position-desktop z-20">
           <h1 className="text-main-white text-hero-title-size-mobile leading-hero-title-line-height-mobile font-medium mb-hero-title-margin-bottom lg:text-hero-title-size-small-laptop lg:leading-hero-title-line-height-small-laptop xl:text-hero-title-size-laptop xl:font-normal-font-weight xl:leading-hero-title-line-height-laptop uppercase 2xl:leading-hero-title-line-height-desktop 2xl:text-hero-title-size-desktop max-w-hero-title-max-width-mobile lg:max-w-hero-title-max-width-small-laptop xl:max-w-hero-title-max-width-laptop 2xl:max-w-hero-title-max-width-desktop">
