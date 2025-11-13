@@ -1,15 +1,31 @@
+"use client";
+
 import Image from "next/image";
 import arrow from "../../../public/arrow.png";
-
-import mainImgLarge from "../../../public/projekt3-large.jpg";
-import mainImgSmall from "../../../public/projekt3-small.webp";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [bgImage, setBgImage] = useState("/projekt3-small.webp");
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new window.Image();
+    img.src = "/projekt3-large.jpg";
+
+    img.onload = () => {
+      setBgImage("/projekt3-large.jpg");
+      setIsLoaded(true);
+    };
+  }, []);
+
   return (
-    <section
-      className="h-hero-height relative w-full overflow-hidden bg-no-repeat bg-center bg-cover"
-      style={{ backgroundImage: `url(/projekt3-small.webp)` }}
-    >
+    <section className="h-hero-height relative w-full overflow-hidden bg-no-repeat bg-center bg-cover">
+      <div
+        className="absolute top-0 left-0 w-full h-full bg-center bg-cover transition-all bg-black"
+        style={{
+          backgroundImage: `url(${bgImage})`,
+        }}
+      ></div>
       <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.55)] z-10"></div>
 
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
