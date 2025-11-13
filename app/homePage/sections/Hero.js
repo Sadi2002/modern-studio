@@ -9,7 +9,6 @@ export default function Hero() {
   const [largeLoaded, setLargeLoaded] = useState(false);
 
   useEffect(() => {
-    // window.Image istnieje tylko w przeglądarce
     const img = new window.Image();
     img.src = heroImg.src;
     img.onload = () => setLargeLoaded(true);
@@ -18,11 +17,12 @@ export default function Hero() {
   return (
     <section className="h-hero-height relative w-full overflow-hidden bg-no-repeat bg-center bg-cover">
       <div className="absolute inset-0 -z-10">
-        {/* Mały obraz / blur */}
+        {/* Mały obraz / blur, teraz z priority */}
         <Image
           src="/projekt3-small.webp"
           alt="osidle"
           fill
+          priority
           className={`object-cover transition-opacity duration-500 ${
             largeLoaded ? "opacity-0" : "opacity-100"
           }`}
