@@ -1,6 +1,5 @@
 import Image from "next/image";
 import arrow from "../../../public/arrow.png";
-import mainImage from "../../../public/projekt3-large.jpg";
 
 export default function Hero() {
   return (
@@ -8,11 +7,12 @@ export default function Hero() {
       <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.55)] -z-20"></div>
 
       <Image
-        src={mainImage}
+        src="/projekt3-large.jpg"
         alt="pokój"
+        fill
         className="object-cover absolute top-0 left-0 w-full h-full -z-25"
         placeholder="blur"
-        blurDataURL="/projekt3-small.webp"
+        blurDataURL="/projekt3-small.jpg"
         priority
       />
 
