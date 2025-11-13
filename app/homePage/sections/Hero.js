@@ -1,19 +1,25 @@
+"use client";
+
 import Image from "next/image";
 import arrow from "../../../public/arrow.png";
+import { useState } from "react";
+import heroLarge from "../../../public/projekt3-large.jpg";
+import heroSmall from "../../../public/projekt3-small.webp";
 
 export default function Hero() {
+  const [loaded, setLoaded] = useState(false);
+
   return (
     <section className="h-hero-height relative w-full overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.55)] -z-20"></div>
 
       <Image
-        src="/projekt3-large.jpg"
+        src={loaded ? heroLarge : heroSmall}
         alt="pokój"
-        fill
         className="object-cover absolute top-0 left-0 w-full h-full -z-25"
         placeholder="blur"
         blurDataURL="/projekt3-small.jpg"
-        loading="lazy"
+        onLoadingComplete={() => setLoaded(true)}
       />
 
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
