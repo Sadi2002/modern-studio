@@ -3,7 +3,6 @@
 import Image from "next/image";
 import arrow from "../../../public/arrow.png";
 import heroImg from "../../../public/projekt3-large.webp";
-import heroImgSmall from "../../../public/about-small.webp";
 
 export default function Hero() {
   return (
@@ -17,7 +16,7 @@ export default function Hero() {
           priority
           placeholder="blur"
           // użyj automatycznego blur generowanego przez Next — lepszy niż ręczny
-          blurDataURL={heroImgSmall.blurDataURL}
+          blurDataURL="/about-small.webp"
           sizes="100vw"
           quality={60} // ⭐ DUŻA poprawa LCP
           className="object-cover"
