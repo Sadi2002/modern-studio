@@ -1,58 +1,8 @@
-"use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+
 import ArrowWhite from "../../../public/arrow-right-white.png";
 
 export default function Projects() {
-  const [loadedImages, setLoadedImages] = useState({});
-  const [fadeInImages, setFadeInImages] = useState({});
-
-  useEffect(() => {
-    const images = [
-      { key: "projekt1", src: "/projekt1-large.jpg" },
-      { key: "projekt2", src: "/projekt2-large.jpg" },
-      { key: "projekt3", src: "/projekt3-large.jpg" },
-      { key: "projekt4", src: "/projekt4-large.jpg" },
-    ];
-
-    images.forEach(({ key, src }) => {
-      const img = new window.Image();
-      img.src = src;
-      img.onload = () => {
-        // Po załadowaniu dużego zdjęcia ustawiamy opacity startową 0.5
-        setLoadedImages((prev) => ({ ...prev, [key]: true }));
-
-        // Dajemy chwilę, żeby duże zdjęcie było w DOM i gotowe
-        setTimeout(() => {
-          setFadeInImages((prev) => ({ ...prev, [key]: true }));
-        }, 50); // 50ms minimalna pauza, żeby obraz był w DOM
-      };
-    });
-  }, []);
-
-  const renderProjectImage = (smallSrc, largeSrc, key) => (
-    <div className="relative w-full h-full">
-      {/* Małe zdjęcie */}
-      <Image
-        src={smallSrc}
-        alt="pokój"
-        fill
-        className="object-cover  w-full h-full"
-      />
-
-      {/* Duże zdjęcie */}
-      {loadedImages[key] && (
-        <Image
-          src={largeSrc}
-          alt="pokój"
-          fill
-          className="object-cover absolute top-0 left-0 w-full h-full"
-          unoptimized
-        />
-      )}
-    </div>
-  );
-
   return (
     <section className="mx-margin-mobile md:mx-tablet lg:mx-small-laptop mb-[50px]">
       <h3 className="text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(04)'] after:absolute after:top-[5px] after:text-[8px] mb-5 xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px] xl:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal">
@@ -62,11 +12,15 @@ export default function Projects() {
         <div className="flex flex-col lg:w-[calc(50%-10px)]">
           <div className="max-w-[80%] mb-[50px] lg:mb-[30px] lg:max-w-[100%]">
             <div className="relative aspect-8/7">
-              {renderProjectImage(
-                "/projekt2-small.jpg",
-                "/projekt2-large.jpg",
-                "projekt2"
-              )}
+              <Image
+                src="/projekt2-large.jpg"
+                alt="pokój"
+                fill
+                className="object-cover absolute top-0 left-0 w-full h-full"
+                unoptimized
+                placeholder="blur"
+                blurDataURL="/projekt2-small.jpg"
+              />
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
               <span>Our project</span>
@@ -76,11 +30,15 @@ export default function Projects() {
 
           <div className="w-[86%] flex flex-col items-end self-end mb-[50px] lg:mb-[0px] lg:w-[100%] lg:h-full">
             <div className="flex flex-col justify-end w-full-width relative aspect-5/3 lg:h-full">
-              {renderProjectImage(
-                "/projekt4-small.jpg",
-                "/projekt4-large.jpg",
-                "projekt4"
-              )}
+              <Image
+                src="/projekt4-large.jpg"
+                alt="pokój"
+                fill
+                className="object-cover absolute top-0 left-0 w-full h-full"
+                unoptimized
+                placeholder="blur"
+                blurDataURL="/projekt4-small.jpg"
+              />
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)]">
               <span>Our project</span>
@@ -92,11 +50,15 @@ export default function Projects() {
         <div className="lg:flex lg:flex-col lg:w-[calc(50%-10px)]">
           <div className="w-full-width mb-[50px] lg:mb-[30px]">
             <div className="relative aspect-8/5">
-              {renderProjectImage(
-                "/projekt3-small.jpg",
-                "/projekt3-large.jpg",
-                "projekt3"
-              )}
+              <Image
+                src="/projekt3-large.jpg"
+                alt="pokój"
+                fill
+                className="object-cover absolute top-0 left-0 w-full h-full"
+                unoptimized
+                placeholder="blur"
+                blurDataURL="/projekt3-small.jpg"
+              />
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)]">
               <span>Our project</span>
@@ -106,11 +68,15 @@ export default function Projects() {
 
           <div className="max-w-[78%] mb-[30px] lg:w-[100%] lg:max-w-[100%] lg:mb-[60px]">
             <div className="relative aspect-7/8 lg:aspect-8/7">
-              {renderProjectImage(
-                "/projekt1-small.jpg",
-                "/projekt1-large.jpg",
-                "projekt1"
-              )}
+              <Image
+                src="/projekt1-large.jpg"
+                alt="pokój"
+                fill
+                className="object-cover absolute top-0 left-0 w-full h-full"
+                unoptimized
+                placeholder="blur"
+                blurDataURL="/projekt1-small.jpg"
+              />
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)]">
               <span>Our project</span>

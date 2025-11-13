@@ -1,23 +1,6 @@
-"use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 export default function About() {
-  const [largeImageLoaded, setLargeImageLoaded] = useState(false);
-  const [fadeInLarge, setFadeInLarge] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const img = new window.Image();
-      img.src = "/about-large.jpg";
-      img.onload = () => {
-        setLargeImageLoaded(true);
-        // małe opóźnienie, żeby transition zadziałało
-        requestAnimationFrame(() => setFadeInLarge(true));
-      };
-    }
-  }, []);
-
   return (
     <section className="pt-about-section-padding-top-mobile flex flex-col gap-about-section-gap-mobile xl:gap-about-section-gap-laptop xl:pt-about-section-padding-top-laptop 2xl:gap-about-section-gap-desktop mb-about-section-margin-bottom xl:mb-[150px]">
       <div className="mx-margin-mobile lg:flex md:mx-tablet lg:mx-small-laptop lg:justify-between xl:justify-between 2xl:mx-desktop">
@@ -44,24 +27,15 @@ export default function About() {
       </div>
 
       <div className="relative max-w-about-image-max-width-mobile xl:w-about-image-width-laptop aspect-[3/1.7]">
-        {/* Małe zdjęcie placeholder */}
         <Image
-          src="/about-small.jpg"
+          src="/about-large.jpg"
           alt="pokój"
           fill
-          className="object-cover w-full h-full"
+          className="object-cover absolute top-0 left-0 w-full h-full"
+          unoptimized
+          placeholder="blur"
+          blurDataURL="/about-small.jpg"
         />
-
-        {/* Duże zdjęcie po załadowaniu */}
-        {largeImageLoaded && (
-          <Image
-            src="/about-large.jpg"
-            alt="pokój"
-            fill
-            className="object-cover absolute top-0 left-0 w-full h-full"
-            unoptimized
-          />
-        )}
       </div>
     </section>
   );

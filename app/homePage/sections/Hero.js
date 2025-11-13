@@ -1,83 +1,25 @@
-"use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-// Next.js automatycznie wygeneruje dane obrazu (src, szerokość, wysokość)
+
 import heroLight from "../../../public/projekt3-small.jpg";
 import heroHeavy from "../../../public/projekt3-large.jpg";
 import arrow from "../../../public/arrow.png";
 
 export default function Hero() {
-  const [heavyLoaded, setHeavyLoaded] = useState(false);
-  const [fadeHeavy, setFadeHeavy] = useState(false);
-
-  useEffect(() => {
-    let img;
-
-    // Funkcja rozpoczynająca ładowanie dużego obrazu
-    const startHeavyLoad = () => {
-      // 1. Tworzenie obiektu Image w pamięci (inicjuje ładowanie)
-      img = new window.Image();
-      img.src = heroHeavy.src; // To jest moment rozpoczęcia ładowania ciężkiego pliku
-      img.decoding = "async";
-
-      // 2. Kiedy duże zdjęcie się załaduje:
-      img.onload = () => {
-        setHeavyLoaded(true); // Duże zdjęcie jest gotowe do wstawienia do DOM
-        // Lekka pauza dla płynności fade-in
-        setTimeout(() => setFadeHeavy(true), 50);
-      };
-      // Opcjonalnie: Obsługa błędu ładowania
-      img.onerror = () => {
-        console.error("Błąd ładowania obrazu heroHeavy.");
-      };
-    };
-
-    // WARUNEK: Ładuj duże zdjęcie DOPIERO po pełnym załadowaniu strony
-    if (document.readyState === "complete") {
-      // Jeśli już załadowane (np. po hot reload), zacznij ładować od razu
-      startHeavyLoad();
-    } else {
-      // Czekaj na zdarzenie window.load (cała strona załadowana)
-      window.addEventListener("load", startHeavyLoad);
-    }
-
-    // Czyszczenie efektu: usuń listenera i ewentualnie obiekt Image
-    return () => {
-      window.removeEventListener("load", startHeavyLoad);
-    };
-  }, []);
-
   return (
     <section className="h-hero-height relative w-full overflow-hidden">
-      {/* Lekki obraz placeholder (ładuje się natychmiast, z priority) */}
-      <div className="absolute top-0 left-0 w-full h-full -z-30">
-        <Image
-          src={heroLight}
-          fill
-          alt="lekki obraz placeholder"
-          className="object-cover"
-          priority // Najwyższy priorytet
-        />
-      </div>
-
-      {/* Cień nad obrazami */}
       <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.55)] -z-20"></div>
 
-      {/* Duży obraz w tle (wstawiany do DOM dopiero po załadowaniu w pamięci) */}
-      {heavyLoaded && (
-        <img
-          src={heroHeavy.src} // Używamy .src z zaimportowanego obiektu
-          alt="pełna jakość"
-          // Atrybuty te nie są kluczowe, bo ładowanie jest kontrolowane przez JS
-          decoding="async"
-          loading="lazy"
-          className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-700 will-change-opacity -z-25 ${
-            fadeHeavy ? "opacity-100" : "opacity-0"
-          }`}
-        />
-      )}
+      <Image
+        src="/projekt3-large.jpg"
+        alt="pokój"
+        fill
+        className="object-cover absolute top-0 left-0 w-full h-full -z-25"
+        unoptimized
+        placeholder="blur"
+        blurDataURL="/projekt3-small.jpg"
+        priority
+      />
 
-      {/* Treść hero (niezmieniona) */}
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
         <div className="absolute bottom-hero-text-position-mobile w-full xl:bottom-hero-text-position-desktop">
           <h1 className="text-main-white text-hero-title-size-mobile leading-hero-title-line-height-mobile font-medium mb-hero-title-margin-bottom lg:text-hero-title-size-small-laptop lg:leading-hero-title-line-height-small-laptop xl:text-hero-title-size-laptop xl:font-normal-font-weight xl:leading-hero-title-line-height-laptop uppercase 2xl:leading-hero-title-line-height-desktop 2xl:text-hero-title-size-desktop max-w-hero-title-max-width-mobile lg:max-w-hero-title-max-width-small-laptop xl:max-w-hero-title-max-width-laptop 2xl:max-w-hero-title-max-width-desktop">
@@ -99,7 +41,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll down (niezmieniony) */}
       <span className="absolute bottom-hero-scrollDown-position-bottom-mobile left-hero-scrollDown-position-left-mobile mx-margin-mobile font-normal-font-weight text-hero-scrollDown-color text-hero-scrollDown-size-mobile md:mx-tablet md:bottom-hero-scrollDown-position-bottom-tablet md:left-hero-scrollDown-position-left-tablet md:right-hero-scrollDown-position-right-tablet md:text-hero-scrollDown-size-tablet opacity-hero-scrollDown-opacity 2xl:mx-desktop">
         (scroll down)
       </span>
