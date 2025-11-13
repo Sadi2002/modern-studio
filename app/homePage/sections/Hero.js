@@ -1,17 +1,20 @@
 import Image from "next/image";
 import arrow from "../../../public/arrow.png";
+import heroImg from "../../../public/projekt3-large.webp";
 
 export default function Hero() {
   return (
     <section className="h-hero-height relative w-full overflow-hidden bg-no-repeat bg-center bg-cover">
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/projekt3-small.webp"
-          alt="Background"
-          layout="fill"
+          src={heroImg}
+          alt="osidle"
           objectFit="cover"
           priority
+          fill
+          placeholder="blur"
         />
+
         <div className="absolute inset-0 bg-[rgba(0,0,0,0.55)]"></div>
       </div>
 
