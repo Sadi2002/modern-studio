@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import ArrowWhite from "../../../public/arrow-right-white.png";
-import Link from "next/link";
 
 export default function Projects() {
   return (

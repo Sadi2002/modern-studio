@@ -1,7 +1,4 @@
 import Image from "next/image";
-
-import heroLight from "../../../public/projekt3-small.jpg";
-import heroHeavy from "../../../public/projekt3-large.jpg";
 import arrow from "../../../public/arrow.png";
 
 export default function Hero() {
@@ -16,7 +13,6 @@ export default function Hero() {
         className="object-cover absolute top-0 left-0 w-full h-full -z-25"
         placeholder="blur"
         blurDataURL="/projekt3-small.jpg"
-        priority
       />
 
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
