@@ -1,31 +1,43 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import arrow from "../../../public/arrow.png";
-import { useEffect, useState } from "react";
 
 export default function Hero() {
   const [largeImageLoaded, setLargeImageLoaded] = useState(false);
 
   useEffect(() => {
-    // Preload duże zdjęcie w tle
-    const img = new window.Image();
-    img.src = "/projekt3-large.jpg";
-    img.onload = () => setLargeImageLoaded(true);
+    // Funkcja, która ładuje duże zdjęcie dopiero po pełnym załadowaniu strony
+    const loadLargeImage = () => {
+      const img = new window.Image();
+      img.src = "/projekt3-large.jpg"; // pełna wersja 4K
+      img.onload = () => setLargeImageLoaded(true);
+    };
+
+    // Jeśli strona już załadowana
+    if (document.readyState === "complete") {
+      loadLargeImage();
+    } else {
+      // Poczekaj na event load
+      window.addEventListener("load", loadLargeImage);
+      return () => window.removeEventListener("load", loadLargeImage);
+    }
   }, []);
 
   return (
     <section
-      className="h-hero-height relative w-full overflow-hidden bg-no-repeat bg-center bg-cover"
+      className="h-hero-height relative w-full overflow-hidden bg-no-repeat bg-center bg-cover transition-all duration-700"
       style={{
-        backgroundImage: `url(/projekt3-small.webp)`,
-        ...(largeImageLoaded && {
-          backgroundImage: `url(/projekt3-large.jpg)`,
-        }),
+        backgroundImage: largeImageLoaded
+          ? "url('/projekt3-large.jpg')"
+          : "url('/projekt3-small.webp')",
       }}
     >
+      {/* Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.55)] z-10"></div>
 
+      {/* Treść */}
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
         <div className="absolute bottom-hero-text-position-mobile w-full xl:bottom-hero-text-position-desktop z-20">
           <h1 className="text-main-white text-hero-title-size-mobile leading-hero-title-line-height-mobile font-medium mb-hero-title-margin-bottom lg:text-hero-title-size-small-laptop lg:leading-hero-title-line-height-small-laptop xl:text-hero-title-size-laptop xl:font-normal-font-weight xl:leading-hero-title-line-height-laptop uppercase 2xl:leading-hero-title-line-height-desktop 2xl:text-hero-title-size-desktop max-w-hero-title-max-width-mobile lg:max-w-hero-title-max-width-small-laptop xl:max-w-hero-title-max-width-laptop 2xl:max-w-hero-title-max-width-desktop">
@@ -47,6 +59,7 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* Scroll down */}
       <span className="absolute z-10 bottom-hero-scrollDown-position-bottom-mobile left-hero-scrollDown-position-left-mobile mx-margin-mobile font-normal-font-weight text-hero-scrollDown-color text-hero-scrollDown-size-mobile md:mx-tablet md:bottom-hero-scrollDown-position-bottom-tablet md:left-hero-scrollDown-position-left-tablet md:right-hero-scrollDown-position-right-tablet md:text-hero-scrollDown-size-tablet opacity-hero-scrollDown-opacity 2xl:mx-desktop">
         (scroll down)
       </span>

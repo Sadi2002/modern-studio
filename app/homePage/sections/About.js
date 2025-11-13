@@ -1,7 +1,25 @@
-import Image from "next/image";
-import aboutLarge from "../../../public/about-large.jpg";
+"use client";
+
+import { useEffect, useState } from "react";
 
 export default function About() {
+  const [largeImageLoaded, setLargeImageLoaded] = useState(false);
+
+  useEffect(() => {
+    const loadLargeImage = () => {
+      const img = new window.Image();
+      img.src = "/about-large.jpg"; // pełna wersja 4K
+      img.onload = () => setLargeImageLoaded(true);
+    };
+
+    if (document.readyState === "complete") {
+      loadLargeImage();
+    } else {
+      window.addEventListener("load", loadLargeImage);
+      return () => window.removeEventListener("load", loadLargeImage);
+    }
+  }, []);
+
   return (
     <section className="pt-about-section-padding-top-mobile flex flex-col gap-about-section-gap-mobile xl:gap-about-section-gap-laptop xl:pt-about-section-padding-top-laptop 2xl:gap-about-section-gap-desktop mb-about-section-margin-bottom xl:mb-[150px]">
       <div className="mx-margin-mobile lg:flex md:mx-tablet lg:mx-small-laptop lg:justify-between xl:justify-between 2xl:mx-desktop">
@@ -28,13 +46,10 @@ export default function About() {
       </div>
 
       <div className="relative max-w-about-image-max-width-mobile xl:w-about-image-width-laptop aspect-[3/1.7]">
-        <Image
-          src={aboutLarge}
+        <img
+          src={largeImageLoaded ? "/about-large.jpg" : "/about-small.webp"}
           alt="pokój"
-          className="object-cover absolute top-0 left-0 w-full h-full"
-          placeholder="blur"
-          blurDataURL="/about-small.webp"
-          loading="lazy"
+          className="object-cover absolute top-0 left-0 w-full h-full transition-opacity duration-700"
         />
       </div>
     </section>
