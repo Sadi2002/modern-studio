@@ -6,13 +6,10 @@ export default function Hero() {
     <section className="h-hero-height relative w-full overflow-hidden bg-no-repeat bg-center bg-cover">
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/projekt3-large.webp"
+          src="/projekt3-small.webp"
           alt="Background"
           layout="fill"
           objectFit="cover"
-          quality={75}
-          placeholder="blur"
-          blurDataURL="/projekt3-small.webp"
           priority
         />
         <div className="absolute inset-0 bg-[rgba(0,0,0,0.55)]"></div>
