@@ -32,7 +32,6 @@ export default function About() {
           alt="pokój"
           fill
           className="object-cover absolute top-0 left-0 w-full h-full"
-          placeholder="blur"
         />
       </div>
     </section>

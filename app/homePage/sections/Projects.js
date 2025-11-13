@@ -17,7 +17,6 @@ export default function Projects() {
                 alt="pokój"
                 fill
                 className="object-cover absolute top-0 left-0 w-full h-full"
-                placeholder="blur"
               />
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
@@ -33,7 +32,6 @@ export default function Projects() {
                 alt="pokój"
                 fill
                 className="object-cover absolute top-0 left-0 w-full h-full"
-                placeholder="blur"
               />
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)]">
@@ -51,7 +49,6 @@ export default function Projects() {
                 alt="pokój"
                 fill
                 className="object-cover absolute top-0 left-0 w-full h-full"
-                placeholder="blur"
               />
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)]">
@@ -67,7 +64,6 @@ export default function Projects() {
                 alt="pokój"
                 fill
                 className="object-cover absolute top-0 left-0 w-full h-full"
-                placeholder="blur"
               />
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)]">

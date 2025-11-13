@@ -1,22 +1,19 @@
 import Image from "next/image";
 import arrow from "../../../public/arrow.png";
 
+import mainImgLarge from "../../../public/projekt3-large.jpg";
 import mainImgSmall from "../../../public/projekt3-small.webp";
 
 export default function Hero() {
   return (
-    <section className="h-hero-height relative w-full overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.55)] -z-20"></div>
-
-      <Image
-        src={mainImgSmall}
-        alt="pokój"
-        className="object-cover absolute top-0 left-0 w-full h-full -z-25"
-        priority
-      />
+    <section
+      className="h-hero-height relative w-full overflow-hidden bg-no-repeat bg-center bg-cover"
+      style={{ backgroundImage: `url(/projekt3-small.webp)` }}
+    >
+      <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.55)] z-10"></div>
 
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
-        <div className="absolute bottom-hero-text-position-mobile w-full xl:bottom-hero-text-position-desktop">
+        <div className="absolute bottom-hero-text-position-mobile w-full xl:bottom-hero-text-position-desktop z-20">
           <h1 className="text-main-white text-hero-title-size-mobile leading-hero-title-line-height-mobile font-medium mb-hero-title-margin-bottom lg:text-hero-title-size-small-laptop lg:leading-hero-title-line-height-small-laptop xl:text-hero-title-size-laptop xl:font-normal-font-weight xl:leading-hero-title-line-height-laptop uppercase 2xl:leading-hero-title-line-height-desktop 2xl:text-hero-title-size-desktop max-w-hero-title-max-width-mobile lg:max-w-hero-title-max-width-small-laptop xl:max-w-hero-title-max-width-laptop 2xl:max-w-hero-title-max-width-desktop">
             OSIEDLE ZACISZE W Warszawie
           </h1>
