@@ -1,44 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import arrow from "../../../public/arrow.png";
 import heroImg from "../../../public/projekt3-large.webp";
 
 export default function Hero() {
-  const [largeLoaded, setLargeLoaded] = useState(false);
-
-  useEffect(() => {
-    const img = new window.Image();
-    img.src = heroImg.src;
-    img.onload = () => setLargeLoaded(true);
-  }, []);
-
   return (
     <section className="h-hero-height relative w-full overflow-hidden bg-no-repeat bg-center bg-cover">
       <div className="absolute inset-0 -z-10">
-        {/* Mały obraz / blur, teraz z priority */}
         <Image
-          src="/projekt3-small.webp"
+          src={heroImg}
           alt="osidle"
           fill
           priority
-          className={`object-cover transition-opacity duration-500 ${
-            largeLoaded ? "opacity-0" : "opacity-100"
-          }`}
+          placeholder="blur"
+          blurDataURL="/about-small.webp"
+          className="object-cover"
         />
 
-        {/* Duży obraz w tle po załadowaniu */}
-        {largeLoaded && (
-          <Image
-            src={heroImg}
-            alt="osidle"
-            fill
-            className="object-cover absolute inset-0 transition-opacity duration-1000 opacity-100"
-          />
-        )}
-
-        {/* Nakładka */}
         <div className="absolute inset-0 bg-[rgba(0,0,0,0.55)]"></div>
       </div>
 
