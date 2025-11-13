@@ -20,7 +20,7 @@ export default function Hero() {
       <Image
         src={mainImage}
         alt="pokój"
-        className="object-cover absolute top-0 left-0 w-full h-full -z-25"
+        className="object-cover absolute top-0 left-0 w-full h-full -z-24"
         placeholder="blur"
         blurDataURL="/projekt3-small.webp"
       />
