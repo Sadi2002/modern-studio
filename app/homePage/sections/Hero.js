@@ -1,13 +1,33 @@
+"use client";
+
 import Image from "next/image";
 import arrow from "../../../public/arrow.png";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    if (document.readyState === "complete") {
+      setIsLoaded(true);
+    }
+  }, []);
+
   return (
     <section
       className="h-hero-height relative w-full overflow-hidden bg-no-repeat bg-center bg-cover"
       style={{ backgroundImage: `url(/projekt3-small.webp)` }}
     >
       <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.55)] z-10"></div>
+
+      {isLoaded && (
+        <Image
+          src="/projekt3-large.jpg"
+          alt="pokój"
+          fill
+          className="object-cover absolute top-0 left-0 w-full h-full"
+        />
+      )}
 
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
         <div className="absolute bottom-hero-text-position-mobile w-full xl:bottom-hero-text-position-desktop z-20">
