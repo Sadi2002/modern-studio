@@ -1,19 +1,29 @@
+"use client";
+
 import Image from "next/image";
 import arrow from "../../../public/arrow.png";
-import mainImgLarge from "../../../public/projekt3-large.webp";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [largeImageLoaded, setLargeImageLoaded] = useState(false);
+
+  useEffect(() => {
+    // Preload duże zdjęcie w tle
+    const img = new window.Image();
+    img.src = "/projekt3-large.jpg";
+    img.onload = () => setLargeImageLoaded(true);
+  }, []);
+
   return (
-    <section className="h-hero-height relative w-full overflow-hidden bg-no-repeat bg-center bg-cover">
-      <div className="absolute inset-0 z-0">
-        <Image
-          src={mainImgLarge}
-          alt="projekt"
-          sizes="100vw"
-          priority
-          className="w-full h-full object-cover"
-        />
-      </div>
+    <section
+      className="h-hero-height relative w-full overflow-hidden bg-no-repeat bg-center bg-cover"
+      style={{
+        backgroundImage: `url(/projekt3-small.webp)`,
+        ...(largeImageLoaded && {
+          backgroundImage: `url(/projekt3-large.jpg)`,
+        }),
+      }}
+    >
       <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.55)] z-10"></div>
 
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
@@ -37,7 +47,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <span className="absolute z-10 bottom-hero-scrollDown-position-bottom-mobile left-hero-scrollDown-position-left-mobile mx-margin-mobile font-normal-font-weight text-hero-scrollDown-color text-hero-scrollDown-size-mobile md:mx-tablet md:bottom-hero-scrollDown-position-bottom-tablet md:left-hero-scrollDown-position-left-tablet md:right-hero-scrollDown-position-right-tablet md:text-hero-scrollDown-size-tablet opacity-hero-scrollDown-opacity 2xl:mx-desktop">
+      <span className="absolute bottom-hero-scrollDown-position-bottom-mobile left-hero-scrollDown-position-left-mobile mx-margin-mobile font-normal-font-weight text-hero-scrollDown-color text-hero-scrollDown-size-mobile md:mx-tablet md:bottom-hero-scrollDown-position-bottom-tablet md:left-hero-scrollDown-position-left-tablet md:right-hero-scrollDown-position-right-tablet md:text-hero-scrollDown-size-tablet opacity-hero-scrollDown-opacity 2xl:mx-desktop">
         (scroll down)
       </span>
     </section>
