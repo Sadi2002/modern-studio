@@ -7,21 +7,12 @@ export default function Hero() {
       <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.55)] -z-20"></div>
 
       <Image
-        src="/projekt3-small.webp"
-        alt="pokój"
-        fill
-        className="object-cover absolute top-0 left-0 w-full h-full -z-25"
-        quality={50}
-        priority
-      />
-
-      <Image
         src="/projekt3-large.jpg"
         alt="pokój"
         fill
-        className="object-cover absolute top-0 left-0 w-full h-full -z-24"
-        placeholder="empty"
-        unoptimized
+        className="object-cover absolute top-0 left-0 w-full h-full -z-25"
+        placeholder="blur"
+        blurDataURL="/projekt3-small.webp"
       />
 
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
