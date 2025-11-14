@@ -1,23 +1,21 @@
-"use client";
-
 import Image from "next/image";
 import arrow from "../../../public/arrow.png";
+import heroImgLarge from "../../../public/projekt3-large.webp";
 import heroImg from "../../../public/projekt3-small.webp";
 
 export default function Hero() {
   return (
-    <section className="h-hero-height relative w-full overflow-hidden bg-no-repeat bg-center bg-cover">
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src={heroImg}
-          alt="osidle"
-          fill
-          priority
-          className="object-cover"
-        />
-
-        <div className="absolute inset-0 bg-[rgba(0,0,0,0.55)]"></div>
-      </div>
+    <section className="h-hero-height relative w-full overflow-hidden bg-center bg-cover bg-[url('/projekt3-small.webp')]">
+      <Image
+        src={heroImgLarge}
+        alt="Hero"
+        fill
+        className="object-cover"
+        placeholder="blur"
+        blurDataURL="/projekt3-small.webp" // może być URL do tiny image
+        priority
+      />
+      <div className="absolute inset-0 bg-[rgba(0,0,0,0.55)]"></div>
 
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
         <div className="absolute bottom-hero-text-position-mobile w-full xl:bottom-hero-text-position-desktop z-20">

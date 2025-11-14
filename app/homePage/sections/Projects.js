@@ -17,11 +17,17 @@ export default function Projects() {
         <div className="flex flex-col lg:w-[calc(50%-10px)]">
           <div className="max-w-[80%] mb-[50px] lg:mb-[30px] lg:max-w-[100%]">
             <div className="relative aspect-8/7">
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: "url(/projekt2-small.webp)" }}
+              ></div>
               <Image
                 src={project2}
                 alt="pokój"
                 className="object-cover absolute top-0 left-0 w-full h-full"
                 placeholder="blur"
+                fill
+                blurDataURL="/projekt2-small.webp"
               />
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
@@ -32,11 +38,17 @@ export default function Projects() {
 
           <div className="w-[86%] flex flex-col items-end self-end mb-[50px] lg:mb-[0px] lg:w-[100%] lg:h-full">
             <div className="flex flex-col justify-end w-full-width relative aspect-5/3 lg:h-full">
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: "url(/projekt4-small.webp)" }}
+              ></div>
               <Image
                 src={project4}
                 alt="pokój"
                 className="object-cover absolute top-0 left-0 w-full h-full"
                 placeholder="blur"
+                fill
+                blurDataURL="/projekt4-small.webp"
               />
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)]">
@@ -49,11 +61,17 @@ export default function Projects() {
         <div className="lg:flex lg:flex-col lg:w-[calc(50%-10px)]">
           <div className="w-full-width mb-[50px] lg:mb-[30px]">
             <div className="relative aspect-8/5">
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: "url(/projekt3-small.webp)" }}
+              ></div>
               <Image
                 src={project3}
                 alt="pokój"
                 className="object-cover absolute top-0 left-0 w-full h-full"
                 placeholder="blur"
+                fill
+                blurDataURL="/projekt3-small.webp"
               />
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)]">
@@ -64,11 +82,17 @@ export default function Projects() {
 
           <div className="max-w-[78%] mb-[30px] lg:w-[100%] lg:max-w-[100%] lg:mb-[60px]">
             <div className="relative aspect-7/8 lg:aspect-8/7">
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: "url(/projekt1-small.webp)" }}
+              ></div>
               <Image
                 src={project1}
                 alt="pokój"
                 className="object-cover absolute top-0 left-0 w-full h-full"
                 placeholder="blur"
+                fill
+                blurDataURL="/projekt1-small.webp"
               />
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)]">
