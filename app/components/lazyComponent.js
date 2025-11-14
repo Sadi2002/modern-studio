@@ -15,7 +15,7 @@ export default function LazyComponent({ children, height }) {
           }
         });
       },
-      { rootMargin: `${height} 0px -0px 0px` }
+      { rootMargin: `${height} 0px` }
     );
 
     if (mySection.current) {
@@ -23,5 +23,5 @@ export default function LazyComponent({ children, height }) {
     }
   }, [mySection, height]);
 
-  return <div ref={mySection}>{isVisible ? children : ""}</div>;
+  return <div ref={mySection}>{isVisible ? children : null}</div>;
 }

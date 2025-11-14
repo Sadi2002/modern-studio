@@ -1,12 +1,10 @@
 import Image from "next/image";
-
 import ArrowWhite from "../../../public/arrow-right-white.png";
-
-import project1 from "../../../public/projekt1-large.webp";
-import project2 from "../../../public/projekt2-large.webp";
-import project3 from "../../../public/projekt3-large.webp";
-import project4 from "../../../public/projekt4-large.webp";
 import LazyComponent from "../../components/lazyComponent";
+
+import DataProjects from "../../dataProjects";
+
+const projects = DataProjects();
 
 export default function Projects() {
   return (
@@ -18,19 +16,17 @@ export default function Projects() {
         <div className="flex flex-col lg:w-[calc(50%-10px)]">
           <div className="max-w-[80%] mb-[50px] lg:mb-[30px] lg:max-w-[100%]">
             <div className="relative aspect-8/7">
-              <LazyComponent height="500px">
+              <LazyComponent height="1000px">
                 <div
                   className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: "url(/projekt2-small.webp)" }}
+                  style={{ backgroundImage: `url(${projects[0].bgImage})` }}
                 ></div>
 
                 <Image
-                  src={project2}
-                  alt="pokój"
+                  src={projects[0].imgSrc}
+                  alt={projects[0].alt}
                   className="object-cover absolute top-0 left-0 w-full h-full"
-                  placeholder="blur"
                   fill
-                  blurDataURL="/projekt2-small.webp"
                   unoptimized
                 />
               </LazyComponent>
@@ -46,16 +42,14 @@ export default function Projects() {
               <LazyComponent height="1000px">
                 <div
                   className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: "url(/projekt4-small.webp)" }}
+                  style={{ backgroundImage: `url(${projects[1].bgImage})` }}
                 ></div>
 
                 <Image
-                  src={project4}
-                  alt="pokój"
+                  src={projects[1].imgSrc}
+                  alt={projects[1].alt}
                   className="object-cover absolute top-0 left-0 w-full h-full"
-                  placeholder="blur"
                   fill
-                  blurDataURL="/projekt4-small.webp"
                   unoptimized
                 />
               </LazyComponent>
@@ -73,16 +67,14 @@ export default function Projects() {
               <LazyComponent height="1000px">
                 <div
                   className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: "url(/projekt3-small.webp)" }}
+                  style={{ backgroundImage: `url(${projects[2].bgImage})` }}
                 ></div>
 
                 <Image
-                  src={project3}
-                  alt="pokój"
+                  src={projects[2].imgSrc}
+                  alt={projects[2].alt}
                   className="object-cover absolute top-0 left-0 w-full h-full"
-                  placeholder="blur"
                   fill
-                  blurDataURL="/projekt3-small.webp"
                   unoptimized
                 />
               </LazyComponent>
@@ -98,16 +90,14 @@ export default function Projects() {
               <LazyComponent height="1000px">
                 <div
                   className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: "url(/projekt1-small.webp)" }}
+                  style={{ backgroundImage: `url(${projects[3].bgImage})` }}
                 ></div>
 
                 <Image
-                  src={project1}
-                  alt="pokój"
+                  src={projects[3].imgSrc}
+                  alt={projects[3].alt}
                   className="object-cover absolute top-0 left-0 w-full h-full"
-                  placeholder="blur"
                   fill
-                  blurDataURL="/projekt1-small.webp"
                   unoptimized
                 />
               </LazyComponent>
