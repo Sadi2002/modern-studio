@@ -11,29 +11,22 @@ export default function Hero() {
 
   useEffect(() => {
     // Odroczone ładowanie 4K – np. 1s po renderze
-    const timer = setTimeout(() => setShowLarge(true), 1000);
+    const timer = setTimeout(() => setShowLarge(true), 10);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <section className="h-hero-height relative w-full overflow-hidden bg-center bg-cover bg-[url('/projekt3-small.webp')]">
       {/* Średnia wersja WebP – Next.js optymalizuje */}
-      <Image
-        src={heroImgMedium}
-        alt="Hero"
-        fill
-        className="object-cover transition-opacity duration-500"
-        placeholder="blur"
-        blurDataURL="/projekt3-small.webp"
-        priority
-      />
 
       {/* Finalna wersja 4K – czysty <img>, aby Next.js nie optymalizował */}
       {showLarge && (
-        <img
-          src="/projekt3-large.webp"
-          alt="Hero 4K"
-          className="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-700"
+        <Image
+          src={heroImgLarge}
+          unoptimized
+          className="object-cover"
+          fill
+          alt="test"
         />
       )}
 
