@@ -1,22 +1,46 @@
+"use client";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import arrow from "../../../public/arrow.png";
+import heroImgSmall from "../../../public/projekt3-small.webp"; // 20 KB
+import heroImgMedium from "../../../public/projekt3-large.webp"; // ~400 KB WebP
 import heroImgLarge from "../../../public/projekt3-large.webp";
-import heroImg from "../../../public/projekt3-small.webp";
 
 export default function Hero() {
+  const [showLarge, setShowLarge] = useState(false);
+
+  useEffect(() => {
+    // Odroczone ładowanie 4K – np. 1s po renderze
+    const timer = setTimeout(() => setShowLarge(true), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="h-hero-height relative w-full overflow-hidden bg-center bg-cover bg-[url('/projekt3-small.webp')]">
+      {/* Średnia wersja WebP – Next.js optymalizuje */}
       <Image
-        src={heroImgLarge}
+        src={heroImgMedium}
         alt="Hero"
         fill
-        className="object-cover"
+        className="object-cover transition-opacity duration-500"
         placeholder="blur"
         blurDataURL="/projekt3-small.webp"
         priority
       />
+
+      {/* Finalna wersja 4K – czysty <img>, aby Next.js nie optymalizował */}
+      {showLarge && (
+        <img
+          src="/projekt3-large.webp"
+          alt="Hero 4K"
+          className="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-700"
+        />
+      )}
+
+      {/* Overlay */}
       <div className="absolute inset-0 bg-[rgba(0,0,0,0.55)]"></div>
 
+      {/* Treść Hero */}
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
         <div className="absolute bottom-hero-text-position-mobile w-full xl:bottom-hero-text-position-desktop z-20">
           <h1 className="text-main-white text-hero-title-size-mobile leading-hero-title-line-height-mobile font-medium mb-hero-title-margin-bottom lg:text-hero-title-size-small-laptop lg:leading-hero-title-line-height-small-laptop xl:text-hero-title-size-laptop xl:font-normal-font-weight xl:leading-hero-title-line-height-laptop uppercase 2xl:leading-hero-title-line-height-desktop 2xl:text-hero-title-size-desktop max-w-hero-title-max-width-mobile lg:max-w-hero-title-max-width-small-laptop xl:max-w-hero-title-max-width-laptop 2xl:max-w-hero-title-max-width-desktop">
