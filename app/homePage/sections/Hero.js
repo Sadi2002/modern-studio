@@ -1,17 +1,17 @@
-"use client";
+// "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import arrow from "../../../public/arrow.png";
-import heroImgLarge from "../../../public/projekt3-large.webp";
+// import heroImgLarge from "../../../public/projekt3-large.webp";
 
 export default function Hero() {
-  const [showLarge, setShowLarge] = useState(false);
+  // const [showLarge, setShowLarge] = useState(false);
 
-  useEffect(() => {
-    // Odroczone ładowanie 4K – np. 1s po renderze
-    const timer = setTimeout(() => setShowLarge(true), 10);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   // Odroczone ładowanie 4K – np. 1s po renderze
+  //   const timer = setTimeout(() => setShowLarge(true), 10);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   return (
     <section className="h-hero-height relative w-full overflow-hidden bg-center bg-cover bg-[url('/projekt3-small.webp')] mb-[20px]">
