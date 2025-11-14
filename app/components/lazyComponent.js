@@ -21,7 +21,7 @@ export default function LazyComponent({ children, height }) {
     if (mySection.current) {
       observer.observe(mySection.current);
     }
-  }, [mySection]);
+  }, [mySection, height]);
 
   return <div ref={mySection}>{isVisible ? children : ""}</div>;
 }
