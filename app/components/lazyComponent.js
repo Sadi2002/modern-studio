@@ -11,17 +11,18 @@ export default function LazyComponent({ children, height }) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible(entry.isIntersecting);
+            setIsVisible(true);
+            observer.unobserve(entry.target);
           }
         });
       },
-      { rootMargin: `${height}px 0px 0px 0px` }
+      { rootMargin: `${height}px 0px ${height}px 0px` }
     );
 
     if (mySection.current) {
       observer.observe(mySection.current);
     }
-  }, [height]);
+  }, [mySection, height]);
 
   return <div ref={mySection}>{isVisible ? children : null}</div>;
 }
