@@ -18,11 +18,12 @@ export default function Projects() {
         <div className="flex flex-col lg:w-[calc(50%-10px)]">
           <div className="max-w-[80%] mb-[50px] lg:mb-[30px] lg:max-w-[100%]">
             <div className="relative aspect-8/7">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: "url(/projekt2-small.webp)" }}
-              ></div>
               <LazyComponent height="500px">
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: "url(/projekt2-small.webp)" }}
+                ></div>
+
                 <Image
                   src={project2}
                   alt="pokój"
@@ -42,11 +43,12 @@ export default function Projects() {
 
           <div className="w-[86%] flex flex-col items-end self-end mb-[50px] lg:mb-[0px] lg:w-[100%] lg:h-full">
             <div className="flex flex-col justify-end w-full-width relative aspect-5/3 lg:h-full">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: "url(/projekt4-small.webp)" }}
-              ></div>
               <LazyComponent height="500px">
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: "url(/projekt4-small.webp)" }}
+                ></div>
+
                 <Image
                   src={project4}
                   alt="pokój"
@@ -68,11 +70,12 @@ export default function Projects() {
         <div className="lg:flex lg:flex-col lg:w-[calc(50%-10px)]">
           <div className="w-full-width mb-[50px] lg:mb-[30px]">
             <div className="relative aspect-8/5">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: "url(/projekt3-small.webp)" }}
-              ></div>
               <LazyComponent height="500px">
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: "url(/projekt3-small.webp)" }}
+                ></div>
+
                 <Image
                   src={project3}
                   alt="pokój"
@@ -92,11 +95,12 @@ export default function Projects() {
 
           <div className="max-w-[78%] mb-[30px] lg:w-[100%] lg:max-w-[100%] lg:mb-[60px]">
             <div className="relative aspect-7/8 lg:aspect-8/7">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: "url(/projekt1-small.webp)" }}
-              ></div>
               <LazyComponent height="500px">
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: "url(/projekt1-small.webp)" }}
+                ></div>
+
                 <Image
                   src={project1}
                   alt="pokój"
@@ -122,11 +126,13 @@ export default function Projects() {
             </p>
             <button className="bg-main-black rounded-buttonWithArrow-rounded px-buttonWithArrow-padding-x py-buttonWithArrow-padding-y text-main-white ml-buttonWithArrow-margin-left-mobile mr-buttonWithArrow-margin-right-mobile font-medium flex items-center md:ml-buttonWithArrow-margin-left-tablet text-hero-text-size-mobile">
               Zobacz wszystkie
-              <Image
-                src={ArrowWhite}
-                alt="strzałka"
-                className="w-buttonWithArrow-icon-width h-buttonWithArrow-icon-height top-[0.5px] relative"
-              />
+              <LazyComponent height="500px">
+                <Image
+                  src={ArrowWhite}
+                  alt="strzałka"
+                  className="w-buttonWithArrow-icon-width h-buttonWithArrow-icon-height top-[0.5px] relative"
+                />
+              </LazyComponent>
             </button>
           </div>
         </div>

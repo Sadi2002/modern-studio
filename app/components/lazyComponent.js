@@ -15,7 +15,7 @@ export default function LazyComponent({ children, height }) {
           }
         });
       },
-      { rootMargin: `${height} 0px` }
+      { rootMargin: `${height} 0px -0px 0px` }
     );
 
     if (mySection.current) {

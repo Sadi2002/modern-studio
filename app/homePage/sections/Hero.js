@@ -18,7 +18,7 @@ export default function Hero() {
       {/* Średnia wersja WebP – Next.js optymalizuje */}
 
       {/* Finalna wersja 4K – czysty <img>, aby Next.js nie optymalizował */}
-      {showLarge && (
+      {/* {showLarge && (
         <Image
           src={heroImgLarge}
           unoptimized
@@ -26,7 +26,7 @@ export default function Hero() {
           fill
           alt="test"
         />
-      )}
+      )} */}
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-[rgba(0,0,0,0.55)]"></div>
