@@ -1,5 +1,6 @@
 import Image from "next/image";
 import aboutLarge from "../../../public/about-large.webp";
+import LazyComponent from "@/app/components/lazyComponent";
 
 export default function About() {
   return (
@@ -27,16 +28,17 @@ export default function About() {
         </div>
       </div>
 
-      {/* Obraz z placeholderem i lazy loadingiem */}
       <div className="relative max-w-about-image-max-width-mobile xl:w-about-image-width-laptop aspect-[3/1.7] bg-[url('/about-small.webp')] bg-center bg-cover">
-        <Image
-          src={aboutLarge}
-          alt="pokój"
-          fill
-          className="object-cover"
-          placeholder="blur"
-          blurDataURL="/about-small.webp"
-        />
+        <LazyComponent height="300px">
+          <Image
+            src={aboutLarge}
+            alt="pokój"
+            fill
+            className="object-cover"
+            placeholder="blur"
+            blurDataURL="/about-small.webp"
+          />
+        </LazyComponent>
       </div>
     </section>
   );

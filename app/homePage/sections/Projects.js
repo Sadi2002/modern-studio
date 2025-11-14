@@ -6,6 +6,7 @@ import project1 from "../../../public/projekt1-large.webp";
 import project2 from "../../../public/projekt2-large.webp";
 import project3 from "../../../public/projekt3-large.webp";
 import project4 from "../../../public/projekt4-large.webp";
+import LazyComponent from "../../components/lazyComponent";
 
 export default function Projects() {
   return (
@@ -21,14 +22,17 @@ export default function Projects() {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: "url(/projekt2-small.webp)" }}
               ></div>
-              <Image
-                src={project2}
-                alt="pokój"
-                className="object-cover absolute top-0 left-0 w-full h-full"
-                placeholder="blur"
-                fill
-                blurDataURL="/projekt2-small.webp"
-              />
+              <LazyComponent height="500px">
+                <Image
+                  src={project2}
+                  alt="pokój"
+                  className="object-cover absolute top-0 left-0 w-full h-full"
+                  placeholder="blur"
+                  fill
+                  blurDataURL="/projekt2-small.webp"
+                  unoptimized
+                />
+              </LazyComponent>
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
               <span>Our project</span>
@@ -42,14 +46,17 @@ export default function Projects() {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: "url(/projekt4-small.webp)" }}
               ></div>
-              <Image
-                src={project4}
-                alt="pokój"
-                className="object-cover absolute top-0 left-0 w-full h-full"
-                placeholder="blur"
-                fill
-                blurDataURL="/projekt4-small.webp"
-              />
+              <LazyComponent height="500px">
+                <Image
+                  src={project4}
+                  alt="pokój"
+                  className="object-cover absolute top-0 left-0 w-full h-full"
+                  placeholder="blur"
+                  fill
+                  blurDataURL="/projekt4-small.webp"
+                  unoptimized
+                />
+              </LazyComponent>
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)]">
               <span>Our project</span>
@@ -65,14 +72,17 @@ export default function Projects() {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: "url(/projekt3-small.webp)" }}
               ></div>
-              <Image
-                src={project3}
-                alt="pokój"
-                className="object-cover absolute top-0 left-0 w-full h-full"
-                placeholder="blur"
-                fill
-                blurDataURL="/projekt3-small.webp"
-              />
+              <LazyComponent height="500px">
+                <Image
+                  src={project3}
+                  alt="pokój"
+                  className="object-cover absolute top-0 left-0 w-full h-full"
+                  placeholder="blur"
+                  fill
+                  blurDataURL="/projekt3-small.webp"
+                  unoptimized
+                />
+              </LazyComponent>
             </div>
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)]">
               <span>Our project</span>
@@ -86,15 +96,19 @@ export default function Projects() {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: "url(/projekt1-small.webp)" }}
               ></div>
-              <Image
-                src={project1}
-                alt="pokój"
-                className="object-cover absolute top-0 left-0 w-full h-full"
-                placeholder="blur"
-                fill
-                blurDataURL="/projekt1-small.webp"
-              />
+              <LazyComponent height="500px">
+                <Image
+                  src={project1}
+                  alt="pokój"
+                  className="object-cover absolute top-0 left-0 w-full h-full"
+                  placeholder="blur"
+                  fill
+                  blurDataURL="/projekt1-small.webp"
+                  unoptimized
+                />
+              </LazyComponent>
             </div>
+
             <div className="flex justify-between mt-[5px] w-full-width text-[clamp(12px,3.35vw,1rem)]">
               <span>Our project</span>
               <span>View project</span>
