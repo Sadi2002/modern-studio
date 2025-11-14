@@ -15,13 +15,13 @@ export default function LazyComponent({ children, height }) {
           }
         });
       },
-      { rootMargin: `${height} 0px` }
+      { rootMargin: `${height}px 0px 0px 0px` }
     );
 
     if (mySection.current) {
       observer.observe(mySection.current);
     }
-  }, [mySection, height]);
+  }, [height]);
 
   return <div ref={mySection}>{isVisible ? children : null}</div>;
 }

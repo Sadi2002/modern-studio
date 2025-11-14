@@ -20,7 +20,7 @@ export default function Projects() {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(${projects[0].bgImage})` }}
               ></div>
-              <LazyComponent height="500px">
+              <LazyComponent height={500}>
                 <Image
                   src={projects[0].imgSrc}
                   alt={projects[0].alt}
@@ -42,7 +42,7 @@ export default function Projects() {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(${projects[1].bgImage})` }}
               ></div>
-              <LazyComponent height="500px">
+              <LazyComponent height={500}>
                 <Image
                   src={projects[1].imgSrc}
                   alt={projects[1].alt}
@@ -66,7 +66,7 @@ export default function Projects() {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(${projects[2].bgImage})` }}
               ></div>
-              <LazyComponent height="500px">
+              <LazyComponent height={500}>
                 <Image
                   src={projects[2].imgSrc}
                   alt={projects[2].alt}
@@ -88,7 +88,7 @@ export default function Projects() {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(${projects[3].bgImage})` }}
               ></div>
-              <LazyComponent height="500px">
+              <LazyComponent height={500}>
                 <Image
                   src={projects[3].imgSrc}
                   alt={projects[3].alt}
