@@ -28,8 +28,8 @@ export default function About() {
         </div>
       </div>
 
-      <LazyComponent height="200px">
-        <div className="relative max-w-about-image-max-width-mobile xl:w-about-image-width-laptop aspect-[3/1.7] bg-[url('/about-small.webp')] bg-center bg-cover">
+      <div className="relative max-w-about-image-max-width-mobile xl:w-about-image-width-laptop aspect-[3/1.7] bg-[url('/about-small.webp')] bg-center bg-cover">
+        <LazyComponent height="200px">
           <Image
             src={aboutLarge}
             alt="pokój"
@@ -38,8 +38,8 @@ export default function About() {
             placeholder="blur"
             blurDataURL="/about-small.webp"
           />
-        </div>
-      </LazyComponent>
+        </LazyComponent>
+      </div>
     </section>
   );
 }
