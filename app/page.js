@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 
 const DynamicAbout = dynamic(() => import("./homePage/sections/About"));
 const DynamicProjects = dynamic(() => import("./homePage/sections/Projects"));
+const DynamicProcess = dynamic(() => import("./homePage/sections/Process"));
 
 export const metadata = {
   title: "Sadowski Studio - Nowoczesna Architektura i Design",
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <DynamicAbout />
       <DynamicProjects />
+      <DynamicProcess />
     </>
   );
 }

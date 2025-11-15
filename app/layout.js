@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
         />
       </head>
-      <body className={`${poppins.className} min-h-screen bg-bg-main`}>
+      <body className={`${poppins.className} min-h-[10000px] bg-bg-main`}>
         <Header />
         <main>{children}</main>
       </body>

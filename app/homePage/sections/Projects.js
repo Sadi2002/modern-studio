@@ -8,7 +8,7 @@ const projects = DataProjects();
 
 export default function Projects() {
   return (
-    <section className="mx-margin-mobile md:mx-tablet lg:mx-small-laptop mb-[50px]">
+    <section className="mx-margin-mobile md:mx-tablet lg:mx-small-laptop mb-[80px]">
       <h3 className="text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(04)'] after:absolute after:top-[5px] after:text-[8px] mb-5 xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px] xl:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal">
         Our projects
       </h3>

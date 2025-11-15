@@ -10,7 +10,7 @@ export default function About() {
           Witamy w Visual Studio Twoje eleganckie
         </h2>
         <div className="flex flex-col items-end lg:items-start lg:w-[50%]">
-          <div className="flex flex-col gap-[16px] font-light-font-weight mb-[40px] items-start text-clamp(12px,3.35vw,1rem) leading-[clamp(0.75rem,10vw,1.5rem)] w-full">
+          <div className="flex flex-col gap-[16px] font-light-font-weight mb-[40px] items-start text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full">
             <p className="lg:max-w-[900px] 2xl:max-w-full">
               Projektując przestrzeń, poszukuję harmonii między światłem a
               materią. Perfekcja detalu prowadzi do ponadczasowej formy, która
