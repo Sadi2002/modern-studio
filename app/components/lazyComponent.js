@@ -24,5 +24,9 @@ export default function LazyComponent({ children, height }) {
     }
   }, [mySection, height]);
 
-  return <div ref={mySection}>{isVisible ? children : null}</div>;
+  return (
+    <div className="h-full" ref={mySection}>
+      {isVisible ? children : null}
+    </div>
+  );
 }
