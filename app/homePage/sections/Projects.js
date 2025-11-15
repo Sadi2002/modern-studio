@@ -116,7 +116,7 @@ export default function Projects() {
                 <Image
                   src={ArrowWhite}
                   alt="strzałka"
-                  className="w-clamp(1.5rem,3.35vw,1.7rem) h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative"
+                  className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative"
                 />
               </LazyComponent>
             </button>
