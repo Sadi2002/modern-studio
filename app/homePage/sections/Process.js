@@ -12,7 +12,7 @@ export default function Process() {
     <section className="mx-margin-mobile">
       <div className="mb-[40px]">
         <h3 className="text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(05)'] after:absolute after:top-[5px] after:text-[8px] mb-5 xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px] xl:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal">
-          Our Process
+          Process
         </h3>
         <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[50px]">
           During construction, we remain involved to make sure the project is
