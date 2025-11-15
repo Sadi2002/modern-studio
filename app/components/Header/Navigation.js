@@ -46,7 +46,7 @@ export default function Navigation() {
       {isOpen && (
         <div className="h-[100dvh] w-full fixed top-0 left-0 bg-main-black z-50 md:hidden">
           <div className="flex justify-between items-center mx-margin-mobile pt-mobile-navigation-top">
-            <Link href="/">Sadowski Studio</Link>
+            <Link href="/">SeoVilla</Link>
             <span
               className="uppercase text-[14px] text-white font-medium-font-weight"
               onClick={toggleMenu}
