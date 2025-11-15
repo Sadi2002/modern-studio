@@ -30,7 +30,7 @@ export default function Hero() {
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
         <div className="absolute bottom-[120px] w-full xl:bottom-[120px] z-20">
           <h1 className="text-main-white text-[clamp(2rem,10vw,3rem)] leading-[clamp(2.2rem,10vw,3rem)] font-medium mb-[25px] lg:text-[70px] lg:leading-[70px] xl:text-[100px] xl:font-normal-font-weight xl:leading-[100px] uppercase 2xl:leading-[120px] 2xl:text-[120px] max-w-[400px] lg:max-w-[600px] xl:max-w-[900px] 2xl:max-w-[1000px]">
-            OSIEDLE zacisze xDDDd
+            OSIEDLE
           </h1>
 
           <p className="text-main-white font-light-font-weight mb-[50px] text-[clamp(0.75rem,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] max-w-[300px] lg:max-w-[450px] min-[420px]:max-w-[360px] xl:max-w-[740px] xl:mb-[70px]">

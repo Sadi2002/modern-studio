@@ -9,8 +9,8 @@ const projects = dataProjects();
 
 export default function Process() {
   return (
-    <section className="mx-margin-mobile">
-      <div className="mb-[40px]">
+    <section className="mx-margin-mobile flex flex-col lg:flex-row lg:justify-between">
+      <div className="mb-[40px] lg:mb-0">
         <h3 className="text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(05)'] after:absolute after:top-[5px] after:text-[8px] mb-5 xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px] xl:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal">
           Our Process
         </h3>
@@ -18,17 +18,10 @@ export default function Process() {
           During construction, we remain involved to make sure the project is
           executed according to the design. We visit the site,
         </p>
-        <button className="bg-main-black rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)] hidden">
-          Zobacz wszystkie
-          <LazyComponent height={500}>
-            <Image
-              src={ArrowWhite}
-              alt="strzałka"
-              className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative"
-            />
-          </LazyComponent>
+        <button className="font-medium-font-weight text-[clamp(0.75rem,3.5vw,1rem)] relative uppercase after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:w-full-width after:h-[1px] ml-auto mr-0 block after:w-full">
+          Więcej o nas
         </button>
-        <div>
+        <div className="mt-[40px]">
           <div className="py-[20px] border-b-[1px] border-b-[rgba(0,0,0,0.2)]  border-t-[1px] border-t-[rgba(0,0,0,0.2)]">
             <span className="block text-[clamp(18px,5.5vw,30px)] leading-[clamp(0.75rem,10vw,1.5rem)]">
               (01) Sketch Design
@@ -56,31 +49,20 @@ export default function Process() {
           </div>
         </div>
       </div>
-      <div>
-        <div
-          className="relative aspect-8/7 mb-[40px]"
-          style={{ backgroundImage: `url(${projects[1].bgImage})` }}
-        >
-          <LazyComponent height={500}>
-            <Image
-              src={projects[1].imgSrc}
-              alt={projects[1].alt}
-              fill
-              unoptimized
-              className="w-full h-auto  object-cover"
-            />
-          </LazyComponent>
-        </div>
-        <button className="bg-main-black rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)]">
-          Zobacz wszystkie
-          <LazyComponent height={500}>
-            <Image
-              src={ArrowWhite}
-              alt="strzałka"
-              className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative"
-            />
-          </LazyComponent>
-        </button>
+
+      <div
+        className="relative aspect-8/7 mb-[40px]  lg:w-[40%] lg:h-[450px]"
+        style={{ backgroundImage: `url(${projects[1].bgImage})` }}
+      >
+        <LazyComponent height={500}>
+          <Image
+            src={projects[1].imgSrc}
+            alt={projects[1].alt}
+            fill
+            unoptimized
+            className="w-full h-auto object-cover"
+          />
+        </LazyComponent>
       </div>
     </section>
   );
