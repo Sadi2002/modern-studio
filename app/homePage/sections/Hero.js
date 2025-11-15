@@ -34,9 +34,9 @@ export default function Hero() {
           </h1>
 
           <p className="text-main-white font-light-font-weight mb-[50px] text-[clamp(0.75rem,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] max-w-[300px] lg:max-w-[450px] min-[420px]:max-w-[360px] xl:max-w-[740px] xl:mb-[70px]">
-            „Luxury villas in Majorca combine modern design with the unique
+            Luxury villas in Majorca combine modern design with the unique
             atmosphere of the island, offering comfort, privacy, and
-            unforgettable views.”
+            unforgettable views.
           </p>
 
           <button className="bg-main-white rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-black ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)]">
