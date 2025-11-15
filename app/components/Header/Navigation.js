@@ -22,7 +22,7 @@ export default function Navigation() {
     >
       {/* LOGO PO LEWEJ */}
       <span className="md:text-logo-font-size">
-        <Link href="/">Sadowski Studio</Link>
+        <Link href="/">SeoVilla</Link>
       </span>
 
       {/* MOBILE BURGER */}
@@ -55,6 +55,9 @@ export default function Navigation() {
             </span>
           </div>
           <ul className="flex flex-col gap-[5px] ml-margin-mobile absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(30px,9vw,40px)] font-normal-font-weight uppercase">
+            <li>
+              <Link href="#">Home</Link>
+            </li>
             <li>
               <Link href="#">About us</Link>
             </li>
