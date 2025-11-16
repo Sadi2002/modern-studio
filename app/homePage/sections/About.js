@@ -31,13 +31,7 @@ export default function About() {
 
       <div className="relative max-w-[90%] xl:w-[80%] aspect-[3/1.7] bg-[url('/about-small.webp')] bg-center bg-cover">
         <LazyComponent height={200}>
-          <Image
-            src={aboutLarge}
-            alt="pokój"
-            fill
-            className="object-cover"
-            unoptimized
-          />
+          <Image src={aboutLarge} alt="pokój" fill className="object-cover" />
         </LazyComponent>
       </div>
     </section>

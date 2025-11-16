@@ -25,7 +25,7 @@ export default function Process() {
           Więcej o nas
         </button>
         <button className="bg-main-black rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)] hidden lg:flex lg:ml-auto">
-          Cytaj więcej
+          Czytaj więcej
           <LazyComponent height={500}>
             <Image
               src={ArrowWhite}
