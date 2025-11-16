@@ -29,7 +29,7 @@ export default function Hero() {
 
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
         <div className="absolute bottom-[120px] w-full xl:bottom-[120px] z-20">
-          <h1 className="text-main-white text-[clamp(2rem,10vw,3rem)] leading-[clamp(2.2rem,10vw,3rem)] font-medium mb-[25px] lg:text-[70px] lg:leading-[70px] xl:text-[100px] xl:font-normal-font-weight xl:leading-[100px] uppercase 2xl:leading-[110px] 2xl:text-[110px] max-w-[400px] lg:max-w-[700px] xl:max-w-[1000px] 2xl:max-w-[1100px]">
+          <h1 className="text-main-white text-[clamp(1.7rem,8vw,2.5rem)] leading-[clamp(2.2rem,10vw,3rem)] font-medium mb-[25px] lg:text-[70px] lg:leading-[70px] xl:text-[100px] xl:font-normal-font-weight xl:leading-[100px] uppercase 2xl:leading-[110px] 2xl:text-[110px] max-w-[400px] lg:max-w-[700px] xl:max-w-[1000px] 2xl:max-w-[1100px]">
             Villas in the Heart of Majorca
           </h1>
 
