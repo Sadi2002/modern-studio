@@ -11,7 +11,7 @@ export default function Process() {
     <section className="mx-margin-mobile flex flex-col md:mx-tablet lg:flex-row lg:justify-between lg:mx-small-laptop">
       <div className="mb-[40px] lg:mb-0 lg:w-[50%]">
         <h3 className="text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(05)'] after:absolute after:top-[5px] after:text-[8px] mb-5 xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px] xl:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal">
-          Process
+          Our Process
         </h3>
         <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[50px] min-[380px]:max-w-[360px] md:max-w-[550px]">
           During construction, we remain involved to make sure the project is
@@ -59,19 +59,21 @@ export default function Process() {
         </div>
       </div>
       <div className="lg:w-[40%]">
-        <div
-          className="relative aspect-8/7 mb-[40px] lg:w-[100%] lg:h-[300px] lg:top-[87.5px] xl:top-[100px] lg:mb-0"
-          style={{ backgroundImage: `url(${projects[1].bgImage})` }}
-        >
-          <LazyComponent height={500}>
-            <Image
-              src={projects[1].imgSrc}
-              alt={projects[1].alt}
-              fill
-              unoptimized
-              className="w-full h-auto object-cover"
-            />
-          </LazyComponent>
+        <div className="lg:sticky lg:top-[87.5px] lg:mt-[87.5px] xl:top-[100px] xl:mt-[100px] 2xl:mt-[130px] 2xl:top-[130px]">
+          <div
+            className="relative aspect-8/7 mb-[40px] lg:w-[100%] lg:h-[300px]  lg:mb-0 2xl:h-[350px]"
+            style={{ backgroundImage: `url(${projects[1].bgImage})` }}
+          >
+            <LazyComponent height={500}>
+              <Image
+                src={projects[1].imgSrc}
+                alt={projects[1].alt}
+                fill
+                unoptimized
+                className="w-full h-auto object-cover"
+              />
+            </LazyComponent>
+          </div>
           <p className="mt-[10px] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(16px,4.5vw,1.5rem)] max-w-[360px] lg:mt-[20px] lg:text-[16px] lg:leading-[24px]">
             {" "}
             Przestrzeń powinna oddychać światłem i funkcją. Projektując,
