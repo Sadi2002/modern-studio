@@ -1,7 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import house from "../../public/1.webp";
+import house from "../../public/projekt1-large.webp";
+import house2 from "../../public/projekt2-large.webp";
+import house3 from "../../public/projekt3-large.webp";
+import house4 from "../../public/projekt4-large.webp";
+import house5 from "../../public/about-large.webp";
 import Link from "next/link";
 import {
   useCallback,
@@ -26,21 +30,42 @@ export default function PortfolioClient() {
         title: "Broadway Loft",
         location: "New York, NY",
         subtitle: "Adaptive reuse",
-        image: house,
+        image: house2,
         slug: "#",
       },
       {
         title: "Ocean Parkway",
         location: "Brooklyn, NY",
         subtitle: "Residential",
-        image: house,
+        image: house3,
         slug: "#",
       },
       {
         title: "Sequoia House",
         location: "Chicago, IL",
         subtitle: "Workspace",
-        image: house,
+        image: house4,
+        slug: "#",
+      },
+      {
+        title: "Son Del North",
+        location: "Aspen, CO",
+        subtitle: "Hospitality",
+        image: house5,
+        slug: "#",
+      },
+      {
+        title: "Son Del North",
+        location: "Aspen, CO",
+        subtitle: "Hospitality",
+        image: house2,
+        slug: "#",
+      },
+      {
+        title: "Son Del North",
+        location: "Aspen, CO",
+        subtitle: "Hospitality",
+        image: house3,
         slug: "#",
       },
       {
@@ -54,35 +79,14 @@ export default function PortfolioClient() {
         title: "Son Del North",
         location: "Aspen, CO",
         subtitle: "Hospitality",
-        image: house,
+        image: house3,
         slug: "#",
       },
       {
         title: "Son Del North",
         location: "Aspen, CO",
         subtitle: "Hospitality",
-        image: house,
-        slug: "#",
-      },
-      {
-        title: "Son Del North",
-        location: "Aspen, CO",
-        subtitle: "Hospitality",
-        image: house,
-        slug: "#",
-      },
-      {
-        title: "Son Del North",
-        location: "Aspen, CO",
-        subtitle: "Hospitality",
-        image: house,
-        slug: "#",
-      },
-      {
-        title: "Son Del North",
-        location: "Aspen, CO",
-        subtitle: "Hospitality",
-        image: house,
+        image: house2,
         slug: "#",
       },
     ],
@@ -292,12 +296,12 @@ export default function PortfolioClient() {
         </div>
       </div>
 
-      <div className="flex flex-col w-full-width xl:w-[60%] gap-[50px] xl:gap-[100px]">
+      <div className="flex flex-col w-full xl:w-[60%] gap-[50px] xl:gap-[100px]">
         {projects.map((p, i) => (
           <div
             key={i}
             ref={(el) => (cardRefs.current[i] = el)}
-            className="flex flex-col"
+            className="flex flex-col aspect-[8/5] relative"
           >
             <Link
               href={`/portfolio/${p.slug}`}
@@ -305,17 +309,13 @@ export default function PortfolioClient() {
               aria-label={`Zobacz ${p.title}`}
             >
               <div className="overflow-hidden">
-                <div
-                  style={{
-                    transform: "scale(1.08)",
-                    willChange: "transform",
-                  }}
-                >
+                <div>
                   <Image
                     src={p.image}
                     alt={p.title}
-                    className="w-full-width block"
-                    placeholder="blur"
+                    className="w-full block object-cover"
+                    fill
+                    unoptimized
                   />
                 </div>
               </div>
