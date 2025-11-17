@@ -33,9 +33,8 @@ export default function About() {
           </button>
         </div>
       </div>
-
-      <div className="relative max-w-[90%] xl:w-[80%] aspect-[3/1.7] bg-[url('/about-small.webp')] bg-center bg-cover">
-        <LazyComponent height={200}>
+      <LazyComponent height={200}>
+        <div className="relative max-w-[90%] xl:w-[80%] aspect-[3/1.7] bg-[url('/about-small.webp')] bg-center bg-cover">
           <Image
             src={aboutLarge}
             alt="pokój"
@@ -43,8 +42,8 @@ export default function About() {
             className="object-cover"
             unoptimized={isAbove768}
           />
-        </LazyComponent>
-      </div>
+        </div>
+      </LazyComponent>
     </section>
   );
 }

@@ -50,13 +50,13 @@ export default function Process() {
       </div>
       <div className="lg:w-[40%]">
         <div className="lg:sticky lg:top-[87.5px] lg:mt-[87.5px] xl:top-[100px] xl:mt-[100px] 2xl:mt-[130px] 2xl:top-[130px]">
-          <div
-            className="relative aspect-8/7 mb-[40px] lg:w-[100%] lg:h-[300px] lg:mb-0 2xl:h-[350px] inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: `url(${process[activeIndex].bgImage})`,
-            }}
-          >
-            <LazyComponent height={500}>
+          <LazyComponent height={500}>
+            <div
+              className="relative aspect-8/7 mb-[40px] lg:w-[100%] lg:h-[300px] lg:mb-0 2xl:h-[350px] inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${process[activeIndex].bgImage})`,
+              }}
+            >
               <Image
                 src={process[activeIndex].imgSrc}
                 alt={process[activeIndex].alt}
@@ -64,8 +64,8 @@ export default function Process() {
                 unoptimized
                 className="object-cover absolute top-0 left-0 w-full h-full"
               />
-            </LazyComponent>
-          </div>
+            </div>
+          </LazyComponent>
 
           <p className="mt-[10px] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(16px,4.5vw,1.5rem)] max-w-[360px] lg:mt-[20px] lg:text-[16px] lg:leading-[24px]">
             {process[activeIndex].description}
