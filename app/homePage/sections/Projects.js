@@ -26,6 +26,7 @@ export default function Projects() {
                     alt={projects[0].alt}
                     className="object-cover absolute top-0 left-0 w-full h-full"
                     fill
+                    unoptimized
                   />
                 </div>
               </LazyComponent>
@@ -48,6 +49,7 @@ export default function Projects() {
                     alt={projects[1].alt}
                     className="object-cover absolute top-0 left-0 w-full h-full"
                     fill
+                    unoptimized
                   />
                 </div>
               </LazyComponent>
@@ -72,6 +74,7 @@ export default function Projects() {
                     alt={projects[2].alt}
                     className="object-cover absolute top-0 left-0 w-full h-full"
                     fill
+                    unoptimized
                   />
                 </div>
               </LazyComponent>
@@ -94,6 +97,7 @@ export default function Projects() {
                     alt={projects[3].alt}
                     className="object-cover absolute top-0 left-0 w-full h-full"
                     fill
+                    unoptimized
                   />
                 </div>
               </LazyComponent>
@@ -112,7 +116,7 @@ export default function Projects() {
             </p>
             <button className="bg-main-black rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)]">
               Zobacz wszystkie
-              <LazyComponent height={500}>
+              <LazyComponent height={1900}>
                 <Image
                   src={ArrowWhite}
                   alt="strzałka"
