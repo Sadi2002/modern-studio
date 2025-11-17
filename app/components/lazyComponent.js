@@ -1,20 +1,17 @@
 "use client";
+
 import { useEffect, useRef, useState } from "react";
 
 export default function LazyComponent({ children, height }) {
   const mySection = useRef(null);
-  const isVisible = useRef(false); // NIE robi re-render
-  const [, forceUpdate] = useState(0); // Tylko aby wymusić jeden re-render
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !isVisible.current) {
-            isVisible.current = true;
-
-            // WYWOŁAJ RE-RENDER TYLKO RAZ
-            forceUpdate((v) => v + 1);
+          if (entry.isIntersecting) {
+            setIsVisible(true);
 
             observer.unobserve(entry.target);
           }
@@ -26,12 +23,10 @@ export default function LazyComponent({ children, height }) {
     if (mySection.current) {
       observer.observe(mySection.current);
     }
-
-    return () => observer.disconnect();
-  }, [height]);
+  }, [mySection, height]);
 
   return (
-    <div ref={mySection} className="h-full">
+    <div className="h-full" ref={mySection}>
       {isVisible ? children : null}
     </div>
   );

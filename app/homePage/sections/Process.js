@@ -5,10 +5,12 @@ import ArrowWhite from "../../../public/arrow-right-white.png";
 
 import dataProcess from "../../dataProcess";
 import { useState } from "react";
+import useIsAbove768 from "@/app/components/width768";
 
 const process = dataProcess();
 
 export default function Process() {
+  const isAbove768 = useIsAbove768();
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -38,8 +40,8 @@ export default function Process() {
           {process.map((step, index) => (
             <div
               key={step.id}
-              className="py-[20px] border-b-[1px] border-b-[rgba(0,0,0,0.2)] cursor-pointer transition-all"
-              onMouseEnter={() => setActiveIndex(index)}
+              className="py-[20px] border-b-[1px] border-b-[rgba(0,0,0,0.2)] cursor-pointer transition-all "
+              onMouseEnter={() => isAbove768 && setActiveIndex(index)}
             >
               <span className="block text-[clamp(18px,5.5vw,25px)] leading-[clamp(0.75rem,10vw,2rem)]">
                 ({String(step.id).padStart(2, "0")}) {step.title}
@@ -61,13 +63,13 @@ export default function Process() {
                 src={process[activeIndex].imgSrc}
                 alt={process[activeIndex].alt}
                 fill
-                unoptimized
+                unoptimized={isAbove768}
                 className="object-cover absolute top-0 left-0 w-full h-full"
               />
             </div>
           </LazyComponent>
 
-          <p className="mt-[10px] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(16px,4.5vw,1.5rem)] max-w-[360px] lg:mt-[20px] lg:text-[16px] lg:leading-[24px]">
+          <p className="hidden mt-[10px] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(16px,4.5vw,1.5rem)] max-w-[360px] lg:mt-[20px] lg:text-[16px] lg:leading-[24px] lg:flex">
             {process[activeIndex].description}
           </p>
         </div>

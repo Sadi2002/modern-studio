@@ -1,12 +1,15 @@
+"use client";
 import Image from "next/image";
 import ArrowWhite from "../../../public/arrow-right-white.png";
 import LazyComponent from "../../components/lazyComponent";
 
 import DataProjects from "../../dataProjects";
+import useIsAbove768 from "@/app/components/width768";
 
 const projects = DataProjects();
 
 export default function Projects() {
+  const isAbove768 = useIsAbove768();
   return (
     <section className="mx-margin-mobile md:mx-tablet lg:mx-small-laptop mb-[80px] lg:mb-[150px]">
       <h3 className="text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(04)'] after:absolute after:top-[5px] after:text-[8px] mb-5 xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px] xl:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal">
@@ -26,7 +29,7 @@ export default function Projects() {
                     alt={projects[0].alt}
                     className="object-cover absolute top-0 left-0 w-full h-full"
                     fill
-                    unoptimized
+                    unoptimized={isAbove768}
                   />
                 </div>
               </LazyComponent>
@@ -49,7 +52,7 @@ export default function Projects() {
                     alt={projects[1].alt}
                     className="object-cover absolute top-0 left-0 w-full h-full"
                     fill
-                    unoptimized
+                    unoptimized={isAbove768}
                   />
                 </div>
               </LazyComponent>
@@ -74,7 +77,7 @@ export default function Projects() {
                     alt={projects[2].alt}
                     className="object-cover absolute top-0 left-0 w-full h-full"
                     fill
-                    unoptimized
+                    unoptimized={isAbove768}
                   />
                 </div>
               </LazyComponent>
@@ -97,7 +100,7 @@ export default function Projects() {
                     alt={projects[3].alt}
                     className="object-cover absolute top-0 left-0 w-full h-full"
                     fill
-                    unoptimized
+                    unoptimized={isAbove768}
                   />
                 </div>
               </LazyComponent>
