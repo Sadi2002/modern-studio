@@ -9,7 +9,7 @@ export const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500"],
   display: "swap",
-  preload: true,
+  preload: false,
 });
 
 export default function RootLayout({ children }) {
@@ -23,6 +23,15 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="pl">
+      <head>
+        {/* Preconnect do Google Fonts, przyspiesza pobranie fontów */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className={`${poppins.className} min-h-[10000px] bg-bg-main`}>
         {/* {showLenis && <Lenis />} */}
         <Header />
