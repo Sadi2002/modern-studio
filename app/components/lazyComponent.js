@@ -12,6 +12,7 @@ export default function LazyComponent({ children, height }) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
+
             observer.unobserve(entry.target);
           }
         });
