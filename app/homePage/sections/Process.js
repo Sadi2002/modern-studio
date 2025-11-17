@@ -19,7 +19,7 @@ export default function Process() {
         </h3>
         <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[50px] min-[380px]:max-w-[360px] md:max-w-[550px]">
           During construction, we remain involved to make sure the project is
-          executed according to the design. We visit the site,
+          executed according to the design. We visit the site.
         </p>
         <button className="font-medium-font-weight text-[clamp(0.75rem,3.5vw,1rem)] relative uppercase after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:w-full-width after:h-[1px] ml-auto mr-0 block after:w-full lg:hidden">
           Więcej o nas
