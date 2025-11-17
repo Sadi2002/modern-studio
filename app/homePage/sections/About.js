@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
-import aboutLarge from "../../../public/about-large.webp";
+import aboutLarge from "../../../public/about-large.jpg";
 import LazyComponent from "@/app/components/lazyComponent";
+import useIsAbove768 from "@/app/components/width768";
 
 export default function About() {
+  const isAbove768 = useIsAbove768();
+
   return (
     <section className="pt-[60px] flex flex-col gap-[40px] xl:gap-[80px] xl:pt-[150px] 2xl:gap-[100px] mb-[80px] xl:mb-[150px]">
       <div className="mx-margin-mobile lg:flex md:mx-tablet lg:mx-small-laptop lg:justify-between xl:justify-between 2xl:mx-desktop">
@@ -36,7 +41,7 @@ export default function About() {
             alt="pokój"
             fill
             className="object-cover"
-            unoptimized
+            unoptimized={isAbove768}
           />
         </LazyComponent>
       </div>

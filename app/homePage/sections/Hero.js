@@ -16,20 +16,14 @@ export default function Hero() {
   return (
     <section className="h-[100dvh] relative w-full overflow-hidden bg-center bg-cover bg-[url('/projekt3-small.webp')] mb-[20px]">
       {showLarge && (
-        <Image
-          src={heroImgLarge}
-          unoptimized
-          className="object-cover"
-          fill
-          alt="test"
-        />
+        <Image src={heroImgLarge} className="object-cover" fill alt="test" />
       )}
 
       <div className="absolute inset-0 bg-[rgba(0,0,0,0.55)]"></div>
 
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
-        <div className="absolute bottom-[120px] w-full xl:bottom-[120px] z-20">
-          <h1 className="text-main-white text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3rem)] font-medium mb-[25px] lg:text-[70px] lg:leading-[70px] xl:text-[100px] xl:font-normal-font-weight xl:leading-[100px] uppercase 2xl:leading-[110px] 2xl:text-[110px] max-w-[600px] lg:max-w-[800px] xl:max-w-[1200px] 2xl:max-w-[1200px]">
+        <div className="absolute bottom-[120px] w-full xl:bottom-[120px] z-20 2xl:bottom-[150px]">
+          <h1 className="text-main-white text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[25px] lg:text-[70px] lg:leading-[70px] xl:text-[100px] xl:font-normal-font-weight xl:leading-[100px] uppercase 2xl:leading-[110px] 2xl:text-[110px] max-w-[600px] lg:max-w-[800px] xl:max-w-[1200px] 2xl:max-w-[1200px]">
             creation of luxury villas in Majorca
           </h1>
 
