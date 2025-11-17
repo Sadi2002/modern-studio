@@ -4,14 +4,17 @@ import { useEffect, useRef, useState } from "react";
 
 export default function LazyComponent({ children, height }) {
   const mySection = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const isVisible = useRef(false);
+  const [, forceUpdate] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
+          if (entry.isIntersecting && !isVisible.current) {
+            isVisible.current = true;
+
+            forceUpdate((v) => v + 1);
 
             observer.unobserve(entry.target);
           }
