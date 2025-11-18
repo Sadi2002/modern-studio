@@ -1,0 +1,216 @@
+import Image from "next/image";
+import ArrowWhite from "../../../public/arrow-right-white.png";
+import LazyComponent from "@/app/components/lazyComponent";
+
+export default function Blog() {
+  return (
+    <section className="mx-margin-mobile flex flex-col md:mx-tablet   lg:mx-small-laptop  ">
+      <div className="md:flex md:justify-between w-full md:items-end md:mb-[50px]">
+        <h3 className="mb-5 text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(11)'] after:absolute after:top-[5px] after:text-[8px] xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px]  2xl:text-[80px] 2xl:font-normal md:mb-0]">
+          Our Blog
+        </h3>
+        <button className="bg-main-black rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)] hidden md:flex md:max-h-[50px]">
+          Zobacz wszystkie
+          <Image
+            src={ArrowWhite}
+            alt="strzałka"
+            className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative "
+          />
+        </button>
+      </div>
+      <div className="mb-[40px] lg:hidden">
+        <div className="flex w-full overflow-x-scroll snap-x snap-mandatory space-x-4  scrollbar-hide">
+          <div className="flex-shrink-0 w-[80%] aspect-[3/4]   flex flex-col md:aspect-[7/6]">
+            <div className="h-full relative">
+              <LazyComponent height={500}>
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(/projekt3-small.webp)` }}
+                >
+                  <Image
+                    src="/projekt3-small.webp"
+                    alt="pokoj"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </LazyComponent>
+            </div>
+            <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+              <span>Our project</span>
+              <span>View project</span>
+            </div>
+          </div>
+          <div className="flex-shrink-0 w-[80%] aspect-[3/4]  flex flex-col md:aspect-[7/6]">
+            <div className="h-full relative">
+              <LazyComponent height={500}>
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(/projekt4-small.webp)` }}
+                >
+                  <Image
+                    src="/projekt4-small.webp"
+                    alt="pokoj"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </LazyComponent>
+            </div>
+            <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+              <span>Our project</span>
+              <span>View project</span>
+            </div>
+          </div>
+          <div className="flex-shrink-0 w-[80%] aspect-[3/4]   flex flex-col md:aspect-[7/6]">
+            <div className="h-full relative">
+              <LazyComponent height={500}>
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(/projekt2-small.webp)` }}
+                >
+                  <Image
+                    src="/projekt2-small.webp"
+                    alt="pokoj"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </LazyComponent>
+            </div>
+            <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+              <span>Our project</span>
+              <span>View project</span>
+            </div>
+          </div>
+          <div className="flex-shrink-0 w-[80%] aspect-[3/4]   flex flex-col md:aspect-[7/6]">
+            <div className="h-full relative">
+              <LazyComponent height={500}>
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(/projekt1-small.webp)` }}
+                >
+                  <Image
+                    src="/projekt1-small.webp"
+                    alt="pokoj"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </LazyComponent>
+            </div>
+            <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+              <span>Our project</span>
+              <span>View project</span>
+            </div>
+          </div>
+          <div className="flex-shrink-0 w-[80%] aspect-[3/4]   flex flex-col md:aspect-[7/6]">
+            <div className="h-full relative">
+              <LazyComponent height={500}>
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(/about-small.webp)` }}
+                >
+                  <Image
+                    src="/about-small.webp"
+                    alt="pokoj"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </LazyComponent>
+            </div>
+            <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+              <span>Our project</span>
+              <span>View project</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button className="bg-main-black rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)] md:hidden">
+        Zobacz wszystkie
+        <Image
+          src={ArrowWhite}
+          alt="strzałka"
+          className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative "
+        />
+      </button>
+      <div className="hidden lg:flex lg:justify-between">
+        <div className="w-[39%] inline-block">
+          <div className="lg:aspect-[8/7] relative xl:aspect-[8/6] 2xl:aspect-[4/3]">
+            <LazyComponent height={500}>
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(/projekt3-small.webp)` }}
+              >
+                <Image
+                  src="/projekt3-small.webp"
+                  alt="pokoj"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </LazyComponent>
+          </div>
+          <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+            <span className="font-medium-font-weight max-w-[65%]">
+              How daylight guides every decision — from massing to material
+              choice.
+            </span>
+            <span className="opacity-[35%]">14 Luty 2025</span>
+          </div>
+        </div>
+
+        <div className="w-[28%] inline-block">
+          <div className="lg:aspect-[8/5] relative 2xl:aspect-[9/6]">
+            <LazyComponent height={500}>
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(/projekt2-small.webp)` }}
+              >
+                <Image
+                  src="/projekt2-small.webp"
+                  alt="pokoj"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </LazyComponent>
+          </div>
+          <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+            <span className="font-medium-font-weight max-w-[65%]">
+              Why restraint and space for stillness matter more than visual
+              noise.
+            </span>
+            <span className="opacity-[35%]">23 Grudzień 2024</span>
+          </div>
+        </div>
+
+        <div className="w-[20%] inline-block">
+          <div className="lg:aspect-[6/8] relative 2xl:aspect-[7/9]">
+            <LazyComponent height={500}>
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(/projekt4-small.webp)` }}
+              >
+                <Image
+                  src="/projekt4-small.webp"
+                  alt="pokoj"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </LazyComponent>
+          </div>
+          <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+            <span className="font-medium-font-weight max-w-[85%]">
+              The emotional impact of texture, weight, and imperfection in built
+              form.
+            </span>
+            <span className="opacity-[35%]">12 Maj 2025</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

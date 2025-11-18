@@ -61,9 +61,18 @@ html {
 }
 
 html::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
 }
 
 body {
-  overflow-y: scroll; /* zachowuje przewijanie */
+  overflow-y: scroll;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
