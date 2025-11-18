@@ -8,7 +8,6 @@ export default function Hero() {
   const [showLarge, setShowLarge] = useState(false);
 
   useEffect(() => {
-    // Odroczone ładowanie 4K – np. 1s po renderze
     const timer = setTimeout(() => setShowLarge(true), 10);
     return () => clearTimeout(timer);
   }, []);
