@@ -4,7 +4,7 @@ import LazyComponent from "@/app/components/lazyComponent";
 
 export default function Blog() {
   return (
-    <section className="mx-margin-mobile flex flex-col md:mx-tablet   lg:mx-small-laptop  ">
+    <section className="mx-margin-mobile flex flex-col md:mx-tablet  lg:mx-small-laptop mb-[80px]  xl:mb-[150px]">
       <div className="md:flex md:justify-between w-full md:items-end md:mb-[50px]">
         <h3 className="mb-5 text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(11)'] after:absolute after:top-[5px] after:text-[8px] xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px]  2xl:text-[80px] 2xl:font-normal md:mb-0]">
           Our Blog
