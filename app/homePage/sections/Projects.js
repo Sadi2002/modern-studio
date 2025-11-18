@@ -7,6 +7,7 @@ import DataProjects from "../../dataProjects";
 import useIsAbove768 from "@/app/components/width768";
 
 const projects = DataProjects();
+console.log(projects);
 
 export default function Projects() {
   const isAbove768 = useIsAbove768();
