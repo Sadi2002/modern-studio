@@ -5,7 +5,7 @@ export default function dataProjects() {
       title: "Our project",
       bgImage: "/projekt2-small.webp",
       imgSrc: "/projekt2-large.webp",
-      alt: "pokój",
+      alt: "pokój1",
       slug: "Warszawa",
     },
     {
