@@ -1,5 +1,6 @@
 import Hero from "./homePage/sections/Hero";
 import dynamic from "next/dynamic";
+import LazyComponent from "./components/lazyComponent";
 
 const DynamicAbout = dynamic(() => import("./homePage/sections/About"));
 const DynamicProjects = dynamic(() => import("./homePage/sections/Projects"));
@@ -15,9 +16,16 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <DynamicAbout />
-      <DynamicProjects />
-      <DynamicProcess />
+      <LazyComponent height={300}>
+        <DynamicAbout />
+      </LazyComponent>
+
+      <LazyComponent height={500}>
+        <DynamicProjects />
+      </LazyComponent>
+      <LazyComponent height={500}>
+        <DynamicProcess />
+      </LazyComponent>
     </>
   );
 }
