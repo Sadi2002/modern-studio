@@ -1,5 +1,4 @@
 "use client";
-import LazyComponent from "@/app/components/lazyComponent";
 import Image from "next/image";
 import ArrowWhite from "../../../public/arrow-right-white.png";
 
@@ -28,13 +27,11 @@ export default function Process() {
         </button>
         <button className="bg-main-black rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)] hidden lg:flex lg:ml-auto">
           Czytaj więcej
-          <LazyComponent height={500}>
-            <Image
-              src={ArrowWhite}
-              alt="strzałka"
-              className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative"
-            />
-          </LazyComponent>
+          <Image
+            src={ArrowWhite}
+            alt="strzałka"
+            className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative"
+          />
         </button>
         <div className="mt-[40px]">
           {process.map((step, index) => (
@@ -52,22 +49,20 @@ export default function Process() {
       </div>
       <div className="lg:w-[40%]">
         <div className="lg:sticky lg:top-[87.5px] lg:mt-[87.5px] xl:top-[100px] xl:mt-[100px] 2xl:mt-[130px] 2xl:top-[130px]">
-          <LazyComponent height={500}>
-            <div
-              className="relative aspect-8/7 mb-[40px] lg:w-[100%] lg:h-[300px] lg:mb-0 2xl:h-[350px] inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url(${process[activeIndex].bgImage})`,
-              }}
-            >
-              <Image
-                src={process[activeIndex].imgSrc}
-                alt={process[activeIndex].alt}
-                fill
-                unoptimized={isAbove768}
-                className="object-cover absolute top-0 left-0 w-full h-full"
-              />
-            </div>
-          </LazyComponent>
+          <div
+            className="relative aspect-8/7 mb-[40px] lg:w-[100%] lg:h-[300px] lg:mb-0 2xl:h-[350px] inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${process[activeIndex].bgImage})`,
+            }}
+          >
+            <Image
+              src={process[activeIndex].imgSrc}
+              alt={process[activeIndex].alt}
+              fill
+              unoptimized={isAbove768}
+              className="object-cover absolute top-0 left-0 w-full h-full"
+            />
+          </div>
 
           <p className="hidden mt-[10px] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(16px,4.5vw,1.5rem)] max-w-[360px] lg:mt-[20px] lg:text-[16px] lg:leading-[24px] lg:flex">
             {process[activeIndex].description}

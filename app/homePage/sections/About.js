@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import aboutLarge from "../../../public/about-large.jpg";
-import LazyComponent from "@/app/components/lazyComponent";
 import useIsAbove768 from "@/app/components/width768";
 
 export default function About() {
@@ -33,17 +32,16 @@ export default function About() {
           </button>
         </div>
       </div>
-      <LazyComponent height={300}>
-        <div className="relative max-w-[90%] xl:w-[80%] aspect-[3/1.7] bg-[url('/about-small.webp')] bg-center bg-cover">
-          <Image
-            src={aboutLarge}
-            alt="pokój"
-            fill
-            className="object-cover"
-            unoptimized={isAbove768}
-          />
-        </div>
-      </LazyComponent>
+
+      <div className="relative max-w-[90%] xl:w-[80%] aspect-[3/1.7] bg-[url('/about-small.webp')] bg-center bg-cover">
+        <Image
+          src={aboutLarge}
+          alt="pokój"
+          fill
+          className="object-cover"
+          unoptimized={isAbove768}
+        />
+      </div>
     </section>
   );
 }
