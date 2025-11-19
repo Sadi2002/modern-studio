@@ -2,33 +2,36 @@ export default function dataFaq() {
   const faq = [
     {
       id: 1,
-      title: "Long-Term Client Collaboration",
+      title:
+        "What does the full design process look like from first meeting to completion?",
       description:
-        "Przestrzeń powinna oddychać światłem i funkcją. Projektując, poszukuję relacji między naturą a strukturą. Perspektywą.",
+        "We begin with understanding your needs and vision. Then we develop the concept, technical project, obtain permits and oversee construction until final handover..",
     },
     {
       id: 2,
-      title: "Professional Author’s Supervision",
+      title: "How long does it take to obtain a building permit in Mallorca?",
       description:
-        "Etap rozwoju projektu pozwala na dopracowanie szczegółów technicznych oraz funkcjonalnych.",
+        "Depending on the location and complexity of the project, it can take from several months to over a year. Some areas have stricter planning regulations.",
     },
     {
       id: 3,
-      title: "Detailed Technical Documentation",
+      title:
+        "What are the estimated construction costs for a modern villa in Mallorca?",
       description:
-        "Przygotowujemy pełną dokumentację do zgłoszenia inwestycji, dbając o zgodność z przepisami.",
+        "Costs depend on the size, location, terrain, materials and level of finishes. High-end installations and earthworks have the greatest impact on the budget.",
     },
     {
       id: 4,
-      title: "Creative Concept Development",
+      title:
+        "Can I build on a plot located in a protected landscape or environmental zone?",
       description:
-        "Tworzymy przestrzenie, które zapewniają estetykę i funkcjonalność w codziennym użytkowaniu.",
+        "It may be possible, but it depends on local regulations (PGOU, ARIP). Some areas have restrictions on building size, height or materials.",
     },
     {
       id: 5,
-      title: "Initial Consultation Meeting",
+      title: "Do you also design interiors and outdoor spaces?",
       description:
-        "Opracowujemy rysunki i plany wymagane do uzyskania pozwolenia na budowę.",
+        "Yes — we offer complete interior design and landscape architecture to ensure a coherent, high-end result.",
     },
   ];
 
