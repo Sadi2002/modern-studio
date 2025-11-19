@@ -19,11 +19,11 @@ export default function Projects() {
         <div className="flex flex-col lg:w-[calc(50%-10px)]">
           <div className="max-w-[80%] mb-[50px] lg:mb-[50px] lg:max-w-[100%]">
             <div className="relative aspect-8/7">
-              <LazyComponent height={500}>
-                <div
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${projects[0].bgImage})` }}
-                >
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${projects[0].bgImage})` }}
+              >
+                <LazyComponent height={500}>
                   <Image
                     src={projects[0].imgSrc}
                     alt={projects[0].alt}
@@ -31,8 +31,8 @@ export default function Projects() {
                     fill
                     unoptimized={isAbove768}
                   />
-                </div>
-              </LazyComponent>
+                </LazyComponent>
+              </div>
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
               <span>Villa Maris, Mallorca</span>
@@ -42,11 +42,11 @@ export default function Projects() {
 
           <div className="w-[86%] flex flex-col items-end self-end mb-[50px] lg:mb-[0px] lg:w-[100%] lg:h-full">
             <div className="flex flex-col justify-end w-full relative aspect-5/3 lg:h-full">
-              <LazyComponent height={500}>
-                <div
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${projects[1].bgImage})` }}
-                >
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${projects[1].bgImage})` }}
+              >
+                <LazyComponent height={500}>
                   <Image
                     src={projects[1].imgSrc}
                     alt={projects[1].alt}
@@ -54,8 +54,8 @@ export default function Projects() {
                     fill
                     unoptimized={isAbove768}
                   />
-                </div>
-              </LazyComponent>
+                </LazyComponent>
+              </div>
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
               <span>Villa Llevant, Mallorca</span>
@@ -67,11 +67,11 @@ export default function Projects() {
         <div className="lg:flex lg:flex-col lg:w-[calc(50%-10px)]">
           <div className="w-full mb-[50px] lg:mb-[50px]">
             <div className="relative aspect-8/5">
-              <LazyComponent height={500}>
-                <div
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${projects[2].bgImage})` }}
-                >
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${projects[2].bgImage})` }}
+              >
+                <LazyComponent height={500}>
                   <Image
                     src={projects[2].imgSrc}
                     alt={projects[2].alt}
@@ -79,8 +79,8 @@ export default function Projects() {
                     fill
                     unoptimized={isAbove768}
                   />
-                </div>
-              </LazyComponent>
+                </LazyComponent>
+              </div>
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
               <span>Villa Esencia, Mallorca</span>
@@ -90,11 +90,11 @@ export default function Projects() {
 
           <div className="max-w-[78%] mb-[30px] lg:w-[100%] lg:max-w-[100%] lg:mb-[60px]">
             <div className="relative aspect-7/8 lg:aspect-8/7">
-              <LazyComponent height={500}>
-                <div
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${projects[3].bgImage})` }}
-                >
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${projects[3].bgImage})` }}
+              >
+                <LazyComponent height={500}>
                   <Image
                     src={projects[3].imgSrc}
                     alt={projects[3].alt}
@@ -102,8 +102,8 @@ export default function Projects() {
                     fill
                     unoptimized={isAbove768}
                   />
-                </div>
-              </LazyComponent>
+                </LazyComponent>
+              </div>
             </div>
 
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
