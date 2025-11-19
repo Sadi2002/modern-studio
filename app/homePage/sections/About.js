@@ -12,12 +12,12 @@ export default function About() {
     <section className="pt-[60px] flex flex-col gap-[40px] xl:gap-[80px] xl:pt-[150px] 2xl:gap-[100px] mb-[80px] xl:mb-[150px]">
       <div className="mx-margin-mobile lg:flex md:mx-tablet lg:mx-small-laptop lg:justify-between xl:justify-between 2xl:mx-desktop">
         <h2 className="text-[clamp(1.6rem,7.5vw,2.5rem)] leading-[clamp(2.1rem,7.5vw,2.5rem)] font-medium mb-[30px] max-w-[500px] lg:text-[clamp(2rem,3.5vw,64px)] lg:leading-[clamp(2rem,3.5vw,64px)] lg:max-w-[700px] lg:w-[50%] 2xl:max-w-[850px] xl:font-normal">
-          Discover the beautiful Villas of Majorca
+          Discover the beautiful Villas of Mallorca
         </h2>
         <div className="flex flex-col items-end lg:items-start lg:w-[50%]">
           <div className="flex flex-col gap-[16px] font-light-font-weight mb-[40px] items-start text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full">
             <p className="lg:max-w-[900px] 2xl:max-w-full">
-              We design contemporary villas in Majorca, combining aesthetics
+              We design contemporary villas in Mallorca, combining aesthetics
               with functionality. Our goal is to ensure that every project
               responds both to the island’s climate and the expectations of our
               clients.

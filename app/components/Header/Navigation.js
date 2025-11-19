@@ -114,6 +114,14 @@ export default function Navigation() {
             href={"#"}
             className="text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
           >
+            Process
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={"#"}
+            className="text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
+          >
             Blog
           </Link>
         </li>

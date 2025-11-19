@@ -23,11 +23,11 @@ export default function Hero() {
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
         <div className="absolute bottom-[120px] w-full xl:bottom-[120px] z-20 2xl:bottom-[150px]">
           <h1 className="text-main-white text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[25px] lg:text-[70px] lg:leading-[70px] xl:text-[100px] xl:font-normal-font-weight xl:leading-[100px] uppercase 2xl:leading-[110px] 2xl:text-[110px] max-w-[600px] lg:max-w-[800px] xl:max-w-[1200px] 2xl:max-w-[1200px]">
-            creation of luxury villas in Majorca
+            creation of luxury villas in Mallorca
           </h1>
 
           <p className="text-main-white font-light-font-weight mb-[50px] text-[clamp(0.75rem,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] max-w-[300px] lg:max-w-[450px] min-[420px]:max-w-[400px] xl:max-w-[740px] xl:mb-[70px]">
-            Luxury villas in Majorca combine modern design with the unique
+            Luxury villas in Mallorca combine modern design with the unique
             atmosphere of the island, offering comfort, privacy, and
             unforgettable views.
           </p>

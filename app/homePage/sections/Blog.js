@@ -7,7 +7,7 @@ export default function Blog() {
     <section className="mx-margin-mobile flex flex-col md:mx-tablet  lg:mx-small-laptop mb-[80px]  xl:mb-[150px]">
       <div className="md:flex md:justify-between w-full md:items-end md:mb-[50px]">
         <h3 className="mb-5 text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(11)'] after:absolute after:top-[5px] after:text-[8px] xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px]  2xl:text-[80px] 2xl:font-normal md:mb-0]">
-          Our Blog
+          Blog
         </h3>
         <button className="bg-main-black rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)] hidden md:flex md:max-h-[50px]">
           Zobacz wszystkie
@@ -154,10 +154,9 @@ export default function Blog() {
           </div>
           <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[65%]">
-              How daylight guides every decision — from massing to material
-              choice.
+              Designing a Luxury Mediterranean Villa
             </span>
-            <span className="opacity-[35%]">14 Luty 2025</span>
+            <span className="opacity-[35%]">March 2025</span>
           </div>
         </div>
 
@@ -179,10 +178,9 @@ export default function Blog() {
           </div>
           <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[65%]">
-              Why restraint and space for stillness matter more than visual
-              noise.
+              Maximizing Light and Views in Your Mallorca Home
             </span>
-            <span className="opacity-[35%]">23 Grudzień 2024</span>
+            <span className="opacity-[35%]">January 2025</span>
           </div>
         </div>
 
@@ -204,10 +202,9 @@ export default function Blog() {
           </div>
           <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
-              The emotional impact of texture, weight, and imperfection in built
-              form.
+              Materials and Finishes Inspired by Mallorca
             </span>
-            <span className="opacity-[35%]">12 Maj 2025</span>
+            <span className="opacity-[35%]">August 2024</span>
           </div>
         </div>
       </div>

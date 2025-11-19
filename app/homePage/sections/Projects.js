@@ -35,7 +35,7 @@ export default function Projects() {
               </LazyComponent>
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
-              <span>Our project</span>
+              <span>Villa Maris, Mallorca</span>
               <span>View project</span>
             </div>
           </div>
@@ -58,7 +58,7 @@ export default function Projects() {
               </LazyComponent>
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
-              <span>Our project</span>
+              <span>Villa Llevant, Mallorca</span>
               <span>View project</span>
             </div>
           </div>
@@ -83,7 +83,7 @@ export default function Projects() {
               </LazyComponent>
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
-              <span>Our project</span>
+              <span>Villa Esencia, Mallorca</span>
               <span>View project</span>
             </div>
           </div>
@@ -107,15 +107,17 @@ export default function Projects() {
             </div>
 
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
-              <span>Our project</span>
+              <span>Son Brisa, Mallorca</span>
               <span>View project</span>
             </div>
           </div>
 
           <div className="leading-[26px] flex flex-col gap-[40px] items-end lg:gap-[30px]">
             <p className="self-start text-[clamp(20px,4.5vw,30px)] leading-[clamp(26px,5.5vw,2.7rem)] max-[491px]:max-w-[300px] min-[900px]:max-w-[750px] lg:text-[26px] lg:ml-10 lg:leading-[36px] lg:font-light-font-weight xl:max-w-[570px] xl:text-[26px] xl:leading-[40px] 2xl:text-[36px] 2xl:leading-[50px] 2xl:max-w-[800px]">
-              Oferujemy doświadczenie wyrafinowanego komfortu, ponadczasowej
-              elegancji i szczerej gościnności. Położona w romantycznym sercu.
+              Our villas harmoniously blend contemporary Mediterranean design
+              with the natural landscape of Mallorca, featuring open interiors,
+              sunlit terraces, premium materials, and seamless indoor‑outdoor
+              living for timeless luxury.
             </p>
             <button className="bg-main-black rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)]">
               Zobacz wszystkie
