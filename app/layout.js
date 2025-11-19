@@ -1,6 +1,7 @@
 import "./globals.css";
 import Header from "./components/Header/Header";
 import { Poppins } from "next/font/google";
+import Footer from "./components/Footer/Footer";
 
 export const poppins = Poppins({
   subsets: ["latin"],
@@ -21,9 +22,10 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
         />
       </head>
-      <body className={`${poppins.className} min-h-[10000px] bg-bg-main`}>
+      <body className={`${poppins.className} min-h-screen bg-bg-main`}>
         <Header />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
