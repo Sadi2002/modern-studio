@@ -41,7 +41,7 @@ export default function Process() {
               className="py-[20px] border-b-[1px] border-b-[rgba(0,0,0,0.2)] cursor-pointer transition-all "
               onMouseEnter={() => isAbove768 && setActiveIndex(index)}
             >
-              <span className="block text-[clamp(18px,5.5vw,25px)] leading-[clamp(0.75rem,10vw,2rem)]">
+              <span className="block text-[clamp(18px,5.5vw,23px)] leading-[clamp(0.75rem,10vw,2rem)]">
                 ({String(step.id).padStart(2, "0")}) {step.title}
               </span>
             </div>

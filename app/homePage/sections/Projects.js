@@ -113,7 +113,7 @@ export default function Projects() {
           </div>
 
           <div className="leading-[26px] flex flex-col gap-[40px] items-end lg:gap-[30px]">
-            <p className="self-start text-[clamp(16px,4.5vw,23px)] leading-[clamp(22px,7.5vw,32px)] min-[900px]:max-w-[750px] lg:text-[26px] lg:ml-10 lg:leading-[36px] lg:font-light-font-weight xl:max-w-[570px] xl:text-[26px] xl:leading-[40px] 2xl:text-[36px] 2xl:leading-[50px] 2xl:max-w-[800px]">
+            <p className="self-start text-[clamp(16px,4.5vw,23px)] leading-[clamp(22px,7.5vw,26px)] min-[900px]:max-w-[750px] lg:ml-10 lg:leading-[36px] lg:font-light-font-weight xl:max-w-[570px] xl:text-[26px] xl:leading-[40px] 2xl:text-[26px] 2xl:leading-[42px] 2xl:max-w-[800px]">
               Our villas harmoniously blend contemporary Mediterranean design
               with the natural landscape of Mallorca, featuring open interiors,
               sunlit terraces, premium materials, and seamless indoor‑outdoor
