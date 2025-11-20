@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import arrow from "../../../public/arrow.png";
 import heroImgLarge from "../../../public/projekt3-large.webp";
+import Link from "next/link";
 
 export default function Hero() {
   const [showLarge, setShowLarge] = useState(false);
@@ -33,12 +34,14 @@ export default function Hero() {
           </p>
 
           <button className="bg-main-white rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-black ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)]">
-            Read more
-            <Image
-              src={arrow}
-              alt="strzałka"
-              className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative"
-            />
+            <Link href="#about" className="flex justify-center items-center">
+              Read more{" "}
+              <Image
+                src={arrow}
+                alt="strzałka"
+                className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative"
+              />
+            </Link>
           </button>
         </div>
       </div>

@@ -19,7 +19,7 @@ export default function Process() {
         <h3 className="text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(05)'] after:absolute after:top-[5px] after:text-[8px] mb-5 xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px] xl:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal">
           How We Work
         </h3>
-        <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[50px] min-[380px]:max-w-[360px] md:max-w-[550px]">
+        <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[50px] min-[380px]:max-w-[360px] md:max-w-[400px]">
           From initial concept to final completion — each step brings you closer
           to your exceptional villa.
         </p>
@@ -38,10 +38,10 @@ export default function Process() {
           {process.map((step, index) => (
             <div
               key={step.id}
-              className="py-[20px] border-b-[1px] border-b-[rgba(0,0,0,0.2)] cursor-pointer transition-all "
+              className="py-[20px] border-b-[1px] border-b-[rgba(0,0,0,0.2)] cursor-pointer transition-all pointer-events-none lg:pointer-events-auto"
               onMouseEnter={() => isAbove768 && setActiveIndex(index)}
             >
-              <span className="block text-[clamp(18px,5.5vw,23px)] leading-[clamp(0.75rem,10vw,2rem)]">
+              <span className="block text-[clamp(14px,4.3vw,23px)] leading-[clamp(0.75rem,10vw,2rem)]">
                 ({String(step.id).padStart(2, "0")}) {step.title}
               </span>
             </div>

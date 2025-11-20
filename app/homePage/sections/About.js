@@ -9,7 +9,10 @@ export default function About() {
   const isAbove768 = useIsAbove768();
 
   return (
-    <section className="pt-[60px] flex flex-col gap-[40px] xl:gap-[80px] xl:pt-[150px] 2xl:gap-[100px] mb-[80px] xl:mb-[150px]">
+    <section
+      id="about"
+      className="pt-[60px] flex flex-col gap-[40px] xl:gap-[80px] xl:pt-[150px] 2xl:gap-[100px] mb-[80px] xl:mb-[150px]"
+    >
       <div className="mx-margin-mobile lg:flex md:mx-tablet lg:mx-small-laptop lg:justify-between xl:justify-between 2xl:mx-desktop">
         <h2 className="text-[clamp(1.6rem,7.5vw,2.5rem)] leading-[clamp(2.1rem,7.5vw,2.5rem)] font-medium mb-[30px] max-w-[500px] lg:text-[clamp(2rem,3.5vw,64px)] lg:leading-[clamp(2rem,3.5vw,64px)] lg:max-w-[700px] lg:w-[50%] 2xl:max-w-[850px] xl:font-normal">
           Discover the beautiful Villas of Mallorca
