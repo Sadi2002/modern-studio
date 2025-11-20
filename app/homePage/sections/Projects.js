@@ -1,8 +1,8 @@
 import Image from "next/image";
+import Button from "@/app/components/Button";
 import ArrowWhite from "../../../public/arrow-right-white.png";
 
 import DataProjects from "../../data/dataProjects";
-import Button from "@/app/components/Button";
 
 const projects = DataProjects();
 

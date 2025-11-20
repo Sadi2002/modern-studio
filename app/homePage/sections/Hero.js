@@ -1,8 +1,6 @@
 import Image from "next/image";
-
 import arrow from "../../../public/arrow.png";
 import heroImgLarge from "../../../public/projekt3-large.webp";
-import Link from "next/link";
 import Button from "@/app/components/Button";
 
 export default function Hero() {
