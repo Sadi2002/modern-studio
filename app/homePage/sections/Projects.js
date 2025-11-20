@@ -36,7 +36,10 @@ export default function Projects() {
             </div>
           </Link>
 
-          <Link href={`/portfolio/${projects[1].slug}`} className="h-full">
+          <Link
+            href={`/portfolio/${projects[1].slug}`}
+            className="h-full flex justify-end"
+          >
             <div className="w-[86%] flex flex-col items-end self-end mb-[50px] lg:mb-[0px] lg:w-[100%] lg:h-full">
               <div className="flex flex-col justify-end w-full relative aspect-5/3 lg:h-full">
                 <Image
