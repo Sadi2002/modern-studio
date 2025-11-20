@@ -1,5 +1,3 @@
 export default function Project() {
-  return <div></div>;
+  return <div>test</div>;
 }
-
-page;
