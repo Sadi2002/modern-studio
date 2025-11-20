@@ -9,7 +9,7 @@ export default function Hero() {
   const [showLarge, setShowLarge] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowLarge(true), 10);
+    const timer = setTimeout(() => setShowLarge(true), 100);
     return () => clearTimeout(timer);
   }, []);
 
