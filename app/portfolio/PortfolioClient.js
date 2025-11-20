@@ -16,82 +16,10 @@ import {
   useState,
 } from "react";
 
+import dataProjects from "../data/dataProjects";
+
 export default function PortfolioClient() {
-  const projects = useMemo(
-    () => [
-      {
-        title: "Beehive House",
-        location: "Accord, NY",
-        subtitle: "New, single-family",
-        image: house,
-        slug: "#",
-      },
-      {
-        title: "Broadway Loft",
-        location: "New York, NY",
-        subtitle: "Adaptive reuse",
-        image: house2,
-        slug: "#",
-      },
-      {
-        title: "Ocean Parkway",
-        location: "Brooklyn, NY",
-        subtitle: "Residential",
-        image: house3,
-        slug: "#",
-      },
-      {
-        title: "Sequoia House",
-        location: "Chicago, IL",
-        subtitle: "Workspace",
-        image: house4,
-        slug: "#",
-      },
-      {
-        title: "Son Del North",
-        location: "Aspen, CO",
-        subtitle: "Hospitality",
-        image: house5,
-        slug: "#",
-      },
-      {
-        title: "Son Del North",
-        location: "Aspen, CO",
-        subtitle: "Hospitality",
-        image: house2,
-        slug: "#",
-      },
-      {
-        title: "Son Del North",
-        location: "Aspen, CO",
-        subtitle: "Hospitality",
-        image: house3,
-        slug: "#",
-      },
-      {
-        title: "Son Del North",
-        location: "Aspen, CO",
-        subtitle: "Hospitality",
-        image: house,
-        slug: "#",
-      },
-      {
-        title: "Son Del North",
-        location: "Aspen, CO",
-        subtitle: "Hospitality",
-        image: house3,
-        slug: "#",
-      },
-      {
-        title: "Son Del North",
-        location: "Aspen, CO",
-        subtitle: "Hospitality",
-        image: house2,
-        slug: "#",
-      },
-    ],
-    []
-  );
+  const projects = dataProjects();
 
   const cardRefs = useRef([]); // DOM refs for right-side cards
   const linkRefs = useRef([]); // DOM refs for left-side links
@@ -301,7 +229,7 @@ export default function PortfolioClient() {
           <div
             key={i}
             ref={(el) => (cardRefs.current[i] = el)}
-            className="flex flex-col aspect-[8/5] relative"
+            className="flex flex-col"
           >
             <Link
               href={`/portfolio/${p.slug}`}
@@ -309,9 +237,9 @@ export default function PortfolioClient() {
               aria-label={`Zobacz ${p.title}`}
             >
               <div className="overflow-hidden">
-                <div>
+                <div className="relative w-full aspect-[8/5]">
                   <Image
-                    src={p.image}
+                    src={p.imgSrc}
                     alt={p.title}
                     className="w-full block object-cover"
                     fill

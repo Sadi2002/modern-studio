@@ -95,7 +95,7 @@ export default function Navigation() {
       <ul className="hidden md:flex gap-between-navigation-links items-center xl:gap-between-navigation-links-xl">
         <li>
           <Link
-            href={"/project"}
+            href={"#"}
             className="text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
           >
             About us

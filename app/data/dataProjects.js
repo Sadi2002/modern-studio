@@ -1,38 +1,72 @@
-import projekt1 from "../../public/projekt2-large.webp";
-import projekt2 from "../../public/projekt4-large.webp";
-import projekt3 from "../../public/projekt3-large.webp";
-import projekt4 from "../../public/projekt1-large.webp";
-
 export default function dataProjects() {
   const projects = [
     {
       id: 1,
-      title: "Our project",
-      imgSrc: projekt1,
-      alt: "pokój1",
-      slug: "Warszawa",
+      title: "Villa Maris",
+      description: `We design contemporary villas in Mallorca, combining aesthetics
+              with functionality. Our goal is to ensure that every project
+              responds both to the island’s climate and the expectations of our
+              clients`,
+      imgSrc: "/projekt2-large.webp",
+      alt: "Villa Maris",
+      slug: "villa-maris",
+      year: 2025,
+      location: "Mallorca",
+      type: "Private Residence",
+      collaborators: [
+        { title: "Measured Up Builders" },
+        { title: "Architexture" },
+      ],
     },
     {
       id: 2,
-      title: "Our project",
-      imgSrc: projekt2,
-      alt: "pokój",
-      slug: "Warszawa",
+      title: "Villa Llevant",
+      description: `We work with high-quality materials and clean architectural forms,
+              focusing on comfort, proportions, and details that define the
+              character of each space.`,
+      imgSrc: "/projekt4-large.webp",
+      alt: "Villa Llevant",
+      slug: "villa-llevant",
+      year: 2024,
+      location: "Mallorca",
+      type: "Private Residence",
+      collaborators: [
+        { title: "Measured Up Builders" },
+        { title: "Architexture" },
+      ],
     },
     {
       id: 3,
-      title: "Our project",
-
-      imgSrc: projekt3,
-      alt: "pokój",
-      slug: "Warszawa",
+      title: "Villa Esencia",
+      description: `An elegant villa blending nature and design. From initial concept to final completion — each step brings you closer
+          to your exceptional villa.`,
+      imgSrc: "/projekt3-large.webp",
+      alt: "Villa Esencia",
+      slug: "villa-esencia",
+      year: 2023,
+      location: "Mallorca",
+      type: "Private Residence",
+      collaborators: [
+        { title: "Measured Up Builders" },
+        { title: "Architexture" },
+      ],
     },
     {
       id: 4,
-      title: "Our project",
-      imgSrc: projekt4,
-      alt: "pokój",
-      slug: "Warszawa",
+      title: "Son Brisa",
+      description: `Luxury villas in Mallorca combine modern design with the unique
+            atmosphere of the island, offering comfort, privacy, and
+            unforgettable views.`,
+      imgSrc: "/projekt1-large.webp",
+      alt: "Son Brisa",
+      slug: "son-brisa",
+      year: 2022,
+      location: "Mallorca",
+      type: "Private Residence",
+      collaborators: [
+        { title: "Measured Up Builders" },
+        { title: "Architexture" },
+      ],
     },
   ];
   return projects;

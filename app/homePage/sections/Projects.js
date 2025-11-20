@@ -3,6 +3,7 @@ import Button from "@/app/components/Button";
 import ArrowWhite from "../../../public/arrow-right-white.png";
 
 import DataProjects from "../../data/dataProjects";
+import Link from "next/link";
 
 const projects = DataProjects();
 
@@ -14,80 +15,92 @@ export default function Projects() {
       </h3>
       <div className="flex flex-col lg:flex-row lg:justify-between">
         <div className="flex flex-col lg:w-[calc(50%-10px)]">
-          <div className="max-w-[80%] mb-[50px] lg:mb-[50px] lg:max-w-[100%]">
-            <div className="relative aspect-8/7">
-              <Image
-                src={projects[0].imgSrc}
-                alt={projects[0].alt}
-                className="object-cover absolute top-0 left-0 w-full h-full"
-                fill
-                placeholder="blur"
-              />
+          <Link href={`/portfolio/${projects[0].slug}`}>
+            <div className="max-w-[80%] mb-[50px] lg:mb-[50px] lg:max-w-[100%]">
+              <div className="relative aspect-8/7">
+                <Image
+                  src={projects[0].imgSrc}
+                  alt={projects[0].alt}
+                  className="object-cover absolute top-0 left-0 w-full h-full"
+                  fill
+                />
+              </div>
+              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+                <span className="font-medium-font-weight">
+                  {projects[0].title}, {projects[0].location}
+                </span>
+                <span className="font-medium-font-weight">
+                  {projects[0].year}
+                </span>
+              </div>
             </div>
-            <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
-              <span className="font-medium-font-weight">
-                Villa Maris, Mallorca
-              </span>
-              <span className="font-medium-font-weight">2025</span>
-            </div>
-          </div>
+          </Link>
 
-          <div className="w-[86%] flex flex-col items-end self-end mb-[50px] lg:mb-[0px] lg:w-[100%] lg:h-full">
-            <div className="flex flex-col justify-end w-full relative aspect-5/3 lg:h-full">
-              <Image
-                src={projects[1].imgSrc}
-                alt={projects[1].alt}
-                className="object-cover absolute top-0 left-0 w-full h-full"
-                fill
-                placeholder="blur"
-              />
+          <Link href={`/portfolio/${projects[1].slug}`} className="h-full">
+            <div className="w-[86%] flex flex-col items-end self-end mb-[50px] lg:mb-[0px] lg:w-[100%] lg:h-full">
+              <div className="flex flex-col justify-end w-full relative aspect-5/3 lg:h-full">
+                <Image
+                  src={projects[1].imgSrc}
+                  alt={projects[1].alt}
+                  className="object-cover absolute top-0 left-0 w-full h-full"
+                  fill
+                />
+              </div>
+              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
+                <span className="font-medium-font-weight">
+                  {projects[1].title}, {projects[1].location}
+                </span>
+                <span className="font-medium-font-weight">
+                  {projects[1].year}
+                </span>
+              </div>
             </div>
-            <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
-              <span className="font-medium-font-weight">
-                Villa Llevant, Mallorca
-              </span>
-              <span className="font-medium-font-weight">2024</span>
-            </div>
-          </div>
+          </Link>
         </div>
 
         <div className="lg:flex lg:flex-col lg:w-[calc(50%-10px)]">
-          <div className="w-full mb-[50px] lg:mb-[50px]">
-            <div className="relative aspect-8/5">
-              <Image
-                src={projects[2].imgSrc}
-                alt={projects[2].alt}
-                className="object-cover absolute top-0 left-0 w-full h-full"
-                fill
-                placeholder="blur"
-              />
+          <Link href={`/portfolio/${projects[2].slug}`}>
+            <div className="w-full mb-[50px] lg:mb-[50px]">
+              <div className="relative aspect-8/5">
+                <Image
+                  src={projects[2].imgSrc}
+                  alt={projects[2].alt}
+                  className="object-cover absolute top-0 left-0 w-full h-full"
+                  fill
+                />
+              </div>
+              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
+                <span className="font-medium-font-weight">
+                  {projects[2].title}, {projects[2].location}
+                </span>
+                <span className="font-medium-font-weight">
+                  {projects[2].year}
+                </span>
+              </div>
             </div>
-            <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
-              <span className="font-medium-font-weight">
-                Villa Esencia, Mallorca
-              </span>
-              <span className="font-medium-font-weight">2023</span>
-            </div>
-          </div>
+          </Link>
 
-          <div className="max-w-[78%] mb-[30px] lg:w-[100%] lg:max-w-[100%] lg:mb-[60px]">
-            <div className="relative aspect-7/8 lg:aspect-8/7">
-              <Image
-                src={projects[3].imgSrc}
-                alt={projects[3].alt}
-                className="object-cover absolute top-0 left-0 w-full h-full"
-                fill
-                placeholder="blur"
-              />
-            </div>
+          <Link href={`/portfolio/${projects[3].slug}`}>
+            <div className="max-w-[78%] mb-[30px] lg:w-[100%] lg:max-w-[100%] lg:mb-[60px]">
+              <div className="relative aspect-7/8 lg:aspect-8/7">
+                <Image
+                  src={projects[3].imgSrc}
+                  alt={projects[3].alt}
+                  className="object-cover absolute top-0 left-0 w-full h-full"
+                  fill
+                />
+              </div>
 
-            <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
-              <span className="font-medium-font-weight">
-                Son Brisa, Mallorca
-              </span>
-              <span className="font-medium-font-weight ">2022</span>
+              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
+                <span className="font-medium-font-weight">
+                  {projects[3].title}, {projects[3].location}
+                </span>
+                <span className="font-medium-font-weight ">
+                  {projects[3].year}
+                </span>
+              </div>
             </div>
-          </div>
+          </Link>
 
           <div className="leading-[26px] flex flex-col gap-[40px] items-end lg:gap-[30px]">
             <p className="self-start text-[clamp(14px,3.5vw,23px)] leading-[clamp(20px,6vw,26px)] min-[900px]:max-w-[750px] lg:ml-10 lg:leading-[36px] md:leading-[34px] md:max-w-[600px] font-light-font-weight xl:max-w-[570px] xl:text-[23px] xl:leading-[36px] 2xl:text-[26px] 2xl:leading-[42px] 2xl:max-w-[800px]">
