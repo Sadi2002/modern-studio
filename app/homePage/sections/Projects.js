@@ -1,7 +1,8 @@
 import Image from "next/image";
 import ArrowWhite from "../../../public/arrow-right-white.png";
 
-import DataProjects from "../../dataProjects";
+import DataProjects from "../../data/dataProjects";
+import Button from "@/app/components/Button";
 
 const projects = DataProjects();
 
@@ -95,14 +96,15 @@ export default function Projects() {
               sunlit terraces, premium materials, and seamless indoor‑outdoor
               living for timeless luxury.
             </p>
-            <button className="bg-main-black rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)]">
+            <Button
+              arrow={ArrowWhite}
+              linkTo="/portfolio"
+              bgColor="main-black"
+              textColor="main-white"
+              additionalStyles="md:self-end"
+            >
               Zobacz wszystkie
-              <Image
-                src={ArrowWhite}
-                alt="strzałka"
-                className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative"
-              />
-            </button>
+            </Button>
           </div>
         </div>
       </div>

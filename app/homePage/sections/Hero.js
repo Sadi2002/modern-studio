@@ -3,6 +3,7 @@ import Image from "next/image";
 import arrow from "../../../public/arrow.png";
 import heroImgLarge from "../../../public/projekt3-large.webp";
 import Link from "next/link";
+import Button from "@/app/components/Button";
 
 export default function Hero() {
   return (
@@ -12,7 +13,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[rgba(0,0,0,0.55)]"></div>
 
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
-        <div className="absolute bottom-[120px] w-full xl:bottom-[120px] z-20 2xl:bottom-[150px]">
+        <div className="flex flex-col md:items-start absolute bottom-[120px] w-full xl:bottom-[120px] z-20 2xl:bottom-[150px]">
           <h1 className="text-main-white text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[25px] lg:text-[70px] lg:leading-[70px] xl:text-[100px] xl:font-normal-font-weight xl:leading-[100px] uppercase 2xl:leading-[110px] 2xl:text-[110px] max-w-[600px] lg:max-w-[800px] xl:max-w-[1200px] 2xl:max-w-[1200px]">
             creation of luxury villas in Mallorca
           </h1>
@@ -23,16 +24,15 @@ export default function Hero() {
             unforgettable views.
           </p>
 
-          <button className="bg-main-white rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-black ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)]">
-            <Link href="#about" className="flex justify-center items-center">
-              Read more{" "}
-              <Image
-                src={arrow}
-                alt="strzałka"
-                className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative"
-              />
-            </Link>
-          </button>
+          <Button
+            arrow={arrow}
+            linkTo="#about"
+            bgColor="main-white"
+            textColor="main-black"
+            additionalStyles="md:self-start"
+          >
+            Read more
+          </Button>
         </div>
       </div>
 

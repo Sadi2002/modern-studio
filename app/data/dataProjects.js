@@ -1,7 +1,7 @@
-import projekt1 from "../public/projekt2-large.webp";
-import projekt2 from "../public/projekt4-large.webp";
-import projekt3 from "../public/projekt3-large.webp";
-import projekt4 from "../public/projekt1-large.webp";
+import projekt1 from "../../public/projekt2-large.webp";
+import projekt2 from "../../public/projekt4-large.webp";
+import projekt3 from "../../public/projekt3-large.webp";
+import projekt4 from "../../public/projekt1-large.webp";
 
 export default function dataProjects() {
   const projects = [

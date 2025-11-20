@@ -3,8 +3,9 @@
 import Image from "next/image";
 import ArrowWhite from "../../../public/arrow-right-white.png";
 
-import dataProcess from "../../dataProcess";
+import dataProcess from "../../data/dataProcess";
 import { useState } from "react";
+import Button from "@/app/components/Button";
 
 const process = dataProcess();
 
@@ -24,14 +25,18 @@ export default function Process() {
         <button className="font-medium-font-weight text-[clamp(0.75rem,3.5vw,1rem)] relative uppercase after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:w-full-width after:h-[1px] ml-auto mr-0 block after:w-full lg:hidden">
           Więcej o nas
         </button>
-        <button className="bg-main-black rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)] hidden lg:flex lg:ml-auto">
-          Czytaj więcej
-          <Image
-            src={ArrowWhite}
-            alt="strzałka"
-            className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative"
-          />
-        </button>
+        <div className="lg:flex lg:justify-end">
+          <Button
+            arrow={ArrowWhite}
+            linkTo="#"
+            bgColor="main-black"
+            textColor="main-white"
+            additionalStyles="hidden md:self-end lg:flex"
+          >
+            Czytaj więcej
+          </Button>
+        </div>
+
         <div className="mt-[40px]">
           {process.map((step, index) => (
             <div
