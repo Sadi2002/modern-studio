@@ -58,7 +58,6 @@
 
 html {
   scrollbar-width: none; /* Firefox */
-  scroll-behavior: smooth;
 }
 
 html::-webkit-scrollbar {
@@ -67,7 +66,6 @@ html::-webkit-scrollbar {
 
 body {
   overflow-y: scroll;
-  scroll-behavior: smooth;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
