@@ -315,7 +315,6 @@ export default function PortfolioClient() {
                     alt={p.title}
                     className="w-full block object-cover"
                     fill
-                    unoptimized
                   />
                 </div>
               </div>

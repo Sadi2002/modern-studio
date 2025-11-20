@@ -1,13 +1,7 @@
-"use client";
-
 import Image from "next/image";
-import aboutLarge from "../../../public/about-large.jpg";
-import LazyComponent from "@/app/components/lazyComponent";
-import useIsAbove768 from "@/app/components/width768";
+import aboutLarge from "../../../public/about-large.webp";
 
 export default function About() {
-  const isAbove768 = useIsAbove768();
-
   return (
     <section
       id="about"
@@ -37,16 +31,14 @@ export default function About() {
         </div>
       </div>
 
-      <div className="relative max-w-[90%] xl:w-[80%] aspect-[3/1.7] bg-[url('/about-small.webp')] bg-center bg-cover">
-        <LazyComponent height={300}>
-          <Image
-            src={aboutLarge}
-            alt="pokój"
-            fill
-            className="object-cover"
-            unoptimized={isAbove768}
-          />
-        </LazyComponent>
+      <div className="relative max-w-[90%] xl:w-[80%] aspect-[3/1.7]">
+        <Image
+          src={aboutLarge}
+          alt="pokój"
+          fill
+          className="object-cover"
+          placeholder="blur"
+        />
       </div>
     </section>
   );

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import ArrowWhite from "../../../public/arrow-right-white.png";
-import LazyComponent from "@/app/components/lazyComponent";
 
 export default function Blog() {
   return (
@@ -32,14 +31,12 @@ export default function Blog() {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(/projekt3-small.webp)` }}
               >
-                <LazyComponent height={500}>
-                  <Image
-                    src="/projekt3-small.webp"
-                    alt="pokoj"
-                    fill
-                    className="object-cover"
-                  />
-                </LazyComponent>
+                <Image
+                  src="/projekt3-small.webp"
+                  alt="pokoj"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
@@ -53,14 +50,12 @@ export default function Blog() {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(/projekt4-small.webp)` }}
               >
-                <LazyComponent height={500}>
-                  <Image
-                    src="/projekt4-small.webp"
-                    alt="pokoj"
-                    fill
-                    className="object-cover"
-                  />
-                </LazyComponent>
+                <Image
+                  src="/projekt4-small.webp"
+                  alt="pokoj"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
@@ -74,14 +69,12 @@ export default function Blog() {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(/about-small.webp)` }}
               >
-                <LazyComponent height={500}>
-                  <Image
-                    src="/about-small.webp"
-                    alt="pokoj"
-                    fill
-                    className="object-cover"
-                  />
-                </LazyComponent>
+                <Image
+                  src="/about-small.webp"
+                  alt="pokoj"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
@@ -98,14 +91,12 @@ export default function Blog() {
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(/projekt3-small.webp)` }}
             >
-              <LazyComponent height={500}>
-                <Image
-                  src="/projekt3-small.webp"
-                  alt="pokoj"
-                  fill
-                  className="object-cover"
-                />
-              </LazyComponent>
+              <Image
+                src="/projekt3-small.webp"
+                alt="pokoj"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
           <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
@@ -122,14 +113,12 @@ export default function Blog() {
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(/projekt2-small.webp)` }}
             >
-              <LazyComponent height={500}>
-                <Image
-                  src="/projekt2-small.webp"
-                  alt="pokoj"
-                  fill
-                  className="object-cover"
-                />
-              </LazyComponent>
+              <Image
+                src="/projekt2-small.webp"
+                alt="pokoj"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
           <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
@@ -146,14 +135,12 @@ export default function Blog() {
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(/projekt4-small.webp)` }}
             >
-              <LazyComponent height={500}>
-                <Image
-                  src="/projekt4-small.webp"
-                  alt="pokoj"
-                  fill
-                  className="object-cover"
-                />
-              </LazyComponent>
+              <Image
+                src="/projekt4-small.webp"
+                alt="pokoj"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
           <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">

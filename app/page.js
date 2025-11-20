@@ -19,9 +19,9 @@ export default function Home() {
       <Hero />
       <DynamicAbout />
       <DynamicProjects />
-      <DynamicProcess />
+      {/* <DynamicProcess />
       <DynamicBlog />
-      <DynamicFaq />
+      <DynamicFaq /> */}
     </>
   );
 }

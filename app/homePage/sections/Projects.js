@@ -1,15 +1,11 @@
-"use client";
 import Image from "next/image";
 import ArrowWhite from "../../../public/arrow-right-white.png";
 
 import DataProjects from "../../dataProjects";
-import useIsAbove768 from "@/app/components/width768";
-import LazyComponent from "@/app/components/lazyComponent";
 
 const projects = DataProjects();
 
 export default function Projects() {
-  const isAbove768 = useIsAbove768();
   return (
     <section className="mx-margin-mobile md:mx-tablet lg:mx-small-laptop mb-[80px] xl:mb-[150px]">
       <h3 className="text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(04)'] after:absolute after:top-[5px] after:text-[8px] mb-5 xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px] xl:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal">
@@ -19,20 +15,13 @@ export default function Projects() {
         <div className="flex flex-col lg:w-[calc(50%-10px)]">
           <div className="max-w-[80%] mb-[50px] lg:mb-[50px] lg:max-w-[100%]">
             <div className="relative aspect-8/7">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${projects[0].bgImage})` }}
-              >
-                <LazyComponent height={500}>
-                  <Image
-                    src={projects[0].imgSrc}
-                    alt={projects[0].alt}
-                    className="object-cover absolute top-0 left-0 w-full h-full"
-                    fill
-                    unoptimized={isAbove768}
-                  />
-                </LazyComponent>
-              </div>
+              <Image
+                src={projects[0].imgSrc}
+                alt={projects[0].alt}
+                className="object-cover absolute top-0 left-0 w-full h-full"
+                fill
+                placeholder="blur"
+              />
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
               <span className="font-medium-font-weight">
@@ -44,20 +33,13 @@ export default function Projects() {
 
           <div className="w-[86%] flex flex-col items-end self-end mb-[50px] lg:mb-[0px] lg:w-[100%] lg:h-full">
             <div className="flex flex-col justify-end w-full relative aspect-5/3 lg:h-full">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${projects[1].bgImage})` }}
-              >
-                <LazyComponent height={500}>
-                  <Image
-                    src={projects[1].imgSrc}
-                    alt={projects[1].alt}
-                    className="object-cover absolute top-0 left-0 w-full h-full"
-                    fill
-                    unoptimized={isAbove768}
-                  />
-                </LazyComponent>
-              </div>
+              <Image
+                src={projects[1].imgSrc}
+                alt={projects[1].alt}
+                className="object-cover absolute top-0 left-0 w-full h-full"
+                fill
+                placeholder="blur"
+              />
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
               <span className="font-medium-font-weight">
@@ -71,20 +53,13 @@ export default function Projects() {
         <div className="lg:flex lg:flex-col lg:w-[calc(50%-10px)]">
           <div className="w-full mb-[50px] lg:mb-[50px]">
             <div className="relative aspect-8/5">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${projects[2].bgImage})` }}
-              >
-                <LazyComponent height={500}>
-                  <Image
-                    src={projects[2].imgSrc}
-                    alt={projects[2].alt}
-                    className="object-cover absolute top-0 left-0 w-full h-full"
-                    fill
-                    unoptimized={isAbove768}
-                  />
-                </LazyComponent>
-              </div>
+              <Image
+                src={projects[2].imgSrc}
+                alt={projects[2].alt}
+                className="object-cover absolute top-0 left-0 w-full h-full"
+                fill
+                placeholder="blur"
+              />
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
               <span className="font-medium-font-weight">
@@ -96,20 +71,13 @@ export default function Projects() {
 
           <div className="max-w-[78%] mb-[30px] lg:w-[100%] lg:max-w-[100%] lg:mb-[60px]">
             <div className="relative aspect-7/8 lg:aspect-8/7">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${projects[3].bgImage})` }}
-              >
-                <LazyComponent height={500}>
-                  <Image
-                    src={projects[3].imgSrc}
-                    alt={projects[3].alt}
-                    className="object-cover absolute top-0 left-0 w-full h-full"
-                    fill
-                    unoptimized={isAbove768}
-                  />
-                </LazyComponent>
-              </div>
+              <Image
+                src={projects[3].imgSrc}
+                alt={projects[3].alt}
+                className="object-cover absolute top-0 left-0 w-full h-full"
+                fill
+                placeholder="blur"
+              />
             </div>
 
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">

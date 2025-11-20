@@ -1,5 +1,5 @@
 "use client";
-import LazyComponent from "@/app/components/lazyComponent";
+
 import Image from "next/image";
 import ArrowWhite from "../../../public/arrow-right-white.png";
 
@@ -56,15 +56,13 @@ export default function Process() {
               backgroundImage: `url(${process[activeIndex].bgImage})`,
             }}
           >
-            <LazyComponent height={500}>
-              <Image
-                src={process[activeIndex].imgSrc}
-                alt={process[activeIndex].alt}
-                fill
-                unoptimized={isAbove768}
-                className="object-cover absolute top-0 left-0 w-full h-full"
-              />
-            </LazyComponent>
+            <Image
+              src={process[activeIndex].imgSrc}
+              alt={process[activeIndex].alt}
+              fill
+              unoptimized={isAbove768}
+              className="object-cover absolute top-0 left-0 w-full h-full"
+            />
           </div>
 
           <p className="hidden mt-[10px] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(16px,4.5vw,1.5rem)] max-w-[360px] lg:mt-[20px] lg:text-[16px] lg:leading-[24px] lg:flex">
