@@ -1,23 +1,28 @@
-"use client";
+// "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import arrow from "../../../public/arrow.png";
 import heroImgLarge from "../../../public/projekt3-large.webp";
 import Link from "next/link";
 
 export default function Hero() {
-  const [showLarge, setShowLarge] = useState(false);
+  // const [showLarge, setShowLarge] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setShowLarge(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => setShowLarge(true), 100);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   return (
-    <section className="h-[100dvh] relative w-full overflow-hidden bg-center bg-cover bg-[url('/projekt3-small.webp')] mb-[20px]">
-      {showLarge && (
-        <Image src={heroImgLarge} className="object-cover" fill alt="test" />
-      )}
+    <section className="h-[100dvh] relative w-full mb-[20px]">
+      <Image
+        src={heroImgLarge}
+        className="object-cover"
+        fill
+        alt="test"
+        priority
+        placeholder="blur"
+      />
 
       <div className="absolute inset-0 bg-[rgba(0,0,0,0.55)]"></div>
 

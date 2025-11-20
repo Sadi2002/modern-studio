@@ -5,12 +5,10 @@ import ArrowWhite from "../../../public/arrow-right-white.png";
 
 import dataProcess from "../../dataProcess";
 import { useState } from "react";
-import useIsAbove768 from "@/app/components/width768";
 
 const process = dataProcess();
 
 export default function Process() {
-  const isAbove768 = useIsAbove768();
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -39,7 +37,7 @@ export default function Process() {
             <div
               key={step.id}
               className="py-[20px] border-b-[1px] border-b-[rgba(0,0,0,0.2)] cursor-pointer transition-all pointer-events-none lg:pointer-events-auto"
-              onMouseEnter={() => isAbove768 && setActiveIndex(index)}
+              onMouseEnter={() => setActiveIndex(index)}
             >
               <span className="block text-[clamp(14px,4.3vw,23px)] leading-[clamp(0.75rem,10vw,2rem)]">
                 ({String(step.id).padStart(2, "0")}) {step.title}
@@ -60,7 +58,6 @@ export default function Process() {
               src={process[activeIndex].imgSrc}
               alt={process[activeIndex].alt}
               fill
-              unoptimized={isAbove768}
               className="object-cover absolute top-0 left-0 w-full h-full"
             />
           </div>
