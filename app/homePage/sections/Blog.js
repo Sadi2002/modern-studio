@@ -1,6 +1,11 @@
 import Image from "next/image";
 import ArrowWhite from "../../../public/arrow-right-white.png";
 
+import projekt1 from "../../../public/projekt1-large.webp";
+import projekt2 from "../../../public/projekt2-large.webp";
+import projekt3 from "../../../public/projekt3-large.webp";
+import projekt4 from "../../../public/projekt4-large.webp";
+
 export default function Blog() {
   return (
     <section className="mx-margin-mobile flex flex-col md:mx-tablet  lg:mx-small-laptop mb-[80px]  xl:mb-[150px]">
@@ -27,17 +32,13 @@ export default function Blog() {
         <div className="flex w-full overflow-x-scroll snap-x snap-mandatory space-x-4  scrollbar-hide">
           <div className="flex-shrink-0 w-[80%] aspect-[3/4]   flex flex-col md:aspect-[7/6]">
             <div className="h-full relative">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(/projekt3-small.webp)` }}
-              >
-                <Image
-                  src="/projekt3-small.webp"
-                  alt="pokoj"
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              <Image
+                src={projekt1}
+                alt="pokoj"
+                fill
+                className="object-cover"
+                placeholder="blur"
+              />
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
               <span>Our project</span>
@@ -46,17 +47,13 @@ export default function Blog() {
           </div>
           <div className="flex-shrink-0 w-[80%] aspect-[3/4]  flex flex-col md:aspect-[7/6]">
             <div className="h-full relative">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(/projekt4-small.webp)` }}
-              >
-                <Image
-                  src="/projekt4-small.webp"
-                  alt="pokoj"
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              <Image
+                src={projekt4}
+                alt="pokoj"
+                fill
+                className="object-cover"
+                placeholder="blur"
+              />
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
               <span>Our project</span>
@@ -65,17 +62,13 @@ export default function Blog() {
           </div>
           <div className="flex-shrink-0 w-[80%] aspect-[3/4]   flex flex-col md:aspect-[7/6]">
             <div className="h-full relative">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(/about-small.webp)` }}
-              >
-                <Image
-                  src="/about-small.webp"
-                  alt="pokoj"
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              <Image
+                src={projekt2}
+                alt="pokoj"
+                fill
+                className="object-cover"
+                placeholder="blur"
+              />
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
               <span>Our project</span>
@@ -87,17 +80,13 @@ export default function Blog() {
       <div className="hidden lg:flex lg:justify-between">
         <div className="w-[39%] inline-block">
           <div className="lg:aspect-[8/7] relative xl:aspect-[8/6] 2xl:aspect-[4/3]">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(/projekt3-small.webp)` }}
-            >
-              <Image
-                src="/projekt3-small.webp"
-                alt="pokoj"
-                fill
-                className="object-cover"
-              />
-            </div>
+            <Image
+              src={projekt3}
+              alt="pokoj"
+              fill
+              className="object-cover"
+              placeholder="blur"
+            />
           </div>
           <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[65%]">
@@ -109,17 +98,13 @@ export default function Blog() {
 
         <div className="w-[28%] inline-block">
           <div className="lg:aspect-[8/5] relative 2xl:aspect-[9/6]">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(/projekt2-small.webp)` }}
-            >
-              <Image
-                src="/projekt2-small.webp"
-                alt="pokoj"
-                fill
-                className="object-cover"
-              />
-            </div>
+            <Image
+              src={projekt2}
+              alt="pokoj"
+              fill
+              className="object-cover"
+              placeholder="blur"
+            />
           </div>
           <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[65%]">
@@ -131,17 +116,13 @@ export default function Blog() {
 
         <div className="w-[20%] inline-block xl:w-[22%] 2xl:w-[22%]">
           <div className="lg:aspect-[6/8] xl:aspect-[6/7] relative 2xl:aspect-[7/8] ">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(/projekt4-small.webp)` }}
-            >
-              <Image
-                src="/projekt4-small.webp"
-                alt="pokoj"
-                fill
-                className="object-cover"
-              />
-            </div>
+            <Image
+              src={projekt4}
+              alt="pokoj"
+              fill
+              className="object-cover"
+              placeholder="blur"
+            />
           </div>
           <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">

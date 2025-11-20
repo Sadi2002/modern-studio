@@ -1,4 +1,4 @@
-// import PortfolioClient from "./PortfolioClient";
+import PortfolioClient from "./PortfolioClient";
 
 export const metadata = {
   title: "Sadowski Studio - Nowoczesna Architektura i Design",
@@ -7,5 +7,5 @@ export const metadata = {
 };
 
 export default function Portfolio() {
-  return <p>test</p>;
+  return <PortfolioClient />;
 }

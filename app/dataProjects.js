@@ -8,7 +8,6 @@ export default function dataProjects() {
     {
       id: 1,
       title: "Our project",
-      bgImage: "/projekt2-small.webp",
       imgSrc: projekt1,
       alt: "pokój1",
       slug: "Warszawa",
@@ -16,7 +15,6 @@ export default function dataProjects() {
     {
       id: 2,
       title: "Our project",
-      bgImage: "/projekt4-small.webp",
       imgSrc: projekt2,
       alt: "pokój",
       slug: "Warszawa",
@@ -24,7 +22,7 @@ export default function dataProjects() {
     {
       id: 3,
       title: "Our project",
-      bgImage: "/projekt3-small.webp",
+
       imgSrc: projekt3,
       alt: "pokój",
       slug: "Warszawa",
@@ -32,7 +30,6 @@ export default function dataProjects() {
     {
       id: 4,
       title: "Our project",
-      bgImage: "/projekt1-small.webp",
       imgSrc: projekt4,
       alt: "pokój",
       slug: "Warszawa",

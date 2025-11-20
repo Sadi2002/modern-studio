@@ -48,17 +48,13 @@ export default function Process() {
       </div>
       <div className="lg:w-[40%]">
         <div className="lg:sticky lg:top-[87.5px] lg:mt-[87.5px] xl:top-[100px] xl:mt-[100px] 2xl:mt-[130px] 2xl:top-[130px]">
-          <div
-            className="relative aspect-8/5 mb-[40px] lg:w-[100%] lg:h-[300px] lg:mb-0 2xl:h-[350px] inset-0 bg-cover bg-center lg:aspect-8/7"
-            style={{
-              backgroundImage: `url(${process[activeIndex].bgImage})`,
-            }}
-          >
+          <div className="relative aspect-8/5 mb-[40px] lg:w-[100%] lg:h-[300px] lg:mb-0 2xl:h-[350px] lg:aspect-8/7">
             <Image
               src={process[activeIndex].imgSrc}
               alt={process[activeIndex].alt}
               fill
               className="object-cover absolute top-0 left-0 w-full h-full"
+              placeholder="blur"
             />
           </div>
 
