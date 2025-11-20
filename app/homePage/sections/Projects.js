@@ -35,8 +35,10 @@ export default function Projects() {
               </div>
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
-              <span>Villa Maris, Mallorca</span>
-              <span>View project</span>
+              <span className="font-medium-font-weight">
+                Villa Maris, Mallorca
+              </span>
+              <span className="font-medium-font-weight">2025</span>
             </div>
           </div>
 
@@ -58,8 +60,10 @@ export default function Projects() {
               </div>
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
-              <span>Villa Llevant, Mallorca</span>
-              <span>View project</span>
+              <span className="font-medium-font-weight">
+                Villa Llevant, Mallorca
+              </span>
+              <span className="font-medium-font-weight">2024</span>
             </div>
           </div>
         </div>
@@ -83,8 +87,10 @@ export default function Projects() {
               </div>
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
-              <span>Villa Esencia, Mallorca</span>
-              <span>View project</span>
+              <span className="font-medium-font-weight">
+                Villa Esencia, Mallorca
+              </span>
+              <span className="font-medium-font-weight">2023</span>
             </div>
           </div>
 
@@ -107,13 +113,15 @@ export default function Projects() {
             </div>
 
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
-              <span>Son Brisa, Mallorca</span>
-              <span>View project</span>
+              <span className="font-medium-font-weight">
+                Son Brisa, Mallorca
+              </span>
+              <span className="font-medium-font-weight ">2022</span>
             </div>
           </div>
 
           <div className="leading-[26px] flex flex-col gap-[40px] items-end lg:gap-[30px]">
-            <p className="self-start text-[clamp(16px,4.5vw,23px)] leading-[clamp(22px,7.5vw,26px)] min-[900px]:max-w-[750px] lg:ml-10 lg:leading-[36px] lg:font-light-font-weight xl:max-w-[570px] xl:text-[26px] xl:leading-[40px] 2xl:text-[26px] 2xl:leading-[42px] 2xl:max-w-[800px]">
+            <p className="self-start text-[clamp(14px,3.5vw,23px)] leading-[clamp(20px,6vw,26px)] min-[900px]:max-w-[750px] lg:ml-10 lg:leading-[36px] md:leading-[34px] md:max-w-[600px] font-light-font-weight xl:max-w-[570px] xl:text-[23px] xl:leading-[36px] 2xl:text-[26px] 2xl:leading-[42px] 2xl:max-w-[800px]">
               Our villas harmoniously blend contemporary Mediterranean design
               with the natural landscape of Mallorca, featuring open interiors,
               sunlit terraces, premium materials, and seamless indoor‑outdoor
