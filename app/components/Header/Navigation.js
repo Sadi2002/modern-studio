@@ -59,7 +59,7 @@ export default function Navigation() {
               <Link href="#">Home</Link>
             </li>
             <li>
-              <Link href="#">About us</Link>
+              <Link href="/project">About us</Link>
             </li>
             <li>
               <Link href="#">Portfolio</Link>
@@ -95,7 +95,7 @@ export default function Navigation() {
       <ul className="hidden md:flex gap-between-navigation-links items-center xl:gap-between-navigation-links-xl">
         <li>
           <Link
-            href={"#"}
+            href={"/project"}
             className="text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
           >
             About us
