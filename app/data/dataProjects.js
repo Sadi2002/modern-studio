@@ -25,6 +25,7 @@ export default function dataProjects() {
               focusing on comfort, proportions, and details that define the
               character of each space.`,
       imgSrc: "/projekt4-large.webp",
+
       alt: "Villa Llevant",
       slug: "villa-llevant",
       year: 2024,

@@ -1,11 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import house from "../../public/projekt1-large.webp";
-import house2 from "../../public/projekt2-large.webp";
-import house3 from "../../public/projekt3-large.webp";
-import house4 from "../../public/projekt4-large.webp";
-import house5 from "../../public/about-large.webp";
 import Link from "next/link";
 import {
   useCallback,

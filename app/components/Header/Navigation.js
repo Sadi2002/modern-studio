@@ -3,12 +3,55 @@
 import { usePathname } from "next/navigation";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navigation() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [isOpen, setIsOpen] = useState(false);
+  const [showNav, setShowNav] = useState(true);
+  const [isHomeDark, setIsHomeDark] = useState(false); // czy tekst ma być czarny na home
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const current = window.scrollY;
+
+      // kierunek scrolla -> pokaz/ukryj nav
+      if (current < lastScrollY) {
+        setShowNav(true);
+      } else if (current > lastScrollY && current > 0) {
+        setShowNav(false);
+      }
+
+      lastScrollY = current;
+
+      // logika 100vh - 35px (tylko na home)
+      if (isHome) {
+        const threshold = window.innerHeight - 55; // 100vh - 35px
+        setIsHomeDark(current >= threshold);
+      }
+    };
+
+    // ustaw początkowy stan
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isHome]);
+
+  const textColorClass = isHome
+    ? isHomeDark
+      ? "text-main-black"
+      : "text-main-white"
+    : "text-main-black";
+
+  const burgerLineColorClass = isHome
+    ? isHomeDark
+      ? "bg-main-black"
+      : "bg-main-white"
+    : "bg-main-black";
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -16,9 +59,9 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`flex items-center justify-between mx-margin-mobile pt-mobile-navigation-top md:mx-tablet 2xl:mx-desktop lg:pt-desktop-navigation-top ${
-        isHome ? "text-main-white" : "text-main-black"
-      }`}
+      className={`flex items-center justify-between mx-margin-mobile pt-mobile-navigation-top md:mx-tablet 2xl:mx-desktop lg:pt-desktop-navigation-top transition-transform duration-700  ${textColorClass}
+        ${showNav ? "translate-y-0" : "-translate-y-full"}
+      `}
     >
       {/* LOGO PO LEWEJ */}
       <span className="md:text-logo-font-size">
@@ -31,14 +74,10 @@ export default function Navigation() {
         onClick={toggleMenu}
       >
         <span
-          className={`h-burger-line-height w-[17px] bg-main-black ${
-            isHome ? "bg-main-white" : "bg-black"
-          }`}
+          className={`h-burger-line-height w-[17px] bg-main-black ${burgerLineColorClass}`}
         ></span>
         <span
-          className={`h-burger-line-height w-[24px] bg-main-black ${
-            isHome ? "bg-main-white" : "bg-main-black"
-          }`}
+          className={`h-burger-line-height w-[24px] bg-main-black ${burgerLineColorClass}`}
         ></span>
       </div>
 
@@ -54,7 +93,9 @@ export default function Navigation() {
               Close
             </span>
           </div>
-          <ul className="flex flex-col gap-[5px] ml-margin-mobile absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(30px,9vw,40px)] font-normal-font-weight uppercase">
+          <ul
+            className={`flex flex-col gap-[5px] ml-margin-mobile absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(30px,9vw,40px)] font-normal-font-weight uppercase  ${textColorClass}`}
+          >
             <li>
               <Link href="#">Home</Link>
             </li>
