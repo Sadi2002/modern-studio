@@ -22,7 +22,7 @@ function FaqComponent() {
             onClick={() => toggleFaq(step.id)}
           >
             <div className="flex justify-between items-center">
-              <span className="block text-[clamp(14px,3.5vw,20px)] font-light-font-weight leading-[clamp(20px,6vw,2rem)] pr-[15px]">
+              <span className="block text-[clamp(16px,3.5vw,20px)] font-light-font-weight leading-[clamp(20px,6vw,2rem)] pr-[15px]">
                 {step.title}
               </span>
               <Image
