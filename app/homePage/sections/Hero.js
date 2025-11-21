@@ -3,33 +3,42 @@ import arrow from "../../../public/arrow.png";
 import heroImgLarge from "../../../public/projekt3-large.webp";
 import Button from "@/app/components/Button";
 
-export default function Hero() {
+import { urlFor } from "../../../lib/sanity/client";
+
+export default async function Hero({ data }) {
+  if (!data) return null;
+
   return (
     <section className="h-[100dvh] relative w-full mb-[20px]">
-      <Image src={heroImgLarge} className="object-cover" fill alt="test" />
+      {data.backgroundImage && (
+        <Image
+          src={urlFor(data.backgroundImage).url()}
+          alt={data.title}
+          fill
+          className="object-cover"
+        />
+      )}
 
       <div className="absolute inset-0 bg-[rgba(0,0,0,0.55)]"></div>
 
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
         <div className="flex flex-col md:items-start absolute bottom-[120px] w-full xl:bottom-[120px] z-20 2xl:bottom-[150px]">
           <h1 className="text-main-white text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[25px] lg:text-[70px] lg:leading-[70px] xl:text-[100px] xl:font-normal-font-weight xl:leading-[100px] uppercase 2xl:leading-[110px] 2xl:text-[110px] max-w-[600px] lg:max-w-[800px] xl:max-w-[1200px] 2xl:max-w-[1200px]">
-            creation of luxury villas in Mallorca
+            {data.title}
           </h1>
 
           <p className="text-main-white font-light-font-weight mb-[50px] text-[clamp(0.75rem,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] max-w-[300px] lg:max-w-[450px] min-[420px]:max-w-[400px] xl:max-w-[740px] xl:mb-[70px]">
-            Luxury villas in Mallorca combine modern design with the unique
-            atmosphere of the island, offering comfort, privacy, and
-            unforgettable views.
+            {data.subtitle}
           </p>
 
           <Button
             arrow={arrow}
-            linkTo="#about"
+            linkTo={data.buttonLink}
             bgColor="main-white"
             textColor="main-black"
             additionalStyles="md:self-start"
           >
-            Read more
+            {data.buttonText}
           </Button>
         </div>
       </div>
