@@ -56,21 +56,31 @@ export default function Navigation() {
               Close
             </span>
           </div>
-          <ul className="flex flex-col gap-[5px] ml-margin-mobile absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(30px,9vw,40px)] font-normal-font-weight uppercase">
-            <li>
-              <Link href="#">Home</Link>
+          <ul className="flex flex-col gap-[5px] e absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(20px,6vw,40px)] font-normal-font-weight uppercase border-t border-[rgba(255,255,255,0.2)] max-w-[50%]">
+            <li className="border-b border-[rgba(255,255,255,0.2)] py-[15px]">
+              <Link href="#" className="pl-[20px]">
+                Home
+              </Link>
             </li>
-            <li>
-              <Link href="#">About us</Link>
+            <li className="border-b border-[rgba(255,255,255,0.2)] py-[15px]">
+              <Link href="#" className="pl-[20px]">
+                About us
+              </Link>
             </li>
-            <li>
-              <Link href="#">Portfolio</Link>
+            <li className="border-b border-[rgba(255,255,255,0.2)] py-[15px]">
+              <Link href="#" className="pl-[20px]">
+                Portfolio
+              </Link>
             </li>
-            <li>
-              <Link href="#">Blog</Link>
+            <li className="border-b border-[rgba(255,255,255,0.2)] py-[15px]">
+              <Link href="#" className="pl-[20px]">
+                Blog
+              </Link>
             </li>
-            <li>
-              <Link href="#">Contact</Link>
+            <li className="border-b border-[rgba(255,255,255,0.2)] py-[15px]">
+              <Link href="#" className="pl-[20px]">
+                Contact
+              </Link>
             </li>
           </ul>
           <div className="absolute bottom-[20px] left-0 w-full flex justify-between items-end">
