@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-main-black pb-[30px]">
       <div className="lg:flex ">
-        <div className="flex justify-center pt-[20px] mb-[5px] lg:w-[100%] lg:pt-0">
+        <div className="flex justify-center mb-[5px] lg:w-[100%] lg:pt-0">
           <Image
             src="/footer.png"
             alt="footer"
@@ -65,10 +65,10 @@ export default function Footer() {
       >
         <div className="flex flex-wrap justify-between gap-y-[50px] lg:mx-[50px] lg:pt-[40px] lg:max-w-[50%] xl:justify-between 2xl:max-w-[45%]">
           <div>
-            <h3 className="text-white text-[clamp(20px,5.5vw,20px)] font-semibold mb-[32px]">
+            <h3 className="text-white text-[clamp(20px,5.5vw,20px)] font-semibold mb-[20px]">
               Quick contact
             </h3>
-            <ul className="flex flex-col gap-[13px]">
+            <ul className="flex flex-col gap-[5px]">
               <li>
                 <Link
                   href="#"
@@ -88,10 +88,10 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-white text-[clamp(20px,5.5vw,20px)] font-semibold mb-[32px]">
+            <h3 className="text-white text-[clamp(20px,5.5vw,20px)] font-semibold mb-[20px]">
               Information
             </h3>
-            <ul className="flex flex-col gap-[13px]">
+            <ul className="flex flex-col gap-[5px]">
               <li>
                 <Link
                   href="#"
@@ -111,10 +111,10 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-white text-[clamp(20px,5.5vw,20px)] font-semibold mb-[32px]">
+            <h3 className="text-white text-[clamp(20px,5.5vw,20px)] font-semibold mb-[20px]">
               SociaI media
             </h3>
-            <ul className="flex flex-col gap-[13px]">
+            <ul className="flex flex-col gap-[5px]">
               <li>
                 <Link
                   href="#"
@@ -135,11 +135,11 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-[14px] items-end mx-margin-mobile md:mx-tablet lg:flex-row lg:justify-end lg:gap-x-[50px] 2xl:gap-x-[120px]">
-        <span className="text-[clamp(12px,3.5vw,16px)] text-white">
+      <div className="flex flex-col gap-[5px] items-end mx-margin-mobile md:mx-tablet lg:flex-row lg:justify-end lg:gap-x-[50px] 2xl:gap-x-[120px]">
+        <span className="text-[clamp(12px,3.5vw,16px)] md:text-[12px] xl:text-[16px] text-white">
           Polityka prwatności
         </span>
-        <span className="text-[clamp(12px,3.5vw,16px)] text-white">
+        <span className="text-[clamp(12px,3.5vw,16px)] md:text-[12px] xl:text-[16px] text-white">
           2025 wszelkie prawa zastrzeżone
         </span>
       </div>
