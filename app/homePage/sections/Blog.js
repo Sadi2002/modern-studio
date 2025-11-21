@@ -33,7 +33,7 @@ export default function Blog() {
           <div className="flex-shrink-0 w-[80%] aspect-[3/4]   flex flex-col md:aspect-[7/6]">
             <div className="h-full relative">
               <Image
-                src={projekt1}
+                src={projekt2}
                 alt="pokoj"
                 fill
                 className="object-cover"
