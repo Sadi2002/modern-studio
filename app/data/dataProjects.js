@@ -69,6 +69,40 @@ export default function dataProjects() {
         { title: "Architexture" },
       ],
     },
+    {
+      id: 5,
+      title: "Son Brisa",
+      description: `Luxury villas in Mallorca combine modern design with the unique
+            atmosphere of the island, offering comfort, privacy, and
+            unforgettable views.`,
+      imgSrc: "/projekt1-large.webp",
+      alt: "Son Brisa",
+      slug: "son-brisa",
+      year: 2022,
+      location: "Mallorca",
+      type: "Private Residence",
+      collaborators: [
+        { title: "Measured Up Builders" },
+        { title: "Architexture" },
+      ],
+    },
+    {
+      id: 6,
+      title: "Son Brisa",
+      description: `Luxury villas in Mallorca combine modern design with the unique
+            atmosphere of the island, offering comfort, privacy, and
+            unforgettable views.`,
+      imgSrc: "/projekt1-large.webp",
+      alt: "Son Brisa",
+      slug: "son-brisa",
+      year: 2022,
+      location: "Mallorca",
+      type: "Private Residence",
+      collaborators: [
+        { title: "Measured Up Builders" },
+        { title: "Architexture" },
+      ],
+    },
   ];
   return projects;
 }

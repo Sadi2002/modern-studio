@@ -126,7 +126,7 @@ export default function Blog() {
           </div>
           <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
-              Materials and Finishes Inspired by Mallorca
+              Materials and Finishes Inspired by Mallorca.
             </span>
             <span className="opacity-[50%]">August 2024</span>
           </div>

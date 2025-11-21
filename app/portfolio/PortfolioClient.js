@@ -12,6 +12,8 @@ import {
 } from "react";
 
 import dataProjects from "../data/dataProjects";
+import Button from "../components/Button";
+import ArrowWhite from "../../public/arrow-right-white.png";
 
 export default function PortfolioClient() {
   const projects = dataProjects();
@@ -178,7 +180,7 @@ export default function PortfolioClient() {
     };
   }, [measure]);
   return (
-    <div className="xl:flex mx-margin-mobile md:mx-tablet xl:mx-desktop mt-[100px]">
+    <div className="xl:flex mx-margin-mobile md:mx-tablet xl:mx-desktop mt-[100px] mb-[40px] md:mb-[80px] 2xl:mb-[150px]">
       <div className="hidden xl:flex w-[40%]">
         <div
           ref={linksViewportRef}
@@ -232,7 +234,7 @@ export default function PortfolioClient() {
               aria-label={`Zobacz ${p.title}`}
             >
               <div className="overflow-hidden">
-                <div className="relative w-full aspect-[8/5]">
+                <div className="relative w-full aspect-[8/6] xl:aspect-[8/5]">
                   <Image
                     src={p.imgSrc}
                     alt={p.title}
@@ -242,16 +244,25 @@ export default function PortfolioClient() {
                 </div>
               </div>
               <div className="flex justify-between mt-[5px] xl:mt-[7px] 2xl:mt-[10px] items-center">
-                <span className="text-[12px] xl:text-[15px]">{`${p.title} | ${p.subtitle}`}</span>
+                <span className="text-[12px] xl:text-[15px] font-medium-font-weight">{`${p.title}, ${p.location}`}</span>
                 <div className="flex items-center gap-4">
-                  <span className="sm:inline text-[12px] xl:text-[15px]">
-                    {p.location}
+                  <span className="sm:inline text-[12px] xl:text-[15px] font-medium-font-weight">
+                    {p.year}
                   </span>
                 </div>
               </div>
             </Link>
           </div>
         ))}
+        <Button
+          arrow={ArrowWhite}
+          linkTo="/portfolio"
+          bgColor="main-black"
+          textColor="main-white"
+          additionalStyles="md:self-end"
+        >
+          Contact us
+        </Button>
       </div>
     </div>
   );
