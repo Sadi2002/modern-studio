@@ -6,7 +6,6 @@ import { urlFor } from "../../../lib/sanity/client";
 
 export default async function Hero({ data }) {
   console.log(data);
-  if (!data) return null;
 
   return (
     <section className="h-[100dvh] relative w-full mb-[20px]">
@@ -38,7 +37,7 @@ export default async function Hero({ data }) {
             textColor="main-black"
             additionalStyles="md:self-start"
           >
-            {data.buttonText}
+            {data.buttonLabel}
           </Button>
         </div>
       </div>

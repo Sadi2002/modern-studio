@@ -5,7 +5,9 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Navigation() {
+import { urlFor } from "../../../lib/sanity/client";
+
+export default function Navigation({ data }) {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +15,8 @@ export default function Navigation() {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  if (!data) return null;
 
   return (
     <nav
@@ -24,7 +28,7 @@ export default function Navigation() {
           isHome ? "text-main-white" : "text-main-black"
         }`}
       >
-        <Link href="/">SeoVilla</Link>
+        <Link href="/">{data.logo}</Link>
       </span>
 
       {/* MOBILE BURGER */}
@@ -109,46 +113,16 @@ export default function Navigation() {
           isHome ? "text-main-white" : "text-main-black"
         }`}
       >
-        <li>
-          <Link
-            href={"#"}
-            className="text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
-          >
-            About us
-          </Link>
-        </li>
-        <li>
-          <Link
-            href={"/portfolio"}
-            className="text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
-          >
-            Portfolio
-          </Link>
-        </li>
-        <li>
-          <Link
-            href={"#"}
-            className="text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
-          >
-            Process
-          </Link>
-        </li>
-        <li>
-          <Link
-            href={"#"}
-            className="text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
-          >
-            Blog
-          </Link>
-        </li>
-        <li>
-          <Link
-            href={"#"}
-            className="text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
-          >
-            Contact
-          </Link>
-        </li>
+        {data.links.map((link, index) => (
+          <li key={index}>
+            <Link
+              href={link.href}
+              className="text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );
