@@ -20,12 +20,12 @@ export const metadata = {
 
 export default async function Home() {
   const homePageData = await sanityClient.fetch(homePageQuery);
-  const { hero } = homePageData;
+  const { sekcje } = homePageData;
 
-  console.log(hero);
+  console.log(sekcje);
   return (
     <>
-      <Hero data={hero} />
+      <Hero data={sekcje} />
       <DynamicAbout />
       <DynamicProjects />
       <DynamicProcess />

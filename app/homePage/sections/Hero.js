@@ -1,11 +1,11 @@
 import Image from "next/image";
 import arrow from "../../../public/arrow.png";
-import heroImgLarge from "../../../public/projekt3-large.webp";
 import Button from "@/app/components/Button";
 
 import { urlFor } from "../../../lib/sanity/client";
 
 export default async function Hero({ data }) {
+  console.log(data);
   if (!data) return null;
 
   return (
@@ -33,7 +33,7 @@ export default async function Hero({ data }) {
 
           <Button
             arrow={arrow}
-            linkTo={data.buttonLink}
+            linkTo={data}
             bgColor="main-white"
             textColor="main-black"
             additionalStyles="md:self-start"
