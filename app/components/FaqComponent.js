@@ -36,7 +36,7 @@ function FaqComponent() {
 
             {isOpen && (
               <div className="mt-[20px]">
-                <p className="font-light opacity-[64%] text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)]">
+                <p className="font-light opacity-[64%] text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] pr-[30px] md:pr-[70px]">
                   {step.description}
                 </p>
               </div>

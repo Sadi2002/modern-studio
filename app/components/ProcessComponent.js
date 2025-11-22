@@ -63,21 +63,31 @@ export default function ProcessComponent() {
               </span>
 
               <div
-                className={`overflow-hidden lg:hidden ${
-                  activeIndex === index
-                    ? "max-h-[200px] mt-[10px] lg:mt-[20px]"
-                    : "max-h-0"
+                className={`lg:hidden ${
+                  activeIndex === index ? "mt-[10px]" : "hidden"
                 }`}
               >
-                <p className="font-light-font-weight text-[clamp(12px,3.35vw,1rem)]  leading-[clamp(16px,4.5vw,1.5rem)] max-w-[360px] lg:text-[16px] lg:leading-[24px]">
+                <p className="font-light-font-weight mb-[20px] text-[clamp(12px,3.35vw,1rem)] leading-[clamp(16px,4.5vw,1.5rem)] pr-[30px] md:pr-[70px]  lg:text-[16px] lg:leading-[24px] ">
                   {step.description}
                 </p>
+                {activeIndex === index && (
+                  <div className="relative w-full mb-[0px] aspect-8/5">
+                    <Image
+                      src={step.imgSrc}
+                      alt={step.alt}
+                      width={600}
+                      height={400}
+                      className="object-cover w-full h-full"
+                      placeholder="blur"
+                    />
+                  </div>
+                )}
               </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="lg:w-[40%]">
+      <div className="hidden lg:block lg:w-[40%]">
         <div className="lg:sticky lg:top-[87.5px] lg:mt-[87.5px] xl:top-[100px] xl:mt-[100px] 2xl:mt-[130px] 2xl:top-[130px]">
           <div className="relative aspect-8/5 mb-[40px] lg:w-[100%] lg:h-[300px] lg:mb-0 2xl:h-[350px] lg:aspect-8/7">
             <Image
