@@ -81,7 +81,7 @@ export default async function Project({ params }) {
           </div>
         </div>
       </div>
-      <PortfolioClient />
+      {/* <PortfolioClient /> */}
     </section>
   );
 }
