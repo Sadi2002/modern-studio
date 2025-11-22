@@ -244,9 +244,9 @@ export default function PortfolioClient() {
                 </div>
               </div>
               <div className="flex justify-between mt-[5px] xl:mt-[7px] 2xl:mt-[10px] items-center">
-                <span className="text-[12px] xl:text-[15px] font-medium-font-weight">{`${p.title}, ${p.location}`}</span>
+                <span className="text-[12px] md:text-[16px] font-medium-font-weight">{`${p.title}, ${p.location}`}</span>
                 <div className="flex items-center gap-4">
-                  <span className="sm:inline text-[12px] xl:text-[15px] font-medium-font-weight">
+                  <span className="sm:inline text-[12px] md:text-[16px] font-medium-font-weight">
                     {p.year}
                   </span>
                 </div>
