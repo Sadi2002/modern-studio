@@ -92,7 +92,7 @@ export default function Blog() {
             <span className="font-medium-font-weight max-w-[65%]">
               Designing a Luxury Mediterranean Villa
             </span>
-            <span className="text-[#757575]">March 2025</span>
+            <span className="text-[#757575] text-[14px]">March 2025</span>
           </div>
         </div>
 
@@ -110,7 +110,7 @@ export default function Blog() {
             <span className="font-medium-font-weight max-w-[65%]">
               Maximizing Light and Views in Your Mallorca Home
             </span>
-            <span className="text-[#757575]">January 2025</span>
+            <span className="text-[#757575] text-[14px]">January 2025</span>
           </div>
         </div>
 
@@ -128,7 +128,7 @@ export default function Blog() {
             <span className="font-medium-font-weight max-w-[85%]">
               Materials and Finishes Inspired by Mallorca.
             </span>
-            <span className="text-[#757575]">August 2024</span>
+            <span className="text-[#757575] text-[14px]">August 2024</span>
           </div>
         </div>
       </div>
