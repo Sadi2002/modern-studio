@@ -110,7 +110,7 @@ export default function Projects() {
               Our villas harmoniously blend contemporary Mediterranean design
               with the natural landscape of Mallorca, featuring open interiors,
               sunlit terraces, premium materials, and seamless indoor‑outdoor
-              living for timeless luxury.
+              living for timeless luxury
             </p>
             <Button
               arrow={ArrowWhite}
