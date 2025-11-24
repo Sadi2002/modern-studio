@@ -17,9 +17,10 @@ export async function generateStaticParams() {
 export default async function Project({ params }) {
   const { slug } = await params;
   const projects = await dataProjects();
-  console.log(projects[0].gallery);
 
   const project = projects.find((project) => project.slug.current === slug);
+
+  const collaborators = project?.collaborators || [];
 
   return (
     <section className="flex flex-col pb-[80px] 2xl:pb-[150px]">
@@ -50,12 +51,16 @@ export default async function Project({ params }) {
           </span>
         </div>
         <div className="flex flex-col text-[clamp(12px,5vw,20px)] leading-[clamp(0.75rem,10vw,20px)] gap-[10px]">
-          <span className="font-medium-font-weight">Collaborators</span>
-          {project.collaborators.map((collaborator, index) => (
-            <span key={index} className="font-light-font-weight text-[16px]">
-              {collaborator.title}
-            </span>
-          ))}
+          {collaborators.length > 0 && (
+            <>
+              <span className="font-medium-font-weight">Collaborators</span>
+              {collaborators.map((c, idx) => (
+                <span key={idx} className="font-light-font-weight text-[16px]">
+                  {c.title}
+                </span>
+              ))}
+            </>
+          )}
         </div>
       </div>
       <div className="px-[20px] 2xl:px-[70px]">
