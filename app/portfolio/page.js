@@ -1,5 +1,6 @@
 import PortfolioClient from "./PortfolioClient";
 import dataProjects from "../data/dataProjects";
+export const revalidate = 0;
 
 export const metadata = {
   title: "Sadowski Studio - Nowoczesna Architektura i Design",

@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import Image from "next/image";
 import Button from "@/app/components/Button";
 import ArrowWhite from "../../../public/arrow-right-white.png";
