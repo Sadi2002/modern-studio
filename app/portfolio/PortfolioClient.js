@@ -180,8 +180,8 @@ export default function PortfolioClient() {
     };
   }, [measure]);
   return (
-    <div className="xl:flex mx-margin-mobile md:mx-tablet xl:mx-desktop mt-[100px] mb-[40px] md:mb-[80px] 2xl:mb-[150px]">
-      <div className="hidden xl:flex w-[40%]">
+    <div className="lg:flex mx-margin-mobile md:mx-tablet xl:mx-desktop mt-[100px] mb-[40px] md:mb-[80px] 2xl:mb-[150px]">
+      <div className="hidden lg:flex w-[40%]">
         <div
           ref={linksViewportRef}
           className="sticky top-[calc((100vh-30vw)/2)] h-[30vw]"
@@ -206,7 +206,7 @@ export default function PortfolioClient() {
                 <Link
                   href={`/portfolio/${p.slug}`}
                   ref={(el) => (linkRefs.current[i] = el)}
-                  className="block text-[50px] 2xl:text-[80px] leading-[0.9] font-light whitespace-nowrap transition-opacity duration-150 ease-linear will-change-opacity"
+                  className="block text-[50px] 2xl:text-[80px] leading-[0.9] font-light  transition-opacity duration-150 ease-linear will-change-opacity"
                   style={{
                     opacity: opacities[i],
                     pointerEvents:
@@ -221,7 +221,7 @@ export default function PortfolioClient() {
         </div>
       </div>
 
-      <div className="flex flex-col w-full xl:w-[60%] gap-[50px] xl:gap-[100px]">
+      <div className="flex flex-col w-full lg:w-[60%] gap-[50px] xl:gap-[100px]">
         {projects.map((p, i) => (
           <div
             key={i}
@@ -244,9 +244,9 @@ export default function PortfolioClient() {
                 </div>
               </div>
               <div className="flex justify-between mt-[5px] xl:mt-[7px] 2xl:mt-[10px] items-center">
-                <span className="text-[12px] md:text-[16px] font-medium-font-weight">{`${p.title}, ${p.location}`}</span>
+                <span className=" text-[clamp(12px,3.35vw,1rem)] font-medium-font-weight ">{`${p.title}, ${p.location}`}</span>
                 <div className="flex items-center gap-4">
-                  <span className="sm:inline text-[12px] md:text-[16px] font-medium-font-weight">
+                  <span className="sm:inline  text-[clamp(12px,3.35vw,1rem)]  font-medium-font-weight">
                     {p.year}
                   </span>
                 </div>

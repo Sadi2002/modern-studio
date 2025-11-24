@@ -14,7 +14,7 @@ export default function Blog() {
           <h3 className="mb-5 text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(03)'] after:absolute after:top-[5px] after:text-[8px] xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px]  2xl:text-[80px] 2xl:font-normal xl:mb-[40px] 2xl:mb-[50px]">
             Blog
           </h3>
-          <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[50px] xl:mb-[0] min-[380px]:max-w-[360px] md:max-w-[500px]">
+          <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[50px] xl:mb-[0] min-[380px]:max-w-[390px] md:max-w-[500px]">
             Welcome to our blog, where we explore design ideas, materials and
             architectural insights inspired by Mallorca.
           </p>
@@ -107,7 +107,7 @@ export default function Blog() {
             />
           </div>
           <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
-            <span className="font-medium-font-weight max-w-[65%]">
+            <span className="font-medium-font-weight max-w-[70%]">
               Maximizing Light and Views in Your Mallorca Home
             </span>
             <span className="text-[#757575] text-[14px]">January 2025</span>
