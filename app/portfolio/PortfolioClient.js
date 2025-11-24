@@ -15,9 +15,9 @@ import dataProjects from "../data/dataProjects";
 import Button from "../components/Button";
 import ArrowWhite from "../../public/arrow-right-white.png";
 
-export default function PortfolioClient() {
-  const projects = dataProjects();
+import { urlFor } from "../../lib/sanity/client";
 
+export default function PortfolioClient({ projects = [] }) {
   const cardRefs = useRef([]); // DOM refs for right-side cards
   const linkRefs = useRef([]); // DOM refs for left-side links
   const linksViewportRef = useRef(null); // sticky container (visible area for links)
@@ -35,8 +35,8 @@ export default function PortfolioClient() {
   const HEADER_FLOOR = 0; // header can fully disappear
 
   // Initialize lower items as hidden by default
-  const [opacities, setOpacities] = useState(() =>
-    projects.map((_, i) => (i === 0 ? 1 : OPACITY_FLOOR))
+  const [opacities, setOpacities] = useState(
+    () => projects?.map((_, i) => (i === 0 ? 1 : OPACITY_FLOOR)) || []
   );
 
   // Helper: linear interpolation
@@ -204,7 +204,7 @@ export default function PortfolioClient() {
             {projects.map((p, i) => (
               <div key={i} className="">
                 <Link
-                  href={`/portfolio/${p.slug}`}
+                  href={`/portfolio/${p.slug.current}`}
                   ref={(el) => (linkRefs.current[i] = el)}
                   className="block text-[50px] 2xl:text-[80px] leading-[0.9] font-light  transition-opacity duration-150 ease-linear will-change-opacity"
                   style={{
@@ -229,14 +229,14 @@ export default function PortfolioClient() {
             className="flex flex-col"
           >
             <Link
-              href={`/portfolio/${p.slug}`}
+              href={`/portfolio/${p.slug.current}`}
               className="group block cursor-pointer"
               aria-label={`Zobacz ${p.title}`}
             >
               <div className="overflow-hidden">
                 <div className="relative w-full aspect-[8/6] xl:aspect-[8/5]">
                   <Image
-                    src={p.imgSrc}
+                    src={urlFor(p.imgSrc).url()}
                     alt={p.title}
                     className="w-full block object-cover"
                     fill

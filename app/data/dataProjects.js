@@ -1,91 +1,12 @@
-export default function dataProjects() {
-  const projects = [
-    {
-      id: 1,
-      title: "Villa Maris",
-      description: `Villa Maris is an elegant seaside villa that combines modern architecture with direct contact to the sea. Large windows, terraces, and open spaces create a sense of freedom and closeness to nature.`,
-      imgSrc: "/projekt2-large.webp",
-      alt: "Villa Maris",
-      slug: "villa-maris",
-      year: 2025,
-      location: "Mallorca",
-      type: "Luxury Seaside Villa",
-      collaborators: [
-        { title: "Interior Design: Ocean Interiors " },
-        { title: "Landscape: Mediterranean Gardens" },
-      ],
-      gallery: [
-        { imgSrc: "/inside1.jpg" },
-        { imgSrc: "/inside2.jpg" },
-        { imgSrc: "/inside3.jpg" },
-        { imgSrc: "/inside4.jpg" },
-        { imgSrc: "/inside5.jpg" },
-        { imgSrc: "/inside6.jpg" },
-      ],
-    },
-    {
-      id: 2,
-      title: "Villa Llevant",
-      description: `Villa Llevant is a project inspired by Mediterranean light and colors. Spacious interiors and minimalist forms create harmony with the surrounding landscape and panoramic views of the island.`,
-      imgSrc: "/projekt4-large.webp",
+import { sanityClient } from "../../lib/sanity/client";
+import { homePageQuery } from "../../lib/sanity/queries";
 
-      alt: "Villa Llevant",
-      slug: "villa-llevant",
-      year: 2024,
-      location: "Mallorca",
-      type: "Modern Mediterranean Villa",
-      collaborators: [
-        { title: "Interior Design: Lumiere Studio" },
-        { title: "Engineering: BuildSmart Mallorca" },
-      ],
-      gallery: [],
-    },
-    {
-      id: 3,
-      title: "Villa Esencia",
-      description: `Villa Esencia stands out with subtle elegance and natural materials. Every detail highlights luxury and comfort while harmonizing with the local surroundings.`,
-      imgSrc: "/projekt3-large.webp",
-      alt: "Villa Esencia",
-      slug: "villa-esencia",
-      year: 2023,
-      location: "Mallorca",
-      type: "Contemporary Luxury Villa",
-      collaborators: [
-        { title: "Interior Design: CasaNova Interiors" },
-        { title: "Landscape: Isla Verde" },
-      ],
-      gallery: [
-        { imgSrc: "/inside1.jpg" },
-        { imgSrc: "/inside2.jpg" },
-        { imgSrc: "/inside3.jpg" },
-        { imgSrc: "/inside4.jpg" },
-        { imgSrc: "/inside5.jpg" },
-        { imgSrc: "/inside6.jpg" },
-      ],
-    },
-    {
-      id: 4,
-      title: "Son Brisa",
-      description: `Son Brisa is a modern residence with views over the hills of Mallorca. The design emphasizes privacy, comfort, and seamless integration of indoor and outdoor spaces through terraces and a swimming pool.`,
-      imgSrc: "/inside1.jpg",
-      alt: "Son Brisa",
-      slug: "son-brisa",
-      year: 2023,
-      location: "Mallorca",
-      type: "Private Hilltop Villa",
-      collaborators: [
-        { title: "Interior Design: Aura Interiors" },
-        { title: "Engineering: ArchiCore Consulting" },
-      ],
-      gallery: [
-        { imgSrc: "/inside1.jpg" },
-        { imgSrc: "/inside2.jpg" },
-        { imgSrc: "/inside3.jpg" },
-        { imgSrc: "/inside4.jpg" },
-        { imgSrc: "/inside5.jpg" },
-        { imgSrc: "/inside6.jpg" },
-      ],
-    },
-  ];
+export default async function dataProjects() {
+  const homePageData = await sanityClient.fetch(homePageQuery);
+  const { projectsSection } = homePageData;
+
+  const projects = [...projectsSection.projects];
+
+  console.log(projects);
   return projects;
 }

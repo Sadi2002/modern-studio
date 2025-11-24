@@ -1,20 +1,25 @@
 import Image from "next/image";
 import arrow from "../../../public/arrow.png";
-import DataProjects from "../../data/dataProjects";
 
 import ProjectGallery from "../../components/Gallery";
 import PortfolioClient from "../PortfolioClient";
 
-const projects = DataProjects();
+import dataProjects from "../../data/dataProjects";
+
+import { urlFor } from "../../../lib/sanity/client";
 
 export async function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
+  const projects = await dataProjects();
+
+  return projects.map((project) => ({ slug: project.slug.current }));
 }
 
 export default async function Project({ params }) {
   const { slug } = await params;
+  const projects = await dataProjects();
+  console.log(projects[0].gallery);
 
-  const project = projects.find((project) => project.slug === slug);
+  const project = projects.find((project) => project.slug.current === slug);
 
   return (
     <section className="flex flex-col pb-[80px] 2xl:pb-[150px]">
@@ -67,7 +72,7 @@ export default async function Project({ params }) {
         <div className="mt-[16px]">
           <div className="relative w-full aspect-[5/3] xl:aspect-[6/3] ">
             <Image
-              src={project.imgSrc}
+              src={urlFor(project.imgSrc).url()}
               alt="pokój"
               fill
               className="object-cover"
@@ -81,7 +86,7 @@ export default async function Project({ params }) {
           </div>
         </div>
       </div>
-      <PortfolioClient />
+      <PortfolioClient projects={projects} />
     </section>
   );
 }

@@ -1,6 +1,8 @@
 "use client";
 
 import { useMemo } from "react";
+import { urlFor } from "../../lib/sanity/client";
+import Image from "next/image";
 
 // Buduje layout: [{ type: "two" | "one", index }]
 function buildLayout(gallery) {
@@ -40,6 +42,13 @@ export default function ProjectGallery({ gallery }) {
               alt={big.alt || ""}
               className="h-full w-full object-cover"
             />
+
+            <Image
+              src={urlFor(big).url()}
+              alt={big.alt || ""}
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
       );
@@ -54,20 +63,22 @@ export default function ProjectGallery({ gallery }) {
         className="flex flex-col gap-[16px] xl:grid xl:grid-cols-2 mb-[16px]"
       >
         {firstSmall && (
-          <div className="relative overflow-hidden  aspect-[8/9] xl:aspect-[6/6]">
-            <img
-              src={firstSmall.imgSrc}
+          <div className="relative overflow-hidden aspect-[8/9] xl:aspect-[6/6]">
+            <Image
+              src={urlFor(firstSmall).url()}
               alt={firstSmall.alt || ""}
-              className="h-full w-full object-cover"
+              fill
+              className="object-cover"
             />
           </div>
         )}
         {secondSmall && (
-          <div className="relative overflow-hidden  aspect-[8/9] xl:aspect-[6/6]">
-            <img
-              src={secondSmall.imgSrc}
+          <div className="relative overflow-hidden aspect-[8/9] xl:aspect-[6/6]">
+            <Image
+              src={urlFor(secondSmall).url()}
               alt={secondSmall.alt || ""}
-              className="h-full w-full object-cover"
+              fill
+              className="object-cover"
             />
           </div>
         )}

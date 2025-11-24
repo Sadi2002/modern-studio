@@ -1,4 +1,5 @@
 import PortfolioClient from "./PortfolioClient";
+import dataProjects from "../data/dataProjects";
 
 export const metadata = {
   title: "Sadowski Studio - Nowoczesna Architektura i Design",
@@ -6,6 +7,8 @@ export const metadata = {
     "Odkryj Sadowski Studio - Twoje źródło nowoczesnej architektury i designu. Tworzymy przestrzenie, które inspirują i zachwycają.",
 };
 
-export default function Portfolio() {
-  return <PortfolioClient />;
+export default async function Portfolio() {
+  const projects = await dataProjects();
+
+  return <PortfolioClient projects={projects} />;
 }
