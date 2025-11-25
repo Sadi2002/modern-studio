@@ -12,7 +12,7 @@ const projects = DataProjects();
 
 export default async function Projects() {
   const project = await projects;
-  console.log(project[0]);
+  console.log(project);
   return (
     <section className="mx-margin-mobile md:mx-tablet lg:mx-small-laptop mb-[80px] xl:mb-[150px]">
       <h3 className="text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(04)'] after:absolute after:top-[5px] after:text-[8px] mb-5 xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px] xl:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal">
@@ -20,46 +20,46 @@ export default async function Projects() {
       </h3>
       <div className="flex flex-col lg:flex-row lg:justify-between">
         <div className="flex flex-col lg:w-[calc(50%-10px)]">
-          <Link href={`/portfolio/${project[0].slug.current}`}>
+          <Link href={`/portfolio/${project[0]?.slug.current}`}>
             <div className="max-w-[80%] mb-[50px] lg:mb-[50px] lg:max-w-[100%]">
               <div className="relative aspect-8/7">
                 <Image
-                  src={urlFor(project[0].imgSrc).url()}
-                  alt={project[0].alt}
+                  src={urlFor(project[0]?.imgSrc).url()}
+                  alt={project[0]?.alt}
                   className="object-cover absolute top-0 left-0 w-full h-full"
                   fill
                 />
               </div>
               <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
                 <span className="font-medium-font-weight">
-                  {project[0].title}, {project[0].location}
+                  {project[0]?.title}, {project[0]?.location}
                 </span>
                 <span className="font-medium-font-weight">
-                  {project[0].year}
+                  {project[0]?.year}
                 </span>
               </div>
             </div>
           </Link>
 
           <Link
-            href={`/portfolio/${project[1].slug.current}`}
+            href={`/portfolio/${project[1]?.slug.current}`}
             className="h-full flex justify-end"
           >
             <div className="w-[86%] flex flex-col items-end self-end mb-[50px] lg:mb-[0px] lg:w-[100%] lg:h-full">
               <div className="flex flex-col justify-end w-full relative aspect-5/3 lg:h-full">
                 <Image
-                  src={urlFor(project[1].imgSrc).url()}
-                  alt={project[1].alt}
+                  src={urlFor(project[1]?.imgSrc).url()}
+                  alt={project[1]?.alt}
                   className="object-cover absolute top-0 left-0 w-full h-full"
                   fill
                 />
               </div>
               <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
                 <span className="font-medium-font-weight">
-                  {project[1].title}, {project[1].location}
+                  {project[1]?.title}, {project[1]?.location}
                 </span>
                 <span className="font-medium-font-weight">
-                  {project[1].year}
+                  {project[1]?.year}
                 </span>
               </div>
             </div>
@@ -67,33 +67,33 @@ export default async function Projects() {
         </div>
 
         <div className="lg:flex lg:flex-col lg:w-[calc(50%-10px)]">
-          <Link href={`/portfolio/${project[2].slug.current}`}>
+          <Link href={`/portfolio/${project[2]?.slug.current}`}>
             <div className="w-full mb-[50px] lg:mb-[50px]">
               <div className="relative aspect-8/5">
                 <Image
-                  src={urlFor(project[2].imgSrc).url()}
-                  alt={project[2].alt}
+                  src={urlFor(project[2]?.imgSrc).url()}
+                  alt={project[2]?.alt}
                   className="object-cover absolute top-0 left-0 w-full h-full"
                   fill
                 />
               </div>
               <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
                 <span className="font-medium-font-weight">
-                  {project[2].title}, {project[2].location}
+                  {project[2]?.title}, {project[2]?.location}
                 </span>
                 <span className="font-medium-font-weight">
-                  {project[2].year}
+                  {project[2]?.year}
                 </span>
               </div>
             </div>
           </Link>
 
-          <Link href={`/portfolio/${project[3].slug.current}`}>
+          <Link href={`/portfolio/${project[3]?.slug.current}`}>
             <div className="max-w-[78%] mb-[30px] lg:w-[100%] lg:max-w-[100%] lg:mb-[60px]">
               <div className="relative aspect-7/8 lg:aspect-8/7">
                 <Image
-                  src={urlFor(project[3].imgSrc).url()}
-                  alt={project[3].alt}
+                  src={urlFor(project[3]?.imgSrc).url()}
+                  alt={project[3]?.alt}
                   className="object-cover absolute top-0 left-0 w-full h-full"
                   fill
                 />
@@ -101,10 +101,10 @@ export default async function Projects() {
 
               <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
                 <span className="font-medium-font-weight">
-                  {project[3].title}, {project[3].location}
+                  {project[3]?.title}, {project[3]?.location}
                 </span>
                 <span className="font-medium-font-weight ">
-                  {project[3].year}
+                  {project[3]?.year}
                 </span>
               </div>
             </div>
