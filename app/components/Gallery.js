@@ -35,8 +35,8 @@ export default function ProjectGallery({ gallery }) {
       if (!big) return null;
 
       return (
-        <div key={`big-${idx}`} className="w-full mb-[16px]">
-          <div className="relative w-full overflow-hidden aspect-[5/3]  xl:aspect-[6/3]">
+        <div key={`big-${idx}`} className="w-full mb-[10px] md:mb-[16px]">
+          <div className="relative w-full overflow-hidden aspect-[5/3]  lg:aspect-[6/3]">
             <img
               src={big.imgSrc}
               alt={big.alt || ""}
@@ -60,10 +60,10 @@ export default function ProjectGallery({ gallery }) {
     return (
       <div
         key={`pair-${idx}`}
-        className="flex flex-col gap-[16px] xl:grid xl:grid-cols-2 mb-[16px]"
+        className="flex flex-col gap-[10px] md:gap-[16px] lg:grid lg:grid-cols-2 mb-[10px] md:mb-[16px]"
       >
         {firstSmall && (
-          <div className="relative overflow-hidden aspect-[8/9] xl:aspect-[6/6]">
+          <div className="relative overflow-hidden aspect-[8/9] lg:aspect-[6/6]">
             <Image
               src={urlFor(firstSmall).url()}
               alt={firstSmall.alt || ""}
@@ -73,7 +73,7 @@ export default function ProjectGallery({ gallery }) {
           </div>
         )}
         {secondSmall && (
-          <div className="relative overflow-hidden aspect-[8/9] xl:aspect-[6/6]">
+          <div className="relative overflow-hidden aspect-[8/9] lg:aspect-[6/6]">
             <Image
               src={urlFor(secondSmall).url()}
               alt={secondSmall.alt || ""}

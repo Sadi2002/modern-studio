@@ -18,7 +18,12 @@ import ArrowWhite from "../../public/arrow-right-white.png";
 
 import { urlFor } from "../../lib/sanity/client";
 
-export default function PortfolioClient({ projects = [] }) {
+export default function PortfolioClient({
+  projects = [],
+  customMarginTop = 100,
+  isBtn = true,
+  customGap = 150,
+}) {
   const cardRefs = useRef([]); // DOM refs for right-side cards
   const linkRefs = useRef([]); // DOM refs for left-side links
   const linksViewportRef = useRef(null); // sticky container (visible area for links)
@@ -181,7 +186,9 @@ export default function PortfolioClient({ projects = [] }) {
     };
   }, [measure]);
   return (
-    <div className="lg:flex mx-margin-mobile md:mx-tablet xl:mx-desktop mt-[100px] mb-[40px] md:mb-[80px] 2xl:mb-[150px]">
+    <div
+      className={`lg:flex mx-margin-mobile md:mx-tablet xl:mx-desktop mt-[${customMarginTop}px] mb-[40px] md:mb-[80px] 2xl:mb-[${customGap}px]`}
+    >
       <div className="hidden lg:flex w-[40%]">
         <div
           ref={linksViewportRef}
@@ -255,15 +262,19 @@ export default function PortfolioClient({ projects = [] }) {
             </Link>
           </div>
         ))}
-        <Button
-          arrow={ArrowWhite}
-          linkTo="/portfolio"
-          bgColor="main-black"
-          textColor="main-white"
-          additionalStyles="md:self-end"
-        >
-          Contact us
-        </Button>
+        <div className="flex justify-end lg:mt-[0px] xl:mt-[-50px]">
+          {isBtn && (
+            <Button
+              arrow={ArrowWhite}
+              linkTo="/portfolio"
+              bgColor="main-black"
+              textColor="main-white"
+              additionalStyles="md:self-end"
+            >
+              Contact us
+            </Button>
+          )}
+        </div>
       </div>
     </div>
   );
