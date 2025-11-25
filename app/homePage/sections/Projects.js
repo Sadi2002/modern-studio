@@ -8,11 +8,10 @@ import Link from "next/link";
 
 import { urlFor } from "../../../lib/sanity/client";
 
-const projects = DataProjects();
-
 export default async function Projects() {
-  const project = await projects;
+  const project = await DataProjects();
   console.log(project);
+
   return (
     <section className="mx-margin-mobile md:mx-tablet lg:mx-small-laptop mb-[80px] xl:mb-[150px]">
       <h3 className="text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(04)'] after:absolute after:top-[5px] after:text-[8px] mb-5 xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px] xl:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal">
