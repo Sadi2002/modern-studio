@@ -20,9 +20,8 @@ import { urlFor } from "../../lib/sanity/client";
 
 export default function PortfolioClient({
   projects = [],
-  customMarginTop = 100,
+
   isBtn = true,
-  customGap = 150,
 }) {
   const cardRefs = useRef([]); // DOM refs for right-side cards
   const linkRefs = useRef([]); // DOM refs for left-side links
@@ -187,7 +186,7 @@ export default function PortfolioClient({
   }, [measure]);
   return (
     <div
-      className={`lg:flex mx-margin-mobile md:mx-tablet xl:mx-desktop mt-[${customMarginTop}px] mb-[40px] md:mb-[80px] 2xl:mb-[${customGap}px]`}
+      className={`lg:flex mx-margin-mobile md:mx-tablet xl:mx-desktop mt-[100px] mb-[40px] md:mb-[80px] 2xl:mb-[150px]`}
     >
       <div className="hidden lg:flex w-[40%]">
         <div
