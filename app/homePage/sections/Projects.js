@@ -29,7 +29,7 @@ export default async function Projects() {
                   fill
                 />
               </div>
-              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
                 <span className="font-medium-font-weight">
                   {project[0]?.title}, {project[0]?.location}
                 </span>
@@ -53,7 +53,7 @@ export default async function Projects() {
                   fill
                 />
               </div>
-              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
+              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px]">
                 <span className="font-medium-font-weight">
                   {project[1]?.title}, {project[1]?.location}
                 </span>
@@ -76,7 +76,7 @@ export default async function Projects() {
                   fill
                 />
               </div>
-              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
+              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px]">
                 <span className="font-medium-font-weight">
                   {project[2]?.title}, {project[2]?.location}
                 </span>
@@ -98,7 +98,7 @@ export default async function Projects() {
                 />
               </div>
 
-              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)]">
+              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px]">
                 <span className="font-medium-font-weight">
                   {project[3]?.title}, {project[3]?.location}
                 </span>

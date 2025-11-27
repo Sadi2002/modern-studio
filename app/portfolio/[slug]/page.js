@@ -37,28 +37,31 @@ export default async function Project({ params }) {
       </div>
       <div className="flex flex-col gap-[40px] 2xl:gap-0 lg:flex-row w-full justify-between mb-[40px] xl:mb-[80px] px-[20px] md:px-[40px] 2xl:px-[70px]">
         <div>
-          <span className="font-medium-font-weight text-[clamp(16px,5vw,18px)] leading-[clamp(0.75rem,10vw,20px)]">
+          <span className="font-medium-font-weight text-[clamp(16px,5vw,18px)] leading-[clamp(0.75rem,10vw,20px)]2xl:text-[20px]">
             {project.location}
           </span>
         </div>
-        <div className="flex flex-col text-[clamp(16px,5vw,18px)] leading-[clamp(0.75rem,10vw,20px)] gap-[5px]">
+        <div className="flex flex-col text-[clamp(16px,5vw,18px)] leading-[clamp(0.75rem,10vw,20px)] 2xl:text-[20px] gap-[5px] 2xl:gap-[10px]">
           <span className="font-medium-font-weight">Data completed</span>
-          <span className="font-light-font-weight text-[14px]">
+          <span className="font-light-font-weight text-[14px] 2xl:text-[16px]">
             {project.year}
           </span>
         </div>
-        <div className="flex flex-col text-[clamp(16px,5vw,18px)] leading-[clamp(0.75rem,10vw,20px)] gap-[5px]">
+        <div className="flex flex-col text-[clamp(16px,5vw,18px)] leading-[clamp(0.75rem,10vw,20px)] 2xl:text-[20px] gap-[5px] 2xl:gap-[10px]">
           <span className="font-medium-font-weight">Project Type</span>
-          <span className="font-light-font-weight text-[14px]">
+          <span className="font-light-font-weight text-[14px] 2xl:text-[16px]">
             {project.type}
           </span>
         </div>
-        <div className="flex flex-col text-[clamp(16px,5vw,18px)] leading-[clamp(0.75rem,10vw,20px)] gap-[5px]">
+        <div className="flex flex-col text-[clamp(16px,5vw,18px)] leading-[clamp(0.75rem,10vw,20px)] 2xl:text-[20px] gap-[5px] 2xl:gap-[10px]">
           {collaborators.length > 0 && (
             <>
               <span className="font-medium-font-weight">Collaborators</span>
               {collaborators.map((c, idx) => (
-                <span key={idx} className="font-light-font-weight text-[14px]">
+                <span
+                  key={idx}
+                  className="font-light-font-weight text-[14px] 2xl:text-[16px]"
+                >
                   {c.title}
                 </span>
               ))}
