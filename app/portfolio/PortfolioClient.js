@@ -20,7 +20,7 @@ import { urlFor } from "../../lib/sanity/client";
 
 export default function PortfolioClient({
   projects = [],
-
+  isProject = false,
   isBtn = true,
 }) {
   const cardRefs = useRef([]); // DOM refs for right-side cards
@@ -186,7 +186,9 @@ export default function PortfolioClient({
   }, [measure]);
   return (
     <div
-      className={`lg:flex mx-margin-mobile md:mx-tablet xl:mx-desktop mt-[100px] mb-[40px] md:mb-[80px] 2xl:mb-[150px]`}
+      className={`lg:flex mx-margin-mobile md:mx-tablet xl:mx-desktop ${
+        isProject ? "mt-[0px]" : "mt-[100px]"
+      }  mb-[40px] md:mb-[80px] 2xl:mb-[150px]`}
     >
       <div className="hidden lg:flex w-[40%]">
         <div

@@ -113,7 +113,7 @@ export default async function Project({ params }) {
         <h3 className="text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative mb-5 lg:text-6xl  lg:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal mx-margin-mobile md:mx-tablet lg:hidden">
           Our projects
         </h3>
-        <PortfolioClient projects={projects} isBtn={false} />
+        <PortfolioClient projects={projects} isBtn={false} isProject={true} />
       </div>
     </section>
   );
