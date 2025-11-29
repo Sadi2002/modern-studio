@@ -10,6 +10,7 @@ import { urlFor } from "../../../lib/sanity/client";
 export default function Navigation({ data }) {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const isContact = pathname === "/contact";
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -110,7 +111,7 @@ export default function Navigation({ data }) {
       {/* DESKTOP MENU */}
       <ul
         className={`hidden md:flex gap-between-navigation-links items-center xl:gap-between-navigation-links-xl ${
-          isHome ? "text-main-white" : "text-main-black"
+          isHome || isContact ? "text-main-white" : "text-main-black"
         }`}
       >
         {data.links.map((link, index) => (

@@ -14,7 +14,7 @@ export default function Footer() {
             className="object-cover md:w-[400px]"
           />
         </div>
-        <div className="border-t border-[rgba(255,255,255,.2)] w-[70%] mb-[70px] lg:pt-[80px] lg:mb-0">
+        <div className="border-t border-[rgba(255,255,255,.2)] w-[70%] mb-[70px] lg:pt-[80px] lg:mb-0 lg:border-none">
           <ul>
             <li className="py-[15px] border-b border-[rgba(255,255,255,.2)] lg:py-[30px]">
               <Link
