@@ -1,6 +1,8 @@
 "use client";
 export const revalidate = 0;
 
+import { usePathname } from "next/navigation";
+
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -23,6 +25,9 @@ export default function PortfolioClient({
   isProject = false,
   isBtn = true,
 }) {
+  const pathname = usePathname();
+  const isPortfolio = pathname === "/portfolio";
+
   const cardRefs = useRef([]); // DOM refs for right-side cards
   const linkRefs = useRef([]); // DOM refs for left-side links
   const linksViewportRef = useRef(null); // sticky container (visible area for links)
@@ -188,7 +193,11 @@ export default function PortfolioClient({
     <div
       className={`lg:flex mx-margin-mobile md:mx-tablet xl:mx-desktop ${
         isProject ? "mt-[0px]" : "mt-[100px]"
-      }  mb-[40px] md:mb-[80px] 2xl:mb-[150px]`}
+      }
+      ${isProject ? "lg:mt-[150px]" : "lg:mt-[100px]"}
+      
+      ${isPortfolio ? "mb-[80px]" : "mb-[30px]"}
+       md:mt-[20px] 2xl:mb-[100px]`}
     >
       <div className="hidden lg:flex w-[40%]">
         <div

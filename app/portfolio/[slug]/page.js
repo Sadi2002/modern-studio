@@ -27,7 +27,7 @@ export default async function Project({ params }) {
 
   return (
     <section className="flex flex-col pb-[0px]">
-      <div className="flex  w-full justify-between pt-[100px] lg:pt-[150px] 2xl:pt-[200px] px-[20px] mb-[60px] xl:mb-[120px] md:px-[40px] flex-col lg:flex-row 2xl:px-[70px]">
+      <div className="flex  w-full justify-between pt-[100px] lg:pt-[150px] 2xl:pt-[200px] px-[20px] mb-[40px] xl:mb-[120px] md:px-[40px] flex-col lg:flex-row 2xl:px-[70px]">
         <h1 className="text-[clamp(36px,6.5vw,45px)] leading-[clamp(2.2rem,7.5vw,2.5rem)] md:text-[80px] md:leading-[80px] font-medium mb-[20px] 2xl:mb-[30px] max-w-[500px] lg:text-[clamp(2rem,4.5vw,80px)] lg:leading-[clamp(2rem,4.5vw,80px)] lg:max-w-[700px] lg:w-[50%] 2xl:max-w-[850px] xl:font-normal  uppercase">
           {project.title}
         </h1>
@@ -69,7 +69,7 @@ export default async function Project({ params }) {
           )}
         </div>
       </div>
-      <div className="px-[20px] 2xl:px-[70px]">
+      <div className="px-[20px] md:px-[40px] 2xl:px-[70px]">
         <button className="font-medium-font-weight text-[clamp(0.75rem,3.5vw,1rem)] relative uppercase after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:w-full-width after:h-[1px] after:w-full flex items-center ml-auto">
           View details{" "}
           <Image
@@ -80,7 +80,7 @@ export default async function Project({ params }) {
         </button>
       </div>
       <div className="px-[10px] md:px-[20px] 2xl:px-[30px] mt-[10px] md:mt-[16px]">
-        <div className="mt-[16px]">
+        <div className="mt-[30px]">
           <div className="relative w-full aspect-[5/3] lg:aspect-[6/3] ">
             <Image
               src={urlFor(project.imgSrc).url()}
@@ -96,7 +96,7 @@ export default async function Project({ params }) {
             />
           </div>
         </div>
-        <div className="flex justify-end mt-[24px]">
+        <div className="flex justify-end mt-[30px] px-[10px] md:px-[20px] 2xl:px-[40px] ">
           <Button
             arrow={ArrowWhite}
             linkTo="/portfolio"
@@ -109,8 +109,8 @@ export default async function Project({ params }) {
         </div>
       </div>
 
-      <div className="mt-[80px]">
-        <h3 className="text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative mb-5 lg:text-6xl  lg:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal mx-margin-mobile md:mx-tablet lg:hidden">
+      <div className="mt-[80px] lg:mt-[0]">
+        <h3 className="text-[clamp(36px,6.5vw,45px)] leading-[36px] font-medium uppercase relative mb-5 lg:text-6xl  lg:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal mx-margin-mobile md:mx-tablet lg:hidden">
           Our projects
         </h3>
         <PortfolioClient projects={projects} isBtn={false} isProject={true} />

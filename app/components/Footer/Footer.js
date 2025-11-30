@@ -19,7 +19,7 @@ export default function Footer() {
             <li className="py-[15px] border-b border-[rgba(255,255,255,.2)] lg:py-[30px]">
               <Link
                 href="#"
-                className="uppercase text-white text-[clamp(20px,5.5vw,20px)] flex pl-[20px] md:pl-[40px]"
+                className="uppercase text-white text-[clamp(20px,5vw,23px)] flex pl-[20px] md:pl-[40px]"
               >
                 About us
               </Link>
@@ -27,7 +27,7 @@ export default function Footer() {
             <li className="py-[15px] border-b border-[rgba(255,255,255,.2)] lg:py-[30px]">
               <Link
                 href="#"
-                className="uppercase text-white text-[clamp(20px,5.5vw,20px)] flex pl-[20px] md:pl-[40px]"
+                className="uppercase text-white text-[clamp(20px,5vw,23px)] flex pl-[20px] md:pl-[40px]"
               >
                 Portfolio
               </Link>
@@ -35,7 +35,7 @@ export default function Footer() {
             <li className="py-[15px] border-b border-[rgba(255,255,255,.2)] lg:py-[30px]">
               <Link
                 href="#"
-                className="uppercase text-white text-[clamp(20px,5.5vw,20px)] flex pl-[20px] md:pl-[40px]"
+                className="uppercase text-white text-[clamp(20px,5vw,23px)] flex pl-[20px] md:pl-[40px]"
               >
                 Process
               </Link>
@@ -43,7 +43,7 @@ export default function Footer() {
             <li className="py-[15px] border-b border-[rgba(255,255,255,.2)] lg:py-[30px]">
               <Link
                 href="#"
-                className="uppercase text-white text-[clamp(20px,5.5vw,20px)] flex pl-[20px] md:pl-[40px]"
+                className="uppercase text-white text-[clamp(20px,5vw,23px)] flex pl-[20px] md:pl-[40px]"
               >
                 Blog
               </Link>
@@ -51,7 +51,7 @@ export default function Footer() {
             <li className="py-[15px] border-b border-[rgba(255,255,255,.2)] lg:border-none lg:py-[30px]">
               <Link
                 href="#"
-                className="uppercase text-white text-[clamp(20px,5.5vw,20px)] flex pl-[20px] md:pl-[40px]"
+                className="uppercase text-white text-[clamp(20px,5vw,23px)] flex pl-[20px] md:pl-[40px]"
               >
                 Contact
               </Link>
@@ -65,14 +65,14 @@ export default function Footer() {
       >
         <div className="flex flex-wrap justify-between min-[436px]:gap-x-[50px] gap-y-[50px] lg:mx-[50px] lg:pt-[40px] lg:max-w-[50%] xl:justify-between 2xl:max-w-[45%]">
           <div>
-            <h3 className="text-white text-[clamp(20px,5.5vw,20px)] font-semibold mb-[20px]">
+            <h3 className="text-white text-[clamp(20px,5.5vw,23px)] font-medium mb-[20px]">
               Quick contact
             </h3>
             <ul className="flex flex-col gap-[5px]">
               <li>
                 <Link
                   href="#"
-                  className="text-white text-[clamp(12px,3.5vw,14px)] flex"
+                  className="text-white text-[clamp(12px,3.5vw,16px)] flex"
                 >
                   +48 512 381 126
                 </Link>
@@ -80,7 +80,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#"
-                  className="text-white text-[clamp(12px,3.5vw,14px)] flex"
+                  className="text-white text-[clamp(12px,3.5vw,16px)] flex"
                 >
                   Contact@gmail.com
                 </Link>
@@ -88,14 +88,14 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-white text-[clamp(20px,5.5vw,20px)] font-semibold mb-[20px]">
+            <h3 className="text-white text-[clamp(20px,5.5vw,23px)] font-medium mb-[20px]">
               Information
             </h3>
             <ul className="flex flex-col gap-[5px]">
               <li>
                 <Link
                   href="#"
-                  className="text-white text-[clamp(12px,3.5vw,14px)] flex"
+                  className="text-white text-[clamp(12px,3.5vw,16px)] flex"
                 >
                   +48 124 151 123
                 </Link>
@@ -103,7 +103,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#"
-                  className="text-white text-[clamp(12px,3.5vw,14px)] flex"
+                  className="text-white text-[clamp(12px,3.5vw,16px)] flex"
                 >
                   kontat@wp.com
                 </Link>
@@ -111,14 +111,14 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-white text-[clamp(20px,5.5vw,20px)] font-semibold mb-[20px]">
+            <h3 className="text-white text-[clamp(20px,5.5vw,23px)] font-medium mb-[20px]">
               SociaI media
             </h3>
             <ul className="flex flex-col gap-[5px]">
               <li>
                 <Link
                   href="#"
-                  className="text-white text-[clamp(12px,3.5vw,14px)] flex"
+                  className="text-white text-[clamp(12px,3.5vw,16px)] flex"
                 >
                   Facebook
                 </Link>
@@ -126,7 +126,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#"
-                  className="text-white text-[clamp(12px,3.5vw,14px)] flex"
+                  className="text-white text-[clamp(12px,3.5vw,16px)] flex"
                 >
                   Instagram
                 </Link>
@@ -135,11 +135,11 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-[5px] items-end mx-margin-mobile md:mx-tablet lg:flex-row lg:justify-end lg:gap-x-[50px] 2xl:gap-x-[120px]">
-        <span className="text-[clamp(12px,3.5vw,16px)] md:text-[12px] xl:text-[16px] text-white">
+      <div className="flex flex-col gap-[5px] items-end mx-margin-mobile md:mx-tablet lg:flex-row lg:justify-end lg:gap-x-[50px] 2xl:gap-x-[80px]">
+        <span className="text-[clamp(12px,3.5vw,16px)]   text-white">
           Polityka prwatności
         </span>
-        <span className="text-[clamp(12px,3.5vw,16px)] md:text-[12px] xl:text-[16px] text-white">
+        <span className="text-[clamp(12px,3.5vw,16px)]   text-white">
           2025 wszelkie prawa zastrzeżone
         </span>
       </div>

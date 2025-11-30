@@ -9,12 +9,12 @@ import projekt4 from "../../../public/projekt4-large.webp";
 export default function Blog() {
   return (
     <section className="mx-margin-mobile flex flex-col md:mx-tablet  lg:mx-small-laptop mb-[80px]  xl:mb-[150px]">
-      <div className="md:flex md:flex-col md:justify-between w-full  md:mb-[40px]">
+      <div className="md:flex md:flex-col md:justify-between w-full  ">
         <div className="flex flex-col">
-          <h3 className="mb-5 text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(03)'] after:absolute after:top-[5px] after:text-[8px] xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px]  2xl:text-[80px] 2xl:font-normal xl:mb-[40px] 2xl:mb-[50px]">
+          <h3 className="mb-5 text-[clamp(36px,6.5vw,45px)] leading-[36px]   font-medium uppercase relative after:content-['(03)'] after:absolute after:top-[-15px] xl:after:top-[-25px] 2xl:after:top-[-35px] after:text-[8px] xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px]  2xl:text-[80px] 2xl:font-normal xl:mb-[40px] 2xl:mb-[50px] 2xl:max-w-[1200px]">
             Blog
           </h3>
-          <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[50px] xl:mb-[0] min-[380px]:max-w-[390px] md:max-w-[500px]">
+          <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[40px] xl:mb-[50px] xl:mb-[0] min-[380px]:max-w-[390px] md:max-w-[500px] ">
             Welcome to our blog, where we explore design ideas, materials and
             architectural insights inspired by Mallorca.
           </p>
@@ -96,7 +96,7 @@ export default function Blog() {
           </div>
         </div>
 
-        <div className="w-[28%] inline-block">
+        <div className="w-[30%] inline-block">
           <div className="lg:aspect-[8/5] relative 2xl:aspect-[9/6]">
             <Image
               src={projekt2}

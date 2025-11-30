@@ -8,14 +8,13 @@ import Link from "next/link";
 
 import { urlFor } from "../../../lib/sanity/client";
 
-export default async function Projects() {
+export default async function Projects({ data }) {
   const project = await DataProjects();
-  console.log(project);
 
   return (
     <section className="mx-margin-mobile md:mx-tablet lg:mx-small-laptop mb-[80px] xl:mb-[150px]">
-      <h3 className="text-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(04)'] after:absolute after:top-[5px] after:text-[8px] mb-5 xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px] xl:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal">
-        Our projects
+      <h3 className="text-[clamp(36px,6.5vw,45px)] leading-[36px] font-medium uppercase relative after:content-['(04)'] after:absolute after:top-[-15px] xl:after:top-[-25px] 2xl:after:top-[-35px]  after:text-[8px] mb-5 xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px] xl:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal 2xl:max-w-[1200px]">
+        {data.title}
       </h3>
       <div className="flex flex-col lg:flex-row lg:justify-between">
         <div className="flex flex-col lg:w-[calc(50%-10px)]">
@@ -110,11 +109,8 @@ export default async function Projects() {
           </Link>
 
           <div className="leading-[26px] flex flex-col gap-[40px] items-end lg:gap-[30px]">
-            <p className="self-start text-[clamp(14px,3.5vw,18px)] leading-[clamp(20px,6vw,24px)] min-[900px]:max-w-[750px] lg:ml-10 lg:leading-[28px] md:leading-[28px] md:max-w-[600px] font-light-font-weight  xl:max-w-[600px] xl:text-[20px] xl:leading-[34px] 2xl:text-[26px] 2xl:leading-[42px] 2xl:max-w-[800px]">
-              Our villas harmoniously blend contemporary Mediterranean design
-              with the natural landscape of Mallorca, featuring open interiors,
-              sunlit terraces, premium materials, and seamless indoor‑outdoor
-              living for timeless luxury
+            <p className="self-start text-[clamp(14px,3.5vw,18px)] leading-[clamp(20px,6vw,24px)] min-[900px]:max-w-[750px] lg:ml-10 lg:leading-[28px] md:leading-[28px] md:max-w-[600px] font-light-font-weight  xl:max-w-[600px] xl:text-[20px] xl:leading-[34px] 2xl:text-[23px] 2xl:leading-[36px] 2xl:max-w-[800px]">
+              {data.subtitle}
             </p>
             <Button
               arrow={ArrowWhite}
