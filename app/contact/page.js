@@ -17,7 +17,7 @@ export default function Contact() {
           <h2 className="text-[20px] font-medium-font-weight mb-[20px] lg:mb-[50px]">
             Send a message
           </h2>
-          <div className="flex flex-col gap-8 md:flex-row md:gap-8 max-w-[80%] lg:max-w-[100%] ">
+          <div className="flex flex-col gap-[20px] md:flex-row md:gap-8 max-w-[80%] lg:max-w-[100%] mb-[40px] ">
             <div className="flex-1 ">
               <input
                 id="name"
@@ -40,7 +40,7 @@ export default function Contact() {
           <div className="max-w-[80%] lg:max-w-[100%]">
             <textarea
               id="message"
-              rows={2}
+              rows={1}
               className="w-full border-b border-black outline-none py-2 bg-transparent resize-none placeholder:text-[12px] placeholder:font-light lg:placeholder:text-[16px]"
               placeholder="Message"
             />
@@ -59,7 +59,7 @@ export default function Contact() {
         </form>
       </div>
       <div className=" lg:bg-black flex pt-[40px] px-[20px] pb-[40px] md:px-[40px] lg:p-0 lg:h-[100dvh] w-[100%] lg:w-[45%]  relative lg:ml-auto 2xl:w-[37%]">
-        <div className="lg:text-main-white flex flex-col lg:ml-[40px] xl:ml-[80px] space-y-4 lg:absolute  bottom-[100px]">
+        <div className="lg:text-main-white  text-[14px] flex flex-col lg:ml-[40px] xl:ml-[80px] space-y-4 lg:absolute  bottom-[100px]">
           <span>
             E-mail:&nbsp;
             <Link href="mailto:kontakt@sadowskistudio.com">
