@@ -73,7 +73,11 @@ export default function Navigation({ data }) {
               </Link>
             </li>
             <li className="border-b border-[rgba(255,255,255,0.2)] py-[15px]">
-              <Link href="/portfolio" className="pl-[20px]">
+              <Link
+                href="/portfolio"
+                className="pl-[20px]"
+                onClick={toggleMenu}
+              >
                 Portfolio
               </Link>
             </li>
@@ -83,7 +87,7 @@ export default function Navigation({ data }) {
               </Link>
             </li>
             <li className="border-b border-[rgba(255,255,255,0.2)] py-[15px]">
-              <Link href="#" className="pl-[20px]">
+              <Link href="/contact" className="pl-[20px]" onClick={toggleMenu}>
                 Contact
               </Link>
             </li>

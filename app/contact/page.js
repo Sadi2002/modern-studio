@@ -4,16 +4,16 @@ import Button from "../components/Button";
 
 export default function Contact() {
   return (
-    <section className="flex justify-between ml-tablet">
-      <div className="pt-[150px]">
-        <h1 className="text-[clamp(1.6rem,7.5vw,2.5rem)] leading-[clamp(2.1rem,7.5vw,2.5rem)] max-w-[700px] font-normal-font-weight mb-[20px]">
+    <section className="flex flex-col gap-[40px] lg:flex-row  ">
+      <div className="pt-[100px] md:pt-[150px] mx-margin-mobile md:ml-tablet">
+        <h1 className="text-[clamp(1.6rem,7.5vw,2.5rem)] leading-[clamp(2.1rem,7.5vw,2.7rem)] font-medium mb-[20px] max-w-[500px] lg:text-[clamp(2rem,3.5vw,64px)] lg:leading-[clamp(2rem,3.5vw,64px)] lg:max-w-[1000px] lg:w-[100%] 2xl:max-w-[850px] xl:font-normal">
           Let’s create something unforgettable
         </h1>
-        <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight max-w-[600px] mb-[80px]">
+        <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight max-w-[600px] mb-[40px] lg:mb-[80px]">
           For all inquiries, please contact our team. We are ready to discuss
           new projects, answer your questions, and explore how we can bring your
         </p>
-        <form className="space-y-8 max-w-[90%]">
+        <form className="space-y-8 max-w-[100%] lg:max-w-[90%]">
           <h2 className="text-[20px] font-medium-font-weight mb-[50px]">
             Send a message
           </h2>
@@ -58,16 +58,16 @@ export default function Contact() {
           </div>
         </form>
       </div>
-      <div className="bg-black flex h-[100dvh] w-[40%]">
-        <div className="text-main-white flex flex-col ml-[80px] space-y-4 absolute bottom-[100px]">
+      <div className="lg:bg-black flex pt-[40px] px-[20px] pb-[40px] md:px-[40px] lg:p-0 lg:h-[100dvh] w-[100%] lg:w-[70%]  relative lg:ml-auto">
+        <div className="lg:text-main-white flex flex-col lg:ml-[40px] xl:ml-[80px] space-y-4 lg:absolute  bottom-[100px]">
           <span>
-            E-mail:
+            E-mail:&nbsp;
             <Link href="mailto:kontakt@sadowskistudio.com">
               kontakt@sadowskistudio.com
             </Link>
           </span>
           <span>
-            Phone:<Link href="mailto:+48414512859">+48 414 512 859</Link>
+            Phone:&nbsp;<Link href="mailto:+48414512859">+48 414 512 859</Link>
           </span>
           <span>
             <Link href="https://google.com">Facebook</Link>
