@@ -13,35 +13,35 @@ export default function Contact() {
           For all inquiries, please contact our team. We are ready to discuss
           new projects, answer your questions, and explore how we can bring your
         </p>
-        <form className="space-y-8 max-w-[100%] lg:max-w-[90%]">
-          <h2 className="text-[20px] font-medium-font-weight mb-[50px]">
+        <form className="space-y-8 max-w-[100%] ">
+          <h2 className="text-[20px] font-medium-font-weight mb-[20px] lg:mb-[50px]">
             Send a message
           </h2>
-          <div className="flex flex-col gap-8 md:flex-row md:gap-8">
-            <div className="flex-1">
+          <div className="flex flex-col gap-8 md:flex-row md:gap-8 max-w-[80%] lg:max-w-[100%]">
+            <div className="flex-1 ">
               <input
                 id="name"
                 type="text"
-                className="w-full border-b border-black outline-none py-2 bg-transparent placeholder:text-[16px] placeholder:font-light"
+                className="w-full border-b border-black outline-none py-2 bg-transparent placeholder:text-[12px] lg:placeholder:text-[16px]  placeholder:font-light"
                 autoComplete="off"
                 placeholder="Name"
               />
             </div>
-            <div className="flex-1">
+            <div className="flex-1 ">
               <input
                 id="email"
                 type="email"
-                className="w-full border-b border-black outline-none py-2 bg-transparent placeholder:text-[16px] placeholder:font-light"
+                className="w-full border-b border-black outline-none py-2 bg-transparent placeholder:text-[12px] placeholder:font-light lg:placeholder:text-[16px]"
                 autoComplete="off"
                 placeholder="Email"
               />
             </div>
           </div>
-          <div>
+          <div className="max-w-[80%] lg:max-w-[100%]">
             <textarea
               id="message"
-              rows={3}
-              className="w-full border-b border-black outline-none py-2 bg-transparent resize-none placeholder:text-[16px] placeholder:font-light"
+              rows={2}
+              className="w-full border-b border-black outline-none py-2 bg-transparent resize-none placeholder:text-[12px] placeholder:font-light lg:placeholder:text-[16px]"
               placeholder="Message"
             />
           </div>
