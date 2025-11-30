@@ -16,7 +16,7 @@ export default function ProcessComponent() {
   return (
     <section className="mx-margin-mobile flex flex-col md:mx-tablet lg:flex-row lg:justify-between lg:mx-small-laptop mb-[40px] lg:mb-[80px] xl:mb-[150px]">
       <div className="mb-[40px] lg:mb-0 lg:w-[50%] ">
-        <h3 className="text-[clamp(36px,6.5vw,45px)] leading-[36px] font-medium uppercase relative after:content-['(05)'] after:absolute after:top-[-15px] after:text-[8px] xl:after:top-[-25px] 2xl:after:top-[-35px] mb-5 xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px]  xl:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal 2xl:max-w-[1200px]">
+        <h3 className="text-[clamp(36px,6.5vw,45px)] leading-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(05)'] after:absolute after:top-[-15px] after:text-[8px] xl:after:top-[-25px] 2xl:after:top-[-35px] mb-5 xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px]  xl:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:leading-[80px] 2xl:font-normal 2xl:max-w-[1200px]">
           How We Work
         </h3>
         <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[40px] xl:mb-[50px] min-[380px]:max-w-[390px] md:max-w-[400px] lg:max-w-[500px]">
@@ -88,7 +88,7 @@ export default function ProcessComponent() {
         </div>
       </div>
       <div className="hidden lg:block lg:w-[40%]">
-        <div className="lg:sticky lg:top-[87.5px] lg:mt-[87.5px] xl:top-[100px] xl:mt-[100px] 2xl:mt-[130px] 2xl:top-[130px]">
+        <div className="lg:sticky lg:top-[87.5px] lg:mt-[70px] xl:top-[100px] xl:mt-[100px] 2xl:mt-[130px] 2xl:top-[130px]">
           <div className="relative aspect-8/5 mb-[40px] lg:w-[100%] lg:h-[300px] lg:mb-0 2xl:h-[350px] lg:aspect-8/7">
             <Image
               src={process[activeIndexDesktop].imgSrc}
