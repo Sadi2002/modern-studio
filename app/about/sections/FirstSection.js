@@ -32,7 +32,7 @@ export default function FirstSection() {
               ahead in an ever-evolving
             </p>
           </div>
-          <div className="flex justify-start mb-[40px]">
+          <div className="flex justify-end lg:justify-start mb-[40px]">
             <Button
               arrow={ArrowWhite}
               linkTo="/portfolio"
