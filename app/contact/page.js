@@ -4,8 +4,8 @@ import Button from "../components/Button";
 
 export default function Contact() {
   return (
-    <section className="flex flex-col gap-[40px] lg:flex-row  ">
-      <div className="pt-[100px] md:pt-[150px] mx-margin-mobile md:ml-tablet">
+    <section className="flex flex-col gap-[40px] lg:flex-row w-full  ">
+      <div className="flex-1 pt-[100px] md:pt-[150px] mx-margin-mobile md:ml-tablet 2xl:mx-[70px]">
         <h1 className="text-[clamp(1.6rem,7.5vw,2.5rem)] leading-[clamp(2.1rem,7.5vw,2.7rem)] font-medium mb-[20px] max-w-[500px] lg:text-[clamp(2rem,3.5vw,64px)] lg:leading-[clamp(2rem,3.5vw,64px)] lg:max-w-[1000px] lg:w-[100%] 2xl:max-w-[850px] xl:font-normal">
           Let’s create something unforgettable
         </h1>
@@ -13,11 +13,11 @@ export default function Contact() {
           For all inquiries, please contact our team. We are ready to discuss
           new projects, answer your questions, and explore how we can bring your
         </p>
-        <form className="space-y-8 max-w-[100%] ">
+        <form className="space-y-8 max-w-[100%] lg:max-w-[800px] ">
           <h2 className="text-[20px] font-medium-font-weight mb-[20px] lg:mb-[50px]">
             Send a message
           </h2>
-          <div className="flex flex-col gap-8 md:flex-row md:gap-8 max-w-[80%] lg:max-w-[100%]">
+          <div className="flex flex-col gap-8 md:flex-row md:gap-8 max-w-[80%] lg:max-w-[100%] ">
             <div className="flex-1 ">
               <input
                 id="name"
@@ -58,7 +58,7 @@ export default function Contact() {
           </div>
         </form>
       </div>
-      <div className="lg:bg-black flex pt-[40px] px-[20px] pb-[40px] md:px-[40px] lg:p-0 lg:h-[100dvh] w-[100%] lg:w-[70%]  relative lg:ml-auto">
+      <div className=" lg:bg-black flex pt-[40px] px-[20px] pb-[40px] md:px-[40px] lg:p-0 lg:h-[100dvh] w-[100%] lg:w-[45%]  relative lg:ml-auto 2xl:w-[37%]">
         <div className="lg:text-main-white flex flex-col lg:ml-[40px] xl:ml-[80px] space-y-4 lg:absolute  bottom-[100px]">
           <span>
             E-mail:&nbsp;
