@@ -5,7 +5,7 @@ export default function SecondSection() {
     <section className="mb-[80px] xl:mb-[150px]">
       <div className="flex flex-col gap-[40px] lg:flex-row">
         <div className="2xl:w-[45%]">
-          <div className="mx-margin-mobile md:mx-tablet 2xl:mx-[70px]">
+          <div className="mx-margin-mobile md:mx-tablet lg:mx-desktop 2xl:mx-[50px]">
             <h3 className="text-[23px] font-medium-font-weight mb-[20px]  lg:text-[26px] 2xl:text-[36px]">
               We blend only
             </h3>
@@ -27,13 +27,13 @@ export default function SecondSection() {
             <Image
               src="/aboutPage.jpg"
               alt="projekt"
-              className="object-cover absolute top-0 left-0 w-full h-full  px-[20px]  md:px-[40px]  lg:px-[40px] 2xl:px-[70px]"
+              className="object-cover absolute top-0 left-0 w-full h-full  px-[20px]  md:px-[40px]  lg:px-[50px] 2xl:px-[50px]"
               fill
             />
           </div>
         </div>
         <div className="lg:pt-[150px] 2xl:w-[45%]">
-          <div className="mx-margin-mobile md:mx-tablet 2xl:mx-[70px]">
+          <div className="mx-margin-mobile md:mx-tablet 2xl:mx-[50px]">
             <h3 className="text-[23px] font-medium-font-weight mb-[20px] lg:text-[26px] 2xl:text-[36px]">
               Closely with each client
             </h3>
@@ -55,7 +55,7 @@ export default function SecondSection() {
             <Image
               src="/aboutPage.jpg"
               alt="projekt"
-              className="object-cover absolute top-0 left-0 w-full h-full  px-[20px] md:px-[40px]  lg:px-[40px] 2xl:px-[70px]"
+              className="object-cover absolute top-0 left-0 w-full h-full  px-[20px] md:px-[40px]  lg:px-[50px] 2xl:px-[50px]"
               fill
             />
           </div>

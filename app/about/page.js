@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 
 const DynamicFirstSection = dynamic(() => import("./sections/FirstSection"));
 const DynamicSecondSection = dynamic(() => import("./sections/SecondSection"));
+const DynamicThirdSection = dynamic(() => import("./sections/ThirdSection"));
 
 export const metadata = {
   title: "Sadowski Studio - Nowoczesna Architektura i Design",
@@ -14,6 +15,7 @@ export default async function About() {
     <>
       <DynamicFirstSection />
       <DynamicSecondSection />
+      <DynamicThirdSection />
     </>
   );
 }

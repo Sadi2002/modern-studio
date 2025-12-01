@@ -4,17 +4,17 @@ import Button from "../components/Button";
 
 export default function Contact() {
   return (
-    <section className="flex flex-col gap-[40px] lg:flex-row w-full lg:items-center ">
-      <div className="flex-1 pt-[100px] md:pt-[150px] mx-margin-mobile md:ml-tablet 2xl:mx-[70px]">
-        <h1 className="text-[clamp(1.6rem,7.5vw,2.5rem)] leading-[clamp(2.1rem,7.5vw,2.7rem)] font-medium mb-[20px] max-w-[500px] lg:text-[clamp(2rem,3.5vw,64px)] lg:leading-[clamp(2rem,3.5vw,64px)] lg:max-w-[1000px] lg:w-[100%] 2xl:max-w-[1200px] 2xl:text-[80px] 2xl:leading-[80px] 2xl:mb-[40px] xl:font-normal">
-          Let’s create something unforgettable
+    <section className="flex flex-col gap-[40px] lg:flex-row w-full lg:items-center">
+      <div className="flex-1 pt-[100px] md:pt-[150px] mx-margin-mobile md:mx-tablet lg:ml-[50px] 2xl:mx-[50px]">
+        <h1 className="text-[clamp(36px,8vw,45px)] leading-[clamp(36px,8vw,45px)] uppercase font-medium mb-[20px] max-w-[500px] xl:max-w-[700px] lg:text-[45px] lg:leading-[45px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] 2xl:max-w-[1200px] 2xl:text-[80px] 2xl:leading-[80px]  2xl:font-normal">
+          Let’s create the unforgettable
         </h1>
-        <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight max-w-[600px] mb-[40px] lg:mb-[80px]">
+        <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight max-w-[600px] mb-[40px] lg:mb-[40px]">
           For all inquiries, please contact our team. We are ready to discuss
           new projects, answer your questions, and explore how we can bring your
         </p>
         <form className="space-y-8 max-w-[100%] lg:max-w-[800px] ">
-          <h2 className="text-[20px] font-medium-font-weight mb-[20px] lg:mb-[50px]">
+          <h2 className="text-[20px] font-medium-font-weight mb-[20px] lg:mb-[40px]">
             Send a message
           </h2>
           <div className="flex flex-col gap-[20px] md:flex-row md:gap-8 max-w-[80%] lg:max-w-[100%] mb-[40px] ">

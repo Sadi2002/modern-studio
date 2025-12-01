@@ -21,7 +21,7 @@ export default function Navigation({ data }) {
 
   return (
     <nav
-      className={`flex items-center justify-between mx-margin-mobile pt-mobile-navigation-top md:mx-tablet 2xl:mx-desktop lg:pt-desktop-navigation-top `}
+      className={`flex items-center justify-between mx-margin-mobile lg:mx-desktop pt-mobile-navigation-top md:mx-tablet 2xl:mx-desktop lg:pt-desktop-navigation-top `}
     >
       {/* LOGO PO LEWEJ */}
       <span

@@ -28,7 +28,7 @@ export default async function Project({ params }) {
   return (
     <section className="flex flex-col pb-[0px]">
       <div className="flex  w-full justify-between pt-[100px] lg:pt-[150px] 2xl:pt-[200px] px-[20px] mb-[40px] xl:mb-[120px] md:px-[40px] flex-col lg:flex-row 2xl:px-[70px]">
-        <h1 className="text-[clamp(36px,6.5vw,45px)] leading-[clamp(2.2rem,7.5vw,2.5rem)] md:text-[80px] md:leading-[80px] font-medium mb-[20px] 2xl:mb-[30px] max-w-[500px] lg:text-[clamp(2rem,4.5vw,80px)] lg:leading-[clamp(2rem,4.5vw,80px)] lg:max-w-[700px] lg:w-[50%] 2xl:max-w-[850px] xl:font-normal  uppercase">
+        <h1 className="text-[clamp(36px,6.5vw,45px)] leading-[clamp(2.2rem,7.5vw,2.5rem)] md:text-[80px] md:leading-[80px] font-medium mb-[20px] 2xl:mb-[30px] max-w-[500px] lg:text-[clamp(2rem,4.5vw,80px)] lg:leading-[clamp(2rem,4.5vw,80px)] lg:max-w-[700px] lg:w-[50%] 2xl:max-w-[850px] xl:font-normal ">
           {project.title}
         </h1>
         <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight lg:w-[50%] max-w-[700px] ">

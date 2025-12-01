@@ -15,8 +15,8 @@ export default function FirstSection() {
         />
       </div>
       <div className="lg:flex lg:justify-between lg:items-center">
-        <div className="px-[20px] lg:pt-[100px] md:px-[40px] lg:max-w-[600px] xl:max-w-[700px] 2xl:pl-[70px]">
-          <h1 className="text-[clamp(1.6rem,7.5vw,2.5rem)] leading-[clamp(2.1rem,7.5vw,2.7rem)] font-medium mb-[20px] xl:mb-[40px] max-w-[500px] lg:text-[clamp(2rem,3.5vw,64px)] lg:leading-[clamp(2rem,3.5vw,64px)] lg:max-w-[400px] lg:w-[100%] xl:max-w-[500px] 2xl:max-w-[1000px] 2xl:font-normal">
+        <div className="px-[20px] lg:pt-[100px] md:px-[40px] lg:px-[50px] lg:max-w-[700px]  2xl:max-w-[850px] 2xl:pl-[50px]">
+          <h1 className="text-[clamp(36px,8vw,45px)] leading-[clamp(36px,8vw,45px)] font-medium mb-[20px] xl:mb-[20px] max-w-[500px] lg:text-[45px] lg:leading-[45 px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] xl:max-w-[600px] 2xl:max-w-[1200px] 2xl:font-normal 2xl:text-[80px] 2xl:leading-[80px] 2xl:w-[750px]">
             WELCOME TO OUR STUDIO HUMAN
           </h1>
           <div className="font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] flex flex-col gap-[16px] mb-[40px] xl:mb-[50px]">
@@ -44,7 +44,7 @@ export default function FirstSection() {
             </Button>
           </div>
         </div>
-        <div className="relative aspect-[5/6] md:aspect-[6/7] max-w-[80%] w-[80%]  xl:aspect-[5/8]  lg:w-[45%] lg:aspect-[4/5] lg:h-[calc(100dvh-100px)] 2xl:w-[47%]">
+        <div className="relative aspect-[5/6] md:aspect-[6/7] max-w-[80%] w-[80%]  xl:aspect-[5/8]  lg:w-[45%] lg:aspect-[4/5] lg:h-[calc(100dvh-100px)] 2xl:w-[46%]">
           <Image
             src="/aboutPage.jpg"
             alt="projekt"
