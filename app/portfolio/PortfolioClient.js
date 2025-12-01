@@ -191,13 +191,11 @@ export default function PortfolioClient({
   }, [measure]);
   return (
     <div
-      className={`lg:flex mx-margin-mobile md:mx-tablet xl:mx-desktop ${
-        isProject ? "mt-[0px]" : "mt-[100px]"
-      }
-      ${isProject ? "lg:mt-[150px]" : "lg:mt-[100px]"}
-      
-      ${isPortfolio ? "mb-[80px]" : "mb-[30px]"}
-       md:mt-[20px] 2xl:mb-[100px]`}
+      className={`lg:flex mx-margin-mobile md:mx-tablet xl:mx-desktop
+    ${isProject ? "mt-[20px] lg:mt-[150px]" : "mt-[100px] lg:mt-[100px]"}
+    ${isPortfolio ? "mb-[80px]" : "mb-[30px]"}
+    2xl:mb-[100px]"
+  `}
     >
       <div className="hidden lg:flex w-[40%]">
         <div

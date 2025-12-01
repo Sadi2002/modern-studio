@@ -53,7 +53,9 @@ export default function Navigation({ data }) {
       {isOpen && (
         <div className="h-[100dvh] w-full fixed top-0 left-0 bg-main-black z-50 md:hidden text-main-white">
           <div className="flex justify-between items-center mx-margin-mobile pt-mobile-navigation-top">
-            <Link href="/">SeoVilla</Link>
+            <Link href="/" onClick={toggleMenu}>
+              SeoVilla
+            </Link>
             <span
               className="uppercase text-[14px] text-white font-medium-font-weight"
               onClick={toggleMenu}
@@ -63,7 +65,7 @@ export default function Navigation({ data }) {
           </div>
           <ul className="flex flex-col gap-[5px] e absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(20px,6vw,40px)] font-normal-font-weight uppercase border-t border-[rgba(255,255,255,0.2)] max-w-[50%]">
             <li className="border-b border-[rgba(255,255,255,0.2)] py-[15px]">
-              <Link href="#" className="pl-[20px]">
+              <Link href="#" className="pl-[20px]" onClick={toggleMenu}>
                 Home
               </Link>
             </li>
@@ -115,8 +117,10 @@ export default function Navigation({ data }) {
       {/* DESKTOP MENU */}
       <ul
         className={`hidden md:flex gap-between-navigation-links items-center xl:gap-between-navigation-links-xl ${
-          isHome || isContact ? "text-main-white" : "text-main-black"
-        }`}
+          isHome ? "text-main-white" : "md:text-main-black"
+        }
+        ${isContact ? "lg:text-main-white" : ""}
+        `}
       >
         {data.links.map((link, index) => (
           <li key={index}>

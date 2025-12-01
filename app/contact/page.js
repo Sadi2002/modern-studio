@@ -4,9 +4,9 @@ import Button from "../components/Button";
 
 export default function Contact() {
   return (
-    <section className="flex flex-col gap-[40px] lg:flex-row w-full  ">
+    <section className="flex flex-col gap-[40px] lg:flex-row w-full lg:items-center ">
       <div className="flex-1 pt-[100px] md:pt-[150px] mx-margin-mobile md:ml-tablet 2xl:mx-[70px]">
-        <h1 className="text-[clamp(1.6rem,7.5vw,2.5rem)] leading-[clamp(2.1rem,7.5vw,2.7rem)] font-medium mb-[20px] max-w-[500px] lg:text-[clamp(2rem,3.5vw,64px)] lg:leading-[clamp(2rem,3.5vw,64px)] lg:max-w-[1000px] lg:w-[100%] 2xl:max-w-[850px] xl:font-normal">
+        <h1 className="text-[clamp(1.6rem,7.5vw,2.5rem)] leading-[clamp(2.1rem,7.5vw,2.7rem)] font-medium mb-[20px] max-w-[500px] lg:text-[clamp(2rem,3.5vw,64px)] lg:leading-[clamp(2rem,3.5vw,64px)] lg:max-w-[1000px] lg:w-[100%] 2xl:max-w-[1200px] 2xl:text-[80px] 2xl:leading-[80px] 2xl:mb-[40px] xl:font-normal">
           Let’s create something unforgettable
         </h1>
         <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight max-w-[600px] mb-[40px] lg:mb-[80px]">
@@ -22,7 +22,7 @@ export default function Contact() {
               <input
                 id="name"
                 type="text"
-                className="w-full border-b border-black outline-none py-2 bg-transparent placeholder:text-[12px] lg:placeholder:text-[16px]  placeholder:font-light"
+                className="w-full border-b border-black outline-none py-1 bg-transparent placeholder:text-[12px] lg:placeholder:text-[16px]  placeholder:font-light"
                 autoComplete="off"
                 placeholder="Name"
               />
@@ -31,7 +31,7 @@ export default function Contact() {
               <input
                 id="email"
                 type="email"
-                className="w-full border-b border-black outline-none py-2 bg-transparent placeholder:text-[12px] placeholder:font-light lg:placeholder:text-[16px]"
+                className="w-full border-b border-black outline-none py-1 bg-transparent placeholder:text-[12px] placeholder:font-light lg:placeholder:text-[16px]"
                 autoComplete="off"
                 placeholder="Email"
               />
@@ -41,7 +41,7 @@ export default function Contact() {
             <textarea
               id="message"
               rows={1}
-              className="w-full border-b border-black outline-none py-2 bg-transparent resize-none placeholder:text-[12px] placeholder:font-light lg:placeholder:text-[16px]"
+              className="w-full border-b border-black outline-none py-1 bg-transparent resize-none placeholder:text-[12px] placeholder:font-light lg:placeholder:text-[16px]"
               placeholder="Message"
             />
           </div>
@@ -58,8 +58,8 @@ export default function Contact() {
           </div>
         </form>
       </div>
-      <div className=" lg:bg-black flex pt-[40px] px-[20px] pb-[40px] md:px-[40px] lg:p-0 lg:h-[100dvh] w-[100%] lg:w-[45%]  relative lg:ml-auto 2xl:w-[37%]">
-        <div className="lg:text-main-white  text-[14px] flex flex-col lg:ml-[40px] xl:ml-[80px] space-y-4 lg:absolute  bottom-[100px]">
+      <div className=" lg:bg-black flex pt-[40px] px-[20px] pb-[40px] md:px-[40px] lg:p-0 lg:h-[100dvh] w-[100%] lg:w-[clamp(31rem,3vw,10rem)]  relative lg:ml-auto xl:w-[clamp(36rem,3vw,10rem)] 2xl:w-[clamp(40rem,3vw,10rem)]">
+        <div className="lg:text-main-white  text-[14px] flex flex-col lg:ml-[40px] xl:ml-[40px] 2xl:ml-[70px] md:text-[16px] space-y-4 lg:absolute  bottom-[100px]">
           <span>
             E-mail:&nbsp;
             <Link href="mailto:kontakt@sadowskistudio.com">
