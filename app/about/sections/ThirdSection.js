@@ -42,7 +42,7 @@ export default function ThirdSection() {
                 <h3 className="text-[clamp(16px,4.5vw,20px)] leading-[clamp(0.75rem,10vw,1.5rem)] ">
                   Anna Schedmann
                 </h3>
-                <span className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)]">
+                <span className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight">
                   General Architect
                 </span>
               </div>
@@ -82,7 +82,7 @@ export default function ThirdSection() {
                 <h3 className="text-[clamp(16px,4.5vw,20px)] leading-[clamp(0.75rem,10vw,1.5rem)]">
                   Anna Schedmann
                 </h3>
-                <span className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)]">
+                <span className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight">
                   General Architect
                 </span>
               </div>
@@ -122,7 +122,7 @@ export default function ThirdSection() {
                 <h3 className="text-[clamp(16px,4.5vw,20px)] leading-[clamp(0.75rem,10vw,1.5rem)]">
                   Anna Schedmann
                 </h3>
-                <span className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)]">
+                <span className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight">
                   General Architect
                 </span>
               </div>
@@ -162,7 +162,7 @@ export default function ThirdSection() {
                 <h3 className="text-[clamp(16px,4.5vw,20px)] leading-[clamp(0.75rem,10vw,1.5rem)]">
                   Anna Schedmann
                 </h3>
-                <span className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)]">
+                <span className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight">
                   General Architect
                 </span>
               </div>
@@ -202,7 +202,7 @@ export default function ThirdSection() {
                 <h3 className="text-[clamp(16px,4.5vw,20px)] leading-[clamp(0.75rem,10vw,1.5rem)]">
                   Anna Schedmann
                 </h3>
-                <span className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)]">
+                <span className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight">
                   General Architect
                 </span>
               </div>
@@ -242,7 +242,7 @@ export default function ThirdSection() {
                 <h3 className="text-[clamp(16px,4.5vw,20px)] leading-[clamp(0.75rem,10vw,1.5rem)]">
                   Anna Schedmann
                 </h3>
-                <span className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)]">
+                <span className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight">
                   General Architect
                 </span>
               </div>
