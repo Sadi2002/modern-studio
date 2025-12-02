@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function FourthSection() {
   return (
-    <section className="relative aspect-[5/3] w-full mb-[80px] px-[20px] md:px-[40px] min-h-[400px] min-[500px]:min-h-[500px] lg:max-h-[650px]">
+    <section className="relative aspect-[5/3] w-full mb-[80px] xl:mb-[150px] px-[20px] md:px-[40px] min-h-[400px] min-[500px]:min-h-[500px] lg:max-h-[650px]">
       <div className="bg-[rgba(0,0,0,0.59)] w-full absolute top-0 left-0 h-full z-100"></div>
       <Image
         src="/aboutPage.jpg"
