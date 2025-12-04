@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function SecondSection() {
   return (
     <section className="mb-[80px] xl:mb-[150px]">
-      <div className="flex flex-col gap-[40px] lg:flex-row">
+      <div className="flex flex-col gap-[40px] lg:flex-row lg:justify-between">
         <div className="2xl:w-[45%]">
           <div className="mx-margin-mobile md:mx-tablet lg:mx-desktop 2xl:mx-[50px]">
             <h3 className="text-[23px] font-medium-font-weight mb-[20px]  lg:text-[26px] 2xl:text-[36px]">
@@ -32,7 +32,7 @@ export default function SecondSection() {
             />
           </div>
         </div>
-        <div className="lg:pt-[150px] 2xl:w-[45%]">
+        <div className="lg:pt-[200px] 2xl:w-[45%]">
           <div className="mx-margin-mobile md:mx-tablet 2xl:mx-[50px]">
             <h3 className="text-[23px] font-medium-font-weight mb-[20px] lg:text-[26px] 2xl:text-[36px]">
               Closely with each client
@@ -51,7 +51,7 @@ export default function SecondSection() {
               </p>
             </div>
           </div>
-          <div className="relative aspect-[6/4] 2xl:aspect-[7/5]">
+          <div className="relative aspect-[6/4] 2xl:aspect-[7/4]">
             <Image
               src="/aboutPage.jpg"
               alt="projekt"

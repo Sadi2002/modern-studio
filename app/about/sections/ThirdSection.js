@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function ThirdSection() {
   return (
-    <section className="mx-margin-mobile flex flex-col md:mx-tablet gap-[40px] lg:gap-[80px]  lg:justify-between lg:mx-small-laptop mb-[40px] lg:mb-[80px] xl:mb-[150px]">
+    <section className="mx-margin-mobile flex flex-col md:mx-tablet gap-[40px] lg:gap-[80px]  lg:justify-between lg:mx-small-laptop mb-[80px] xl:mb-[150px]">
       <div>
         <h3 className="text-[clamp(36px,6.5vw,45px)] leading-[clamp(36px,6.5vw,45px)] font-medium uppercase relative  mb-5 xl:text-6xl xl:leading-[60px] xl:mb-[20px] 2xl:text-[80px] 2xl:leading-[80px] 2xl:font-normal 2xl:max-w-[1200px]">
           MEET OUR STUDIO
@@ -28,8 +28,8 @@ export default function ThirdSection() {
       </div>
       <div className="lg:flex ">
         <div className="flex flex-col lg:flex-row lg:flex-wrap lg:w-full gap-[40px] lg:gap-[40px] lg:justify-end 2xl:gap-x-[80px] 2xl:max-w-[100%]">
-          <div className="flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px] ">
-            <div className="relative  flex flex-col aspect-[7/8] xl:aspect-[9/10] 2xl:aspect-[15/16]">
+          <div className="flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px] md:w-[75%] md:self-end">
+            <div className="relative   flex flex-col aspect-[7/8] xl:aspect-[9/10] 2xl:aspect-[15/16]">
               <Image
                 src="/person1.png"
                 alt="projekt"
@@ -68,7 +68,7 @@ export default function ThirdSection() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px] ">
+          <div className="flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px]  md:w-[75%] md:self-start">
             <div className="relative  flex flex-col aspect-[7/8] xl:aspect-[9/10] 2xl:aspect-[15/16]">
               <Image
                 src="/person2.png"
@@ -87,7 +87,7 @@ export default function ThirdSection() {
                 </span>
               </div>
               <div className="flex gap-[10px]">
-                <div className="w-[20px] h-[20px] ">
+                <div className="w-[20px] h-[20px]">
                   <Image
                     src="/instagram.png"
                     alt="instagram"
@@ -108,7 +108,7 @@ export default function ThirdSection() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px] ">
+          <div className="flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px] md:w-[75%] md:self-end">
             <div className="relative  flex flex-col aspect-[7/8] xl:aspect-[9/10] 2xl:aspect-[15/16]">
               <Image
                 src="/person3.png"
@@ -148,7 +148,7 @@ export default function ThirdSection() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px] ">
+          <div className="flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px] md:w-[75%] md:self-start">
             <div className="relative  flex flex-col aspect-[7/8] xl:aspect-[9/10] 2xl:aspect-[15/16]">
               <Image
                 src="/person4.png"
@@ -188,7 +188,7 @@ export default function ThirdSection() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px] ">
+          <div className="flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px] md:w-[75%] md:self-end">
             <div className="relative  flex flex-col aspect-[7/8] xl:aspect-[9/10] 2xl:aspect-[15/16]">
               <Image
                 src="/person5.png"
@@ -228,7 +228,7 @@ export default function ThirdSection() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px] ">
+          <div className="flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px] md:w-[75%] md:self-start">
             <div className="relative  flex flex-col aspect-[7/8] xl:aspect-[9/10] 2xl:aspect-[15/16]">
               <Image
                 src="/person6.png"
