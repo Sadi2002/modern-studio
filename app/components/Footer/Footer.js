@@ -18,7 +18,7 @@ export default function Footer() {
           <ul>
             <li className="py-[15px] border-b border-[rgba(255,255,255,.2)] lg:py-[30px]">
               <Link
-                href="#"
+                href="/about"
                 className="uppercase text-white text-[clamp(20px,5vw,23px)] flex pl-[20px] md:pl-[40px]"
               >
                 About us
@@ -26,7 +26,7 @@ export default function Footer() {
             </li>
             <li className="py-[15px] border-b border-[rgba(255,255,255,.2)] lg:py-[30px]">
               <Link
-                href="#"
+                href="/portfolio"
                 className="uppercase text-white text-[clamp(20px,5vw,23px)] flex pl-[20px] md:pl-[40px]"
               >
                 Portfolio
@@ -34,7 +34,7 @@ export default function Footer() {
             </li>
             <li className="py-[15px] border-b border-[rgba(255,255,255,.2)] lg:py-[30px]">
               <Link
-                href="#"
+                href="/process"
                 className="uppercase text-white text-[clamp(20px,5vw,23px)] flex pl-[20px] md:pl-[40px]"
               >
                 Process
@@ -50,7 +50,7 @@ export default function Footer() {
             </li>
             <li className="py-[15px] border-b border-[rgba(255,255,255,.2)] lg:border-none lg:py-[30px]">
               <Link
-                href="#"
+                href="/contact"
                 className="uppercase text-white text-[clamp(20px,5vw,23px)] flex pl-[20px] md:pl-[40px]"
               >
                 Contact

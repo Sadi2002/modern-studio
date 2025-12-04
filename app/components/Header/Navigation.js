@@ -63,12 +63,7 @@ export default function Navigation({ data }) {
               Close
             </span>
           </div>
-          <ul className="flex flex-col gap-[5px] e absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(20px,6vw,40px)] font-normal-font-weight uppercase border-t border-[rgba(255,255,255,0.2)] max-w-[50%]">
-            <li className="border-b border-[rgba(255,255,255,0.2)] py-[15px]">
-              <Link href="#" className="pl-[20px]" onClick={toggleMenu}>
-                Home
-              </Link>
-            </li>
+          <ul className="flex flex-col gap-[5px] absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(20px,6vw,40px)] font-normal-font-weight uppercase border-t border-[rgba(255,255,255,0.2)] max-w-[50%]">
             <li className="border-b border-[rgba(255,255,255,0.2)] py-[15px]">
               <Link href="/about" className="pl-[20px]" onClick={toggleMenu}>
                 About us
@@ -81,6 +76,11 @@ export default function Navigation({ data }) {
                 onClick={toggleMenu}
               >
                 Portfolio
+              </Link>
+            </li>
+            <li className="border-b border-[rgba(255,255,255,0.2)] py-[15px]">
+              <Link href="/process" className="pl-[20px]" onClick={toggleMenu}>
+                Process
               </Link>
             </li>
             <li className="border-b border-[rgba(255,255,255,0.2)] py-[15px]">

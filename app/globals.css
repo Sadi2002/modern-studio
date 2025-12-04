@@ -66,6 +66,16 @@ html::-webkit-scrollbar {
 
 body {
   overflow-y: scroll;
+  overscroll-behavior: none;
+  height: 100vh;
+}
+
+.container {
+  overscroll-behavior: none;
+
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
