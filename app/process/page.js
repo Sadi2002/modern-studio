@@ -16,49 +16,18 @@ export default function Process() {
   useEffect(() => {
     if (!containerRef.current) return;
 
-    let ctx = null;
+    const mm = ScrollTrigger.matchMedia({
+      // MOBILE / TABLET
+      "(max-width: 1023px)": () => {
+        ScrollTrigger.getAll().forEach((st) => st.kill());
+        gsap.set(containerRef.current, { x: 0 });
+      },
 
-    const setupScroll = () => {
-      const width = window.innerWidth;
-
-      // 🔻 MOBILE / TABLET – WYŁĄCZ POZIOMY SCROLL
-      if (width < 1024) {
-        // zabij WSZYSTKIE triggery powiązane z tym kontenerem
-        ScrollTrigger.getAll().forEach((st) => {
-          if (
-            st.trigger === containerRef.current ||
-            st.pin === containerRef.current
-          ) {
-            st.kill(true); // true = zabija też pin i style inline
-          }
-        });
-
-        // wyczyść GSAP context, jeśli był
-        if (ctx) {
-          ctx.revert();
-          ctx = null;
-        }
-
-        // twardy reset stylów kontenera
-        gsap.set(containerRef.current, {
-          clearProps: "all", // usuń transform, width, height, position itp. nadane przez GSAP
-        });
-
-        return;
-      }
-
-      // 🔺 DESKTOP – WŁĄCZ / ODŚWIEŻ POZIOMY SCROLL
-      if (ctx) {
-        ScrollTrigger.refresh();
-        return;
-      }
-
-      ctx = gsap.context(() => {
+      // DESKTOP
+      "(min-width: 1024px)": () => {
         const sections = gsap.utils.toArray(".panel-process");
-        if (!sections.length) return;
-
         const totalWidth =
-          sections.reduce((acc, section) => acc + section.offsetWidth, 0) -
+          sections.reduce((acc, s) => acc + s.offsetWidth, 0) -
           window.innerWidth;
 
         gsap.to(containerRef.current, {
@@ -72,29 +41,12 @@ export default function Process() {
             end: () => "+=" + totalWidth,
           },
         });
-      }, containerRef);
-    };
-
-    // pierwszy setup po załadowaniu
-    setupScroll();
-
-    // listener na resize
-    window.addEventListener("resize", setupScroll);
+      },
+    });
 
     // cleanup
     return () => {
-      window.removeEventListener("resize", setupScroll);
-
-      ScrollTrigger.getAll().forEach((st) => {
-        if (
-          st.trigger === containerRef.current ||
-          st.pin === containerRef.current
-        ) {
-          st.kill(true);
-        }
-      });
-
-      if (ctx) ctx.revert();
+      mm.revert();
     };
   }, []);
 
@@ -156,7 +108,7 @@ export default function Process() {
                 During the consultation, we focus on understanding your goals,
                 expectations, and the unique characteristics of the space. We
                 review your needs, discuss possible solutions, and outline the
-                overall direction of the project.
+                and overallection of the project.
               </p>
               <p>
                 This stage helps establish clarity and alignment. We define the
