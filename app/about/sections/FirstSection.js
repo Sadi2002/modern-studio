@@ -50,6 +50,8 @@ export default function FirstSection() {
             alt="projekt"
             className="object-cover absolute top-0 left-0 w-full h-full"
             fill
+            priority
+            fetchPriority="high"
           />
         </div>
       </div>
