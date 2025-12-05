@@ -10,6 +10,7 @@ import dataProjects from "../../data/dataProjects";
 
 import { urlFor } from "../../../lib/sanity/client";
 import Button from "@/app/components/Button";
+import Link from "next/link";
 
 export async function generateStaticParams() {
   const projects = await dataProjects();
@@ -70,14 +71,16 @@ export default async function Project({ params }) {
         </div>
       </div>
       <div className="px-[20px] md:px-[40px] 2xl:px-[70px]">
-        <button className="font-medium-font-weight text-[clamp(0.75rem,3.5vw,1rem)] relative uppercase after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:w-full-width after:h-[1px] after:w-full flex items-center ml-auto">
-          View details{" "}
-          <Image
-            src={arrow}
-            alt="Arrow Icon"
-            className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative "
-          />
-        </button>
+        <Link href={`/portfolio/${slug}/details`}>
+          <button className="font-medium-font-weight text-[clamp(0.75rem,3.5vw,1rem)] relative uppercase after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:w-full-width after:h-[1px] after:w-full flex items-center ml-auto">
+            View details{" "}
+            <Image
+              src={arrow}
+              alt="Arrow Icon"
+              className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative "
+            />
+          </button>
+        </Link>
       </div>
       <div className="px-[10px] md:px-[20px] 2xl:px-[30px] mt-[10px] md:mt-[16px]">
         <div className="mt-[30px]">

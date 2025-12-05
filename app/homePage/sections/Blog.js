@@ -79,7 +79,7 @@ export default function Blog() {
       </div>
       <div className="hidden lg:flex lg:justify-between">
         <div className="w-[39%] inline-block">
-          <div className="lg:aspect-[8/7] relative xl:aspect-[8/6] 2xl:aspect-[4/3]">
+          <div className="lg:aspect-[8/8] relative xl:aspect-[8/7]">
             <Image
               src={projekt3}
               alt="pokoj"
@@ -97,7 +97,7 @@ export default function Blog() {
         </div>
 
         <div className="w-[30%] inline-block">
-          <div className="lg:aspect-[8/5] relative 2xl:aspect-[9/6]">
+          <div className="lg:aspect-[8/5] relative ">
             <Image
               src={projekt2}
               alt="pokoj"
@@ -114,8 +114,8 @@ export default function Blog() {
           </div>
         </div>
 
-        <div className="w-[20%] inline-block xl:w-[22%] 2xl:w-[22%]">
-          <div className="lg:aspect-[6/8] xl:aspect-[6/7] relative 2xl:aspect-[7/8] ">
+        <div className="w-[20%] inline-block xl:w-[20%] ">
+          <div className="lg:aspect-[6/8] xl:aspect-[6/8] relative ] ">
             <Image
               src={projekt4}
               alt="pokoj"
