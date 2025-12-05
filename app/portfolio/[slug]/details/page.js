@@ -22,13 +22,13 @@ export default async function ProjectDetails({ params }) {
   }
 
   return (
-    <section className="px-[20px] md:px-[40px] 2xl:px-[50px] pt-[150px] pb-[80px]">
+    <section className="px-[20px] md:px-[40px] lg:px-[50px] pt-[100px] lg:pt-[150px] pb-[80px]">
       {/* TYTUŁ */}
-      <div className="max-w-[850px] ">
+      <div className="lg:max-w-[850px] ">
         <div className="flex justify-start">
           <Link
             href={`/portfolio/${slug}`}
-            className="w-[80px] h-[80px] rounded-[50%] bg-main-black flex items-center justify-center mb-[40px]"
+            className="w-[60px] h-[60px] md:w-[80px] md:h-[80px] rounded-[50%] bg-main-black flex items-center justify-center mb-[40px]"
           >
             <Image
               width={18}
@@ -39,12 +39,12 @@ export default async function ProjectDetails({ params }) {
             />
           </Link>
         </div>
-        <h1 className="text-[clamp(36px,6vw,60px)] leading-tight font-medium uppercase 2xl:font-normal-font-weight 2xl:mb-[80px] pl-[80px] 2xl:text-[80px]">
+        <h1 className="text-[clamp(36px,6vw,60px)] leading-tight font-medium uppercase 2xl:font-normal-font-weight mb-[40px] 2xl:mb-[80px] lg:pl-[80px] 2xl:text-[80px]">
           {project.title}
         </h1>
 
         {/* OPIS SZCZEGÓŁOWY */}
-        <div className="pl-[80px]">
+        <div className="pl-0 lg:pl-[80px]">
           <div className="flex flex-col gap-[20px] pb-[40px]">
             <div className="flex gap-[20px] items-center">
               <span className="text-[20px]">(01)</span>
@@ -52,7 +52,7 @@ export default async function ProjectDetails({ params }) {
                 Założenia projektu:
               </span>
             </div>
-            <p className="ml-[60px] pb-[20px] border-b border-[rgba(0,0,0,0.48)] font-light-font-weight">
+            <p className="ml-0 lg:ml-[60px] pb-[20px] border-b border-[rgba(0,0,0,0.48)] font-light-font-weight">
               Projekt willi na Majorce rozpoczął się od określenia potrzeb
               inwestora, który oczekiwał nowoczesnej, jasnej przestrzeni z
               widokiem na morze, minimalistycznej formy oraz zastosowania
@@ -66,7 +66,7 @@ export default async function ProjectDetails({ params }) {
                 Założenia projektu:
               </span>
             </div>
-            <p className="ml-[60px] pb-[20px] border-b border-[rgba(0,0,0,0.48)] font-light-font-weight">
+            <p className="ml-0 lg:ml-[60px] pb-[20px] border-b border-[rgba(0,0,0,0.48)] font-light-font-weight">
               Projekt willi na Majorce rozpoczął się od określenia potrzeb
               inwestora, który oczekiwał nowoczesnej, jasnej przestrzeni z
               widokiem na morze, minimalistycznej formy oraz zastosowania
@@ -80,7 +80,7 @@ export default async function ProjectDetails({ params }) {
                 Założenia projektu:
               </span>
             </div>
-            <p className="ml-[60px] pb-[20px] border-b border-[rgba(0,0,0,0.48)] font-light-font-weight">
+            <p className="ml-0 lg:ml-[60px] pb-[20px] border-b border-[rgba(0,0,0,0.48)] font-light-font-weight">
               Projekt willi na Majorce rozpoczął się od określenia potrzeb
               inwestora, który oczekiwał nowoczesnej, jasnej przestrzeni z
               widokiem na morze, minimalistycznej formy oraz zastosowania
@@ -94,7 +94,7 @@ export default async function ProjectDetails({ params }) {
                 Założenia projektu:
               </span>
             </div>
-            <p className="ml-[60px] pb-[20px] border-b border-[rgba(0,0,0,0.48)] font-light-font-weight">
+            <p className="ml-0 lg:ml-[60px] pb-[20px] border-b border-[rgba(0,0,0,0.48)] font-light-font-weight">
               Projekt willi na Majorce rozpoczął się od określenia potrzeb
               inwestora, który oczekiwał nowoczesnej, jasnej przestrzeni z
               widokiem na morze, minimalistycznej formy oraz zastosowania
@@ -108,7 +108,7 @@ export default async function ProjectDetails({ params }) {
                 Założenia projektu:
               </span>
             </div>
-            <p className="ml-[60px] pb-[20px] border-b border-[rgba(0,0,0,0.48)] font-light-font-weight">
+            <p className="ml-0 lg:ml-[60px] pb-[20px] border-b border-[rgba(0,0,0,0.48)] font-light-font-weight">
               Projekt willi na Majorce rozpoczął się od określenia potrzeb
               inwestora, który oczekiwał nowoczesnej, jasnej przestrzeni z
               widokiem na morze, minimalistycznej formy oraz zastosowania
@@ -122,7 +122,7 @@ export default async function ProjectDetails({ params }) {
                 Założenia projektu:
               </span>
             </div>
-            <p className="ml-[60px] pb-[20px] border-b border-[rgba(0,0,0,0.48)] font-light-font-weight">
+            <p className="ml-0 lg:ml-[60px] pb-[20px] border-b border-[rgba(0,0,0,0.48)] font-light-font-weight">
               Projekt willi na Majorce rozpoczął się od określenia potrzeb
               inwestora, który oczekiwał nowoczesnej, jasnej przestrzeni z
               widokiem na morze, minimalistycznej formy oraz zastosowania
