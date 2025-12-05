@@ -24,7 +24,9 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${poppins.className} min-h-screen bg-bg-main`}>
         <Header />
+
         <main>{children}</main>
+
         <Footer />
       </body>
     </html>
