@@ -46,6 +46,7 @@ export default function FirstSection() {
             className="object-cover absolute
                 top-0 left-0 w-full h-full"
             fill
+            priority
           />
         </div>
       </div>
