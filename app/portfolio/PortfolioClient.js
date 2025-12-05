@@ -257,6 +257,7 @@ export default function PortfolioClient({
                     className="w-full block object-cover"
                     fill
                     priority={i < 2}
+                    fetchPriority={i < 2 ? "high" : "auto"}
                   />
                 </div>
               </div>
