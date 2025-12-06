@@ -1,8 +1,47 @@
 import Button from "@/app/components/Button";
 import ArrowWhite from "../../../public/arrow-right-white.png";
 import Image from "next/image";
+import TeamMember from "@/app/components/TeamMember";
 
 export default function ThirdSection() {
+  const team = [
+    {
+      image: "/person1.png",
+      name: "Anna Schedmann",
+      role: "General Architect",
+      wrapperClass: "md:self-end",
+    },
+    {
+      image: "/person2.png",
+      name: "Anna Schedmann",
+      role: "General Architect",
+      wrapperClass: "md:self-start",
+    },
+    {
+      image: "/person3.png",
+      name: "Anna Schedmann",
+      role: "General Architect",
+      wrapperClass: "md:self-end",
+    },
+    {
+      image: "/person4.png",
+      name: "Anna Schedmann",
+      role: "General Architect",
+      wrapperClass: "md:self-start",
+    },
+    {
+      image: "/person5.png",
+      name: "Anna Schedmann",
+      role: "General Architect",
+      wrapperClass: "md:self-end",
+    },
+    {
+      image: "/person6.png",
+      name: "Anna Schedmann",
+      role: "General Architect",
+      wrapperClass: "md:self-start",
+    },
+  ];
   return (
     <section className="mx-margin-mobile flex flex-col md:mx-tablet gap-[40px] lg:gap-[80px]  lg:justify-between lg:mx-small-laptop mb-[80px] xl:mb-[150px]">
       <div>
@@ -28,246 +67,9 @@ export default function ThirdSection() {
       </div>
       <div className="lg:flex ">
         <div className="flex flex-col lg:flex-row lg:flex-wrap lg:w-full gap-[40px] lg:gap-[40px] lg:justify-end 2xl:gap-x-[80px] 2xl:max-w-[100%]">
-          <div className="flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px] md:w-[75%] md:self-end">
-            <div className="relative   flex flex-col aspect-[7/8] xl:aspect-[9/10] 2xl:aspect-[15/16]">
-              <Image
-                src="/person1.png"
-                alt="projekt"
-                className="object-cover h-full"
-                fill
-              />
-            </div>
-            <div className="flex justify-between">
-              <div className="flex flex-col pr-[15px]">
-                <h3 className="text-[clamp(16px,4.5vw,20px)] leading-[clamp(0.75rem,10vw,1.5rem)] ">
-                  Anna Schedmann
-                </h3>
-                <span className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight">
-                  General Architect
-                </span>
-              </div>
-              <div className="flex gap-[10px]">
-                <div className="w-[20px] h-[20px] ">
-                  <Image
-                    src="/instagram.png"
-                    alt="instagram"
-                    className="object-cover h-full"
-                    width={20}
-                    height={20}
-                  />
-                </div>
-                <div className="w-[20px] h-[20px]">
-                  <Image
-                    src="/linkedIn.png"
-                    alt="instagram"
-                    className="object-cover h-full"
-                    width={20}
-                    height={20}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px]  md:w-[75%] md:self-start">
-            <div className="relative  flex flex-col aspect-[7/8] xl:aspect-[9/10] 2xl:aspect-[15/16]">
-              <Image
-                src="/person2.png"
-                alt="projekt"
-                className="object-cover h-full"
-                fill
-              />
-            </div>
-            <div className="flex justify-between">
-              <div className="flex flex-col pr-[15px]">
-                <h3 className="text-[clamp(16px,4.5vw,20px)] leading-[clamp(0.75rem,10vw,1.5rem)]">
-                  Anna Schedmann
-                </h3>
-                <span className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight">
-                  General Architect
-                </span>
-              </div>
-              <div className="flex gap-[10px]">
-                <div className="w-[20px] h-[20px]">
-                  <Image
-                    src="/instagram.png"
-                    alt="instagram"
-                    className="object-cover h-full"
-                    width={20}
-                    height={20}
-                  />
-                </div>
-                <div className="w-[20px] h-[20px]">
-                  <Image
-                    src="/linkedIn.png"
-                    alt="instagram"
-                    className="object-cover h-full"
-                    width={20}
-                    height={20}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px] md:w-[75%] md:self-end">
-            <div className="relative  flex flex-col aspect-[7/8] xl:aspect-[9/10] 2xl:aspect-[15/16]">
-              <Image
-                src="/person3.png"
-                alt="projekt"
-                className="object-cover h-full"
-                fill
-              />
-            </div>
-            <div className="flex justify-between">
-              <div className="flex flex-col pr-[15px]">
-                <h3 className="text-[clamp(16px,4.5vw,20px)] leading-[clamp(0.75rem,10vw,1.5rem)]">
-                  Anna Schedmann
-                </h3>
-                <span className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight">
-                  General Architect
-                </span>
-              </div>
-              <div className="flex gap-[10px]">
-                <div className="w-[20px] h-[20px] ">
-                  <Image
-                    src="/instagram.png"
-                    alt="instagram"
-                    className="object-cover h-full"
-                    width={20}
-                    height={20}
-                  />
-                </div>
-                <div className="w-[20px] h-[20px]">
-                  <Image
-                    src="/linkedIn.png"
-                    alt="instagram"
-                    className="object-cover h-full"
-                    width={20}
-                    height={20}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px] md:w-[75%] md:self-start">
-            <div className="relative  flex flex-col aspect-[7/8] xl:aspect-[9/10] 2xl:aspect-[15/16]">
-              <Image
-                src="/person4.png"
-                alt="projekt"
-                className="object-cover h-full"
-                fill
-              />
-            </div>
-            <div className="flex justify-between">
-              <div className="flex flex-col pr-[15px]">
-                <h3 className="text-[clamp(16px,4.5vw,20px)] leading-[clamp(0.75rem,10vw,1.5rem)]">
-                  Anna Schedmann
-                </h3>
-                <span className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight">
-                  General Architect
-                </span>
-              </div>
-              <div className="flex gap-[10px]">
-                <div className="w-[20px] h-[20px] ">
-                  <Image
-                    src="/instagram.png"
-                    alt="instagram"
-                    className="object-cover h-full"
-                    width={20}
-                    height={20}
-                  />
-                </div>
-                <div className="w-[20px] h-[20px]">
-                  <Image
-                    src="/linkedIn.png"
-                    alt="instagram"
-                    className="object-cover h-full"
-                    width={20}
-                    height={20}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px] md:w-[75%] md:self-end">
-            <div className="relative  flex flex-col aspect-[7/8] xl:aspect-[9/10] 2xl:aspect-[15/16]">
-              <Image
-                src="/person5.png"
-                alt="projekt"
-                className="object-cover h-full"
-                fill
-              />
-            </div>
-            <div className="flex justify-between">
-              <div className="flex flex-col pr-[15px]">
-                <h3 className="text-[clamp(16px,4.5vw,20px)] leading-[clamp(0.75rem,10vw,1.5rem)]">
-                  Anna Schedmann
-                </h3>
-                <span className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight">
-                  General Architect
-                </span>
-              </div>
-              <div className="flex gap-[10px]">
-                <div className="w-[20px] h-[20px] ">
-                  <Image
-                    src="/instagram.png"
-                    alt="instagram"
-                    className="object-cover h-full"
-                    width={20}
-                    height={20}
-                  />
-                </div>
-                <div className="w-[20px] h-[20px]">
-                  <Image
-                    src="/linkedIn.png"
-                    alt="instagram"
-                    className="object-cover h-full"
-                    width={20}
-                    height={20}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px] md:w-[75%] md:self-start">
-            <div className="relative  flex flex-col aspect-[7/8] xl:aspect-[9/10] 2xl:aspect-[15/16]">
-              <Image
-                src="/person6.png"
-                alt="projekt"
-                className="object-cover h-full"
-                fill
-              />
-            </div>
-            <div className="flex justify-between">
-              <div className="flex flex-col pr-[15px]">
-                <h3 className="text-[clamp(16px,4.5vw,20px)] leading-[clamp(0.75rem,10vw,1.5rem)]">
-                  Anna Schedmann
-                </h3>
-                <span className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight">
-                  General Architect
-                </span>
-              </div>
-              <div className="flex gap-[10px]">
-                <div className="w-[20px] h-[20px] ">
-                  <Image
-                    src="/instagram.png"
-                    alt="instagram"
-                    className="object-cover h-full"
-                    width={20}
-                    height={20}
-                  />
-                </div>
-                <div className="w-[20px] h-[20px]">
-                  <Image
-                    src="/linkedIn.png"
-                    alt="instagram"
-                    className="object-cover h-full"
-                    width={20}
-                    height={20}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+          {team.map((member, i) => (
+            <TeamMember key={i} {...member} />
+          ))}
         </div>
       </div>
     </section>
