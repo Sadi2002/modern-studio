@@ -1,5 +1,125 @@
-import ProcessComponent from "@/app/components/ProcessComponent";
+"use client";
 
-export default function Process() {
-  return <ProcessComponent />;
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+
+import ArrowWhite from "../../../public/arrow-right-white.png";
+import Button from "@/app/components/Button";
+import { urlFor } from "../../../lib/sanity/client";
+
+export default function Process({ data }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndexDesktop, setActiveIndexDesktop] = useState(0);
+
+  // data = processSection z Sanity
+  const steps = data?.steps || [];
+
+  if (!steps.length) {
+    console.log("Process: brak steps w data", data);
+    return null;
+  }
+
+  const activeDesktopStep = steps[activeIndexDesktop];
+
+  return (
+    <section className="mx-margin-mobile flex flex-col md:mx-tablet lg:mx-small-laptop mb-[40px] lg:mb-[80px] xl:mb-[150px]">
+      <div className="flex flex-col lg:flex-row lg:justify-between">
+        {/* LEWY DIV: tytuł, opis, przyciski + lista kroków */}
+        <div className="mb-[40px] lg:mb-0 lg:w-[50%] ">
+          {/* Tytuł / opis / przyciski – jak wcześniej */}
+          <h3 className="text-[clamp(36px,6.5vw,45px)] leading-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(05)'] after:absolute after:top-[-15px] after:text-[8px] xl:after:top-[-25px] 2xl:after:top-[-35px] mb-5 xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px]  xl:mb-[20px] 2xl:text-[80px] 2xl:leading-[80px] 2xl:font-normal 2xl:max-w-[1200px]">
+            {data.title}
+          </h3>
+          <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[40px] xl:mb-[50px] min-[380px]:max-w-[390px] md:max-w-[400px] lg:max-w-[500px]">
+            {data.description}
+          </p>
+          <Link href={data.buttonLink}>
+            <button className="font-medium-font-weight text-[clamp(0.75rem,3.5vw,1rem)] relative uppercase after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:w-full-width after:h-[1px] ml-auto mr-0 block after:w-full lg:hidden">
+              {data.buttonLabel}
+            </button>
+          </Link>
+          <div className="lg:flex lg:justify-end">
+            <Button
+              arrow={ArrowWhite}
+              linkTo={data.buttonLink}
+              bgColor="main-black"
+              textColor="main-white"
+              additionalStyles="hidden md:self-end lg:flex"
+            >
+              {data.buttonLabel}
+            </Button>
+          </div>
+
+          {/* Lista kroków pod nagłówkiem */}
+          <div className="mt-[40px]">
+            {steps.map((step, index) => (
+              <div
+                key={step.id ?? index}
+                className="py-[20px] border-b-[1px] border-b-[rgba(0,0,0,0.2)] cursor-pointer transition-all lg:pointer-events-auto"
+                onClick={() => setActiveIndex(index)}
+                onMouseEnter={() => {
+                  setActiveIndex(index);
+                  setActiveIndexDesktop(index);
+                }}
+              >
+                <span className="flex justify-between items-center text-[clamp(14px,4.3vw,23px)] leading-[clamp(0.75rem,10vw,2rem)]">
+                  ({String(step.id ?? index + 1).padStart(2, "0")}) {step.title}
+                  <Image
+                    width={20}
+                    height={20}
+                    src="/chev.png"
+                    alt="Arrow Icon"
+                    className="mr-[10px] lg:hidden"
+                  />
+                </span>
+
+                {/* MOBILE: rozwijany opis + obrazek */}
+                <div
+                  className={`lg:hidden ${
+                    activeIndex === index ? "mt-[10px]" : "hidden"
+                  }`}
+                >
+                  <p className="font-light-font-weight mb-[20px] text-[clamp(12px,3.35vw,1rem)] leading-[clamp(16px,4.5vw,1.5rem)] pr-[30px] md:pr-[70px]   lg:text-[16px] lg:leading-[24px]  ">
+                    {step.description}
+                  </p>
+                  {activeIndex === index && step.imgSrc && (
+                    <div className="relative w-full mb-[0px] aspect-8/5">
+                      <Image
+                        src={urlFor(step.imgSrc).url()}
+                        alt={step.alt}
+                        width={600}
+                        height={400}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* PRAWY DIV: sticky obraz + opis na desktopie */}
+        <div className="hidden lg:block lg:w-[40%]">
+          <div className="lg:sticky lg:top-[87.5px] lg:mt-[70px] xl:top-[100px] xl:mt-[100px] 2xl:mt-[130px] 2xl:top-[130px]">
+            <div className="relative aspect-8/5 mb-[40px] lg:w-[100%] lg:h-[300px] lg:mb-0 2xl:h-[350px] lg:aspect-8/7">
+              {activeDesktopStep?.imgSrc && (
+                <Image
+                  src={urlFor(activeDesktopStep.imgSrc).url()}
+                  alt={activeDesktopStep.alt}
+                  fill
+                  className="object-cover absolute top-0 left-0 w-full h-full"
+                />
+              )}
+            </div>
+
+            <p className="hidden mt-[10px] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(16px,4.5vw,1.5rem)] max-w-[360px] lg:mt-[20px] lg:text-[16px] lg:leading-[24px] lg:flex xl:max-w-[400px] 2xl:max-w-[450px]">
+              {steps[activeIndex].description}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

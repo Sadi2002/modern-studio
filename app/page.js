@@ -24,15 +24,18 @@ export default async function Home() {
   const { heroSection } = homePageData;
   const { aboutSection } = homePageData;
   const { projectsSection } = homePageData;
+  const { processSection } = homePageData;
+  const { blogSection } = homePageData;
+  const { faqSection } = homePageData;
 
   return (
     <>
       <Hero data={heroSection} />
       <DynamicAbout data={aboutSection} />
       <DynamicProjects data={projectsSection} />
-      <DynamicProcess />
-      <DynamicBlog />
-      <DynamicFaq />
+      <DynamicProcess data={processSection} />
+      <DynamicBlog data={blogSection} />
+      <DynamicFaq data={faqSection} />
     </>
   );
 }

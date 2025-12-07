@@ -1,5 +1,10 @@
 import dynamic from "next/dynamic";
 
+import { sanityClient } from "../../lib/sanity/client";
+import { aboutPageQuery } from "@/lib/sanity/queries";
+
+export const revalidate = 0;
+
 const DynamicFirstSection = dynamic(() => import("./sections/FirstSection"));
 const DynamicSecondSection = dynamic(() => import("./sections/SecondSection"));
 const DynamicThirdSection = dynamic(() => import("./sections/ThirdSection"));
@@ -13,13 +18,21 @@ export const metadata = {
 };
 
 export default async function About() {
+  const aboutPageData = await sanityClient.fetch(aboutPageQuery);
+
+  const { welcomeSection } = aboutPageData;
+  const { moreInformationSection } = aboutPageData;
+  const { teamSection } = aboutPageData;
+  const { awardsSection } = aboutPageData;
+  const { overviewSection } = aboutPageData;
+
   return (
     <>
-      <DynamicFirstSection />
-      <DynamicSecondSection />
-      <DynamicThirdSection />
-      <DynamicFourthSection />
-      <DynamicFifthSection />
+      <DynamicFirstSection data={welcomeSection} />
+      <DynamicSecondSection data={moreInformationSection} />
+      <DynamicThirdSection data={teamSection} />
+      <DynamicFourthSection data={awardsSection} />
+      <DynamicFifthSection data={overviewSection} />
     </>
   );
 }

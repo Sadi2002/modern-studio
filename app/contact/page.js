@@ -1,21 +1,44 @@
 import Link from "next/link";
 import ArrowWhite from "../../public/arrow-right-white.png";
 import Button from "../components/Button";
+import { sanityClient } from "../../lib/sanity/client";
+import { contactPageQuery } from "@/lib/sanity/queries";
 
-export default function Contact() {
+export const revalidate = 0;
+
+export default async function Contact() {
+  const contactPageData = await sanityClient.fetch(contactPageQuery);
+
+  const section = contactPageData?.contactSection || {};
+
+  const title = section.title || "Let’s create the unforgettable";
+  const description =
+    section.description ||
+    "For all inquiries, please contact our team. We are ready to discuss new projects, answer your questions, and explore how we can bring your";
+  const formTitle = section.formTitle || "Send a message";
+  const nameLabel = section.nameLabel || "Name";
+  const emailLabel = section.emailLabel || "Email";
+  const messageLabel = section.messageLabel || "Message";
+  const submitLabel = section.submitLabel || "Send message";
+
+  const additional = section.additionalInfo || {};
+  const email = additional.email || "kontakt@sadowskistudio.com";
+  const phone = additional.phone || "+48 414 512 859";
+  const facebookLabel = additional.facebookLabel || "Facebook";
+  const facebookUrl = additional.facebookUrl || "https://google.com";
+
   return (
     <section className="flex flex-col gap-[40px] lg:flex-row w-full lg:items-center">
       <div className="flex-1 pt-[100px] md:pt-[150px] mx-margin-mobile md:mx-tablet lg:ml-[50px] 2xl:mx-[50px]">
         <h1 className="text-[clamp(36px,8vw,45px)] leading-[clamp(36px,8vw,45px)] uppercase font-medium mb-[20px] max-w-[500px] xl:max-w-[700px] lg:text-[45px] lg:leading-[45px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] 2xl:max-w-[1200px] 2xl:text-[80px] 2xl:leading-[80px]  2xl:font-normal">
-          Let’s create the unforgettable
+          {title}
         </h1>
         <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight max-w-[600px] mb-[40px] lg:mb-[40px]">
-          For all inquiries, please contact our team. We are ready to discuss
-          new projects, answer your questions, and explore how we can bring your
+          {description}
         </p>
         <form className="space-y-8 max-w-[100%] lg:max-w-[800px] ">
           <h2 className="text-[20px] font-medium-font-weight mb-[20px] lg:mb-[40px]">
-            Send a message
+            {formTitle}
           </h2>
           <div className="flex flex-col gap-[20px] md:flex-row md:gap-8 max-w-[80%] lg:max-w-[100%] mb-[40px] ">
             <div className="flex-1 ">
@@ -24,7 +47,7 @@ export default function Contact() {
                 type="text"
                 className="w-full border-b border-black outline-none py-1 bg-transparent placeholder:text-[12px] lg:placeholder:text-[16px]  placeholder:font-light"
                 autoComplete="off"
-                placeholder="Name"
+                placeholder={nameLabel}
               />
             </div>
             <div className="flex-1 ">
@@ -33,7 +56,7 @@ export default function Contact() {
                 type="email"
                 className="w-full border-b border-black outline-none py-1 bg-transparent placeholder:text-[12px] placeholder:font-light lg:placeholder:text-[16px]"
                 autoComplete="off"
-                placeholder="Email"
+                placeholder={emailLabel}
               />
             </div>
           </div>
@@ -42,7 +65,7 @@ export default function Contact() {
               id="message"
               rows={1}
               className="w-full border-b border-black outline-none py-1 bg-transparent resize-none placeholder:text-[12px] placeholder:font-light lg:placeholder:text-[16px]"
-              placeholder="Message"
+              placeholder={messageLabel}
             />
           </div>
           <div className="flex justify-end">
@@ -53,7 +76,7 @@ export default function Contact() {
               textColor="main-white"
               additionalStyles="md:self-end"
             >
-              Send message
+              {submitLabel}
             </Button>
           </div>
         </form>
@@ -62,15 +85,14 @@ export default function Contact() {
         <div className="lg:text-main-white  text-[14px] flex flex-col lg:ml-[40px] xl:ml-[40px] 2xl:ml-[70px] md:text-[16px] space-y-4 lg:absolute  bottom-[100px]">
           <span>
             E-mail:&nbsp;
-            <Link href="mailto:kontakt@sadowskistudio.com">
-              kontakt@sadowskistudio.com
-            </Link>
+            <Link href={`mailto:${email}`}>{email}</Link>
           </span>
           <span>
-            Phone:&nbsp;<Link href="mailto:+48414512859">+48 414 512 859</Link>
+            Phone:&nbsp;
+            <Link href={`tel:${phone}`}>{phone}</Link>
           </span>
           <span>
-            <Link href="https://google.com">Facebook</Link>
+            <Link href={facebookUrl}>{facebookLabel}</Link>
           </span>
         </div>
       </div>

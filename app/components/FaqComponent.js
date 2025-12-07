@@ -1,19 +1,35 @@
 "use client";
+
 import { useState } from "react";
-import dataFaq from "../data/dataFaq";
 import Image from "next/image";
 
-const faq = dataFaq();
+function FaqComponent({ data }) {
+  // data = faqSection z Sanity
+  // items = array of { item: { question, answer } }
+  const items =
+    data?.items
+      ?.map((entry, index) => {
+        const item = entry.item ?? entry;
+        if (!item) return null;
+        return {
+          id: index + 1, // generujemy id, bo w schemacie go nie ma
+          title: item.question,
+          description: item.answer,
+        };
+      })
+      .filter(Boolean) || [];
 
-function FaqComponent() {
   const [openId, setOpenId] = useState(null);
 
   const toggleFaq = (id) => {
     setOpenId(openId === id ? null : id);
   };
+
+  if (!items.length) return null;
+
   return (
     <div className="border-t-[1px] border-t-[rgba(0,0,0,0.2)]  lg:w-[85%] xl:w-[70%] 2xl:w-[50%]">
-      {faq.map((step, index) => {
+      {items.map((step) => {
         const isOpen = openId === step.id;
         return (
           <div

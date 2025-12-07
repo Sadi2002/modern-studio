@@ -119,7 +119,7 @@ export default async function Projects({ data }) {
               textColor="main-white"
               additionalStyles="md:self-end"
             >
-              Zobacz wszystkie
+              {data.buttonLabel}
             </Button>
           </div>
         </div>

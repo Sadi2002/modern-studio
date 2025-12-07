@@ -1,6 +1,14 @@
 import Image from "next/image";
+import Link from "next/link";
 
-export default function TeamMember({ image, name, role, wrapperClass = "" }) {
+export default function TeamMember({
+  image,
+  name,
+  role,
+  instagram,
+  linkedin,
+  wrapperClass = "",
+}) {
   return (
     <div
       className={`flex flex-col lg:w-[23%] xl:w-[23%] gap-[10px] md:w-[75%] ${wrapperClass}`}
@@ -19,22 +27,26 @@ export default function TeamMember({ image, name, role, wrapperClass = "" }) {
         </div>
         <div className="flex gap-[10px]">
           <div className="w-[20px] h-[20px]">
-            <Image
-              src="/instagram.png"
-              alt="instagram"
-              className="object-cover h-full"
-              width={20}
-              height={20}
-            />
+            <Link href={instagram || "#"} aria-disabled={!instagram}>
+              <Image
+                src="/instagram.png"
+                alt="instagram"
+                className="object-cover h-full"
+                width={20}
+                height={20}
+              />
+            </Link>
           </div>
           <div className="w-[20px] h-[20px]">
-            <Image
-              src="/linkedIn.png"
-              alt="linkedin"
-              className="object-cover h-full"
-              width={20}
-              height={20}
-            />
+            <Link href={linkedin || "#"} aria-disabled={!linkedin}>
+              <Image
+                src="/linkedIn.png"
+                alt="linkedin"
+                className="object-cover h-full"
+                width={20}
+                height={20}
+              />
+            </Link>
           </div>
         </div>
       </div>

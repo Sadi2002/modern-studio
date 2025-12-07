@@ -1,21 +1,32 @@
 import AwardRow from "@/app/components/AwardRow";
 
-export default function FifthSection() {
-  const awards = [
-    { title: "Local Architecture Award", city: "Barcelona", year: "2025" },
-    { title: "Prix Versailles", city: "Milano", year: "2023" },
-    {
-      title: "Global Award for Sustainable Architecture",
-      city: "Madrid",
-      year: "2022",
-    },
-    { title: "Prix Versailles", city: "Roma", year: "2020" },
-  ];
+export default function FifthSection({ data }) {
+  if (!data) return null;
+
+  // tytuł sekcji z Sanity lub fallback
+  const title = data.title || "Awards Overview";
+
+  // awards = array of { awardItem: {...} } zgodnie ze schematem
+  const awards =
+    data.awards
+      ?.map((entry) => {
+        const a = entry.awardItem ?? entry;
+        if (!a) return null;
+
+        return {
+          title: a.awardTitle,
+          city: a.awardLocation || "",
+          year: a.awardYear ? String(a.awardYear) : "",
+        };
+      })
+      .filter(Boolean) || [];
+
+  if (!awards.length) return null;
 
   return (
     <section className="mx-margin-mobile md:mx-tablet lg:mx-desktop lg:mx-small-laptop 2xl:mx-desktop mb-[80px] xl:mb-[110px] ">
       <span className="block mb-[10px] md:mb-[20px] text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,5.5vw,1.5rem)] font-light-font-weight">
-        Awards Overview
+        {title}
       </span>
       {awards.map((award, i) => (
         <AwardRow key={i} {...award} />

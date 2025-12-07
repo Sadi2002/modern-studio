@@ -7,6 +7,5 @@ export default async function dataProjects() {
 
   const projects = [...projectsSection.projects];
 
-  console.log(projects);
   return projects;
 }
