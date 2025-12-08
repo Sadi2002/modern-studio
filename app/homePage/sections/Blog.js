@@ -12,6 +12,7 @@ import projekt4 from "../../../public/projekt4-large.webp";
 import { urlFor } from "../../../lib/sanity/client";
 
 export default function Blog({ data }) {
+  console.log(data.posts[0].slug);
   // gdy brak sekcji – nic nie renderujemy
   if (!data) return null;
 
@@ -120,35 +121,40 @@ export default function Blog({ data }) {
       {/* DESKTOP: 3 kolumny jak wcześniej */}
       <div className="hidden lg:flex lg:justify-between">
         {/* 1 kolumna */}
+
         <div className="w-[39%] inline-block">
-          <div className="lg:aspect-[8/8] relative xl:aspect-[8/7]">
-            <Image
-              src={posts[0] ? getImg(posts[0], projekt3) : projekt3}
-              alt={posts[0]?.alt || posts[0]?.title || "pokoj"}
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
-            <span className="font-medium-font-weight max-w-[65%]">
-              {posts[0]?.title || "Designing a Luxury Mediterranean Villa"}
-            </span>
-            <span className="text-[#757575] text-[14px]">
-              {posts[0]?.date || "March 2025"}
-            </span>
-          </div>
+          <Link href={`blog/${data.posts[0]?.slug.current}`}>
+            <div className="lg:aspect-[8/8] relative xl:aspect-[8/7]">
+              <Image
+                src={posts[0] ? getImg(posts[0], projekt3) : projekt3}
+                alt={posts[0]?.alt || posts[0]?.title || "pokoj"}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+              <span className="font-medium-font-weight max-w-[65%]">
+                {posts[0]?.title || "Designing a Luxury Mediterranean Villa"}
+              </span>
+              <span className="text-[#757575] text-[14px]">
+                {posts[0]?.date || "March 2025"}
+              </span>
+            </div>
+          </Link>
         </div>
 
         {/* 2 kolumna */}
         <div className="w-[30%] inline-block">
-          <div className="lg:aspect-[8/5] relative ">
-            <Image
-              src={posts[1] ? getImg(posts[1], projekt2) : projekt2}
-              alt={posts[1]?.alt || posts[1]?.title || "pokoj"}
-              fill
-              className="object-cover"
-            />
-          </div>
+          <Link href={`blog/${data.posts[1]?.slug.current}`}>
+            <div className="lg:aspect-[8/5] relative ">
+              <Image
+                src={posts[1] ? getImg(posts[1], projekt2) : projekt2}
+                alt={posts[1]?.alt || posts[1]?.title || "pokoj"}
+                fill
+                className="object-cover"
+              />
+            </div>
+          </Link>
           <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[70%]">
               {posts[1]?.title ||
@@ -162,14 +168,16 @@ export default function Blog({ data }) {
 
         {/* 3 kolumna */}
         <div className="w-[20%] inline-block xl:w-[20%] ">
-          <div className="lg:aspect-[6/8] xl:aspect-[6/8] relative ] ">
-            <Image
-              src={posts[2] ? getImg(posts[2], projekt4) : projekt4}
-              alt={posts[2]?.alt || posts[2]?.title || "pokoj"}
-              fill
-              className="object-cover"
-            />
-          </div>
+          <Link href={`blog/${data.posts[2]?.slug.current}`}>
+            <div className="lg:aspect-[6/8] xl:aspect-[6/8] relative ] ">
+              <Image
+                src={posts[2] ? getImg(posts[2], projekt4) : projekt4}
+                alt={posts[2]?.alt || posts[2]?.title || "pokoj"}
+                fill
+                className="object-cover"
+              />
+            </div>
+          </Link>
           <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
               {posts[2]?.title ||
