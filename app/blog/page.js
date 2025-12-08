@@ -1,132 +1,9 @@
-"use client";
-
-import { useState, useMemo } from "react";
 import Image from "next/image";
 import projekt2 from "../../public/projekt2-large.webp";
 import projekt3 from "../../public/projekt3-large.webp";
 import projekt4 from "../../public/projekt4-large.webp";
 
-// prosta lista "postów" oparta na tym, co już masz w JSX
-const POSTS = [
-  {
-    id: 1,
-    title: "Designing a Luxury Mediterranean Villa",
-    date: "March 2025",
-    category: "Domy jednorodzinne",
-    image: projekt4,
-    layout: "top-1", // do rozróżnienia układu
-  },
-  {
-    id: 2,
-    title: "Maximizing Light and Views in Your Mallorca Home",
-    date: "January 2025",
-    category: "Mieszkanie",
-    image: projekt3,
-    layout: "top-2",
-  },
-  {
-    id: 3,
-    title: "Materials and Finishes Inspired by Mallorca.",
-    date: "August 2024",
-    category: "Kawiarnie",
-    image: projekt2,
-    layout: "top-3",
-  },
-  {
-    id: 4,
-    title: "Designing a Luxury Mediterranean Villa",
-    date: "March 2025",
-    category: "Wieżowce",
-    image: projekt2,
-    layout: "bottom-1",
-  },
-  {
-    id: 5,
-    title: "Designing a Luxury Mediterranean Villa",
-    date: "March 2025",
-    category: "Domy jednorodzinne",
-    image: projekt4,
-    layout: "bottom-2",
-  },
-  {
-    id: 6,
-    title: "Maximizing Light and Views in Your Mallorca Home",
-    date: "January 2025",
-    category: "Mieszkanie",
-    image: projekt2,
-    layout: "bottom-3",
-  },
-  {
-    id: 7,
-    title: "Materials and Finishes Inspired by Mallorca.",
-    date: "August 2024",
-    category: "Kawiarnie",
-    image: projekt3,
-    layout: "bottom-4",
-  },
-];
-
 export default function Blog() {
-  const [query, setQuery] = useState("");
-
-  const filteredPosts = useMemo(() => {
-    if (!query.trim()) return POSTS;
-    const q = query.toLowerCase();
-
-    return POSTS.filter(
-      (post) =>
-        post.title.toLowerCase().includes(q) ||
-        post.category.toLowerCase().includes(q)
-    );
-  }, [query]);
-
-  // pomocnicze funkcje żeby zachować układ (górny wiersz / dolny wiersz)
-  const topRow = filteredPosts.filter((p) => p.layout.startsWith("top"));
-  const bottomRow = filteredPosts.filter((p) => p.layout.startsWith("bottom"));
-
-  // helper do klas width/aspect na podstawie layoutu
-  const getWidthClass = (layout) => {
-    switch (layout) {
-      case "top-1":
-        return "w-[39%]";
-      case "top-2":
-        return "w-[30%]";
-      case "top-3":
-        return "w-[20%] xl:w-[20%]";
-      case "bottom-1":
-        return "w-[27%]";
-      case "bottom-2":
-        return "w-[16%]";
-      case "bottom-3":
-        return "w-[23%]";
-      case "bottom-4":
-      default:
-        return "w-[20%] xl:w-[18%]";
-    }
-  };
-
-  const getAspectClass = (layout) => {
-    switch (layout) {
-      case "top-1":
-        return "lg:aspect-[8/8] relative xl:aspect-[8/7]";
-      case "top-2":
-        return "lg:aspect-[8/5] relative";
-      case "top-3":
-        return "lg:aspect-[6/8] xl:aspect-[6/8] relative";
-      case "bottom-1":
-        return "lg:aspect-[8/8] relative xl:aspect-[11/9]";
-      case "bottom-2":
-        return "lg:aspect-[8/8] relative xl:aspect-[8/10]";
-      case "bottom-3":
-        return "lg:aspect-[8/5] relative";
-      case "bottom-4":
-      default:
-        return "lg:aspect-[6/8] xl:aspect-[6/7] relative";
-    }
-  };
-
-  const isFiltering = !!query.trim();
-
   return (
     <section className="pt-[200px] mx-desktop">
       <div className="flex justify-between items-center lg:mb-[80px]">
@@ -146,8 +23,6 @@ export default function Blog() {
               type="text"
               placeholder="Wpisz nazwe kategorii"
               className="w-[90%] focus:outline-none pl-[15px]"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
             />
             <Image
               width={24}
@@ -158,138 +33,141 @@ export default function Blog() {
             />
           </div>
           <div className="font-medium-font-weight flex flex-col gap-[15px] mt-[40px]">
-            <button
-              type="button"
-              className="text-left"
-              onClick={() => setQuery("Mieszkanie")}
-            >
-              Mieszkanie
-            </button>
-            <button
-              type="button"
-              className="text-left"
-              onClick={() => setQuery("Domy jednorodzinne")}
-            >
-              Domy jednorodzinne
-            </button>
-            <button
-              type="button"
-              className="text-left"
-              onClick={() => setQuery("Kawiarnie")}
-            >
-              Kawiarnie
-            </button>
-            <button
-              type="button"
-              className="text-left"
-              onClick={() => setQuery("Wieżowce")}
-            >
-              Wieżowce
-            </button>
+            <span>Mieszkanie</span>
+            <span>Domy jednorodzinne</span>
+            <span>Kawiarnie</span>
+            <span>Wieżowce</span>
           </div>
         </div>
       </div>
-
       <div>
-        {/* WIDOK BEZ FILTROWANIA - jak teraz, dwa wiersze */}
-        {!isFiltering && (
-          <>
-            {topRow.length > 0 && (
-              <div className="flex lg:justify-between mb-[80px]">
-                {topRow.map((post) => (
-                  <div
-                    key={post.id}
-                    className={`${getWidthClass(post.layout)} inline-block`}
-                  >
-                    <div className={getAspectClass(post.layout)}>
-                      <Image
-                        src={post.image}
-                        alt="pokoj"
-                        fill
-                        className="object-cover"
-                        placeholder="blur"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
-                      <span className="font-medium-font-weight max-w-[70%]">
-                        {post.title}
-                      </span>
-                      <span className="text-[#757575] text-[14px]">
-                        {post.date}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {bottomRow.length > 0 && (
-              <div className="flex lg:justify-between mb-[80px]">
-                {bottomRow.map((post) => (
-                  <div
-                    key={post.id}
-                    className={`${getWidthClass(post.layout)} inline-block`}
-                  >
-                    <div className={getAspectClass(post.layout)}>
-                      <Image
-                        src={post.image}
-                        alt="pokoj"
-                        fill
-                        className="object-cover"
-                        placeholder="blur"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
-                      <span className="font-medium-font-weight max-w-[70%]">
-                        {post.title}
-                      </span>
-                      <span className="text-[#757575] text-[14px]">
-                        {post.date}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </>
-        )}
-
-        {/* WIDOK Z FILTROWANIEM - wszystkie obok siebie w jednym wierszu */}
-        {isFiltering && filteredPosts.length > 0 && (
-          <div className="flex mb-20 flex-wrap gap-y-10 gap-x-20">
-            {filteredPosts.map((post) => (
-              <div
-                key={post.id}
-                className={`${getWidthClass(post.layout)} inline-block`}
-              >
-                <div className={getAspectClass(post.layout)}>
-                  <Image
-                    src={post.image}
-                    alt="pokoj"
-                    fill
-                    className="object-cover"
-                    placeholder="blur"
-                  />
-                </div>
-                <div className="flex flex-col gap-2 justify-between mt-2.5 w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
-                  <span className="font-medium-font-weight max-w-[70%]">
-                    {post.title}
-                  </span>
-                  <span className="text-[#757575] text-[14px]">
-                    {post.date}
-                  </span>
-                </div>
-              </div>
-            ))}
+        <div className="flex lg:justify-between mb-[80px]">
+          <div className="w-[39%] inline-block">
+            <div className="lg:aspect-[8/8] relative xl:aspect-[8/7]">
+              <Image
+                src={projekt4}
+                alt="pokoj"
+                fill
+                className="object-cover"
+                placeholder="blur"
+              />
+            </div>
+            <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+              <span className="font-medium-font-weight max-w-[65%]">
+                Designing a Luxury Mediterranean Villa
+              </span>
+              <span className="text-[#757575] text-[14px]">March 2025</span>
+            </div>
           </div>
-        )}
 
-        {/* Jeśli nic nie pasuje */}
-        {filteredPosts.length === 0 && (
-          <p className="mt-10 text-sm text-[#757575]">
-            Brak postów dla frazy: <span className="font-medium">{query}</span>
-          </p>
-        )}
+          <div className="w-[30%] inline-block">
+            <div className="lg:aspect-[8/5] relative ">
+              <Image
+                src={projekt3}
+                alt="pokoj"
+                fill
+                className="object-cover"
+                placeholder="blur"
+              />
+            </div>
+            <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+              <span className="font-medium-font-weight max-w-[70%]">
+                Maximizing Light and Views in Your Mallorca Home
+              </span>
+              <span className="text-[#757575] text-[14px]">January 2025</span>
+            </div>
+          </div>
+
+          <div className="w-[20%] inline-block xl:w-[20%] ">
+            <div className="lg:aspect-[6/8] xl:aspect-[6/8] relative ] ">
+              <Image
+                src={projekt2}
+                alt="pokoj"
+                fill
+                className="object-cover"
+                placeholder="blur"
+              />
+            </div>
+            <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+              <span className="font-medium-font-weight max-w-[85%]">
+                Materials and Finishes Inspired by Mallorca.
+              </span>
+              <span className="text-[#757575] text-[14px]">August 2024</span>
+            </div>
+          </div>
+        </div>
+        <div className="flex lg:justify-between mb-[80px]">
+          <div className="w-[27%] inline-block">
+            <div className="lg:aspect-[8/8] relative xl:aspect-[11/9]">
+              <Image
+                src={projekt2}
+                alt="pokoj"
+                fill
+                className="object-cover"
+                placeholder="blur"
+              />
+            </div>
+            <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+              <span className="font-medium-font-weight max-w-[65%]">
+                Designing a Luxury Mediterranean Villa
+              </span>
+              <span className="text-[#757575] text-[14px]">March 2025</span>
+            </div>
+          </div>
+          <div className="w-[16%] inline-block">
+            <div className="lg:aspect-[8/8] relative xl:aspect-[8/10]">
+              <Image
+                src={projekt4}
+                alt="pokoj"
+                fill
+                className="object-cover"
+                placeholder="blur"
+              />
+            </div>
+            <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+              <span className="font-medium-font-weight max-w-[65%]">
+                Designing a Luxury Mediterranean Villa
+              </span>
+              <span className="text-[#757575] text-[14px]">March 2025</span>
+            </div>
+          </div>
+
+          <div className="w-[23%] inline-block">
+            <div className="lg:aspect-[8/5] relative ">
+              <Image
+                src={projekt2}
+                alt="pokoj"
+                fill
+                className="object-cover"
+                placeholder="blur"
+              />
+            </div>
+            <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+              <span className="font-medium-font-weight max-w-[70%]">
+                Maximizing Light and Views in Your Mallorca Home
+              </span>
+              <span className="text-[#757575] text-[14px]">January 2025</span>
+            </div>
+          </div>
+
+          <div className="w-[20%] inline-block xl:w-[18%] ">
+            <div className="lg:aspect-[6/8] xl:aspect-[6/7] relative ">
+              <Image
+                src={projekt3}
+                alt="pokoj"
+                fill
+                className="object-cover"
+                placeholder="blur"
+              />
+            </div>
+            <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+              <span className="font-medium-font-weight max-w-[85%]">
+                Materials and Finishes Inspired by Mallorca.
+              </span>
+              <span className="text-[#757575] text-[14px]">August 2024</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
