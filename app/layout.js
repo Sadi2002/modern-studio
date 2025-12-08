@@ -1,13 +1,27 @@
 import "./globals.css";
 import Header from "./components/Header/Header";
-import { Poppins } from "next/font/google";
+import localFont from "next/font/local";
 import Footer from "./components/Footer/Footer";
 
-export const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
+export const poppins = localFont({
+  src: [
+    {
+      path: "../public/fonts/Poppins-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Poppins-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Poppins-Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+  ],
   display: "swap",
-  preload: false,
 });
 
 export default function RootLayout({ children }) {
