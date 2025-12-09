@@ -12,10 +12,10 @@ export default function FourthSection({ data }) {
         className="object-cover h-full z-10"
         fill
       />
-      <div className="flex flex-col w-full h-full justify-between relative z-150 text-white py-[clamp(60px,10vw,80px)] lg:py-[100px]">
+      <div className="flex flex-col w-full h-full justify-start relative z-150 text-white py-[clamp(60px,10vw,80px)] lg:py-[100px]">
         <h3
           className="text-[clamp(36px,8vw,45px)] leading-[clamp(36px,8vw,45px)]
-        font-medium uppercase md:max-w-[75%] lg:max-w-[60%] lg:text-[45px] lg:leading-[45px] xl:max-w-[70%] xl:text-[60px] xl:leading-[60px] 2xl:text-[80px]  2xl:leading-[80px]"
+        font-medium uppercase md:max-w-[75%] lg:max-w-[60%] lg:text-[45px] lg:leading-[45px] xl:max-w-[70%] xl:text-[60px] xl:leading-[60px] 2xl:text-[80px]  2xl:leading-[80px] grow"
         >
           {data.title}
         </h3>
