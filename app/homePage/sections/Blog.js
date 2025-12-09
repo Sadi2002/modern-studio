@@ -132,7 +132,7 @@ export default function Blog({ data }) {
                 className="object-cover"
               />
             </div>
-            <div className="flex flex lg:flex-col gap-[5px] justify-between mt-[5px]  w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight ">
+            <div className="flex flex lg:flex-col gap-[5px] justify-between mt-[5px]  w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
               <span className="font-medium-font-weight max-w-[65%]">
                 {posts[0]?.title || "Designing a Luxury Mediterranean Villa"}
               </span>

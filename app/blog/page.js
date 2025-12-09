@@ -71,6 +71,7 @@ export default async function Blog() {
                 alt={posts[0]?.alt || posts[0]?.title || "pokoj"}
                 fill
                 className="object-cover"
+                sizes="(min-width: 1024px) 23vw, 80vw"
               />
             </div>
             <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
@@ -93,6 +94,7 @@ export default async function Blog() {
                 alt={posts[1]?.alt || posts[1]?.title || "pokoj"}
                 fill
                 className="object-cover"
+                sizes="(min-width: 1024px) 23vw, 80vw"
               />
             </div>
           </Link>
@@ -116,6 +118,7 @@ export default async function Blog() {
                 alt={posts[2]?.alt || posts[2]?.title || "pokoj"}
                 fill
                 className="object-cover"
+                sizes="(min-width: 1024px) 23vw, 80vw"
               />
             </div>
           </Link>
@@ -138,6 +141,7 @@ export default async function Blog() {
               alt="pokoj"
               fill
               className="object-cover"
+              sizes="(min-width: 1024px) 23vw, 80vw"
             />
           </div>
           <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
@@ -157,6 +161,7 @@ export default async function Blog() {
               alt="pokoj"
               fill
               className="object-cover"
+              sizes="(min-width: 1024px) 23vw, 80vw"
             />
           </div>
           <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
@@ -177,6 +182,7 @@ export default async function Blog() {
               alt="pokoj"
               fill
               className="object-cover"
+              sizes="(min-width: 1024px) 23vw, 80vw"
             />
           </div>
           <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
@@ -197,6 +203,7 @@ export default async function Blog() {
               alt="pokoj"
               fill
               className="object-cover"
+              sizes="(min-width: 1024px) 23vw, 80vw"
             />
           </div>
           <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
