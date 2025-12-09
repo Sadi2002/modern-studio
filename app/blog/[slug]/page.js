@@ -59,7 +59,6 @@ export default async function Post({ params }) {
                 <span className="font-medium-font-weight">{blog.category}</span>
               </div>
               <div className="flex gap-[5px]">
-                <span className="font-medium-font-weight">Data:</span>
                 <span className="font-light-font-weight">{blog.date}</span>
               </div>
             </div>

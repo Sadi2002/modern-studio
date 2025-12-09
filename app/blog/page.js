@@ -2,8 +2,26 @@ import Image from "next/image";
 import projekt2 from "../../public/projekt2-large.webp";
 import projekt3 from "../../public/projekt3-large.webp";
 import projekt4 from "../../public/projekt4-large.webp";
+import Link from "next/link";
+import dataBlog from "../data/dataBlog";
+import { urlFor } from "../../lib/sanity/client";
 
-export default function Blog() {
+export default async function Blog() {
+  const posts = await dataBlog();
+
+  console.log(posts);
+
+  const getImg = (post, fallback) => {
+    if (post?.imgSrc) {
+      try {
+        return urlFor(post.imgSrc).url();
+      } catch {
+        return fallback;
+      }
+    }
+    return fallback;
+  };
+
   return (
     <section className="pt-[200px] mx-desktop">
       <div className="flex justify-between items-center lg:mb-[80px]">
@@ -40,132 +58,73 @@ export default function Blog() {
           </div>
         </div>
       </div>
-      <div>
-        <div className="flex lg:justify-between mb-[80px]">
-          <div className="w-[39%] inline-block">
-            <div className="lg:aspect-[8/8] relative xl:aspect-[8/7]">
+      <div className="flex flex-col justify-between lg:flex-row">
+        {/* 1 kolumna */}
+
+        <div className="w-full mb-[50px] lg:mb-[0] lg:w-[39%] inline-block">
+          <Link href={`blog/${posts[0]?.slug.current}`}>
+            <div className="max-w-[80%] aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
               <Image
-                src={projekt4}
-                alt="pokoj"
+                src={posts[0] ? getImg(posts[0], projekt3) : projekt3}
+                alt={posts[0]?.alt || posts[0]?.title || "pokoj"}
                 fill
                 className="object-cover"
-                placeholder="blur"
               />
             </div>
             <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
               <span className="font-medium-font-weight max-w-[65%]">
-                Designing a Luxury Mediterranean Villa
+                {posts[0]?.title || "Designing a Luxury Mediterranean Villa"}
               </span>
-              <span className="text-[#757575] text-[14px]">March 2025</span>
+              <span className="text-[#757575] text-[14px]">
+                {posts[0]?.date || "March 2025"}
+              </span>
             </div>
-          </div>
+          </Link>
+        </div>
 
-          <div className="w-[30%] inline-block">
-            <div className="lg:aspect-[8/5] relative ">
+        {/* 2 kolumna */}
+        <div className="w-full mb-[50px] max-w-[86%] ml-auto lg:ml-0 flex lg:max-w-[100%] lg:mb-[0] lg:w-[30%] inline-block">
+          <Link href={`blog/${posts[1]?.slug.current}`}>
+            <div className="flex lg:block aspect-[5/3]  lg:aspect-[8/5] relative ">
               <Image
-                src={projekt3}
-                alt="pokoj"
+                src={posts[1] ? getImg(posts[1], projekt2) : projekt2}
+                alt={posts[1]?.alt || posts[1]?.title || "pokoj"}
                 fill
                 className="object-cover"
-                placeholder="blur"
               />
             </div>
-            <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
-              <span className="font-medium-font-weight max-w-[70%]">
-                Maximizing Light and Views in Your Mallorca Home
-              </span>
-              <span className="text-[#757575] text-[14px]">January 2025</span>
-            </div>
-          </div>
-
-          <div className="w-[20%] inline-block xl:w-[20%] ">
-            <div className="lg:aspect-[6/8] xl:aspect-[6/8] relative ] ">
-              <Image
-                src={projekt2}
-                alt="pokoj"
-                fill
-                className="object-cover"
-                placeholder="blur"
-              />
-            </div>
-            <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
-              <span className="font-medium-font-weight max-w-[85%]">
-                Materials and Finishes Inspired by Mallorca.
-              </span>
-              <span className="text-[#757575] text-[14px]">August 2024</span>
-            </div>
+          </Link>
+          <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+            <span className="font-medium-font-weight max-w-[70%]">
+              {posts[1]?.title ||
+                "Maximizing Light and Views in Your Mallorca Home"}
+            </span>
+            <span className="text-[#757575] text-[14px]">
+              {posts[1]?.date || "January 2025"}
+            </span>
           </div>
         </div>
-        <div className="flex lg:justify-between mb-[80px]">
-          <div className="w-[27%] inline-block">
-            <div className="lg:aspect-[8/8] relative xl:aspect-[11/9]">
-              <Image
-                src={projekt2}
-                alt="pokoj"
-                fill
-                className="object-cover"
-                placeholder="blur"
-              />
-            </div>
-            <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
-              <span className="font-medium-font-weight max-w-[65%]">
-                Designing a Luxury Mediterranean Villa
-              </span>
-              <span className="text-[#757575] text-[14px]">March 2025</span>
-            </div>
-          </div>
-          <div className="w-[16%] inline-block">
-            <div className="lg:aspect-[8/8] relative xl:aspect-[8/10]">
-              <Image
-                src={projekt4}
-                alt="pokoj"
-                fill
-                className="object-cover"
-                placeholder="blur"
-              />
-            </div>
-            <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
-              <span className="font-medium-font-weight max-w-[65%]">
-                Designing a Luxury Mediterranean Villa
-              </span>
-              <span className="text-[#757575] text-[14px]">March 2025</span>
-            </div>
-          </div>
 
-          <div className="w-[23%] inline-block">
-            <div className="lg:aspect-[8/5] relative ">
+        {/* 3 kolumna */}
+        <div className="max-w-[78%] lg:max-w-[100%] lg:w-[20%] inline-block xl:w-[20%] ">
+          <Link href={`blog/${posts[2]?.slug.current}`}>
+            <div className="aspect-[7/8]  lg:aspect-[6/8] xl:aspect-[6/8] relative ">
               <Image
-                src={projekt2}
-                alt="pokoj"
+                src={posts[2] ? getImg(posts[2], projekt4) : projekt4}
+                alt={posts[2]?.alt || posts[2]?.title || "pokoj"}
                 fill
                 className="object-cover"
-                placeholder="blur"
               />
             </div>
-            <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
-              <span className="font-medium-font-weight max-w-[70%]">
-                Maximizing Light and Views in Your Mallorca Home
-              </span>
-              <span className="text-[#757575] text-[14px]">January 2025</span>
-            </div>
-          </div>
-
-          <div className="w-[20%] inline-block xl:w-[18%] ">
-            <div className="lg:aspect-[6/8] xl:aspect-[6/7] relative ">
-              <Image
-                src={projekt3}
-                alt="pokoj"
-                fill
-                className="object-cover"
-                placeholder="blur"
-              />
-            </div>
-            <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
-              <span className="font-medium-font-weight max-w-[85%]">
-                Materials and Finishes Inspired by Mallorca.
-              </span>
-              <span className="text-[#757575] text-[14px]">August 2024</span>
-            </div>
+          </Link>
+          <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+            <span className="font-medium-font-weight max-w-[85%]">
+              {posts[2]?.title ||
+                "Materials and Finishes Inspired by Mallorca."}
+            </span>
+            <span className="text-[#757575] text-[14px]">
+              {posts[2]?.date || "August 2024"}
+            </span>
           </div>
         </div>
       </div>
