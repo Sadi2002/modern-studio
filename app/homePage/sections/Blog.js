@@ -66,10 +66,10 @@ export default function Blog({ data }) {
       </div>
 
       {/* MOBILE: slider – 3 karty jak wcześniej */}
-      <div className=" lg:hidden">
+      {/* <div className=" lg:hidden">
         <div className="flex w-full overflow-x-scroll snap-x snap-mandatory space-x-4  scrollbar-hide">
           {/* 1 karta */}
-          <div className="flex-shrink-0 w-[80%] aspect-[3/4]   flex flex-col md:aspect-[7/6]">
+      {/* <div className="flex-shrink-0 w-[80%] aspect-[3/4]   flex flex-col md:aspect-[7/6]">
             <div className="h-full relative">
               <Image
                 src={posts[0] ? getImg(posts[0], projekt2) : projekt2}
@@ -82,10 +82,10 @@ export default function Blog({ data }) {
               <span>{posts[0]?.title || "Our project"}</span>
               <span>{posts[0]?.link ? "View project" : "View project"}</span>
             </div>
-          </div>
+          </div> */}
 
-          {/* 2 karta */}
-          <div className="flex-shrink-0 w-[80%] aspect-[3/4]  flex flex-col md:aspect-[7/6]">
+      {/* 2 karta */}
+      {/* <div className="flex-shrink-0 w-[80%] aspect-[3/4]  flex flex-col md:aspect-[7/6]">
             <div className="h-full relative">
               <Image
                 src={posts[1] ? getImg(posts[1], projekt4) : projekt4}
@@ -98,10 +98,10 @@ export default function Blog({ data }) {
               <span>{posts[1]?.title || "Our project"}</span>
               <span>{posts[1]?.link ? "View project" : "View project"}</span>
             </div>
-          </div>
+          </div> */}
 
-          {/* 3 karta */}
-          <div className="flex-shrink-0 w-[80%] aspect-[3/4]   flex flex-col md:aspect-[7/6]">
+      {/* 3 karta */}
+      {/* <div className="flex-shrink-0 w-[80%] aspect-[3/4]   flex flex-col md:aspect-[7/6]">
             <div className="h-full relative">
               <Image
                 src={posts[2] ? getImg(posts[2], projekt2) : projekt2}
@@ -115,16 +115,16 @@ export default function Blog({ data }) {
               <span>{posts[2]?.link ? "View project" : "View project"}</span>
             </div>
           </div>
-        </div>
-      </div>
+        </div> */}
+      {/* </div>  */}
 
       {/* DESKTOP: 3 kolumny jak wcześniej */}
-      <div className="hidden lg:flex lg:justify-between">
+      <div className="flex flex-col justify-between lg:flex-row">
         {/* 1 kolumna */}
 
-        <div className="w-[39%] inline-block">
+        <div className="w-full mb-[50px] lg:mb-[0] lg:w-[39%] inline-block">
           <Link href={`blog/${data.posts[0]?.slug.current}`}>
-            <div className="lg:aspect-[8/8] relative xl:aspect-[8/7]">
+            <div className="max-w-[80%] aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
               <Image
                 src={posts[0] ? getImg(posts[0], projekt3) : projekt3}
                 alt={posts[0]?.alt || posts[0]?.title || "pokoj"}
@@ -144,9 +144,9 @@ export default function Blog({ data }) {
         </div>
 
         {/* 2 kolumna */}
-        <div className="w-[30%] inline-block">
+        <div className="w-full mb-[50px] max-w-[86%] ml-auto lg:ml-0 flex lg:max-w-[100%] lg:mb-[0] lg:w-[30%] inline-block">
           <Link href={`blog/${data.posts[1]?.slug.current}`}>
-            <div className="lg:aspect-[8/5] relative ">
+            <div className="flex lg:block aspect-[5/3]  lg:aspect-[8/5] relative ">
               <Image
                 src={posts[1] ? getImg(posts[1], projekt2) : projekt2}
                 alt={posts[1]?.alt || posts[1]?.title || "pokoj"}
@@ -167,9 +167,9 @@ export default function Blog({ data }) {
         </div>
 
         {/* 3 kolumna */}
-        <div className="w-[20%] inline-block xl:w-[20%] ">
+        <div className="max-w-[78%] lg:max-w-[100%] lg:w-[20%] inline-block xl:w-[20%] ">
           <Link href={`blog/${data.posts[2]?.slug.current}`}>
-            <div className="lg:aspect-[6/8] xl:aspect-[6/8] relative ] ">
+            <div className="aspect-[7/8]  lg:aspect-[6/8] xl:aspect-[6/8] relative ">
               <Image
                 src={posts[2] ? getImg(posts[2], projekt4) : projekt4}
                 alt={posts[2]?.alt || posts[2]?.title || "pokoj"}
