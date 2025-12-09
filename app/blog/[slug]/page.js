@@ -110,9 +110,9 @@ export default async function Post({ params }) {
         <div className="flex flex-col justify-between lg:flex-row">
           {/* 1 kolumna */}
 
-          <div className="w-full mb-[50px] lg:mb-[0] lg:w-[39%] inline-block">
+          <div className="w-full mb-[50px] max-w-[80%] lg:max-w-[100%] lg:mb-[0] lg:w-[39%] inline-block">
             <Link href={`${posts[0]?.slug.current}`}>
-              <div className="max-w-[80%] aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
+              <div className="aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
                 <Image
                   src={posts[0] ? getImg(posts[0], projekt3) : projekt3}
                   alt={posts[0]?.alt || posts[0]?.title || "pokoj"}
@@ -120,11 +120,11 @@ export default async function Post({ params }) {
                   className="object-cover"
                 />
               </div>
-              <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+              <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
                 <span className="font-medium-font-weight max-w-[65%]">
                   {posts[0]?.title || "Designing a Luxury Mediterranean Villa"}
                 </span>
-                <span className="text-[#757575] text-[14px]">
+                <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
                   {posts[0]?.date || "March 2025"}
                 </span>
               </div>
@@ -143,12 +143,12 @@ export default async function Post({ params }) {
                 />
               </div>
             </Link>
-            <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+            <div className="flex lg:flex-col gap-[4px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
               <span className="font-medium-font-weight max-w-[70%]">
                 {posts[1]?.title ||
                   "Maximizing Light and Views in Your Mallorca Home"}
               </span>
-              <span className="text-[#757575] text-[14px]">
+              <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
                 {posts[1]?.date || "January 2025"}
               </span>
             </div>
@@ -166,12 +166,12 @@ export default async function Post({ params }) {
                 />
               </div>
             </Link>
-            <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+            <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
               <span className="font-medium-font-weight max-w-[85%]">
                 {posts[2]?.title ||
                   "Materials and Finishes Inspired by Mallorca."}
               </span>
-              <span className="text-[#757575] text-[14px]">
+              <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
                 {posts[2]?.date || "August 2024"}
               </span>
             </div>

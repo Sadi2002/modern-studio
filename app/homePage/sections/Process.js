@@ -101,8 +101,8 @@ export default function Process({ data }) {
         </div>
 
         {/* PRAWY DIV: sticky obraz + opis na desktopie */}
-        <div className="hidden lg:block lg:w-[40%]">
-          <div className="lg:sticky lg:top-[87.5px] lg:mt-[70px] xl:top-[100px] xl:mt-[100px] 2xl:mt-[130px] 2xl:top-[130px]">
+        <div className="hidden lg:flex lg:w-[40%] items-end">
+          <div className=" lg:mt-[70px] lg:w-full xl:mt-[100px] 2xl:mt-[130px] ">
             <div className="relative aspect-8/5 mb-[40px] lg:w-[100%] lg:h-[300px] lg:mb-0 2xl:h-[350px] lg:aspect-8/7">
               {activeDesktopStep?.imgSrc && (
                 <Image
@@ -114,7 +114,7 @@ export default function Process({ data }) {
               )}
             </div>
 
-            <p className="hidden mt-[10px] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(16px,4.5vw,1.5rem)] max-w-[360px] lg:mt-[20px] lg:text-[16px] lg:leading-[24px] lg:flex xl:max-w-[400px] 2xl:max-w-[450px]">
+            <p className="hidden mt-[10px] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(16px,4.5vw,1.5rem)] max-w-[360px] lg:mt-[10px] lg:text-[16px] lg:leading-[24px] lg:flex xl:max-w-[400px] 2xl:max-w-[450px]">
               {steps[activeIndex].description}
             </p>
           </div>

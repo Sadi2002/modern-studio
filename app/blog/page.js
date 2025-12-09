@@ -58,7 +58,7 @@ export default async function Blog() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-between lg:flex-row">
+      <div className="flex flex-col justify-between lg:flex-row mb-[80px]">
         {/* 1 kolumna */}
 
         <div className="w-full mb-[50px] lg:mb-[0] lg:w-[39%] inline-block">
@@ -71,11 +71,11 @@ export default async function Blog() {
                 className="object-cover"
               />
             </div>
-            <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+            <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
               <span className="font-medium-font-weight max-w-[65%]">
                 {posts[0]?.title || "Designing a Luxury Mediterranean Villa"}
               </span>
-              <span className="text-[#757575] text-[14px]">
+              <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
                 {posts[0]?.date || "March 2025"}
               </span>
             </div>
@@ -94,12 +94,12 @@ export default async function Blog() {
               />
             </div>
           </Link>
-          <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+          <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[70%]">
               {posts[1]?.title ||
                 "Maximizing Light and Views in Your Mallorca Home"}
             </span>
-            <span className="text-[#757575] text-[14px]">
+            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
               {posts[1]?.date || "January 2025"}
             </span>
           </div>
@@ -117,13 +117,91 @@ export default async function Blog() {
               />
             </div>
           </Link>
-          <div className="flex flex-col gap-[8px] justify-between mt-[10px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
+          <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
               {posts[2]?.title ||
                 "Materials and Finishes Inspired by Mallorca."}
             </span>
-            <span className="text-[#757575] text-[14px]">
+            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
               {posts[2]?.date || "August 2024"}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div className="flex lg:justify-between mb-[80px]">
+        <div className="w-[27%] inline-block">
+          <div className="lg:aspect-[8/8] relative xl:aspect-[11/9]">
+            <Image
+              src={projekt2}
+              alt="pokoj"
+              fill
+              className="object-cover"
+              placeholder="blur"
+            />
+          </div>
+          <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+            <span className="font-medium-font-weight max-w-[65%]">
+              Designing a Luxury Mediterranean Villa
+            </span>
+            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
+              March 2025
+            </span>
+          </div>
+        </div>
+        <div className="w-[16%] inline-block">
+          <div className="lg:aspect-[8/8] relative xl:aspect-[8/10]">
+            <Image
+              src={projekt4}
+              alt="pokoj"
+              fill
+              className="object-cover"
+              placeholder="blur"
+            />
+          </div>
+          <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+            <span className="font-medium-font-weight max-w-[65%]">
+              Designing a Luxury Mediterranean Villa
+            </span>
+            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
+              March 2025
+            </span>
+          </div>
+        </div>
+
+        <div className="w-[23%] inline-block">
+          <div className="lg:aspect-[8/5] relative ">
+            <Image
+              src={projekt2}
+              alt="pokoj"
+              fill
+              className="object-cover"
+              placeholder="blur"
+            />
+          </div>
+          <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+            <span className="font-medium-font-weight max-w-[70%]">
+              Maximizing Light and Views in Your Mallorca Home
+            </span>
+            <span className="text-[#757575] text-[14px]">January 2025</span>
+          </div>
+        </div>
+
+        <div className="w-[20%] inline-block xl:w-[18%] ">
+          <div className="lg:aspect-[6/8] xl:aspect-[6/7] relative ">
+            <Image
+              src={projekt3}
+              alt="pokoj"
+              fill
+              className="object-cover"
+              placeholder="blur"
+            />
+          </div>
+          <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+            <span className="font-medium-font-weight max-w-[85%]">
+              Materials and Finishes Inspired by Mallorca.
+            </span>
+            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
+              August 2024
             </span>
           </div>
         </div>
