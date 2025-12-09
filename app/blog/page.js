@@ -23,8 +23,8 @@ export default async function Blog() {
   };
 
   return (
-    <section className="pt-[200px] mx-desktop">
-      <div className="flex justify-between items-center lg:mb-[80px]">
+    <section className="px-[20px] pt-[100px] md:px-[40px] lg:pt-[200px] lg:px-[50px] mb-[80px] xl:mb-[150px]">
+      <div className="flex flex-col gap-[40px] justify-start lg:flex-row lg:justify-between lg:items-center lg:mb-[80px]">
         <div>
           <h1 className="text-[clamp(36px,8vw,45px)] leading-[clamp(36px,8vw,45px)] uppercase font-medium mb-[20px] max-w-[500px] xl:max-w-[700px] lg:text-[45px] lg:leading-[45px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] 2xl:max-w-[900px] 2xl:text-[80px] 2xl:leading-[80px]  2xl:font-normal">
             Projects, Process, and Our Ideas
@@ -35,7 +35,7 @@ export default async function Blog() {
             innovative ideas that shape our work and inspire our clients.
           </p>
         </div>
-        <div className="w-[25%] flex flex-col">
+        <div className="w-full lg:w-[25%] flex flex-col mb-[40px] lg:mb-0">
           <div className="relative border-b border-[rgb(0,0,0)] pb-[10px]">
             <input
               type="text"

@@ -123,7 +123,7 @@ export default function Blog({ data }) {
         {/* 1 kolumna */}
 
         <div className="w-full mb-[50px] lg:mb-[0] lg:w-[39%] inline-block">
-          <Link href={`${posts[0]?.slug.current}`}>
+          <Link href={`blog/${posts[0]?.slug.current}`}>
             <div className="max-w-[80%] aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
               <Image
                 src={posts[0] ? getImg(posts[0], projekt3) : projekt3}
@@ -145,7 +145,7 @@ export default function Blog({ data }) {
 
         {/* 2 kolumna */}
         <div className="w-full mb-[50px] max-w-[86%] ml-auto lg:ml-0 flex lg:max-w-[100%] lg:mb-[0] lg:w-[30%] inline-block">
-          <Link href={`${posts[1]?.slug.current}`}>
+          <Link href={`blog/${posts[1]?.slug.current}`}>
             <div className="flex lg:block aspect-[5/3]  lg:aspect-[8/5] relative ">
               <Image
                 src={posts[1] ? getImg(posts[1], projekt2) : projekt2}
@@ -168,7 +168,7 @@ export default function Blog({ data }) {
 
         {/* 3 kolumna */}
         <div className="max-w-[78%] lg:max-w-[100%] lg:w-[20%] inline-block xl:w-[20%] ">
-          <Link href={`${posts[2]?.slug.current}`}>
+          <Link href={`blog/${posts[2]?.slug.current}`}>
             <div className="aspect-[7/8]  lg:aspect-[6/8] xl:aspect-[6/8] relative ">
               <Image
                 src={posts[2] ? getImg(posts[2], projekt4) : projekt4}
