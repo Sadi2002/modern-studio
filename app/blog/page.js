@@ -6,6 +6,8 @@ import Link from "next/link";
 import dataBlog from "../data/dataBlog";
 import { urlFor } from "../../lib/sanity/client";
 
+export const revalidate = 0;
+
 export default async function Blog() {
   const posts = await dataBlog();
 
