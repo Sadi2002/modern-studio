@@ -58,7 +58,7 @@ export default async function Blog() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-between lg:flex-row mb-[80px]">
+      <div className="flex flex-col justify-between lg:flex-row mb-[50px] lg:mb-[80px]">
         {/* 1 kolumna */}
 
         <div className="w-full mb-[50px] lg:mb-[0] lg:w-[39%] inline-block">
@@ -128,80 +128,82 @@ export default async function Blog() {
           </div>
         </div>
       </div>
-      <div className="flex lg:justify-between mb-[80px]">
-        <div className="w-[27%] inline-block">
-          <div className="lg:aspect-[8/8] relative xl:aspect-[11/9]">
+      <div className="flex flex-col gap-[50px] lg:gap-[0] lg:flex-row lg:justify-between mb-[80px]">
+        <div className="w-[80%] ml-auto lg:ml-0 lg:w-[27%] inline-block">
+          <div className="aspect-[8/8] relative xl:aspect-[11/9]">
             <Image
-              src={projekt2}
+              src={posts[3] ? getImg(posts[3], projekt4) : projekt4}
               alt="pokoj"
               fill
               className="object-cover"
-              placeholder="blur"
             />
           </div>
           <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[65%]">
-              Designing a Luxury Mediterranean Villa
+              {posts[3]?.title ||
+                "Maximizing Light and Views in Your Mallorca Home"}
             </span>
             <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-              March 2025
+              {posts[3]?.date || "March 2025"}
             </span>
           </div>
         </div>
-        <div className="w-[16%] inline-block">
-          <div className="lg:aspect-[8/8] relative xl:aspect-[8/10]">
+        <div className="w-[70%] lg:w-[16%] inline-block">
+          <div className="aspect-[8/10] relative xl:aspect-[8/10]">
             <Image
-              src={projekt4}
+              src={posts[4] ? getImg(posts[4], projekt4) : projekt4}
               alt="pokoj"
               fill
               className="object-cover"
-              placeholder="blur"
             />
           </div>
           <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[65%]">
-              Designing a Luxury Mediterranean Villa
+              {posts[4]?.title ||
+                "Maximizing Light and Views in Your Mallorca Home"}
             </span>
             <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-              March 2025
+              {posts[4]?.date || "March 2025"}
             </span>
           </div>
         </div>
 
-        <div className="w-[23%] inline-block">
-          <div className="lg:aspect-[8/5] relative ">
+        <div className="w-[80%] ml-auto lg:ml-0 lg:w-[23%] inline-block">
+          <div className="aspect-[8/5] relative ">
             <Image
-              src={projekt2}
+              src={posts[5] ? getImg(posts[5], projekt4) : projekt4}
               alt="pokoj"
               fill
               className="object-cover"
-              placeholder="blur"
             />
           </div>
           <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[70%]">
-              Maximizing Light and Views in Your Mallorca Home
+              {posts[5]?.title ||
+                "Maximizing Light and Views in Your Mallorca Home"}
             </span>
-            <span className="text-[#757575] text-[14px]">January 2025</span>
+            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
+              {posts[5]?.date || "March 2025"}
+            </span>
           </div>
         </div>
 
-        <div className="w-[20%] inline-block xl:w-[18%] ">
-          <div className="lg:aspect-[6/8] xl:aspect-[6/7] relative ">
+        <div className="w-[65%] lg:w-[20%] inline-block xl:w-[18%] ">
+          <div className="aspect-[6/8] xl:aspect-[6/7] relative ">
             <Image
-              src={projekt3}
+              src={posts[6] ? getImg(posts[6], projekt4) : projekt4}
               alt="pokoj"
               fill
               className="object-cover"
-              placeholder="blur"
             />
           </div>
           <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
-              Materials and Finishes Inspired by Mallorca.
+              {posts[6]?.title ||
+                "Maximizing Light and Views in Your Mallorca Home"}
             </span>
             <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-              August 2024
+              {posts[6]?.date || "March 2025"}
             </span>
           </div>
         </div>
