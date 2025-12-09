@@ -54,7 +54,7 @@ export default async function Blog() {
             <span>Mieszkanie</span>
             <span>Domy jednorodzinne</span>
             <span>Kawiarnie</span>
-            <span>Wieżowce</span>
+            <span>Wieżowiec</span>
           </div>
         </div>
       </div>
