@@ -135,15 +135,17 @@ export default async function Blog() {
       </div>
       <div className="flex flex-col gap-[50px] lg:gap-[0] lg:flex-row lg:justify-between mb-[80px]">
         <div className="w-[80%] ml-auto lg:ml-0 lg:w-[27%] inline-block">
-          <div className="aspect-[8/8] relative xl:aspect-[11/9]">
-            <Image
-              src={posts[3] ? getImg(posts[3], projekt4) : projekt4}
-              alt="pokoj"
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 23vw, 80vw"
-            />
-          </div>
+          <Link href={`blog/${posts[3]?.slug.current}`}>
+            <div className="aspect-[8/8] relative xl:aspect-[11/9]">
+              <Image
+                src={posts[3] ? getImg(posts[3], projekt4) : projekt4}
+                alt="pokoj"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 23vw, 80vw"
+              />
+            </div>
+          </Link>
           <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[65%]">
               {posts[3]?.title ||
@@ -155,15 +157,17 @@ export default async function Blog() {
           </div>
         </div>
         <div className="w-[70%] lg:w-[16%] inline-block">
-          <div className="aspect-[8/10] relative xl:aspect-[8/10]">
-            <Image
-              src={posts[4] ? getImg(posts[4], projekt4) : projekt4}
-              alt="pokoj"
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 23vw, 80vw"
-            />
-          </div>
+          <Link href={`blog/${posts[4]?.slug.current}`}>
+            <div className="aspect-[8/10] relative xl:aspect-[8/10]">
+              <Image
+                src={posts[4] ? getImg(posts[4], projekt4) : projekt4}
+                alt="pokoj"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 23vw, 80vw"
+              />
+            </div>
+          </Link>
           <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[65%]">
               {posts[4]?.title ||
@@ -176,15 +180,17 @@ export default async function Blog() {
         </div>
 
         <div className="w-[80%] ml-auto lg:ml-0 lg:w-[23%] inline-block">
-          <div className="aspect-[8/5] relative ">
-            <Image
-              src={posts[5] ? getImg(posts[5], projekt4) : projekt4}
-              alt="pokoj"
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 23vw, 80vw"
-            />
-          </div>
+          <Link href={`blog/${posts[5]?.slug.current}`}>
+            <div className="aspect-[8/5] relative ">
+              <Image
+                src={posts[5] ? getImg(posts[5], projekt4) : projekt4}
+                alt="pokoj"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 23vw, 80vw"
+              />
+            </div>
+          </Link>
           <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[70%]">
               {posts[5]?.title ||
@@ -197,15 +203,17 @@ export default async function Blog() {
         </div>
 
         <div className="w-[65%] lg:w-[20%] inline-block xl:w-[18%] ">
-          <div className="aspect-[6/8] xl:aspect-[6/7] relative ">
-            <Image
-              src={posts[6] ? getImg(posts[6], projekt4) : projekt4}
-              alt="pokoj"
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 23vw, 80vw"
-            />
-          </div>
+          <Link href={`blog/${posts[6]?.slug.current}`}>
+            <div className="aspect-[6/8] xl:aspect-[6/7] relative ">
+              <Image
+                src={posts[6] ? getImg(posts[6], projekt4) : projekt4}
+                alt="pokoj"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 23vw, 80vw"
+              />
+            </div>
+          </Link>
           <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
               {posts[6]?.title ||

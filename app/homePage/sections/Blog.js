@@ -65,59 +65,6 @@ export default function Blog({ data }) {
         </div>
       </div>
 
-      {/* MOBILE: slider – 3 karty jak wcześniej */}
-      {/* <div className=" lg:hidden">
-        <div className="flex w-full overflow-x-scroll snap-x snap-mandatory space-x-4  scrollbar-hide">
-          {/* 1 karta */}
-      {/* <div className="flex-shrink-0 w-[80%] aspect-[3/4]   flex flex-col md:aspect-[7/6]">
-            <div className="h-full relative">
-              <Image
-                src={posts[0] ? getImg(posts[0], projekt2) : projekt2}
-                alt={posts[0]?.alt || posts[0]?.title || "pokoj"}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
-              <span>{posts[0]?.title || "Our project"}</span>
-              <span>{posts[0]?.link ? "View project" : "View project"}</span>
-            </div>
-          </div> */}
-
-      {/* 2 karta */}
-      {/* <div className="flex-shrink-0 w-[80%] aspect-[3/4]  flex flex-col md:aspect-[7/6]">
-            <div className="h-full relative">
-              <Image
-                src={posts[1] ? getImg(posts[1], projekt4) : projekt4}
-                alt={posts[1]?.alt || posts[1]?.title || "pokoj"}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
-              <span>{posts[1]?.title || "Our project"}</span>
-              <span>{posts[1]?.link ? "View project" : "View project"}</span>
-            </div>
-          </div> */}
-
-      {/* 3 karta */}
-      {/* <div className="flex-shrink-0 w-[80%] aspect-[3/4]   flex flex-col md:aspect-[7/6]">
-            <div className="h-full relative">
-              <Image
-                src={posts[2] ? getImg(posts[2], projekt2) : projekt2}
-                alt={posts[2]?.alt || posts[2]?.title || "pokoj"}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] font-normal-font-weight">
-              <span>{posts[2]?.title || "Our project"}</span>
-              <span>{posts[2]?.link ? "View project" : "View project"}</span>
-            </div>
-          </div>
-        </div> */}
-      {/* </div>  */}
-
       {/* DESKTOP: 3 kolumny jak wcześniej */}
       <div className="flex flex-col justify-between lg:flex-row">
         {/* 1 kolumna */}
