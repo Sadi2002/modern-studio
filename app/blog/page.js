@@ -5,10 +5,14 @@ import projekt4 from "../../public/projekt4-large.webp";
 import Link from "next/link";
 import dataBlog from "../data/dataBlog";
 import { urlFor } from "../../lib/sanity/client";
+import { blogPageQuery } from "@/lib/sanity/queries";
+import { sanityClient } from "../../lib/sanity/client";
 
 export const revalidate = 0;
 
 export default async function Blog() {
+  const blogPageData = await sanityClient.fetch(blogPageQuery);
+  const { postsSection } = blogPageData;
   const posts = await dataBlog();
 
   console.log(posts);
@@ -29,19 +33,17 @@ export default async function Blog() {
       <div className="flex flex-col gap-[40px] justify-start lg:flex-row lg:justify-between lg:items-center lg:mb-[80px]">
         <div>
           <h1 className="text-[clamp(36px,8vw,45px)] leading-[clamp(36px,8vw,45px)] uppercase font-medium mb-[20px] max-w-[500px] xl:max-w-[700px] lg:text-[45px] lg:leading-[45px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] 2xl:max-w-[900px] 2xl:text-[80px] 2xl:leading-[80px]  2xl:font-normal">
-            Projects, Process, and Our Ideas
+            {postsSection.sectionTitle}
           </h1>
           <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight max-w-[600px]  ">
-            Dive into our world of architecture where every project tells a
-            story. Discover the design processes, creative insights, and
-            innovative ideas that shape our work and inspire our clients.
+            {postsSection.sectionDescription}
           </p>
         </div>
         <div className="w-full lg:w-[25%] flex flex-col mb-[40px] lg:mb-0">
           <div className="relative border-b border-[rgb(0,0,0)] pb-[10px]">
             <input
               type="text"
-              placeholder="Wpisz nazwe kategorii"
+              placeholder={postsSection.searchPlaceholder}
               className="w-[90%] focus:outline-none pl-[15px]"
             />
             <Image
