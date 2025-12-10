@@ -1,32 +1,62 @@
-import Image from "next/image";
-import projekt2 from "../../public/projekt2-large.webp";
-import projekt3 from "../../public/projekt3-large.webp";
-import projekt4 from "../../public/projekt4-large.webp";
-import Link from "next/link";
-import dataBlog from "../data/dataBlog";
-import { urlFor } from "../../lib/sanity/client";
-import { blogPageQuery } from "@/lib/sanity/queries";
-import { sanityClient } from "../../lib/sanity/client";
+"use client";
+import { useState, useMemo } from "react";
 
-export const revalidate = 0;
+export default function BlogClient({ posts }) {
+  const [query, setQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useState("");
 
-export default async function Blog() {
-  const blogPageData = await sanityClient.fetch(blogPageQuery);
-  const { postsSection } = blogPageData;
-  const posts = await dataBlog();
+  // WYCIĄGANIE UNIKALNYCH KATEGORII
+  const categories = useMemo(() => {
+    const set = new Set();
 
-  console.log(posts);
+    posts.forEach((p) => {
+      if (!p) return;
 
-  const getImg = (post, fallback) => {
-    if (post?.imgSrc) {
-      try {
-        return urlFor(post.imgSrc).url();
-      } catch {
-        return fallback;
+      if (Array.isArray(p.categories)) {
+        p.categories.forEach((c) => set.add(c));
+      } else if (typeof p.category === "string") {
+        set.add(p.category);
       }
+    });
+
+    return [...set];
+  }, [posts]);
+
+  // FILTROWANIE
+  const filtered = useMemo(() => {
+    let out = [...posts];
+
+    // filtr nazwy
+    if (query.trim() !== "") {
+      const q = query.toLowerCase();
+      out = out.filter((p) =>
+        (p.title || "").toLowerCase().includes(q)
+      );
     }
-    return fallback;
+
+    // filtr kategorii
+    if (activeCategory) {
+      out = out.filter((p) => {
+        if (Array.isArray(p.categories)) {
+          return p.categories.includes(activeCategory);
+        }
+        return p.category === activeCategory;
+      });
+    }
+
+    return out;
+  }, [posts, query, activeCategory]);
+
+  return {
+    filtered,
+    categories,
+    query,
+    activeCategory,
+    setQuery,
+    setActiveCategory,
   };
+}
+
 
   return (
     <section className="px-[20px] pt-[100px] md:px-[40px] lg:pt-[200px] lg:px-[50px] mb-[80px] xl:mb-[150px]">
@@ -65,9 +95,9 @@ export default async function Blog() {
       <div className="flex flex-col justify-between lg:flex-row mb-[50px] lg:mb-[80px]">
         {/* 1 kolumna */}
 
-        <div className="max-w-[80%] lg:max-w-full mb-[50px] lg:mb-[0] lg:w-[39%] inline-block">
+        <div className="w-full mb-[50px] lg:mb-[0] lg:w-[39%] inline-block">
           <Link href={`blog/${posts[0]?.slug.current}`}>
-            <div className=" aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
+            <div className="max-w-[80%] aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
               <Image
                 src={posts[0] ? getImg(posts[0], projekt3) : projekt3}
                 alt={posts[0]?.alt || posts[0]?.title || "pokoj"}
