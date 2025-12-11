@@ -10,9 +10,23 @@ import { useState } from "react";
 
 export default function BlogList({ posts, postsSection }) {
   const [search, setSearch] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const match = (post) =>
-    post?.title?.toLowerCase().includes(search.toLowerCase());
+  // sprawdza tytuł + kategorię
+  const match = (post) => {
+    if (!post) return false;
+
+    const matchesSearch = post?.title
+      ?.toLowerCase()
+      .includes(search.toLowerCase());
+
+    const matchesCategory =
+      !selectedCategory || post.category === selectedCategory;
+
+    return matchesSearch && matchesCategory;
+  };
+
+  const categories = [...new Set(posts.map((p) => p.category))];
 
   const getImg = (post, fallback) => {
     if (post?.imgSrc) {
@@ -24,6 +38,8 @@ export default function BlogList({ posts, postsSection }) {
     }
     return fallback;
   };
+
+  const hasMatch = posts.some(match);
 
   return (
     <div>
@@ -45,17 +61,32 @@ export default function BlogList({ posts, postsSection }) {
             className="object-cover absolute top-[40%] right-[15px] translate-y-[-50%]"
           />
         </div>
+
+        {/* Kategorie */}
         <div className="font-medium-font-weight flex flex-col gap-[15px] mt-[40px]">
-          <span>Mieszkanie</span>
-          <span>Domy jednorodzinne</span>
-          <span>Kawiarnie</span>
-          <span>Wieżowiec</span>
+          {categories.map((category, index) => (
+            <span
+              key={index}
+              onClick={() =>
+                setSelectedCategory((prev) =>
+                  prev === category ? null : category
+                )
+              }
+              className={`cursor-pointer ${
+                selectedCategory === category ? "underline" : ""
+              }`}
+            >
+              {category}
+            </span>
+          ))}
         </div>
       </div>
 
       <div
-        className={`flex flex-col flex-wrap gap-[80px] lg:flex-row mb-[50px] lg:mb-[80px] ${
-          search ? "justify-start" : "justify-between"
+        className={`flex flex-col flex-wrap  gap-y-[80px]  lg:flex-row mb-[50px] lg:mb-[80px] ${
+          search || selectedCategory
+            ? "justify-start gap-x-[100px]"
+            : "justify-between"
         }`}
       >
         {/* 0 */}
@@ -246,6 +277,12 @@ export default function BlogList({ posts, postsSection }) {
           </div>
         </div>
       </div>
+
+      {!hasMatch && (
+        <div className="w-full flex justify-center items-center py-10 text-center text-[#757575]">
+          Nie znaleziono postów pasujących do wyszukiwania.
+        </div>
+      )}
     </div>
   );
 }
