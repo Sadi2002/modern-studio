@@ -7,11 +7,13 @@ import { useState } from "react";
 
 import { urlFor } from "../../../lib/sanity/client";
 
-export default function Navigation({ data }) {
+export default function Navigation({ data, dataMobile }) {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const isContact = pathname === "/contact";
   const [isOpen, setIsOpen] = useState(false);
+
+  console.log(dataMobile);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -54,61 +56,45 @@ export default function Navigation({ data }) {
         <div className="h-[100dvh] w-full fixed top-0 left-0 bg-main-black z-50 md:hidden text-main-white">
           <div className="flex justify-between items-center mx-margin-mobile pt-mobile-navigation-top">
             <Link href="/" onClick={toggleMenu}>
-              SeoVilla
+              {dataMobile.logo}
             </Link>
             <span
               className="uppercase text-[14px] text-white font-medium-font-weight"
               onClick={toggleMenu}
             >
-              Close
+              {dataMobile.closeIcon}
             </span>
           </div>
           <ul className="flex flex-col gap-[5px] absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(20px,6vw,40px)] font-normal-font-weight uppercase border-t border-[rgba(255,255,255,0.2)] max-w-[50%]">
-            <li className="border-b border-[rgba(255,255,255,0.2)] py-[15px]">
-              <Link href="/about" className="pl-[20px]" onClick={toggleMenu}>
-                About us
-              </Link>
-            </li>
-            <li className="border-b border-[rgba(255,255,255,0.2)] py-[15px]">
-              <Link
-                href="/portfolio"
-                className="pl-[20px]"
-                onClick={toggleMenu}
+            {dataMobile.links.map((link, index) => (
+              <li
+                key={index}
+                className="border-b border-[rgba(255,255,255,0.2)] py-[15px]"
               >
-                Portfolio
-              </Link>
-            </li>
-            <li className="border-b border-[rgba(255,255,255,0.2)] py-[15px]">
-              <Link href="/process" className="pl-[20px]" onClick={toggleMenu}>
-                Process
-              </Link>
-            </li>
-            <li className="border-b border-[rgba(255,255,255,0.2)] py-[15px]">
-              <Link href="/blog" className="pl-[20px]" onClick={toggleMenu}>
-                Blog
-              </Link>
-            </li>
-            <li className="border-b border-[rgba(255,255,255,0.2)] py-[15px]">
-              <Link href="/contact" className="pl-[20px]" onClick={toggleMenu}>
-                Contact
-              </Link>
-            </li>
+                <Link
+                  href={link.href}
+                  className="pl-[20px]"
+                  onClick={toggleMenu}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
           <div className="absolute bottom-[20px] left-0 w-full flex justify-between items-end">
             <ul className="flex flex-col text-[12px] gap-[8px] ml-margin-mobile">
-              <li>
-                <Link href={"#"}>Facebook</Link>
-              </li>
-              <li>
-                <Link href={"#"}>Instagrm</Link>
-              </li>
-              <li>
-                <Link href={"#"}>Tiktok</Link>
-              </li>
+              {dataMobile.socialMedia.map((social, index) => (
+                <li key={index}>
+                  <Link href={social.url}>{social.title}</Link>
+                </li>
+              ))}
             </ul>
             <ul className="flex flex-col text-[12px] gap-[8px] text-right mr-margin-mobile">
-              <Link href={"#"}>Polityka prywatności</Link>
-              <span>2025 wszelkie prawa zastrzeżone</span>
+              {dataMobile.legalLinks.map((legal, index) => (
+                <Link key={index} href={legal.href}>
+                  {legal.label}
+                </Link>
+              ))}
             </ul>
           </div>
         </div>
