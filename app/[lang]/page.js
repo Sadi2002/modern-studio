@@ -1,14 +1,14 @@
-import Hero from "./homePage/sections/Hero";
+import Hero from "../homePage/sections/Hero";
 import dynamic from "next/dynamic";
 
-import { sanityClient } from "../lib/sanity/client";
-import { homePageQuery } from "../lib/sanity/queries";
+import { sanityClient } from "../../lib/sanity/client";
+import { homePageQuery } from "../../lib/sanity/queries";
 
-const DynamicAbout = dynamic(() => import("./homePage/sections/About"));
-const DynamicProjects = dynamic(() => import("./homePage/sections/Projects"));
-const DynamicProcess = dynamic(() => import("./homePage/sections/Process"));
-const DynamicBlog = dynamic(() => import("./homePage/sections/Blog"));
-const DynamicFaq = dynamic(() => import("./homePage/sections/Faq"));
+const DynamicAbout = dynamic(() => import("../homePage/sections/About"));
+const DynamicProjects = dynamic(() => import("../homePage/sections/Projects"));
+const DynamicProcess = dynamic(() => import("../homePage/sections/Process"));
+const DynamicBlog = dynamic(() => import("../homePage/sections/Blog"));
+const DynamicFaq = dynamic(() => import("../homePage/sections/Faq"));
 
 export const revalidate = 0;
 
@@ -18,8 +18,12 @@ export const metadata = {
     "Odkryj Sadowski Studio - Twoje źródło nowoczesnej architektury i designu. Tworzymy przestrzenie, które inspirują i zachwycają.",
 };
 
-export default async function Home() {
+export default async function Home({ params }) {
+  const resolvedParams = await params;
+  const lang = resolvedParams.lang || "en"; // domyślnie EN
   const homePageData = await sanityClient.fetch(homePageQuery);
+
+  console.log(lang);
 
   const { heroSection } = homePageData;
   const { aboutSection } = homePageData;
@@ -30,7 +34,7 @@ export default async function Home() {
 
   return (
     <>
-      <Hero data={heroSection} />
+      <Hero data={heroSection} lang={lang} />
       <DynamicAbout data={aboutSection} />
       <DynamicProjects data={projectsSection} />
       <DynamicProcess data={processSection} />
