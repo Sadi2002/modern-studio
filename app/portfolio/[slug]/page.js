@@ -77,7 +77,7 @@ export default async function Project({ params }) {
 
       <div className="px-[10px] md:px-[20px] 2xl:px-[30px] mt-[10px] md:mt-[16px]">
         <div className="mt-[30px]">
-          <div className="relative w-full aspect-[5/3] lg:aspect-[6/3] ">
+          <div className="relative w-full aspect-[8/6] lg:aspect-[6/3] ">
             <Image
               src={urlFor(project.imgSrc).url()}
               alt="pokój"

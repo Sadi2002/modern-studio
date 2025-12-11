@@ -36,7 +36,7 @@ export default function ProjectGallery({ gallery }) {
 
       return (
         <div key={`big-${idx}`} className="w-full mb-[10px] md:mb-[16px]">
-          <div className="relative w-full overflow-hidden aspect-[5/3]  lg:aspect-[6/3]">
+          <div className="relative w-full overflow-hidden aspect-[8/6]  lg:aspect-[6/3]">
             <img
               src={big.imgSrc}
               alt={big.alt || ""}
