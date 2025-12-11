@@ -74,12 +74,24 @@ export default function Navigation({ data, dataMobile }) {
             <Link href="/" onClick={toggleMenu}>
               {dataMobile.logo}
             </Link>
-            <span
-              className="uppercase text-[14px] text-white font-medium-font-weight"
-              onClick={toggleMenu}
-            >
-              {dataMobile.closeIcon}
-            </span>
+            <div className="flex flex-row-reverse gap-[30px]">
+              <span
+                className="uppercase text-[14px] text-white font-medium-font-weight"
+                onClick={toggleMenu}
+              >
+                {dataMobile.closeIcon}
+              </span>
+              <div className="flex md:hidden items-center justify-end gap-2 uppercase text-[14px] text-white ">
+                {availableLangs.map((lang, index) => (
+                  <div key={lang} className="flex items-center gap-2">
+                    <Link href={languages[lang]} onClick={toggleMenu}>
+                      {lang}
+                    </Link>
+                    {index < availableLangs.length - 1 && <span>/</span>}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
           <ul className="flex flex-col gap-[5px] absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(20px,6vw,40px)] font-normal-font-weight uppercase border-t border-[rgba(255,255,255,0.2)] max-w-[50%]">
             {dataMobile.links.map((link, index) => (
@@ -106,7 +118,7 @@ export default function Navigation({ data, dataMobile }) {
               ))}
             </ul>
             <ul className="flex flex-col text-[12px] gap-[8px] text-right mr-margin-mobile">
-              <div className="flex md:hidden items-center justify-end gap-2 uppercase text-[12px] text-white ">
+              {/* <div className="flex md:hidden items-center justify-end gap-2 uppercase text-[12px] text-white ">
                 {availableLangs.map((lang, index) => (
                   <div key={lang} className="flex items-center gap-2">
                     <Link href={languages[lang]} onClick={toggleMenu}>
@@ -115,7 +127,7 @@ export default function Navigation({ data, dataMobile }) {
                     {index < availableLangs.length - 1 && <span>/</span>}
                   </div>
                 ))}
-              </div>
+              </div> */}
               {dataMobile.legalLinks.map((legal, index) => (
                 <Link key={index} href={legal.href}>
                   {legal.label}
