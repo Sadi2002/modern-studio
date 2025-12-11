@@ -1,11 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import projekt2 from "../../public/projekt2-large.webp";
 import projekt3 from "../../public/projekt3-large.webp";
 import projekt4 from "../../public/projekt4-large.webp";
 import { urlFor } from "../../lib/sanity/client";
+import { useState } from "react";
 
 export default function BlogList({ posts, postsSection }) {
+  const [search, setSearch] = useState("");
+
+  const match = (post) =>
+    post?.title?.toLowerCase().includes(search.toLowerCase());
+
   const getImg = (post, fallback) => {
     if (post?.imgSrc) {
       try {
@@ -25,7 +33,10 @@ export default function BlogList({ posts, postsSection }) {
             type="text"
             placeholder={postsSection.searchPlaceholder}
             className="w-[90%] focus:outline-none pl-[15px]"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
+
           <Image
             width={24}
             height={24}
@@ -41,10 +52,17 @@ export default function BlogList({ posts, postsSection }) {
           <span>Wieżowiec</span>
         </div>
       </div>
-      <div className="flex flex-col flex-wrap gap-[80px] justify-between lg:flex-row mb-[50px] lg:mb-[80px]">
-        {/* 1 kolumna */}
 
-        <div className="max-w-[80%] lg:max-w-full mb-[50px] lg:mb-[0] lg:w-[39%] inline-block">
+      <div
+        className={`flex flex-col flex-wrap gap-[80px] lg:flex-row mb-[50px] lg:mb-[80px] ${
+          search ? "justify-start" : "justify-between"
+        }`}
+      >
+        {/* 0 */}
+        <div
+          className="max-w-[80%] lg:max-w-full mb-[50px] lg:mb-[0] lg:w-[39%] inline-block"
+          style={{ display: match(posts[0]) ? "inline-block" : "none" }}
+        >
           <Link href={`blog/${posts[0]?.slug.current}`}>
             <div className=" aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
               <Image
@@ -66,8 +84,11 @@ export default function BlogList({ posts, postsSection }) {
           </Link>
         </div>
 
-        {/* 2 kolumna */}
-        <div className="w-full mb-[50px] max-w-[86%] ml-auto lg:ml-0 flex lg:max-w-[100%] lg:mb-[0] lg:w-[30%] inline-block">
+        {/* 1 */}
+        <div
+          className="w-full mb-[50px] max-w-[86%] ml-auto lg:ml-0 flex lg:max-w-[100%] lg:mb-[0] lg:w-[30%] inline-block"
+          style={{ display: match(posts[1]) ? "inline-block" : "none" }}
+        >
           <Link href={`blog/${posts[1]?.slug.current}`}>
             <div className="flex lg:block aspect-[5/3]  lg:aspect-[8/5] relative ">
               <Image
@@ -90,10 +111,13 @@ export default function BlogList({ posts, postsSection }) {
           </div>
         </div>
 
-        {/* 3 kolumna */}
-        <div className="max-w-[78%] lg:max-w-[100%] lg:w-[20%] inline-block xl:w-[20%] ">
+        {/* 2 */}
+        <div
+          className="max-w-[78%] lg:max-w-[100%] lg:w-[20%] inline-block xl:w-[20%]"
+          style={{ display: match(posts[2]) ? "inline-block" : "none" }}
+        >
           <Link href={`blog/${posts[2]?.slug.current}`}>
-            <div className="aspect-[7/8]  lg:aspect-[6/8] xl:aspect-[6/8] relative ">
+            <div className="aspect-[7/8] lg:aspect-[6/8] xl:aspect-[6/8] relative ">
               <Image
                 src={posts[2] ? getImg(posts[2], projekt4) : projekt4}
                 alt={posts[2]?.alt || posts[2]?.title || "pokoj"}
@@ -114,7 +138,11 @@ export default function BlogList({ posts, postsSection }) {
           </div>
         </div>
 
-        <div className="w-[80%] ml-auto lg:ml-0 lg:w-[27%] inline-block">
+        {/* 3 */}
+        <div
+          className="w-[80%] ml-auto lg:ml-0 lg:w-[27%] inline-block"
+          style={{ display: match(posts[3]) ? "inline-block" : "none" }}
+        >
           <Link href={`blog/${posts[3]?.slug.current}`}>
             <div className="aspect-[8/8] relative xl:aspect-[11/9]">
               <Image
@@ -136,7 +164,12 @@ export default function BlogList({ posts, postsSection }) {
             </span>
           </div>
         </div>
-        <div className="w-[70%] lg:w-[16%] inline-block">
+
+        {/* 4 */}
+        <div
+          className="w-[70%] lg:w-[16%] inline-block"
+          style={{ display: match(posts[4]) ? "inline-block" : "none" }}
+        >
           <Link href={`blog/${posts[4]?.slug.current}`}>
             <div className="aspect-[8/10] relative xl:aspect-[8/10]">
               <Image
@@ -159,7 +192,11 @@ export default function BlogList({ posts, postsSection }) {
           </div>
         </div>
 
-        <div className="w-[80%] ml-auto lg:ml-0 lg:w-[23%] inline-block">
+        {/* 5 */}
+        <div
+          className="w-[80%] ml-auto lg:ml-0 lg:w-[23%] inline-block"
+          style={{ display: match(posts[5]) ? "inline-block" : "none" }}
+        >
           <Link href={`blog/${posts[5]?.slug.current}`}>
             <div className="aspect-[8/5] relative ">
               <Image
@@ -182,7 +219,11 @@ export default function BlogList({ posts, postsSection }) {
           </div>
         </div>
 
-        <div className="w-[65%] lg:w-[20%] inline-block xl:w-[18%] ">
+        {/* 6 */}
+        <div
+          className="w-[65%] lg:w-[20%] inline-block xl:w-[18%]"
+          style={{ display: match(posts[6]) ? "inline-block" : "none" }}
+        >
           <Link href={`blog/${posts[6]?.slug.current}`}>
             <div className="aspect-[6/8] xl:aspect-[6/7] relative ">
               <Image
