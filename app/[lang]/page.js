@@ -20,7 +20,7 @@ export const metadata = {
 
 export default async function Home({ params }) {
   const resolvedParams = await params;
-  const lang = resolvedParams.lang || "en"; // domyślnie EN
+  const lang = resolvedParams.lang;
   const homePageData = await sanityClient.fetch(homePageQuery);
 
   console.log(lang);

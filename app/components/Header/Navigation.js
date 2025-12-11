@@ -9,9 +9,22 @@ import { urlFor } from "../../../lib/sanity/client";
 
 export default function Navigation({ data, dataMobile }) {
   const pathname = usePathname();
-  const isHome = pathname === "/";
-  const isContact = pathname === "/contact";
+  const isHome = pathname === "/" || pathname === "/pl" || pathname === "/de";
+  const isContact = pathname.includes("/contact");
+
   const [isOpen, setIsOpen] = useState(false);
+
+  const languages = {
+    en: "/",
+    pl: "/pl",
+    de: "/de",
+  };
+
+  const currentLang = pathname.split("/")[1] || "en";
+
+  const availableLangs = Object.keys(languages).filter(
+    (lang) => lang !== currentLang
+  );
 
   console.log(dataMobile);
 
@@ -26,6 +39,7 @@ export default function Navigation({ data, dataMobile }) {
       className={`flex items-center justify-between mx-margin-mobile lg:mx-desktop pt-mobile-navigation-top md:mx-tablet 2xl:mx-desktop lg:pt-desktop-navigation-top `}
     >
       {/* LOGO PO LEWEJ */}
+
       <span
         className={`md:text-logo-font-size ${
           isHome ? "text-main-white" : "text-main-black"
@@ -35,20 +49,22 @@ export default function Navigation({ data, dataMobile }) {
       </span>
 
       {/* MOBILE BURGER */}
-      <div
-        className="md:hidden flex flex-col gap-burger-line-gap items-end"
-        onClick={toggleMenu}
-      >
-        <span
-          className={`h-burger-line-height w-[17px] bg-main-black ${
-            isHome ? "bg-main-white" : "bg-black"
-          }`}
-        ></span>
-        <span
-          className={`h-burger-line-height w-[24px] bg-main-black ${
-            isHome ? "bg-main-white" : "bg-main-black"
-          }`}
-        ></span>
+      <div className="flex items-center flex-row-reverse gap-[40px]">
+        <div
+          className="md:hidden flex flex-col gap-burger-line-gap items-end"
+          onClick={toggleMenu}
+        >
+          <span
+            className={`h-burger-line-height w-[17px] bg-main-black ${
+              isHome ? "bg-main-white" : "bg-black"
+            }`}
+          ></span>
+          <span
+            className={`h-burger-line-height w-[24px] bg-main-black ${
+              isHome ? "bg-main-white" : "bg-main-black"
+            }`}
+          ></span>
+        </div>
       </div>
 
       {/* MOBILE MENU */}
@@ -90,6 +106,16 @@ export default function Navigation({ data, dataMobile }) {
               ))}
             </ul>
             <ul className="flex flex-col text-[12px] gap-[8px] text-right mr-margin-mobile">
+              <div className="flex md:hidden items-center justify-end gap-2 uppercase text-[12px] text-white ">
+                {availableLangs.map((lang, index) => (
+                  <div key={lang} className="flex items-center gap-2">
+                    <Link href={languages[lang]} onClick={toggleMenu}>
+                      {lang}
+                    </Link>
+                    {index < availableLangs.length - 1 && <span>/</span>}
+                  </div>
+                ))}
+              </div>
               {dataMobile.legalLinks.map((legal, index) => (
                 <Link key={index} href={legal.href}>
                   {legal.label}
@@ -101,24 +127,34 @@ export default function Navigation({ data, dataMobile }) {
       )}
 
       {/* DESKTOP MENU */}
-      <ul
-        className={`hidden md:flex gap-between-navigation-links items-center xl:gap-between-navigation-links-xl ${
-          isHome ? "text-main-white" : "md:text-main-black"
-        }
+      <div className="hidden md:flex gap-[80px]">
+        <ul
+          className={`hidden md:flex gap-between-navigation-links items-center xl:gap-between-navigation-links-xl ${
+            isHome ? "text-main-white" : "md:text-main-black"
+          }
         ${isContact ? "lg:text-main-white" : ""}
         `}
-      >
-        {data.links.map((link, index) => (
-          <li key={index}>
-            <Link
-              href={link.href}
-              className="text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
+        >
+          {data.links.map((link, index) => (
+            <li key={index}>
+              <Link
+                href={link.href}
+                className="text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <div className="hidden md:flex items-center gap-2 uppercase text-[16px] text-white">
+          {availableLangs.map((lang, index) => (
+            <div key={lang} className="flex items-center gap-2">
+              <Link href={languages[lang]}>{lang}</Link>
+              {index < availableLangs.length - 1 && <span>/</span>}
+            </div>
+          ))}
+        </div>
+      </div>
     </nav>
   );
 }

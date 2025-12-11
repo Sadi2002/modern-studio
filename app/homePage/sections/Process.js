@@ -63,8 +63,8 @@ export default function Process({ data }) {
                   setActiveIndexDesktop(index);
                 }}
               >
-                <span className="flex justify-between items-center text-[clamp(14px,4.3vw,23px)] leading-[clamp(0.75rem,10vw,2rem)]">
-                  ({String(step.id ?? index + 1).padStart(2, "0")}) {step.title}
+                <span className="flex gap-[10px] items-center text-[clamp(14px,4.3vw,23px)] leading-[clamp(0.75rem,10vw,2rem)]">
+                  <span className="flex">(0{index + 1})</span> {step.title}
                   <Image
                     width={20}
                     height={20}
