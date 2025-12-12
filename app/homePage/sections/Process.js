@@ -9,6 +9,8 @@ import Button from "@/app/components/Button";
 import { urlFor } from "../../../lib/sanity/client";
 
 export default function Process({ data, lang }) {
+  const whatsLanguage = lang === "en" ? "" : lang;
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeIndexDesktop, setActiveIndexDesktop] = useState(0);
 
@@ -34,7 +36,7 @@ export default function Process({ data, lang }) {
           <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[40px] xl:mb-[50px] min-[380px]:max-w-[390px] md:max-w-[400px] lg:max-w-[500px]">
             {data?.description?.[lang]}
           </p>
-          <Link href={data?.buttonLink?.[lang]}>
+          <Link href={`${whatsLanguage}${data?.buttonLink?.[lang]}`}>
             <button className="font-medium-font-weight text-[clamp(0.75rem,3.5vw,1rem)] relative uppercase after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:w-full-width after:h-[1px] ml-auto mr-0 block after:w-full lg:hidden">
               {data?.buttonLabel?.[lang]}
             </button>
@@ -42,7 +44,7 @@ export default function Process({ data, lang }) {
           <div className="lg:flex lg:justify-end">
             <Button
               arrow={ArrowWhite}
-              linkTo={data?.buttonLink?.[lang]}
+              linkTo={`${whatsLanguage}${data?.buttonLink?.[lang]}`}
               bgColor="main-black"
               textColor="main-white"
               additionalStyles="hidden md:self-end lg:flex"

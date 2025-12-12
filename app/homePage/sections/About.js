@@ -3,7 +3,7 @@ import { urlFor } from "../../../lib/sanity/client";
 import Link from "next/link";
 
 export default function About({ data, lang }) {
-  console.log(data);
+  const whatsLanguage = lang === "en" ? "" : lang;
   return (
     <section
       id="about"
@@ -22,7 +22,7 @@ export default function About({ data, lang }) {
               {data?.subtitle2?.[lang]}
             </p>
           </div>
-          <Link href={data?.buttonLink?.[lang]}>
+          <Link href={`${whatsLanguage}${data?.buttonLink?.[lang]}`}>
             <button className="font-medium-font-weight text-[clamp(0.75rem,3.5vw,1rem)] relative uppercase after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:w-full-width after:h-[1px] after:w-full">
               {data?.buttonLabel?.[lang]}
             </button>
