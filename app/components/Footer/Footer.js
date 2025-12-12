@@ -11,7 +11,7 @@ export const revalidate = 0;
 export default async function Footer() {
   const footerData = await sanityClient.fetch(footerQuery);
   const footer = footerData;
-  console.log(footer);
+
   return (
     <footer className="bg-main-black pb-[30px]">
       <div className="lg:flex ">

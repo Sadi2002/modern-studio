@@ -1,5 +1,7 @@
 import PortfolioClient from "./PortfolioClient";
 import dataProjects from "../data/dataProjects";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 export const revalidate = 0;
 
 export const metadata = {
@@ -12,5 +14,11 @@ export default async function Portfolio() {
   const lang = "en";
   const projects = await dataProjects();
 
-  return <PortfolioClient projects={projects} lang={lang} />;
+  return (
+    <>
+      <Header lang={"en"} />
+      <PortfolioClient projects={projects} lang={lang} />;
+      <Footer />
+    </>
+  );
 }

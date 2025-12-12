@@ -2,6 +2,8 @@ import dynamic from "next/dynamic";
 
 import { sanityClient } from "../../lib/sanity/client";
 import { aboutPageQuery } from "@/lib/sanity/queries";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 
 export const revalidate = 0;
 
@@ -29,11 +31,13 @@ export default async function About() {
 
   return (
     <>
+      <Header lang={lang} />
       <DynamicFirstSection data={welcomeSection} lang={lang} />
       <DynamicSecondSection data={moreInformationSection} lang={lang} />
       <DynamicThirdSection data={teamSection} lang={lang} />
       <DynamicFourthSection data={awardsSection} lang={lang} />
       <DynamicFifthSection data={overviewSection} lang={lang} />
+      <Footer />
     </>
   );
 }
