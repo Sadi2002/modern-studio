@@ -1,7 +1,6 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-
 import Link from "next/link";
 import { useState } from "react";
 
@@ -18,30 +17,53 @@ export default function Navigation({ data, dataMobile, lang }) {
     de: "/de",
   };
 
-  const currentLang = pathname.split("/")[1] || "en";
+  // Określamy bieżący język
+  let currentLang = "en";
+  if (pathname.startsWith("/pl")) currentLang = "pl";
+  else if (pathname.startsWith("/de")) currentLang = "de";
 
-  const availableLangs = Object.keys(languages).filter(
-    (lang) => lang !== currentLang
-  );
+  // Dostępne języki w menu
+  let availableLangs = [];
+  if (currentLang === "en") availableLangs = ["pl", "de"];
+  else if (currentLang === "pl") availableLangs = ["en", "de"];
+  else if (currentLang === "de") availableLangs = ["en", "pl"];
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMenu = () => setIsOpen(!isOpen);
 
   if (!data) return null;
 
-  return (
-    <nav
-      className={`flex items-center justify-between mx-margin-mobile lg:mx-desktop pt-mobile-navigation-top md:mx-tablet 2xl:mx-desktop lg:pt-desktop-navigation-top `}
-    >
-      {/* LOGO PO LEWEJ */}
+  // Link do strony głównej z zachowaniem prefiksu języka
+  const getHomeLink = () => {
+    return currentLang === "en" ? "/" : `/${currentLang}`;
+  };
 
+  // Funkcja do generowania linków zależnie od języka
+  const getLocalizedLink = (targetPath) => {
+    if (!targetPath.startsWith("/")) return targetPath;
+    if (currentLang === "en") return targetPath;
+    return `/${currentLang}${targetPath}`;
+  };
+
+  // Funkcja do generowania linków w switcherze języków, zachowując bieżącą ścieżkę
+  const getLangSwitcherLink = (targetLang) => {
+    if (currentLang === targetLang) return pathname;
+    let pathWithoutLang = pathname;
+    if (currentLang !== "en") {
+      pathWithoutLang = pathname.replace(`/${currentLang}`, "") || "/";
+    }
+    if (targetLang === "en") return pathWithoutLang || "/";
+    return `/${targetLang}${pathWithoutLang}`;
+  };
+
+  return (
+    <nav className="flex items-center justify-between mx-margin-mobile lg:mx-desktop pt-mobile-navigation-top md:mx-tablet 2xl:mx-desktop lg:pt-desktop-navigation-top">
+      {/* LOGO */}
       <span
         className={`md:text-logo-font-size ${
           isHome ? "text-main-white" : "text-main-black"
         }`}
       >
-        <Link href="/">{data.logo}</Link>
+        <Link href={getHomeLink()}>{data.logo}</Link>
       </span>
 
       {/* MOBILE BURGER */}
@@ -51,12 +73,12 @@ export default function Navigation({ data, dataMobile, lang }) {
           onClick={toggleMenu}
         >
           <span
-            className={`h-burger-line-height w-[17px] bg-main-black ${
-              isHome ? "bg-main-white" : "bg-black"
+            className={`h-burger-line-height w-[17px] ${
+              isHome ? "bg-main-white" : "bg-main-black"
             }`}
           ></span>
           <span
-            className={`h-burger-line-height w-[24px] bg-main-black ${
+            className={`h-burger-line-height w-[24px] ${
               isHome ? "bg-main-white" : "bg-main-black"
             }`}
           ></span>
@@ -67,7 +89,7 @@ export default function Navigation({ data, dataMobile, lang }) {
       {isOpen && (
         <div className="h-[100dvh] w-full fixed top-0 left-0 bg-main-black z-50 md:hidden text-main-white">
           <div className="flex justify-between items-center mx-margin-mobile pt-mobile-navigation-top">
-            <Link href="/" onClick={toggleMenu}>
+            <Link href={getHomeLink()} onClick={toggleMenu}>
               {dataMobile.logo}
             </Link>
             <div className="flex flex-row-reverse gap-[30px]">
@@ -80,7 +102,7 @@ export default function Navigation({ data, dataMobile, lang }) {
               <div className="flex md:hidden items-center justify-end gap-2 uppercase text-[14px] text-white ">
                 {availableLangs.map((lang, index) => (
                   <div key={lang} className="flex items-center gap-2">
-                    <Link href={languages[lang]} onClick={toggleMenu}>
+                    <Link href={getLangSwitcherLink(lang)} onClick={toggleMenu}>
                       {lang}
                     </Link>
                     {index < availableLangs.length - 1 && <span>/</span>}
@@ -89,6 +111,7 @@ export default function Navigation({ data, dataMobile, lang }) {
               </div>
             </div>
           </div>
+
           <ul className="flex flex-col gap-[5px] absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(20px,6vw,40px)] font-normal-font-weight uppercase border-t border-[rgba(255,255,255,0.2)] max-w-[50%]">
             {dataMobile.links.map((link, index) => (
               <li
@@ -96,7 +119,7 @@ export default function Navigation({ data, dataMobile, lang }) {
                 className="border-b border-[rgba(255,255,255,0.2)] py-[15px]"
               >
                 <Link
-                  href={link?.href?.[lang]}
+                  href={getLocalizedLink(link?.href?.[lang])}
                   className="pl-[20px]"
                   onClick={toggleMenu}
                 >
@@ -105,6 +128,7 @@ export default function Navigation({ data, dataMobile, lang }) {
               </li>
             ))}
           </ul>
+
           <div className="absolute bottom-[20px] left-0 w-full flex justify-between items-end">
             <ul className="flex flex-col text-[12px] gap-[8px] ml-margin-mobile">
               {dataMobile.socialMedia.map((social, index) => (
@@ -114,18 +138,8 @@ export default function Navigation({ data, dataMobile, lang }) {
               ))}
             </ul>
             <ul className="flex flex-col text-[12px] gap-[8px] text-right mr-margin-mobile">
-              {/* <div className="flex md:hidden items-center justify-end gap-2 uppercase text-[12px] text-white ">
-                {availableLangs.map((lang, index) => (
-                  <div key={lang} className="flex items-center gap-2">
-                    <Link href={languages[lang]} onClick={toggleMenu}>
-                      {lang}
-                    </Link>
-                    {index < availableLangs.length - 1 && <span>/</span>}
-                  </div>
-                ))}
-              </div> */}
               {dataMobile.legalLinks.map((legal, index) => (
-                <Link key={index} href={legal?.href?.[lang]}>
+                <Link key={index} href={getLocalizedLink(legal?.href?.[lang])}>
                   {legal?.label?.[lang]}
                 </Link>
               ))}
@@ -139,14 +153,12 @@ export default function Navigation({ data, dataMobile, lang }) {
         <ul
           className={`hidden md:flex gap-between-navigation-links items-center xl:gap-between-navigation-links-xl ${
             isHome ? "text-main-white" : "md:text-main-black"
-          }
-        ${isContact ? "lg:text-main-white" : ""}
-        `}
+          } ${isContact ? "lg:text-main-white" : ""}`}
         >
           {data.links.map((link, index) => (
             <li key={index}>
               <Link
-                href={link?.href?.[lang]}
+                href={getLocalizedLink(link?.href?.[lang])}
                 className="text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
               >
                 {link?.label?.[lang]}
@@ -154,15 +166,15 @@ export default function Navigation({ data, dataMobile, lang }) {
             </li>
           ))}
         </ul>
+
         <div
           className={`hidden md:flex items-center gap-2 uppercase text-[16px] ${
             isHome ? "text-main-white" : "md:text-main-black"
-          }
-        ${isContact ? "lg:text-main-white" : ""}`}
+          } ${isContact ? "lg:text-main-white" : ""}`}
         >
           {availableLangs.map((lang, index) => (
             <div key={lang} className="flex items-center gap-2">
-              <Link href={languages[lang]}>{lang}</Link>
+              <Link href={getLangSwitcherLink(lang)}>{lang}</Link>
               {index < availableLangs.length - 1 && <span>/</span>}
             </div>
           ))}
