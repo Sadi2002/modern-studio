@@ -8,6 +8,7 @@ export const revalidate = 0;
 
 export default async function Contact({ params }) {
   const getParams = await params;
+  console.log(getParams);
   const lang = getParams.lang;
   const contactPageData = await sanityClient.fetch(contactPageQuery);
 
