@@ -8,7 +8,7 @@ import projekt4 from "../../public/projekt4-large.webp";
 import { urlFor } from "../../lib/sanity/client";
 import { useState } from "react";
 
-export default function BlogList({ posts, postsSection }) {
+export default function BlogList({ posts, postsSection, lang }) {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -16,17 +16,17 @@ export default function BlogList({ posts, postsSection }) {
   const match = (post) => {
     if (!post) return false;
 
-    const matchesSearch = post?.title
+    const matchesSearch = post?.title?.[lang]
       ?.toLowerCase()
       .includes(search.toLowerCase());
 
     const matchesCategory =
-      !selectedCategory || post.category === selectedCategory;
+      !selectedCategory || post?.category?.[lang] === selectedCategory;
 
     return matchesSearch && matchesCategory;
   };
 
-  const categories = [...new Set(posts.map((p) => p.category))];
+  const categories = [...new Set(posts.map((p) => p?.category?.[lang]))];
 
   const getImg = (post, fallback) => {
     if (post?.imgSrc) {
@@ -47,7 +47,7 @@ export default function BlogList({ posts, postsSection }) {
         <div className="relative border-b border-[rgb(0,0,0)] pb-[10px]">
           <input
             type="text"
-            placeholder={postsSection.searchPlaceholder}
+            placeholder={postsSection?.searchPlaceholder?.[lang]}
             className="w-[90%] focus:outline-none pl-[15px]"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -85,7 +85,7 @@ export default function BlogList({ posts, postsSection }) {
       <div
         className={`flex flex-col flex-wrap  gap-y-[80px]  lg:flex-row mb-[50px] lg:mb-[80px] ${
           search || selectedCategory
-            ? "justify-start gap-x-[100px]"
+            ? "justify-start gap-x-[80px]"
             : "justify-between"
         }`}
       >
@@ -98,7 +98,9 @@ export default function BlogList({ posts, postsSection }) {
             <div className=" aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
               <Image
                 src={posts[0] ? getImg(posts[0], projekt3) : projekt3}
-                alt={posts[0]?.alt || posts[0]?.title || "pokoj"}
+                alt={
+                  posts[0]?.alt?.[lang] || posts[0]?.title?.[lang] || "pokoj"
+                }
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 23vw, 80vw"
@@ -106,10 +108,11 @@ export default function BlogList({ posts, postsSection }) {
             </div>
             <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
               <span className="font-medium-font-weight max-w-[65%]">
-                {posts[0]?.title || "Designing a Luxury Mediterranean Villa"}
+                {posts[0]?.title?.[lang] ||
+                  "Designing a Luxury Mediterranean Villa"}
               </span>
               <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-                {posts[0]?.date || "March 2025"}
+                {posts[0]?.date?.[lang] || "March 2025"}
               </span>
             </div>
           </Link>
@@ -124,7 +127,9 @@ export default function BlogList({ posts, postsSection }) {
             <div className="flex lg:block aspect-[5/3]  lg:aspect-[8/5] relative ">
               <Image
                 src={posts[1] ? getImg(posts[1], projekt2) : projekt2}
-                alt={posts[1]?.alt || posts[1]?.title || "pokoj"}
+                alt={
+                  posts[1]?.alt?.[lang] || posts[1]?.title?.[lang] || "pokoj"
+                }
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 23vw, 80vw"
@@ -133,11 +138,11 @@ export default function BlogList({ posts, postsSection }) {
           </Link>
           <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[70%]">
-              {posts[1]?.title ||
+              {posts[1]?.title?.[lang] ||
                 "Maximizing Light and Views in Your Mallorca Home"}
             </span>
             <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-              {posts[1]?.date || "January 2025"}
+              {posts[1]?.date?.[lang] || "January 2025"}
             </span>
           </div>
         </div>
@@ -151,7 +156,9 @@ export default function BlogList({ posts, postsSection }) {
             <div className="aspect-[7/8] lg:aspect-[6/8] xl:aspect-[6/8] relative ">
               <Image
                 src={posts[2] ? getImg(posts[2], projekt4) : projekt4}
-                alt={posts[2]?.alt || posts[2]?.title || "pokoj"}
+                alt={
+                  posts[2]?.alt?.[lang] || posts[2]?.title?.[lang] || "pokoj"
+                }
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 23vw, 80vw"
@@ -160,11 +167,11 @@ export default function BlogList({ posts, postsSection }) {
           </Link>
           <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
-              {posts[2]?.title ||
+              {posts[2]?.title?.[lang] ||
                 "Materials and Finishes Inspired by Mallorca."}
             </span>
             <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-              {posts[2]?.date || "August 2024"}
+              {posts[2]?.date?.[lang] || "August 2024"}
             </span>
           </div>
         </div>
@@ -187,11 +194,11 @@ export default function BlogList({ posts, postsSection }) {
           </Link>
           <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[65%]">
-              {posts[3]?.title ||
+              {posts[3]?.title?.[lang] ||
                 "Maximizing Light and Views in Your Mallorca Home"}
             </span>
             <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-              {posts[3]?.date || "March 2025"}
+              {posts[3]?.date?.[lang] || "March 2025"}
             </span>
           </div>
         </div>
@@ -214,11 +221,11 @@ export default function BlogList({ posts, postsSection }) {
           </Link>
           <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[65%]">
-              {posts[4]?.title ||
+              {posts[4]?.title?.[lang] ||
                 "Maximizing Light and Views in Your Mallorca Home"}
             </span>
             <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-              {posts[4]?.date || "March 2025"}
+              {posts[4]?.date?.[lang] || "March 2025"}
             </span>
           </div>
         </div>
@@ -241,11 +248,11 @@ export default function BlogList({ posts, postsSection }) {
           </Link>
           <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[70%]">
-              {posts[5]?.title ||
+              {posts[5]?.title?.[lang] ||
                 "Maximizing Light and Views in Your Mallorca Home"}
             </span>
             <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-              {posts[5]?.date || "March 2025"}
+              {posts[5]?.date?.[lang] || "March 2025"}
             </span>
           </div>
         </div>
@@ -268,11 +275,11 @@ export default function BlogList({ posts, postsSection }) {
           </Link>
           <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
-              {posts[6]?.title ||
+              {posts[6]?.title?.[lang] ||
                 "Maximizing Light and Views in Your Mallorca Home"}
             </span>
             <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-              {posts[6]?.date || "March 2025"}
+              {posts[6]?.date?.[lang] || "March 2025"}
             </span>
           </div>
         </div>

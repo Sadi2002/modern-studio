@@ -35,8 +35,8 @@ export default async function Home({ params }) {
       <Hero data={heroSection} lang={lang} />
       <DynamicAbout data={aboutSection} lang={lang} />
       <DynamicProjects data={projectsSection} lang={lang} />
-      <DynamicProcess data={processSection} />
-      <DynamicBlog data={blogSection} />
+      <DynamicProcess data={processSection} lang={lang} />
+      <DynamicBlog data={blogSection} lang={lang} />
       <DynamicFaq data={faqSection} />
     </>
   );

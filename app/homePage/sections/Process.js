@@ -8,7 +8,7 @@ import ArrowWhite from "../../../public/arrow-right-white.png";
 import Button from "@/app/components/Button";
 import { urlFor } from "../../../lib/sanity/client";
 
-export default function Process({ data }) {
+export default function Process({ data, lang }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeIndexDesktop, setActiveIndexDesktop] = useState(0);
 
@@ -29,25 +29,25 @@ export default function Process({ data }) {
         <div className="mb-[40px] lg:mb-0 lg:w-[50%] ">
           {/* Tytuł / opis / przyciski – jak wcześniej */}
           <h3 className="text-[clamp(36px,6.5vw,45px)] leading-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(05)'] after:absolute after:top-[-15px] after:text-[8px] xl:after:top-[-25px] 2xl:after:top-[-35px] mb-5 xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px]  xl:mb-[20px] 2xl:text-[80px] 2xl:leading-[80px] 2xl:font-normal 2xl:max-w-[1200px]">
-            {data.title}
+            {data?.title?.[lang]}
           </h3>
           <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[40px] xl:mb-[50px] min-[380px]:max-w-[390px] md:max-w-[400px] lg:max-w-[500px]">
-            {data.description}
+            {data?.description?.[lang]}
           </p>
-          <Link href={data.buttonLink}>
+          <Link href={data?.buttonLink?.[lang]}>
             <button className="font-medium-font-weight text-[clamp(0.75rem,3.5vw,1rem)] relative uppercase after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:w-full-width after:h-[1px] ml-auto mr-0 block after:w-full lg:hidden">
-              {data.buttonLabel}
+              {data?.buttonLabel?.[lang]}
             </button>
           </Link>
           <div className="lg:flex lg:justify-end">
             <Button
               arrow={ArrowWhite}
-              linkTo={data.buttonLink}
+              linkTo={data?.buttonLink?.[lang]}
               bgColor="main-black"
               textColor="main-white"
               additionalStyles="hidden md:self-end lg:flex"
             >
-              {data.buttonLabel}
+              {data?.buttonLabel?.[lang]}
             </Button>
           </div>
 
@@ -64,7 +64,8 @@ export default function Process({ data }) {
                 }}
               >
                 <span className="flex gap-[10px] items-center text-[clamp(14px,4.3vw,23px)] leading-[clamp(0.75rem,10vw,2rem)]">
-                  <span className="flex">(0{index + 1})</span> {step.title}
+                  <span className="flex">(0{index + 1})</span>{" "}
+                  {step?.title?.[lang]}
                   <Image
                     width={20}
                     height={20}
@@ -81,7 +82,7 @@ export default function Process({ data }) {
                   }`}
                 >
                   <p className="font-light-font-weight mb-[20px] text-[clamp(12px,3.35vw,1rem)] leading-[clamp(16px,4.5vw,1.5rem)] pr-[30px] md:pr-[70px]   lg:text-[16px] lg:leading-[24px]  ">
-                    {step.description}
+                    {step?.description?.[lang]}
                   </p>
                   {activeIndex === index && step.imgSrc && (
                     <div className="relative w-full mb-[0px] aspect-8/5">
@@ -107,7 +108,7 @@ export default function Process({ data }) {
               {activeDesktopStep?.imgSrc && (
                 <Image
                   src={urlFor(activeDesktopStep.imgSrc).url()}
-                  alt={activeDesktopStep.alt}
+                  alt={activeDesktopStep?.alt?.[lang]}
                   fill
                   className="object-cover absolute top-0 left-0 w-full h-full"
                 />
@@ -115,7 +116,7 @@ export default function Process({ data }) {
             </div>
 
             <p className="hidden mt-[10px] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(16px,4.5vw,1.5rem)] max-w-[360px] lg:mt-[10px] lg:text-[16px] lg:leading-[24px] lg:flex xl:max-w-[400px] 2xl:max-w-[450px]">
-              {steps[activeIndex].description}
+              {steps[activeIndex]?.description?.[lang]}
             </p>
           </div>
         </div>

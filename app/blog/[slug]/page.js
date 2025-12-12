@@ -14,19 +14,16 @@ export const revalidate = 0;
 
 export async function generateStaticParams() {
   const posts = await dataBlog();
-  console.log(posts);
 
   return posts.map((post) => ({ slug: post.slug.current }));
 }
 
 export default async function Post({ params }) {
+  const lang = "en";
   const { slug } = await params;
   const posts = await dataBlog();
-  console.log(posts);
 
   const blog = posts.find((post) => post.slug.current === slug);
-
-  console.log(blog);
 
   const getImg = (post, fallback) => {
     if (post?.imgSrc) {
@@ -46,20 +43,22 @@ export default async function Post({ params }) {
           <div className=" flex flex-col lg:flex-row justify-between lg:items-end mb-[20px] md:mb-[40px] lg:mb-[0px] gap-[20px]">
             <div className=" lg:max-w-[1000px]  2xl:max-w-[570px] ">
               <h1 className="text-[clamp(30px,8vw,45px)] leading-[clamp(36px,8vw,45px)] font-medium mb-[20px] xl:mb-[20px] max-w-[500px] lg:text-[45px] lg:leading-[45 px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] xl:max-w-[1200px] 2xl:max-w-[1200px] 2xl:font-normal 2xl:text-[80px] 2xl:leading-[80px] 2xl:w-[900px] uppercase">
-                {blog.title}
+                {blog?.title?.[lang]}
               </h1>
               <p className="font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] flex flex-col gap-[16px]  lg:max-w-[600px]">
-                {blog.description}
+                {blog?.description?.[lang]}
               </p>
             </div>
           </div>
           <div className="flex flex-col-reverse lg:flex-col lg:items-end lg:gap-[20px]  mb-[40px] lg:mb-[80px]">
             <div className="flex gap-[20px] justify-between lg:justify-end w-full lg:w-[40%] lg:relative lg:top-[-25px]">
               <div className="flex gap-[5px] ">
-                <span className="font-medium-font-weight">{blog.category}</span>
+                <span className="font-medium-font-weight">
+                  {blog?.category?.[lang]}
+                </span>
               </div>
               <div className="flex gap-[5px]">
-                <span className="font-light-font-weight">{blog.date}</span>
+                <span className="font-light-font-weight">{blog?.date}</span>
               </div>
             </div>
 
@@ -78,11 +77,11 @@ export default async function Post({ params }) {
             return (
               <div key={index}>
                 <h3 className="text-[30px] mb-[20px] font-medium">
-                  {content.title}
+                  {content?.title?.[lang]}
                 </h3>
                 <div className="flex flex-col gap-[16px] font-light-font-weight">
                   {content.paragraphs.map((paragraph, pIndex) => {
-                    return <p key={pIndex}>{paragraph}</p>;
+                    return <p key={pIndex}>{paragraph?.[lang]}</p>;
                   })}
                 </div>
               </div>
@@ -115,17 +114,20 @@ export default async function Post({ params }) {
               <div className="aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
                 <Image
                   src={posts[0] ? getImg(posts[0], projekt3) : projekt3}
-                  alt={posts[0]?.alt || posts[0]?.title || "pokoj"}
+                  alt={
+                    posts[0]?.alt?.[lang] || posts[0]?.title?.[lang] || "pokoj"
+                  }
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
                 <span className="font-medium-font-weight max-w-[65%]">
-                  {posts[0]?.title || "Designing a Luxury Mediterranean Villa"}
+                  {posts[0]?.title?.[lang] ||
+                    "Designing a Luxury Mediterranean Villa"}
                 </span>
                 <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-                  {posts[0]?.date || "March 2025"}
+                  {posts[0]?.date?.[lang] || "March 2025"}
                 </span>
               </div>
             </Link>
@@ -137,7 +139,9 @@ export default async function Post({ params }) {
               <div className="flex lg:block aspect-[5/3]  lg:aspect-[8/5] relative ">
                 <Image
                   src={posts[1] ? getImg(posts[1], projekt2) : projekt2}
-                  alt={posts[1]?.alt || posts[1]?.title || "pokoj"}
+                  alt={
+                    posts[1]?.alt?.[lang] || posts[1]?.title?.[lang] || "pokoj"
+                  }
                   fill
                   className="object-cover"
                 />
@@ -145,11 +149,11 @@ export default async function Post({ params }) {
             </Link>
             <div className="flex lg:flex-col gap-[4px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
               <span className="font-medium-font-weight max-w-[70%]">
-                {posts[1]?.title ||
+                {posts[1]?.title?.[lang] ||
                   "Maximizing Light and Views in Your Mallorca Home"}
               </span>
               <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-                {posts[1]?.date || "January 2025"}
+                {posts[1]?.date?.[lang] || "January 2025"}
               </span>
             </div>
           </div>
@@ -160,7 +164,9 @@ export default async function Post({ params }) {
               <div className="aspect-[7/8]  lg:aspect-[6/8] xl:aspect-[6/8] relative ">
                 <Image
                   src={posts[2] ? getImg(posts[2], projekt4) : projekt4}
-                  alt={posts[2]?.alt || posts[2]?.title || "pokoj"}
+                  alt={
+                    posts[2]?.alt?.[lang] || posts[2]?.title?.[lang] || "pokoj"
+                  }
                   fill
                   className="object-cover"
                 />
@@ -168,11 +174,11 @@ export default async function Post({ params }) {
             </Link>
             <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
               <span className="font-medium-font-weight max-w-[85%]">
-                {posts[2]?.title ||
+                {posts[2]?.title?.[lang] ||
                   "Materials and Finishes Inspired by Mallorca."}
               </span>
               <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-                {posts[2]?.date || "August 2024"}
+                {posts[2]?.date?.[lang] || "August 2024"}
               </span>
             </div>
           </div>

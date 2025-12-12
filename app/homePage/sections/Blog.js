@@ -11,17 +11,17 @@ import projekt4 from "../../../public/projekt4-large.webp";
 
 import { urlFor } from "../../../lib/sanity/client";
 
-export default function Blog({ data }) {
+export default function Blog({ data, lang }) {
   console.log(data.posts[0].slug);
   // gdy brak sekcji – nic nie renderujemy
   if (!data) return null;
 
-  const title = data.title || "Blog";
+  const title = data?.title?.[lang] || "Blog";
   const description =
-    data.description ||
+    data?.description?.[lang] ||
     "Welcome to our blog, where we explore design ideas, materials and architectural insights inspired by Mallorca.";
-  const buttonLabel = data.buttonLabel || "Zobacz wszystkie";
-  const buttonLink = data.buttonLink || "/blog";
+  const buttonLabel = data?.buttonLabel?.[lang] || "Zobacz wszystkie";
+  const buttonLink = data?.buttonLink?.[lang] || "/blog";
 
   // w Sanity: posts = array of {post: {...}}
   const posts =
@@ -74,17 +74,20 @@ export default function Blog({ data }) {
             <div className=" aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
               <Image
                 src={posts[0] ? getImg(posts[0], projekt3) : projekt3}
-                alt={posts[0]?.alt || posts[0]?.title || "pokoj"}
+                alt={
+                  posts[0]?.alt?.[lang] || posts[0]?.title?.[lang] || "pokoj"
+                }
                 fill
                 className="object-cover"
               />
             </div>
             <div className="flex flex lg:flex-col gap-[5px] justify-between mt-[5px]  w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
               <span className="font-medium-font-weight max-w-[65%]">
-                {posts[0]?.title || "Designing a Luxury Mediterranean Villa"}
+                {posts[0]?.title?.[lang] ||
+                  "Designing a Luxury Mediterranean Villa"}
               </span>
               <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-                {posts[0]?.date || "March 2025"}
+                {posts[0]?.date?.[lang] || "March 2025"}
               </span>
             </div>
           </Link>
@@ -96,7 +99,9 @@ export default function Blog({ data }) {
             <div className="flex lg:block aspect-[5/3]  lg:aspect-[8/5] relative ">
               <Image
                 src={posts[1] ? getImg(posts[1], projekt2) : projekt2}
-                alt={posts[1]?.alt || posts[1]?.title || "pokoj"}
+                alt={
+                  posts[1]?.alt?.[lang] || posts[1]?.title?.[lang] || "pokoj"
+                }
                 fill
                 className="object-cover"
               />
@@ -104,11 +109,11 @@ export default function Blog({ data }) {
           </Link>
           <div className="flex flex lg:flex-col gap-[5px]  justify-between mt-[5px]  w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight ">
             <span className="font-medium-font-weight max-w-[70%]">
-              {posts[1]?.title ||
+              {posts[1]?.title?.[lang] ||
                 "Maximizing Light and Views in Your Mallorca Home"}
             </span>
             <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-              {posts[1]?.date || "January 2025"}
+              {posts[1]?.date?.[lang] || "January 2025"}
             </span>
           </div>
         </div>
@@ -119,7 +124,9 @@ export default function Blog({ data }) {
             <div className="aspect-[7/8]  lg:aspect-[6/8] xl:aspect-[6/8] relative ">
               <Image
                 src={posts[2] ? getImg(posts[2], projekt4) : projekt4}
-                alt={posts[2]?.alt || posts[2]?.title || "pokoj"}
+                alt={
+                  posts[2]?.alt?.[lang] || posts[2]?.title?.[lang] || "pokoj"
+                }
                 fill
                 className="object-cover"
               />
@@ -127,11 +134,11 @@ export default function Blog({ data }) {
           </Link>
           <div className="flex flex lg:flex-col gap-[5px] justify-between mt-[5px]  w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight ">
             <span className="font-medium-font-weight max-w-[85%]">
-              {posts[2]?.title ||
+              {posts[2]?.title?.[lang] ||
                 "Materials and Finishes Inspired by Mallorca."}
             </span>
             <span className="text-[#757575] lg:text-[14px] 2xl:text-[16px] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight">
-              {posts[2]?.date || "August 2024"}
+              {posts[2]?.date?.[lang] || "August 2024"}
             </span>
           </div>
         </div>
