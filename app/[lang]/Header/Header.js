@@ -1,17 +1,14 @@
 import Navigation from "./Navigation";
 
-import { sanityClient } from "../../../../lib/sanity/client";
+import { sanityClient } from "../../../lib/sanity/client";
 import {
   navigationMobileQuery,
   navigationQuery,
-} from "../../../../lib/sanity/queries";
+} from "../../../lib/sanity/queries";
 
 export const revalidate = 0;
 
-export default async function Header({ params }) {
-  const getParams = await params;
-  const lang = getParams.lang;
-
+export default async function Header({ lang }) {
   const navigationData = await sanityClient.fetch(navigationQuery);
   const navigation = navigationData;
 

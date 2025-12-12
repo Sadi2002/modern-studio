@@ -1,7 +1,5 @@
 import "./globals.css";
-import Header from "./components/Header/Header";
 import { Poppins } from "next/font/google";
-import Footer from "./components/Footer/Footer";
 
 export const poppins = Poppins({
   subsets: ["latin"],
@@ -12,9 +10,8 @@ export const poppins = Poppins({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pl">
+    <html lang="en">
       <head>
-        {/* Preconnect do Google Fonts, przyspiesza pobranie fontów */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -23,11 +20,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={`${poppins.className} min-h-screen bg-bg-main`}>
-        <Header />
-
-        <main>{children}</main>
-
-        <Footer />
+        {children}
       </body>
     </html>
   );

@@ -1,5 +1,7 @@
 import Hero from "./homePage/sections/Hero";
 import dynamic from "next/dynamic";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 import { sanityClient } from "../lib/sanity/client";
 import { homePageQuery } from "../lib/sanity/queries";
@@ -31,12 +33,14 @@ export default async function Home() {
 
   return (
     <>
+      <Header lang={lang} />
       <Hero data={heroSection} lang={lang} />
       <DynamicAbout data={aboutSection} lang={lang} />
       <DynamicProjects data={projectsSection} lang={lang} />
       <DynamicProcess data={processSection} lang={lang} />
       <DynamicBlog data={blogSection} lang={lang} />
       <DynamicFaq data={faqSection} lang={lang} />
+      <Footer />
     </>
   );
 }

@@ -8,8 +8,7 @@ import {
 
 export const revalidate = 0;
 
-export default async function Header() {
-  const lang = "en";
+export default async function Header({ lang }) {
   const navigationData = await sanityClient.fetch(navigationQuery);
   const navigation = navigationData;
 

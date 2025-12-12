@@ -20,6 +20,7 @@ export const metadata = {
 export default async function About({ params }) {
   const getParams = await params;
   const lang = getParams.lang;
+
   const aboutPageData = await sanityClient.fetch(aboutPageQuery);
 
   const { welcomeSection } = aboutPageData;
