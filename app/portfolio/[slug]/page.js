@@ -48,7 +48,7 @@ export default async function Project({ params }) {
         <div className="flex flex-col text-[clamp(16px,4vw,20px)] leading-[clamp(0.75rem,10vw,20px)] 2xl:text-[20px] gap-[5px] 2xl:gap-[10px]">
           <span className="font-medium-font-weight">Data completed</span>
           <span className="font-light-font-weight text-[14px] 2xl:text-[16px]">
-            {project?.year?.[lang]}
+            {project?.year}
           </span>
         </div>
         <div className="flex flex-col text-[clamp(16px,4vw,20px)] leading-[clamp(0.75rem,10vw,20px)] 2xl:text-[20px] gap-[5px] 2xl:gap-[10px]">
