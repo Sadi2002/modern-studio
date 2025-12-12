@@ -5,6 +5,7 @@ import Button from "@/app/components/Button";
 import { urlFor } from "../../../lib/sanity/client";
 
 export default async function Hero({ data, lang }) {
+  console.log(data);
   console.log(lang);
   return (
     <section className="h-[100dvh] relative w-full mb-[20px]">
@@ -31,7 +32,7 @@ export default async function Hero({ data, lang }) {
 
           <Button
             arrow={arrow}
-            linkTo={data}
+            linkTo={data?.buttonLink?.[lang]}
             bgColor="main-white"
             textColor="main-black"
             additionalStyles="md:self-start"

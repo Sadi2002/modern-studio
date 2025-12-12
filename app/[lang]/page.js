@@ -33,8 +33,8 @@ export default async function Home({ params }) {
   return (
     <>
       <Hero data={heroSection} lang={lang} />
-      <DynamicAbout data={aboutSection} />
-      <DynamicProjects data={projectsSection} />
+      <DynamicAbout data={aboutSection} lang={lang} />
+      <DynamicProjects data={projectsSection} lang={lang} />
       <DynamicProcess data={processSection} />
       <DynamicBlog data={blogSection} />
       <DynamicFaq data={faqSection} />

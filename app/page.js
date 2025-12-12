@@ -32,11 +32,11 @@ export default async function Home() {
   return (
     <>
       <Hero data={heroSection} lang={lang} />
-      <DynamicAbout data={aboutSection} />
-      <DynamicProjects data={projectsSection} />
-      <DynamicProcess data={processSection} />
-      <DynamicBlog data={blogSection} />
-      <DynamicFaq data={faqSection} />
+      <DynamicAbout data={aboutSection} lang={lang} />
+      <DynamicProjects data={projectsSection} lang={lang} />
+      <DynamicProcess data={processSection} lang={lang} />
+      <DynamicBlog data={blogSection} lang={lang} />
+      <DynamicFaq data={faqSection} lang={lang} />
     </>
   );
 }
