@@ -99,7 +99,7 @@ export default async function Project({ params }) {
         <div className="flex justify-end mt-[30px] px-[10px] md:px-[20px] 2xl:px-[40px] ">
           <Button
             arrow={ArrowWhite}
-            linkTo={`/contact`}
+            linkTo={`${whatsLanguage}/contact`}
             bgColor="main-black"
             textColor="main-white"
             additionalStyles="md:self-end"
