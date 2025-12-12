@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import projekt2 from "../../public/projekt2-large.webp";
-import projekt3 from "../../public/projekt3-large.webp";
-import projekt4 from "../../public/projekt4-large.webp";
-import { urlFor } from "../../lib/sanity/client";
+import projekt2 from "../../../public/projekt2-large.webp";
+import projekt3 from "../../../public/projekt3-large.webp";
+import projekt4 from "../../../public/projekt4-large.webp";
+import { urlFor } from "../../../lib/sanity/client";
 import { useState } from "react";
 
 export default function BlogList({ posts, postsSection, lang }) {
