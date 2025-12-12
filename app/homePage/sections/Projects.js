@@ -11,7 +11,7 @@ import { urlFor } from "../../../lib/sanity/client";
 export default async function Projects({ data, lang }) {
   const project = await DataProjects();
 
-  const whatsLanguage = lang === "en" ? "" : lang;
+  const whatsLanguage = lang === "en" ? "" : `/${lang}`;
 
   return (
     <section className="mx-margin-mobile md:mx-tablet lg:mx-small-laptop mb-[80px] xl:mb-[150px]">

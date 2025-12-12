@@ -20,6 +20,8 @@ export async function generateStaticParams() {
 export default async function Project({ params }) {
   const getParams = await params;
   const lang = getParams.lang;
+  const whatsLanguage = lang === "en" ? "" : `/${lang}`;
+  console.log(whatsLanguage);
   const { slug } = await params;
   const projects = await dataProjects();
 
@@ -97,7 +99,7 @@ export default async function Project({ params }) {
         <div className="flex justify-end mt-[30px] px-[10px] md:px-[20px] 2xl:px-[40px] ">
           <Button
             arrow={ArrowWhite}
-            linkTo="/portfolio"
+            linkTo={`/contact`}
             bgColor="main-black"
             textColor="main-white"
             additionalStyles="md:self-end"

@@ -19,7 +19,13 @@ export async function generateStaticParams() {
 }
 
 export default async function Post({ params }) {
-  const lang = "en";
+  const getParams = await params;
+  const lang = getParams.lang;
+
+  const whatsLanguage = lang === "en" ? "/blog" : `/${lang}/blog`;
+
+  console.log(lang);
+
   const { slug } = await params;
   const posts = await dataBlog();
 
@@ -95,7 +101,7 @@ export default async function Post({ params }) {
         </h3>
         <div className="flex justify-end">
           <Link
-            href="/blog"
+            href={`${whatsLanguage}`}
             className="bg-main-black mb-[40px] rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)] md:flex md:max-h-[50px] self-end"
           >
             Zobacz wszystkie

@@ -9,7 +9,7 @@ import Button from "@/app/components/Button";
 import { urlFor } from "../../../lib/sanity/client";
 
 export default function Process({ data, lang }) {
-  const whatsLanguage = lang === "en" ? "" : lang;
+  const whatsLanguage = lang === "en" ? "" : `/${lang}`;
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeIndexDesktop, setActiveIndexDesktop] = useState(0);

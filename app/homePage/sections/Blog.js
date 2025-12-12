@@ -12,7 +12,7 @@ import projekt4 from "../../../public/projekt4-large.webp";
 import { urlFor } from "../../../lib/sanity/client";
 
 export default function Blog({ data, lang }) {
-  const whatsLanguage = lang === "en" ? "" : lang;
+  const whatsLanguage = lang === "en" ? "" : `/${lang}`;
 
   if (!data) return null;
 
