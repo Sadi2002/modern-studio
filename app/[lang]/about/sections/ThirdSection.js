@@ -1,7 +1,7 @@
 import Button from "@/app/components/Button";
-import ArrowWhite from "../../../public/arrow-right-white.png";
+import ArrowWhite from "../../../../public/arrow-right-white.png";
 import TeamMember from "@/app/components/TeamMember";
-import { urlFor } from "../../../lib/sanity/client";
+import { urlFor } from "../../../../lib/sanity/client";
 
 export default function ThirdSection({ data, lang }) {
   console.log(data);

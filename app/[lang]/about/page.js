@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-import { sanityClient } from "../../lib/sanity/client";
+import { sanityClient } from "../../../lib/sanity/client";
 import { aboutPageQuery } from "@/lib/sanity/queries";
 
 export const revalidate = 0;
@@ -17,8 +17,9 @@ export const metadata = {
     "Odkryj Sadowski Studio - Twoje źródło nowoczesnej architektury i designu. Tworzymy przestrzenie, które inspirują i zachwycają.",
 };
 
-export default async function About() {
-  const lang = "en";
+export default async function About({ params }) {
+  const getParams = await params;
+  const lang = getParams.lang;
   const aboutPageData = await sanityClient.fetch(aboutPageQuery);
 
   const { welcomeSection } = aboutPageData;

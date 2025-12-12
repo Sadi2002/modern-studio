@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { urlFor } from "../../../lib/sanity/client";
+import { urlFor } from "../../../../lib/sanity/client";
 
 export default function SecondSection({ data, lang }) {
   return (
