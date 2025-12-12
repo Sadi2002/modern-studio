@@ -19,7 +19,8 @@ export const metadata = {
 };
 
 export default async function Home() {
-  const homePageData = await sanityClient.fetch(homePageQuery, { lang: "en" });
+  const lang = "en";
+  const homePageData = await sanityClient.fetch(homePageQuery);
 
   const { heroSection } = homePageData;
   const { aboutSection } = homePageData;
@@ -30,7 +31,7 @@ export default async function Home() {
 
   return (
     <>
-      <Hero data={heroSection} lang="en" />
+      <Hero data={heroSection} lang={lang} />
       <DynamicAbout data={aboutSection} />
       <DynamicProjects data={projectsSection} />
       <DynamicProcess data={processSection} />

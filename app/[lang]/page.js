@@ -19,11 +19,9 @@ export const metadata = {
 };
 
 export default async function Home({ params }) {
-  const resolvedParams = await params;
-  const lang = resolvedParams.lang;
+  const getParams = await params;
+  const lang = getParams.lang;
   const homePageData = await sanityClient.fetch(homePageQuery);
-
-  console.log(lang);
 
   const { heroSection } = homePageData;
   const { aboutSection } = homePageData;
