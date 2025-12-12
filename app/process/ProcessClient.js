@@ -3,13 +3,13 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ProcessPanel from "../components/ProcessPanel";
+import ProcessPanel from "./ProcessPanel";
 import FirstSection from "@/app/process/FirstSection";
 import { urlFor } from "../../lib/sanity/client";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ProcessClient({ welcomeSection, stepsSection }) {
+export default function ProcessClient({ welcomeSection, stepsSection, lang }) {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -55,11 +55,13 @@ export default function ProcessClient({ welcomeSection, stepsSection }) {
         if (!item) return null;
 
         return {
-          title: item.title,
-          image: item.image ? urlFor(item.image).url() : "/consultation.jpg",
+          title: item?.title?.[lang],
+          image: item?.image?.[lang]
+            ? urlFor(item.image).url()
+            : "/consultation.jpg",
           description: [
-            item.description1 || "",
-            item.description2 || "",
+            item?.description1?.[lang] || "",
+            item?.description2?.[lang] || "",
           ].filter(Boolean), // usuwamy puste akapity
         };
       })
@@ -74,7 +76,7 @@ export default function ProcessClient({ welcomeSection, stepsSection }) {
         {/* Panel 0: FirstSection jako pierwszy ekran, pełne 100vw */}
         <div className="panel-process lg:w-screen lg:flex lg:h-full">
           <div className="w-screen h-full">
-            <FirstSection data={welcomeSection} />
+            <FirstSection data={welcomeSection} lang={lang} />
           </div>
         </div>
 
@@ -82,9 +84,10 @@ export default function ProcessClient({ welcomeSection, stepsSection }) {
           <ProcessPanel
             key={i}
             index={i + 1}
-            title={step.title}
-            description={step.description}
+            title={step?.title}
+            description={step?.description}
             image={step.image}
+            lang={lang}
           />
         ))}
       </div>

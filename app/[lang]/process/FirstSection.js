@@ -1,8 +1,8 @@
 import Button from "@/app/components/Button";
 import Image from "next/image";
-import ArrowWhite from "../../public/arrow-right-white.png";
+import ArrowWhite from "../../../public/arrow-right-white.png";
 
-import { urlFor } from "../../lib/sanity/client";
+import { urlFor } from "../../../lib/sanity/client";
 
 export default function FirstSection({ data, lang }) {
   return (
