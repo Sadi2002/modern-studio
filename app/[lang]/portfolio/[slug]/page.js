@@ -1,13 +1,13 @@
 export const revalidate = 0;
 import Image from "next/image";
-import ArrowWhite from "../../../public/arrow-right-white.png";
+import ArrowWhite from "../../../../public/arrow-right-white.png";
 
-import ProjectGallery from "../../components/Gallery";
+import ProjectGallery from "../../../components/Gallery";
 import PortfolioClient from "../PortfolioClient";
 
-import dataProjects from "../../data/dataProjects";
+import dataProjects from "../../../data/dataProjects";
 
-import { urlFor } from "../../../lib/sanity/client";
+import { urlFor } from "../../../../lib/sanity/client";
 import Button from "@/app/components/Button";
 import PortfolioDetails from "@/app/components/PortfolioDetails";
 
@@ -18,7 +18,8 @@ export async function generateStaticParams() {
 }
 
 export default async function Project({ params }) {
-  const lang = "en";
+  const getParams = await params;
+  const lang = getParams.lang;
   const { slug } = await params;
   const projects = await dataProjects();
 

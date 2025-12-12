@@ -14,11 +14,11 @@ import {
   useState,
 } from "react";
 
-import dataProjects from "../data/dataProjects";
-import Button from "../components/Button";
-import ArrowWhite from "../../public/arrow-right-white.png";
+import dataProjects from "../../data/dataProjects";
+import Button from "../../components/Button";
+import ArrowWhite from "../../../public/arrow-right-white.png";
 
-import { urlFor } from "../../lib/sanity/client";
+import { urlFor } from "../../../lib/sanity/client";
 
 export default function PortfolioClient({
   projects = [],
@@ -263,10 +263,10 @@ export default function PortfolioClient({
                 </div>
               </div>
               <div className="flex justify-between mt-[5px] xl:mt-[7px] 2xl:mt-[10px] items-center">
-                <span className=" text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-medium-font-weight ">{`${p?.title?.[lang]}, ${p?.location?.[lang]}`}</span>
+                <span className=" text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-medium-font-weight ">{`${p?.title?.[lang]}, ${p.location?.[lang]}`}</span>
                 <div className="flex items-center gap-4">
                   <span className="sm:inline  text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px]  font-medium-font-weight">
-                    {p.year}
+                    {p?.year?.[lang]}
                   </span>
                 </div>
               </div>

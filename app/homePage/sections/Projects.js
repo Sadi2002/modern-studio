@@ -18,7 +18,7 @@ export default async function Projects({ data, lang }) {
       </h3>
       <div className="flex flex-col lg:flex-row lg:justify-between">
         <div className="flex flex-col lg:w-[calc(50%-10px)]">
-          <Link href={`${lang}/portfolio/${project[0]?.slug.current}`}>
+          <Link href={`/portfolio/${project[0]?.slug.current}`}>
             <div className="max-w-[80%] mb-[50px] lg:mb-[50px] lg:max-w-[100%]">
               <div className="relative aspect-8/7">
                 <Image
@@ -40,7 +40,7 @@ export default async function Projects({ data, lang }) {
           </Link>
 
           <Link
-            href={`${lang}/portfolio/${project[1]?.slug.current}`}
+            href={`/portfolio/${project[1]?.slug.current}`}
             className="h-full flex justify-end"
           >
             <div className="w-[86%] flex flex-col items-end self-end mb-[50px] lg:mb-[0px] lg:w-[100%] lg:h-full">
@@ -65,7 +65,7 @@ export default async function Projects({ data, lang }) {
         </div>
 
         <div className="lg:flex lg:flex-col lg:w-[calc(50%-10px)]">
-          <Link href={`${lang}/portfolio/${project[2]?.slug.current}`}>
+          <Link href={`/portfolio/${project[2]?.slug.current}`}>
             <div className="w-full mb-[50px] lg:mb-[50px]">
               <div className="relative aspect-8/5">
                 <Image
@@ -86,7 +86,7 @@ export default async function Projects({ data, lang }) {
             </div>
           </Link>
 
-          <Link href={`${lang}/portfolio/${project[3]?.slug.current}`}>
+          <Link href={`/portfolio/${project[3]?.slug.current}`}>
             <div className="max-w-[78%] mb-[30px] lg:w-[100%] lg:max-w-[100%] lg:mb-[60px]">
               <div className="relative aspect-7/8 lg:aspect-8/7">
                 <Image
@@ -114,7 +114,7 @@ export default async function Projects({ data, lang }) {
             </p>
             <Button
               arrow={ArrowWhite}
-              linkTo={data?.buttonLink?.[lang]}
+              linkTo="/portfolio"
               bgColor="main-black"
               textColor="main-white"
               additionalStyles="md:self-end"
