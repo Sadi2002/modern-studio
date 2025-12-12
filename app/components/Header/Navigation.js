@@ -158,7 +158,11 @@ export default function Navigation({ data, dataMobile }) {
             </li>
           ))}
         </ul>
-        <div className="hidden md:flex items-center gap-2 uppercase text-[16px] text-white">
+        <div
+          className={`hidden md:flex items-center gap-2 uppercase text-[16px] ${
+            isHome ? "text-main-white" : "text-black"
+          }`}
+        >
           {availableLangs.map((lang, index) => (
             <div key={lang} className="flex items-center gap-2">
               <Link href={languages[lang]}>{lang}</Link>

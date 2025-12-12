@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 
-function FaqComponent({ data }) {
+function FaqComponent({ data, lang }) {
+  console.log(data);
   // data = faqSection z Sanity
   // items = array of { item: { question, answer } }
   const items =
@@ -13,8 +14,8 @@ function FaqComponent({ data }) {
         if (!item) return null;
         return {
           id: index + 1, // generujemy id, bo w schemacie go nie ma
-          title: item.question,
-          description: item.answer,
+          title: item?.question?.[lang],
+          description: item?.answer?.[lang],
         };
       })
       .filter(Boolean) || [];
@@ -39,7 +40,7 @@ function FaqComponent({ data }) {
           >
             <div className="flex justify-between items-center">
               <span className="block text-[clamp(16px,3.5vw,20px)] font-light-font-weight leading-[clamp(20px,6vw,2rem)] pr-[15px]">
-                {step.title}
+                {step?.title}
               </span>
               <Image
                 width={20}
@@ -53,7 +54,7 @@ function FaqComponent({ data }) {
             {isOpen && (
               <div className="mt-[20px]">
                 <p className="font-light opacity-[64%] text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] pr-[30px] md:pr-[70px]">
-                  {step.description}
+                  {step?.description}
                 </p>
               </div>
             )}
