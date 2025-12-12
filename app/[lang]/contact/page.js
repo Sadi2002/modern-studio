@@ -1,13 +1,14 @@
 import Link from "next/link";
-import ArrowWhite from "../../public/arrow-right-white.png";
-import Button from "../components/Button";
-import { sanityClient } from "../../lib/sanity/client";
+import ArrowWhite from "../../../public/arrow-right-white.png";
+import Button from "../../components/Button";
+import { sanityClient } from "../../../lib/sanity/client";
 import { contactPageQuery } from "@/lib/sanity/queries";
 
 export const revalidate = 0;
 
-export default async function Contact() {
-  const lang = "en";
+export default async function Contact({ params }) {
+  const getParams = await params;
+  const lang = getParams.lang;
   const contactPageData = await sanityClient.fetch(contactPageQuery);
 
   const section = contactPageData?.contactSection || {};

@@ -9,7 +9,7 @@ import dataProjects from "../../data/dataProjects";
 
 import { urlFor } from "../../../lib/sanity/client";
 import Button from "@/app/components/Button";
-import PortfolioDetails from "@/app/components/PortfolioDetails";
+import PortfolioDetails from "@/app/portfolio/PortfolioDetails";
 
 export async function generateStaticParams() {
   const projects = await dataProjects();
