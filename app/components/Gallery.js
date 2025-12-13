@@ -4,11 +4,10 @@ import { useMemo } from "react";
 import { urlFor } from "../../lib/sanity/client";
 import Image from "next/image";
 
-// Buduje layout: [{ type: "two" | "one", index }]
 function buildLayout(gallery) {
   const layout = [];
   let i = 0;
-  let isPair = true; // Zaczynamy od pary
+  let isPair = true;
   while (i < gallery.length) {
     if (isPair && i + 1 < gallery.length) {
       layout.push({ type: "two", index: i });
@@ -23,11 +22,12 @@ function buildLayout(gallery) {
 }
 
 export default function ProjectGallery({ gallery }) {
-  if (!gallery || gallery.length === 0) {
-    return null;
-  }
+  const layout = useMemo(() => {
+    if (!gallery || gallery.length === 0) return [];
+    return buildLayout(gallery);
+  }, [gallery]);
 
-  const layout = useMemo(() => buildLayout(gallery), [gallery]);
+  if (!gallery || gallery.length === 0) return null;
 
   const items = layout.map((block, idx) => {
     if (block.type === "one") {
@@ -35,17 +35,14 @@ export default function ProjectGallery({ gallery }) {
       if (!big) return null;
 
       return (
-        <div key={`big-${idx}`} className="w-full mb-[10px] md:mb-[16px]">
-          <div className="relative w-full overflow-hidden aspect-[8/6]  lg:aspect-[6/3]">
-            <img
-              src={big.imgSrc}
-              alt={big.alt || ""}
-              className="h-full w-full object-cover"
-            />
-
+        <div
+          key={`big-${big._id || idx}`}
+          className="w-full mb-[10px] md:mb-[16px]"
+        >
+          <div className="relative w-full overflow-hidden aspect-[8/6] lg:aspect-[6/3]">
             <Image
               src={urlFor(big).url()}
-              alt={big.alt || ""}
+              alt={big.alt || "Gallery image"}
               fill
               className="object-cover"
             />
@@ -59,28 +56,24 @@ export default function ProjectGallery({ gallery }) {
 
     return (
       <div
-        key={`pair-${idx}`}
+        key={`pair-${firstSmall._id || idx}`}
         className="flex flex-col gap-[10px] md:gap-[16px] lg:grid lg:grid-cols-2 mb-[10px] md:mb-[16px]"
       >
-        {firstSmall && (
-          <div className="relative overflow-hidden aspect-[8/9] lg:aspect-[6/6]">
-            <Image
-              src={urlFor(firstSmall).url()}
-              alt={firstSmall.alt || ""}
-              fill
-              className="object-cover"
-            />
-          </div>
-        )}
-        {secondSmall && (
-          <div className="relative overflow-hidden aspect-[8/9] lg:aspect-[6/6]">
-            <Image
-              src={urlFor(secondSmall).url()}
-              alt={secondSmall.alt || ""}
-              fill
-              className="object-cover"
-            />
-          </div>
+        {[firstSmall, secondSmall].map(
+          (img, index) =>
+            img && (
+              <div
+                key={index}
+                className="relative overflow-hidden aspect-[8/9] lg:aspect-[6/6]"
+              >
+                <Image
+                  src={urlFor(img).url()}
+                  alt={img.alt || "Gallery image"}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            )
         )}
       </div>
     );
