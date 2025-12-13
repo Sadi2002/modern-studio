@@ -30,9 +30,7 @@ function ModelContent({ setLoading }) {
   const scale = isMobile ? 1 : 1;
 
   useFrame((_, delta) => {
-    if (ref.current) {
-      ref.current.rotation.y += delta * 0.2;
-    }
+    if (ref.current) ref.current.rotation.y += delta * 0.2;
   });
 
   useEffect(() => {
@@ -49,6 +47,12 @@ function ModelContent({ setLoading }) {
 export default function ModelLoader({ setLoading, fullscreen }) {
   const { isLg } = useIsMobile();
 
+  // ustawienia zoom i kąt
+  const minDistance = 2; // minimalny zoom
+  const maxDistance = 5; // maksymalny zoom
+  const maxPolarAngle = Math.PI / 2; // max 90° pionowo (nie patrz pod model)
+  const minPolarAngle = 0; // opcjonalnie od góry
+
   return (
     <Canvas
       camera={{ position: [0, 1, 3] }}
@@ -64,11 +68,14 @@ export default function ModelLoader({ setLoading, fullscreen }) {
       <directionalLight position={[5, 5, 5]} intensity={1} />
       <directionalLight position={[-5, 5, -5]} intensity={0.5} />
 
-      {/* OrbitControls dynamicznie */}
       <OrbitControls
-        enableRotate={true} // zawsze obracamy
-        enableZoom={isLg ? fullscreen : true} // zoom wg. breakpoint + fullscreen
+        enableRotate={true} // zawsze obrót
+        enableZoom={isLg ? fullscreen : true} // zoom wg breakpoint + fullscreen
         enablePan={false}
+        minDistance={minDistance}
+        maxDistance={maxDistance}
+        maxPolarAngle={maxPolarAngle}
+        minPolarAngle={minPolarAngle}
       />
 
       <Suspense fallback={null}>
