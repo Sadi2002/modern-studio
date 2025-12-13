@@ -2,15 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { sanityClient } from "../../../lib/sanity/client";
-import { footerQuery } from "@/lib/sanity/queries";
+import { footerQuery } from "../../../lib/sanity/queries";
 
 import { urlFor } from "../../../lib/sanity/client";
 
 export const revalidate = 0;
 
 export default async function Footer({ lang }) {
-  const whatsLanguage = lang === "en" ? "" : `/${lang}`;
-
   const footerData = await sanityClient.fetch(footerQuery);
   const footer = footerData;
 
@@ -34,7 +32,7 @@ export default async function Footer({ lang }) {
                 className="py-[15px] border-b border-[rgba(255,255,255,.2)]  lg:py-[30px] last:lg:border-b-0"
               >
                 <Link
-                  href={`${whatsLanguage}${link?.url?.[lang]}`}
+                  href={`/${lang}${link?.url?.[lang]}`}
                   className="uppercase text-white text-[clamp(20px,5vw,23px)] flex pl-[20px] md:pl-[40px]"
                 >
                   {link?.title?.[lang]}

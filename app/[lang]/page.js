@@ -1,14 +1,14 @@
-import Hero from "../homePage/sections/Hero";
+import Hero from "./homePage/sections/Hero";
 import dynamic from "next/dynamic";
 
 import { sanityClient } from "../../lib/sanity/client";
 import { homePageQuery } from "../../lib/sanity/queries";
 
-const DynamicAbout = dynamic(() => import("../homePage/sections/About"));
-const DynamicProjects = dynamic(() => import("../homePage/sections/Projects"));
-const DynamicProcess = dynamic(() => import("../homePage/sections/Process"));
-const DynamicBlog = dynamic(() => import("../homePage/sections/Blog"));
-const DynamicFaq = dynamic(() => import("../homePage/sections/Faq"));
+const DynamicAbout = dynamic(() => import("./homePage/sections/About"));
+const DynamicProjects = dynamic(() => import("./homePage/sections/Projects"));
+const DynamicProcess = dynamic(() => import("./homePage/sections/Process"));
+const DynamicBlog = dynamic(() => import("./homePage/sections/Blog"));
+const DynamicFaq = dynamic(() => import("./homePage/sections/Faq"));
 
 export const revalidate = 0;
 

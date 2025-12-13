@@ -1,17 +1,15 @@
 export const revalidate = 0;
 import Image from "next/image";
-import Button from "@/app/components/Button";
-import ArrowWhite from "../../../public/arrow-right-white.png";
+import Button from "../../../components/Button";
+import ArrowWhite from "../../../../public/arrow-right-white.png";
 
-import DataProjects from "../../data/dataProjects";
+import DataProjects from "../../../data/dataProjects";
 import Link from "next/link";
 
-import { urlFor } from "../../../lib/sanity/client";
+import { urlFor } from "../../../../lib/sanity/client";
 
 export default async function Projects({ data, lang }) {
   const project = await DataProjects();
-
-  const whatsLanguage = lang === "en" ? "" : `/${lang}`;
 
   return (
     <section className="mx-margin-mobile md:mx-tablet lg:mx-small-laptop mb-[80px] xl:mb-[150px]">
@@ -20,7 +18,7 @@ export default async function Projects({ data, lang }) {
       </h3>
       <div className="flex flex-col lg:flex-row lg:justify-between">
         <div className="flex flex-col lg:w-[calc(50%-10px)]">
-          <Link href={`${whatsLanguage}/portfolio/${project[0]?.slug.current}`}>
+          <Link href={`/${lang}/portfolio/${project[0]?.slug.current}`}>
             <div className="max-w-[80%] mb-[50px] lg:mb-[50px] lg:max-w-[100%]">
               <div className="relative aspect-8/7">
                 <Image
@@ -42,7 +40,7 @@ export default async function Projects({ data, lang }) {
           </Link>
 
           <Link
-            href={`${whatsLanguage}/portfolio/${project[1]?.slug.current}`}
+            href={`/${lang}/portfolio/${project[1]?.slug.current}`}
             className="h-full flex justify-end"
           >
             <div className="w-[86%] flex flex-col items-end self-end mb-[50px] lg:mb-[0px] lg:w-[100%] lg:h-full">
@@ -67,7 +65,7 @@ export default async function Projects({ data, lang }) {
         </div>
 
         <div className="lg:flex lg:flex-col lg:w-[calc(50%-10px)]">
-          <Link href={`${whatsLanguage}/portfolio/${project[2]?.slug.current}`}>
+          <Link href={`/${lang}/portfolio/${project[2]?.slug.current}`}>
             <div className="w-full mb-[50px] lg:mb-[50px]">
               <div className="relative aspect-8/5">
                 <Image
@@ -88,7 +86,7 @@ export default async function Projects({ data, lang }) {
             </div>
           </Link>
 
-          <Link href={`${whatsLanguage}/portfolio/${project[3]?.slug.current}`}>
+          <Link href={`/${lang}/portfolio/${project[3]?.slug.current}`}>
             <div className="max-w-[78%] mb-[30px] lg:w-[100%] lg:max-w-[100%] lg:mb-[60px]">
               <div className="relative aspect-7/8 lg:aspect-8/7">
                 <Image
@@ -116,7 +114,7 @@ export default async function Projects({ data, lang }) {
             </p>
             <Button
               arrow={ArrowWhite}
-              linkTo={`${whatsLanguage}${data?.buttonLink?.[lang]}`}
+              linkTo={`/${lang}${data?.buttonLink?.[lang]}`}
               bgColor="main-black"
               textColor="main-white"
               additionalStyles="md:self-end"

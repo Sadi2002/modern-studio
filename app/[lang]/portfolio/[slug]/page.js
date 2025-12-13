@@ -9,7 +9,7 @@ import dataProjects from "../../../data/dataProjects";
 
 import { urlFor } from "../../../../lib/sanity/client";
 import Button from "@/app/components/Button";
-import PortfolioDetails from "@/app/portfolio/PortfolioDetails";
+import PortfolioDetails from "../PortfolioDetails";
 
 export async function generateStaticParams() {
   const projects = await dataProjects();
@@ -20,8 +20,7 @@ export async function generateStaticParams() {
 export default async function Project({ params }) {
   const getParams = await params;
   const lang = getParams.lang;
-  const whatsLanguage = lang === "en" ? "" : `/${lang}`;
-  console.log(whatsLanguage);
+
   const { slug } = await params;
   const projects = await dataProjects();
 
@@ -99,7 +98,7 @@ export default async function Project({ params }) {
         <div className="flex justify-end mt-[30px] px-[10px] md:px-[20px] 2xl:px-[40px] ">
           <Button
             arrow={ArrowWhite}
-            linkTo={`${whatsLanguage}/contact`}
+            linkTo={`/${lang}/contact`}
             bgColor="main-black"
             textColor="main-white"
             additionalStyles="md:self-end"

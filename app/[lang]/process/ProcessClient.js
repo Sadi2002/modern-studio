@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ProcessPanel from "./ProcessPanel";
-import FirstSection from "@/app/process/FirstSection";
+import FirstSection from "./FirstSection";
 import { urlFor } from "../../../lib/sanity/client";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -87,7 +87,6 @@ export default function ProcessClient({ welcomeSection, stepsSection, lang }) {
             title={step?.title}
             description={step?.description}
             image={step.image}
-            lang={lang}
           />
         ))}
       </div>

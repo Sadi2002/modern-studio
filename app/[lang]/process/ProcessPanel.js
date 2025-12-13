@@ -1,13 +1,6 @@
 import Image from "next/image";
 
-export default function ProcessPanel({
-  index,
-  title,
-  description,
-  image,
-  lang,
-}) {
-  console.log(description);
+export default function ProcessPanel({ index, title, description, image }) {
   return (
     <div className="panel-process w-[100vw] lg:w-[50vw] pb-[40px] mb-[40px] border-b border-[rgba(0,0,0,0.2)] lg:pb-0 px-[20px] md:px-[40px] lg:border-b-0 h-full flex items-center lg:pt-[120px] 2xl:pt-[150px] text-black lg:border-r lg:border-[rgba(0,0,0,0.2)] flex-col lg:px-[40px] xl:px-[80px] 2xl:px-[150px] items-start">
       <div className="max-w-[100%]">

@@ -2,18 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import ArrowWhite from "../../../public/arrow-right-white.png";
+import ArrowWhite from "../../../../public/arrow-right-white.png";
 
-import projekt1 from "../../../public/projekt1-large.webp";
-import projekt2 from "../../../public/projekt2-large.webp";
-import projekt3 from "../../../public/projekt3-large.webp";
-import projekt4 from "../../../public/projekt4-large.webp";
+import projekt1 from "../../../../public/projekt1-large.webp";
+import projekt2 from "../../../../public/projekt2-large.webp";
+import projekt3 from "../../../../public/projekt3-large.webp";
+import projekt4 from "../../../../public/projekt4-large.webp";
 
-import { urlFor } from "../../../lib/sanity/client";
+import { urlFor } from "../../../../lib/sanity/client";
 
 export default function Blog({ data, lang }) {
-  const whatsLanguage = lang === "en" ? "" : `/${lang}`;
-
   if (!data) return null;
 
   const title = data?.title?.[lang] || "Blog";
@@ -52,7 +50,7 @@ export default function Blog({ data, lang }) {
         </div>
         <div className="flex justify-end">
           <Link
-            href={`${whatsLanguage}${buttonLink}`}
+            href={`/${lang}${buttonLink}`}
             className="bg-main-black mb-[40px] rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)] md:flex md:max-h-[50px] self-end"
           >
             {buttonLabel}
@@ -70,7 +68,7 @@ export default function Blog({ data, lang }) {
         {/* 1 kolumna */}
 
         <div className="w-full mb-[50px] lg:mb-[0] max-w-[80%] lg:max-w-[100%] lg:w-[39%] inline-block">
-          <Link href={`${whatsLanguage}/blog/${posts[0]?.slug.current}`}>
+          <Link href={`/${lang}/blog/${posts[0]?.slug.current}`}>
             <div className=" aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
               <Image
                 src={posts[0] ? getImg(posts[0], projekt3) : projekt3}
@@ -95,7 +93,7 @@ export default function Blog({ data, lang }) {
 
         {/* 2 kolumna */}
         <div className="w-full mb-[50px] max-w-[86%] ml-auto lg:ml-0 flex lg:max-w-[100%] lg:mb-[0] lg:w-[30%] inline-block">
-          <Link href={`${whatsLanguage}/blog/${posts[1]?.slug.current}`}>
+          <Link href={`/${lang}/blog/${posts[1]?.slug.current}`}>
             <div className="flex lg:block aspect-[5/3]  lg:aspect-[8/5] relative ">
               <Image
                 src={posts[1] ? getImg(posts[1], projekt2) : projekt2}
@@ -120,7 +118,7 @@ export default function Blog({ data, lang }) {
 
         {/* 3 kolumna */}
         <div className="max-w-[78%] lg:max-w-[100%] lg:w-[20%] inline-block xl:w-[20%] ">
-          <Link href={`${whatsLanguage}/blog/${posts[2]?.slug.current}`}>
+          <Link href={`/${lang}/blog/${posts[2]?.slug.current}`}>
             <div className="aspect-[7/8]  lg:aspect-[6/8] xl:aspect-[6/8] relative ">
               <Image
                 src={posts[2] ? getImg(posts[2], projekt4) : projekt4}

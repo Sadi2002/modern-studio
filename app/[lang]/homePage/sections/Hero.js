@@ -1,8 +1,8 @@
 import Image from "next/image";
-import arrow from "../../../public/arrow.png";
+import arrow from "../../../../public/arrow.png";
 import Button from "@/app/components/Button";
 
-import { urlFor } from "../../../lib/sanity/client";
+import { urlFor } from "../../../../lib/sanity/client";
 
 export default async function Hero({ data, lang }) {
   console.log(data);

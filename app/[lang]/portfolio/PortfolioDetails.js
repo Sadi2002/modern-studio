@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import arrow from "../../public/arrow.png";
+import arrow from "../../../public/arrow.png";
 import { useState } from "react";
 import Link from "next/link";
 

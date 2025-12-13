@@ -26,8 +26,6 @@ export default function PortfolioClient({
   isBtn = true,
   lang,
 }) {
-  const whatsLanguage = lang === "en" ? "" : `/${lang}`;
-
   const pathname = usePathname();
   const isPortfolio = pathname === "/portfolio";
 
@@ -223,7 +221,7 @@ export default function PortfolioClient({
             {projects.map((p, i) => (
               <div key={i} className="">
                 <Link
-                  href={`${whatsLanguage}/portfolio/${p.slug.current}`}
+                  href={`/${lang}/portfolio/${p.slug.current}`}
                   ref={(el) => (linkRefs.current[i] = el)}
                   className="text-[clamp(36px,6.5vw,45px)] leading-[clamp(36px,6.5vw,45px)] relative mb-5 xl:text-6xl  xl:mb-[20px] 2xl:text-[80px] 2xl:leading-[80px] lg:font-normal-font-weight 2xl:font-light-font-weight block  min-[1535px]:w-[500px] min-[1600px]:w-[600px]"
                   style={{
@@ -248,7 +246,7 @@ export default function PortfolioClient({
             className="flex flex-col"
           >
             <Link
-              href={`${whatsLanguage}/portfolio/${p.slug.current}`}
+              href={`/${lang}/portfolio/${p.slug.current}`}
               className="group block cursor-pointer"
               aria-label={`Zobacz ${p?.title?.[lang]}`}
             >
