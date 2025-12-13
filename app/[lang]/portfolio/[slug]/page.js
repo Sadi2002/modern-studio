@@ -11,6 +11,7 @@ import { sanityClient, urlFor } from "../../../../lib/sanity/client";
 import Button from "@/app/components/Button";
 import PortfolioDetails from "../PortfolioDetails";
 import Model from "./Model";
+import { getFile } from "@sanity/asset-utils";
 
 export async function generateStaticParams() {
   const projects = await dataProjects();
@@ -95,7 +96,11 @@ export default async function Project({ params }) {
                 imgSrc={urlFor(project.imgSrc).url()}
                 modelUrl={
                   project?.model3D?.asset?._ref
-                    ? sanityClient.getUrl(project.model3D.asset._ref)
+                    ? `https://cdn.sanity.io/files/${
+                        process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+                      }/${process.env.NEXT_PUBLIC_SANITY_DATASET}/${
+                        project.model3D.asset._ref.split("-")[1]
+                      }.glb`
                     : null
                 }
               />

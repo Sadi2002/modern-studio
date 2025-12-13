@@ -23,9 +23,11 @@ function useIsMobile() {
   return { isMobile, isLg };
 }
 
-function ModelContent({ setLoading }) {
+function ModelContent({ modelUrl, setLoading }) {
   const ref = useRef();
-  const gltf = useGLTF("/model.glb");
+
+  console.log(modelUrl);
+  const gltf = useGLTF(modelUrl);
   const { isMobile } = useIsMobile();
   const scale = isMobile ? 0.75 : 1;
 
@@ -44,7 +46,7 @@ function ModelContent({ setLoading }) {
   return <primitive ref={ref} object={gltf.scene} />;
 }
 
-export default function ModelLoader({ setLoading, fullscreen }) {
+export default function ModelLoader({ modelUrl, setLoading, fullscreen }) {
   const { isLg } = useIsMobile();
 
   // ustawienia zoom i kąt
@@ -79,7 +81,7 @@ export default function ModelLoader({ setLoading, fullscreen }) {
       />
 
       <Suspense fallback={null}>
-        <ModelContent setLoading={setLoading} />
+        <ModelContent setLoading={setLoading} modelUrl={modelUrl} />
       </Suspense>
     </Canvas>
   );
