@@ -2,14 +2,15 @@ import { sanityClient } from "../../lib/sanity/client";
 import { blogPageQuery, homePageQuery } from "../../lib/sanity/queries";
 
 export default async function dataBlog() {
-  const homePageData = await sanityClient.fetch(homePageQuery);
-  const { blogSection } = homePageData;
+  const [homePageData, blogPageData] = await Promise.all([
+    sanityClient.fetch(homePageQuery),
+    sanityClient.fetch(blogPageQuery),
+  ]);
 
-  const blogPageData = await sanityClient.fetch(blogPageQuery);
-  const { postsSection } = blogPageData;
+  const posts = [
+    ...homePageData.blogSection.posts,
+    ...blogPageData.postsSection.posts,
+  ];
 
-  const posts = [...blogSection.posts, ...postsSection.posts];
-
-  console.log(posts);
   return posts;
 }
