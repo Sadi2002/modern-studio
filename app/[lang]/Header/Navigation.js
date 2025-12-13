@@ -41,27 +41,35 @@ export default function Navigation({ data, dataMobile, lang }) {
 
       const currentScrollY = window.scrollY;
 
-      // Hide/show navbar
-      if (currentScrollY > lastScrollY.current) {
-        setHideNav(true);
+      // Hide/show navbar dopiero po zescrollowaniu 50px
+      if (currentScrollY > 50) {
+        if (currentScrollY > lastScrollY.current) {
+          setHideNav(true);
+        } else {
+          setHideNav(false);
+        }
       } else {
-        setHideNav(false);
+        setHideNav(false); // zawsze pokazuj navbar, jeśli scroll < 50px
       }
+
       lastScrollY.current = currentScrollY;
 
-      // Zmiana kolorów dla strony głównej
-      if (isHome) {
-        if (currentScrollY > window.innerHeight - 30) {
-          setIsScrolled(true);
-        } else {
-          setIsScrolled(false);
-        }
+      // Zmiana kolorów dla strony głównej i kontakt
+      let threshold = isHome
+        ? window.innerHeight - 30
+        : isContact
+        ? window.innerHeight - 50
+        : 0;
+      if (currentScrollY > threshold) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isHome, isOpen]);
+  }, [isHome, isContact, isOpen]);
 
   // Blokada scrolla body kiedy mobile menu otwarte
   useEffect(() => {
@@ -78,6 +86,7 @@ export default function Navigation({ data, dataMobile, lang }) {
 
   if (!data) return null;
 
+  // TU ZOSTAWIAM WSZYSTKIE TWOJE STYLE KOLORÓW BEZ ZMIAN
   const logoColor =
     !isHome || isScrolled || isContact ? "text-main-black" : "text-main-white";
   const linkColor =
