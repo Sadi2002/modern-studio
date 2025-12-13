@@ -12,6 +12,8 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ProcessClient({ welcomeSection, stepsSection, lang }) {
   const containerRef = useRef(null);
 
+  console.log(stepsSection);
+
   useEffect(() => {
     if (!containerRef.current) return;
 
@@ -56,9 +58,7 @@ export default function ProcessClient({ welcomeSection, stepsSection, lang }) {
 
         return {
           title: item?.title?.[lang],
-          image: item?.image?.[lang]
-            ? urlFor(item.image).url()
-            : "/consultation.jpg",
+          image: item?.image ? urlFor(item.image).url() : "/consultation.jpg",
           description: [
             item?.description1?.[lang] || "",
             item?.description2?.[lang] || "",
