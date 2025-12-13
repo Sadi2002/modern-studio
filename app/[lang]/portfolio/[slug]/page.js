@@ -97,6 +97,7 @@ export default async function Project({ params }) {
               alt="pokój"
               fill
               className="object-cover"
+              priority
             />
 
             {modelUrl && (
