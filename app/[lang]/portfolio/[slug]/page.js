@@ -87,6 +87,10 @@ export default async function Project({ params }) {
               fill
               className="object-cover"
             />
+
+            <div className="absolute py-[10px] px-[30px] bg-bg-main text-black flex justify-center items-center bottom-[50px] right-[50px] rounded-[500px] cursor-pointer">
+              View in 3D
+            </div>
           </div>
           <div className="flex justify-between gap-[10px] md:gap-[16px] mt-[10px] md:mt-[16px]">
             <ProjectGallery
