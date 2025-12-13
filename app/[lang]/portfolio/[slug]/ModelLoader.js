@@ -27,7 +27,7 @@ function ModelContent({ setLoading }) {
   const ref = useRef();
   const gltf = useGLTF("/model.glb");
   const { isMobile } = useIsMobile();
-  const scale = isMobile ? 1 : 1;
+  const scale = isMobile ? 0.75 : 1;
 
   useFrame((_, delta) => {
     if (ref.current) ref.current.rotation.y += delta * 0.2;
