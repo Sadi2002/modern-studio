@@ -35,7 +35,7 @@ export default async function Hero({ data, lang }) {
             textColor="main-black"
             additionalStyles="md:self-start"
           >
-            {data?.buttonLabel?.[lang] || "Click"}
+            {data?.buttonLabel?.[lang] || "Click."}
           </Button>
         </div>
       </div>
