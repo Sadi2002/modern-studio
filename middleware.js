@@ -35,7 +35,7 @@ export function middleware(request) {
   const accept = request.headers.get("accept-language") || "";
   const lang = accept.split(",")[0].slice(0, 2);
 
-  const finalLang = SUPPORTED.includes(lang) ? lang : "en";
+  const finalLang = SUPPORTED.includes(lang) ? lang : "";
 
   return NextResponse.redirect(
     new URL(`/${finalLang}${pathname}`, request.url)
