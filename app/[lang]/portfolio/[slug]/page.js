@@ -31,6 +31,14 @@ export default async function Project({ params }) {
 
   const collaborators = project?.collaborators || [];
 
+  const modelUrl = project?.model3D?.asset?._ref
+    ? `https://cdn.sanity.io/files/${
+        process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+      }/${process.env.NEXT_PUBLIC_SANITY_DATASET}/${
+        project.model3D.asset._ref.split("-")[1]
+      }.glb`
+    : null;
+
   return (
     <section className="flex flex-col pb-[0px]">
       <div
@@ -91,18 +99,10 @@ export default async function Project({ params }) {
               className="object-cover"
             />
 
-            {project?.model3D?.asset?._ref && (
+            {modelUrl && (
               <Model
                 imgSrc={urlFor(project.imgSrc).url()}
-                modelUrl={
-                  project?.model3D?.asset?._ref
-                    ? `https://cdn.sanity.io/files/${
-                        process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-                      }/${process.env.NEXT_PUBLIC_SANITY_DATASET}/${
-                        project.model3D.asset._ref.split("-")[1]
-                      }.glb`
-                    : null
-                }
+                modelUrl={modelUrl}
               />
             )}
           </div>
