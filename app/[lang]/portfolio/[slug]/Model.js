@@ -1,118 +1,81 @@
-// --- Model.js (OSTATECZNA WERSJA POPRAWIONA) ---
 "use client";
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import ModelLoader from "./ModelLoader";
 
+const getFullscreenElement = () =>
+  document.fullscreenElement ||
+  document.webkitFullscreenElement ||
+  document.msFullscreenElement ||
+  null;
+
+const requestFullscreen = (el) => {
+  if (!el) return;
+  if (el.requestFullscreen) el.requestFullscreen();
+  else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+  else if (el.msRequestFullscreen) el.msRequestFullscreen();
+};
+
+const exitFullscreen = () => {
+  if (document.exitFullscreen) document.exitFullscreen();
+  else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+  else if (document.msExitFullscreen) document.msExitFullscreen();
+};
+
 export default function Model({ imgSrc }) {
   const [show3D, setShow3D] = useState(false);
   const [loading, setLoading] = useState(false);
   const [fullscreen, setFullscreen] = useState(false);
+  const [isLg, setIsLg] = useState(false);
   const containerRef = useRef(null);
 
-  // Zoptymalizowane słuchacze pełnego ekranu
+  // breakpoint
   useEffect(() => {
-    const handleFullscreenChange = () => {
-      // Sprawdzamy, czy BIEŻĄCY element jest elementem pełnoekranowym
-      const isFullscreen =
-        document.fullscreenElement === containerRef.current ||
-        document.webkitFullscreenElement === containerRef.current ||
-        document.msFullscreenElement === containerRef.current;
-      setFullscreen(isFullscreen);
-    };
+    const check = () => setIsLg(window.innerWidth >= 1024);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
-    // Dodaj słuchaczy zdarzeń, upewniając się, że przeglądarka jest informowana o zmianach
-    // Użycie opcji { passive: false } jest standardem dla kontroli
-    document.addEventListener("fullscreenchange", handleFullscreenChange, {
-      passive: false,
-    });
-    document.addEventListener(
-      "webkitfullscreenchange",
-      handleFullscreenChange,
-      { passive: false }
-    );
-    document.addEventListener("msfullscreenchange", handleFullscreenChange, {
-      passive: false,
-    });
+  // sync fullscreen state
+  useEffect(() => {
+    const handleChange = () => setFullscreen(!!getFullscreenElement());
+    document.addEventListener("fullscreenchange", handleChange);
+    document.addEventListener("webkitfullscreenchange", handleChange);
+    document.addEventListener("msfullscreenchange", handleChange);
 
     return () => {
-      document.removeEventListener("fullscreenchange", handleFullscreenChange, {
-        passive: false,
-      });
-      document.removeEventListener(
-        "webkitfullscreenchange",
-        handleFullscreenChange,
-        { passive: false }
-      );
-      document.removeEventListener(
-        "msfullscreenchange",
-        handleFullscreenChange,
-        { passive: false }
-      );
+      document.removeEventListener("fullscreenchange", handleChange);
+      document.removeEventListener("webkitfullscreenchange", handleChange);
+      document.removeEventListener("msfullscreenchange", handleChange);
     };
   }, []);
 
   const toggle3D = () => {
-    if (!show3D) {
-      setLoading(true);
-      setShow3D(true);
-    } else {
+    if (!show3D) setShow3D(true), setLoading(true);
+    else {
       if (fullscreen) exitFullscreen();
       setShow3D(false);
     }
   };
 
-  const enterFullscreen = () => {
-    if (!containerRef.current) return;
-
-    // Próba wejścia w pełny ekran
-    const element = containerRef.current;
-
-    if (element.requestFullscreen) {
-      // Dodanie .catch() dla lepszej diagnostyki i uniknięcia błędów JS
-      element.requestFullscreen().catch((err) => {
-        console.error(`Błąd pełnego ekranu: ${err.name} - ${err.message}`);
-      });
-    } else if (element.webkitRequestFullscreen) {
-      element.webkitRequestFullscreen();
-    } else if (element.msRequestFullscreen) {
-      element.msRequestFullscreen();
-    }
+  const toggleFullscreen = () => {
+    if (!isLg) return; // fullscreen dostępny tylko od lg
+    getFullscreenElement()
+      ? exitFullscreen()
+      : requestFullscreen(containerRef.current);
   };
 
-  const exitFullscreen = () => {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) {
-      document.msExitFullscreen();
-    }
-  };
-
-  const toggleFullscreen = (e) => {
-    // Zapobiegamy domyślnym działaniom dotyku/kliknięcia (np. dwuklik zoom)
-    if (e) e.stopPropagation();
-    fullscreen ? exitFullscreen() : enterFullscreen();
-  };
-
-  const fullscreenProps = fullscreen
-    ? {
-        tabIndex: -1,
-        className: "fixed inset-0 z-[9999] h-screen outline-none",
-      }
-    : {
-        className: "aspect-[8/6] lg:aspect-[6/3]",
-      };
+  const wrapperClass = fullscreen
+    ? "fixed inset-0 z-[9999] w-screen h-screen bg-black"
+    : "aspect-[8/6] lg:aspect-[6/3]";
 
   return (
     <div
       ref={containerRef}
-      className={`relative w-full transition-all duration-500 bg-gray-100 ${fullscreenProps.className}`}
-      tabIndex={fullscreenProps.tabIndex}
+      className={`relative w-full transition-all duration-500 bg-gray-100 ${wrapperClass}`}
     >
-      {/* Tło */}
       <Image
         src={imgSrc || "/placeholder.jpg"}
         alt="pokój"
@@ -122,9 +85,8 @@ export default function Model({ imgSrc }) {
         }`}
       />
 
-      {/* Canvas z modelem 3D */}
       <div
-        className={`absolute top-0 left-0 w-full h-full z-40 transition-opacity duration-500 ${
+        className={`absolute inset-0 z-40 transition-opacity duration-500 ${
           show3D && !loading ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
@@ -133,28 +95,24 @@ export default function Model({ imgSrc }) {
         )}
       </div>
 
-      {/* Loader overlay */}
       {show3D && loading && (
-        <div className="absolute inset-0 z-50 flex justify-center items-center bg-black/80 transition-opacity duration-500">
-          <div className="w-16 h-16 border-4 border-t-transparent border-white rounded-full animate-spin"></div>
+        <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/80">
+          <div className="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin" />
         </div>
       )}
 
-      {/* Przyciski */}
-      <div className="absolute bottom-[20px] right-[20px] md:bottom-[50px] md:right-[50px] flex gap-[10px] z-[80] transition-opacity duration-500">
-        {show3D && (
+      <div className="absolute bottom-5 right-5 z-[80] flex gap-3">
+        {show3D && isLg && (
           <button
-            // Zmiana na onTouchStart dla niezawodności na iOS
-            onTouchStart={toggleFullscreen}
-            onClick={toggleFullscreen} // Zachowujemy onClick dla desktopu
-            className="py-[10px] px-[30px] bg-white text-black flex justify-center items-center rounded-[500px] cursor-pointer shadow-lg hover:bg-gray-200 transition"
+            onClick={toggleFullscreen}
+            className="px-6 py-2 bg-white rounded-full shadow hover:bg-gray-200"
           >
             {fullscreen ? "Opuść Pełny Ekran" : "Pełny Ekran"}
           </button>
         )}
         <button
           onClick={toggle3D}
-          className="py-[10px] px-[30px] bg-white text-black flex justify-center items-center rounded-[500px] cursor-pointer shadow-lg hover:bg-gray-200 transition"
+          className="px-6 py-2 bg-white rounded-full shadow hover:bg-gray-200"
         >
           {show3D ? "Opuść 3D" : "Zobacz w 3D"}
         </button>
