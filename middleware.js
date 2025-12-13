@@ -9,6 +9,8 @@ export function middleware(request) {
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
+    pathname.startsWith("/favicon.ico") ||
+    pathname.match(/\.(.*)$/) || // <- wszystkie pliki statyczne: .glb, .png, .jpg, .svg, itp.
     SUPPORTED.some((l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`))
   ) {
     return;
@@ -34,7 +36,6 @@ export function middleware(request) {
   const lang = accept.split(",")[0].slice(0, 2);
   const finalLang = SUPPORTED.includes(lang) ? lang : "en";
 
-  // Jeśli język to en, redirect na /en zamiast samego /
   return NextResponse.redirect(
     new URL(`/${finalLang}${pathname}`, request.url)
   );
