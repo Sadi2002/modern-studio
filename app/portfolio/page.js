@@ -18,7 +18,7 @@ export default async function Portfolio() {
     <>
       <Header lang={"en"} />
       <PortfolioClient projects={projects} lang={lang} />;
-      <Footer />
+      <Footer lang={"en"} />
     </>
   );
 }

@@ -195,7 +195,7 @@ export default async function Post({ params }) {
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer lang={"en"} />
     </>
   );
 }

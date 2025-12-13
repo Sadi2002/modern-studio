@@ -102,7 +102,7 @@ export default async function Contact() {
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer lang={"en"} />
     </>
   );
 }

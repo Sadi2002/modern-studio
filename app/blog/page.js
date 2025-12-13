@@ -31,7 +31,7 @@ export default async function Blog() {
         </div>
         <BlogList posts={posts} postsSection={postsSection} lang={lang} />
       </section>
-      <Footer />
+      <Footer lang={"en"} />
     </>
   );
 }

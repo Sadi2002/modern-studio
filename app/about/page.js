@@ -37,7 +37,7 @@ export default async function About() {
       <DynamicThirdSection data={teamSection} lang={lang} />
       <DynamicFourthSection data={awardsSection} lang={lang} />
       <DynamicFifthSection data={overviewSection} lang={lang} />
-      <Footer />
+      <Footer lang={"en"} />
     </>
   );
 }

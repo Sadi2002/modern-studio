@@ -24,7 +24,7 @@ export default async function ProcessPage() {
         stepsSection={processesSection}
         lang={lang}
       />
-      <Footer />
+      <Footer lang={"en"} />
     </>
   );
 }

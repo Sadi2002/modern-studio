@@ -22,7 +22,7 @@ export default function Navigation({ data, dataMobile, lang }) {
   if (pathname.startsWith("/pl")) currentLang = "pl";
   else if (pathname.startsWith("/de")) currentLang = "de";
 
-  // Dostępne języki w menu
+  // Wyznaczamy dostępne języki do menu
   let availableLangs = [];
   if (currentLang === "en") availableLangs = ["pl", "de"];
   else if (currentLang === "pl") availableLangs = ["en", "de"];
@@ -32,27 +32,11 @@ export default function Navigation({ data, dataMobile, lang }) {
 
   if (!data) return null;
 
-  // Link do strony głównej z zachowaniem prefiksu języka
-  const getHomeLink = () => {
-    return currentLang === "en" ? "/" : `/${currentLang}`;
-  };
-
-  // Funkcja do generowania linków zależnie od języka
+  // Funkcja generująca linki relatywne względem bieżącego języka
   const getLocalizedLink = (targetPath) => {
     if (!targetPath.startsWith("/")) return targetPath;
-    if (currentLang === "en") return targetPath;
+    if (currentLang === "en") return targetPath; // EN nie ma prefiksu
     return `/${currentLang}${targetPath}`;
-  };
-
-  // Funkcja do generowania linków w switcherze języków, zachowując bieżącą ścieżkę
-  const getLangSwitcherLink = (targetLang) => {
-    if (currentLang === targetLang) return pathname;
-    let pathWithoutLang = pathname;
-    if (currentLang !== "en") {
-      pathWithoutLang = pathname.replace(`/${currentLang}`, "") || "/";
-    }
-    if (targetLang === "en") return pathWithoutLang || "/";
-    return `/${targetLang}${pathWithoutLang}`;
   };
 
   return (
@@ -63,7 +47,7 @@ export default function Navigation({ data, dataMobile, lang }) {
           isHome ? "text-main-white" : "text-main-black"
         }`}
       >
-        <Link href={getHomeLink()}>{data.logo}</Link>
+        <Link href="/">{data.logo}</Link>
       </span>
 
       {/* MOBILE BURGER */}
@@ -89,7 +73,7 @@ export default function Navigation({ data, dataMobile, lang }) {
       {isOpen && (
         <div className="h-[100dvh] w-full fixed top-0 left-0 bg-main-black z-50 md:hidden text-main-white">
           <div className="flex justify-between items-center mx-margin-mobile pt-mobile-navigation-top">
-            <Link href={getHomeLink()} onClick={toggleMenu}>
+            <Link href="/" onClick={toggleMenu}>
               {dataMobile.logo}
             </Link>
             <div className="flex flex-row-reverse gap-[30px]">
@@ -102,7 +86,7 @@ export default function Navigation({ data, dataMobile, lang }) {
               <div className="flex md:hidden items-center justify-end gap-2 uppercase text-[14px] text-white ">
                 {availableLangs.map((lang, index) => (
                   <div key={lang} className="flex items-center gap-2">
-                    <Link href={getLangSwitcherLink(lang)} onClick={toggleMenu}>
+                    <Link href={languages[lang]} onClick={toggleMenu}>
                       {lang}
                     </Link>
                     {index < availableLangs.length - 1 && <span>/</span>}
@@ -174,7 +158,7 @@ export default function Navigation({ data, dataMobile, lang }) {
         >
           {availableLangs.map((lang, index) => (
             <div key={lang} className="flex items-center gap-2">
-              <Link href={getLangSwitcherLink(lang)}>{lang}</Link>
+              <Link href={languages[lang]}>{lang}</Link>
               {index < availableLangs.length - 1 && <span>/</span>}
             </div>
           ))}

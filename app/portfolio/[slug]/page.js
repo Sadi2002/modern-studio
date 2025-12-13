@@ -122,7 +122,7 @@ export default async function Project({ params }) {
           />
         </div>
       </section>
-      <Footer />
+      <Footer lang={"en"} />
     </>
   );
 }
