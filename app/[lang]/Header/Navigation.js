@@ -11,48 +11,40 @@ export default function Navigation({ data, dataMobile, lang }) {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const languages = {
-    en: "/",
-    pl: "/pl",
-    de: "/de",
-  };
-
   // Określamy bieżący język
   let currentLang = "en";
   if (pathname.startsWith("/pl")) currentLang = "pl";
   else if (pathname.startsWith("/de")) currentLang = "de";
 
   // Dostępne języki w menu
-  let availableLangs = [];
-  if (currentLang === "en") availableLangs = ["pl", "de"];
-  else if (currentLang === "pl") availableLangs = ["en", "de"];
-  else if (currentLang === "de") availableLangs = ["en", "pl"];
+  const availableLangs = ["en", "pl", "de"].filter((l) => l !== currentLang);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   if (!data) return null;
 
-  // Link do strony głównej z zachowaniem prefiksu języka
-  const getHomeLink = () => {
-    return currentLang === "en" ? "/" : `/${currentLang}`;
-  };
+  // Link do strony głównej z prefiksem języka
+  const getHomeLink = () => `/${currentLang}`;
 
   // Funkcja do generowania linków zależnie od języka
   const getLocalizedLink = (targetPath) => {
     if (!targetPath.startsWith("/")) return targetPath;
-    if (currentLang === "en") return targetPath;
-    return `/${currentLang}${targetPath}`;
+    if (currentLang === "en") return `/${targetPath.replace(/^\/+/, "")}`;
+    return `/${currentLang}${targetPath === "/" ? "" : targetPath}`;
   };
 
-  // Funkcja do generowania linków w switcherze języków, zachowując bieżącą ścieżkę
+  // Funkcja do generowania linków w switcherze języków
   const getLangSwitcherLink = (targetLang) => {
     if (currentLang === targetLang) return pathname;
+
+    // Usuń aktualny prefix języka
     let pathWithoutLang = pathname;
     if (currentLang !== "en") {
       pathWithoutLang = pathname.replace(`/${currentLang}`, "") || "/";
     }
-    if (targetLang === "en") return pathWithoutLang || "/";
-    return `/${targetLang}${pathWithoutLang}`;
+
+    // Zawsze dodaj prefiks docelowego języka
+    return `/${targetLang}${pathWithoutLang === "/" ? "" : pathWithoutLang}`;
   };
 
   return (
@@ -99,13 +91,13 @@ export default function Navigation({ data, dataMobile, lang }) {
               >
                 {dataMobile?.closeIcon?.[lang]}
               </span>
-              <div className="flex md:hidden items-center justify-end gap-2 uppercase text-[14px] text-white ">
-                {availableLangs.map((lang, index) => (
-                  <div key={lang} className="flex items-center gap-2">
-                    <Link href={getLangSwitcherLink(lang)} onClick={toggleMenu}>
-                      {lang}
+              <div className="flex md:hidden items-center justify-end gap-2 uppercase text-[14px] text-white">
+                {availableLangs.map((l, idx) => (
+                  <div key={l} className="flex items-center gap-2">
+                    <Link href={getLangSwitcherLink(l)} onClick={toggleMenu}>
+                      {l}
                     </Link>
-                    {index < availableLangs.length - 1 && <span>/</span>}
+                    {idx < availableLangs.length - 1 && <span>/</span>}
                   </div>
                 ))}
               </div>
@@ -172,10 +164,10 @@ export default function Navigation({ data, dataMobile, lang }) {
             isHome ? "text-main-white" : "md:text-main-black"
           } ${isContact ? "lg:text-main-white" : ""}`}
         >
-          {availableLangs.map((lang, index) => (
-            <div key={lang} className="flex items-center gap-2">
-              <Link href={getLangSwitcherLink(lang)}>{lang}</Link>
-              {index < availableLangs.length - 1 && <span>/</span>}
+          {availableLangs.map((l, idx) => (
+            <div key={l} className="flex items-center gap-2">
+              <Link href={getLangSwitcherLink(l)}>{l}</Link>
+              {idx < availableLangs.length - 1 && <span>/</span>}
             </div>
           ))}
         </div>
