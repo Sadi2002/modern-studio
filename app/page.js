@@ -40,7 +40,7 @@ export default async function Home() {
       <DynamicProcess data={processSection} lang={lang} />
       <DynamicBlog data={blogSection} lang={lang} />
       <DynamicFaq data={faqSection} lang={lang} />
-      <Footer />
+      <Footer lang={lang} />
     </>
   );
 }

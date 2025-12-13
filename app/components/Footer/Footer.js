@@ -8,7 +8,9 @@ import { urlFor } from "../../../lib/sanity/client";
 
 export const revalidate = 0;
 
-export default async function Footer() {
+export default async function Footer({ lang }) {
+  const whatsLanguage = lang === "en" ? "" : `/${lang}`;
+
   const footerData = await sanityClient.fetch(footerQuery);
   const footer = footerData;
 
@@ -32,10 +34,10 @@ export default async function Footer() {
                 className="py-[15px] border-b border-[rgba(255,255,255,.2)]  lg:py-[30px] last:lg:border-b-0"
               >
                 <Link
-                  href={link.url}
+                  href={`${whatsLanguage}${link?.url?.[lang]}`}
                   className="uppercase text-white text-[clamp(20px,5vw,23px)] flex pl-[20px] md:pl-[40px]"
                 >
-                  {link.title}
+                  {link?.title?.[lang]}
                 </Link>
               </li>
             ))}
@@ -50,7 +52,7 @@ export default async function Footer() {
           {footer.quickContact.map((contact, index) => (
             <div key={index}>
               <h3 className="text-white text-[clamp(20px,5.5vw,23px)] font-medium mb-[20px]">
-                {contact.sectionTitle}
+                {contact?.sectionTitle?.[lang]}
               </h3>
               <ul className="flex flex-col gap-[5px]">
                 {contact.items.map((item, idx) => (
@@ -59,7 +61,7 @@ export default async function Footer() {
                       href={item.url}
                       className="text-white text-[clamp(12px,3.5vw,16px)] flex"
                     >
-                      {item.title}
+                      {item?.title?.[lang]}
                     </Link>
                   </li>
                 ))}
@@ -69,13 +71,13 @@ export default async function Footer() {
         </div>
       </div>
       <div className="flex flex-col gap-[5px] items-end mx-margin-mobile md:mx-tablet lg:flex-row lg:justify-end lg:gap-x-[50px] 2xl:gap-x-[80px]">
-        <Link href={footer.privacyPolicyHref}>
+        <Link href={footer?.privacyPolicyHref?.[lang]}>
           <span className="text-[clamp(12px,3.5vw,16px)]   text-white">
-            {footer.privacyPolicyLabel}
+            {footer?.privacyPolicyLabel?.[lang]}
           </span>
         </Link>
         <span className="text-[clamp(12px,3.5vw,16px)]   text-white">
-          {footer.copyrightText}
+          {footer?.copyrightText?.[lang]}
         </span>
       </div>
     </footer>
