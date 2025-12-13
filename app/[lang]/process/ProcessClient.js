@@ -12,8 +12,6 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ProcessClient({ welcomeSection, stepsSection, lang }) {
   const containerRef = useRef(null);
 
-  console.log(stepsSection);
-
   useEffect(() => {
     if (!containerRef.current) return;
 
@@ -62,7 +60,7 @@ export default function ProcessClient({ welcomeSection, stepsSection, lang }) {
           description: [
             item?.description1?.[lang] || "",
             item?.description2?.[lang] || "",
-          ].filter(Boolean), // usuwamy puste akapity
+          ].filter(Boolean),
         };
       })
       .filter(Boolean) || [];

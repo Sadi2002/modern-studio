@@ -7,7 +7,7 @@ import PortfolioClient from "../PortfolioClient";
 
 import dataProjects from "../../../data/dataProjects";
 
-import { urlFor } from "../../../../lib/sanity/client";
+import { sanityClient, urlFor } from "../../../../lib/sanity/client";
 import Button from "@/app/components/Button";
 import PortfolioDetails from "../PortfolioDetails";
 import Model from "./Model";
@@ -24,6 +24,7 @@ export default async function Project({ params }) {
 
   const { slug } = await params;
   const projects = await dataProjects();
+  console.log(projects);
 
   const project = projects.find((project) => project.slug.current === slug);
 
@@ -89,7 +90,16 @@ export default async function Project({ params }) {
               className="object-cover"
             />
 
-            <Model imgSrc={urlFor(project.imgSrc).url()} />
+            {project?.model3D?.asset?._ref && (
+              <Model
+                imgSrc={urlFor(project.imgSrc).url()}
+                modelUrl={
+                  project?.model3D?.asset?._ref
+                    ? sanityClient.getUrl(project.model3D.asset._ref)
+                    : null
+                }
+              />
+            )}
           </div>
           <div className="flex justify-between gap-[10px] md:gap-[16px] mt-[10px] md:mt-[16px]">
             <ProjectGallery

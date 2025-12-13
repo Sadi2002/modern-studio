@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function Navigation({ data, dataMobile, lang }) {
-  console.log(dataMobile);
   const pathname = usePathname();
   const isHome = ["/en", "/pl", "/de"].includes(pathname);
   const isContact = pathname.includes("/contact");

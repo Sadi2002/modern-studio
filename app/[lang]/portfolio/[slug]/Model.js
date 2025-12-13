@@ -23,7 +23,7 @@ const exitFullscreen = () => {
   else if (document.msExitFullscreen) document.msExitFullscreen();
 };
 
-export default function Model({ imgSrc }) {
+export default function Model({ imgSrc, modelUrl }) {
   const [show3D, setShow3D] = useState(false);
   const [loading, setLoading] = useState(false);
   const [fullscreen, setFullscreen] = useState(false);

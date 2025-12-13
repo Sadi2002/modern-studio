@@ -5,8 +5,6 @@ import Button from "@/app/components/Button";
 import { urlFor } from "../../../../lib/sanity/client";
 
 export default async function Hero({ data, lang }) {
-  console.log(data);
-  console.log(lang);
   return (
     <section className="h-[100dvh] relative w-full mb-[20px]">
       {data.backgroundImage && (
