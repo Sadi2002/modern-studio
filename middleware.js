@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 
 export function middleware(request) {
+  console.log("MIDDLEWARE RUN", {
+    pathname: request.nextUrl.pathname,
+    country: request.geo?.country,
+  });
   const { pathname } = request.nextUrl;
 
   // pomiń zasoby techniczne
