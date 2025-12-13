@@ -112,7 +112,7 @@ export default function PortfolioDetails() {
               Projekt willi na Majorce rozpoczął się od określenia potrzeb
               inwestora, który oczekiwał nowoczesnej, jasnej przestrzeni z
               widokiem na morze, minimalistycznej formy oraz zastosowania
-              naturalnych materiałów typowych dla śródziemnomorskiego klimatu.
+              naturalnych materiałów typowych dla śródziemnomorskiego klimatu
             </p>
           </div>
         </div>
