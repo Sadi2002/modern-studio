@@ -9,8 +9,9 @@ export const poppins = Poppins({
   display: "swap",
 });
 
-export default function RootLayout({ children, params }) {
-  const lang = params?.lang || "en";
+export default async function RootLayout({ children, params }) {
+  const getParams = await params;
+  const lang = getParams?.lang || "en";
 
   return (
     <html lang={lang}>
