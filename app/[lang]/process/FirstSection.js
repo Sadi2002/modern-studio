@@ -9,7 +9,7 @@ export default function FirstSection({ data, lang }) {
     <section className="pt-[100px] md:pt-[150px] lg:pt-[100px] w-screen mb-[40px] md:mb-[40px] lg:mb-[80px] relative ">
       <div className="hidden lg:flex justify-center items-center w-[70px] h-[70px] rounded-[500px] bg-black absolute bottom-[30px] left-[50%] translate-x-[-50%] cursor-pointer">
         <Image
-          src="/arrow-right-white.png"
+          src={ArrowWhite}
           alt="projekt"
           width={45}
           height={45}
