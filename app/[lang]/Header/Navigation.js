@@ -6,18 +6,19 @@ import { useState } from "react";
 
 export default function Navigation({ data, dataMobile, lang }) {
   const pathname = usePathname();
-  const isHome = pathname === "/" || pathname === "/pl" || pathname === "/de";
+  const isHome = ["/en", "/pl", "/de"].includes(pathname);
   const isContact = pathname.includes("/contact");
 
   const [isOpen, setIsOpen] = useState(false);
 
-  // Określamy bieżący język
-  let currentLang = "en";
-  if (pathname.startsWith("/pl")) currentLang = "pl";
-  else if (pathname.startsWith("/de")) currentLang = "de";
+  const SUPPORTED_LANGS = ["en", "pl", "de"];
 
-  // Dostępne języki w menu
-  const availableLangs = ["en", "pl", "de"].filter((l) => l !== currentLang);
+  // Określamy bieżący język na podstawie prefixu
+  let currentLang =
+    SUPPORTED_LANGS.find((l) => pathname.startsWith(`/${l}`)) || "en";
+
+  // Pozostałe języki do switchera
+  const availableLangs = SUPPORTED_LANGS.filter((l) => l !== currentLang);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -26,24 +27,18 @@ export default function Navigation({ data, dataMobile, lang }) {
   // Link do strony głównej z prefiksem języka
   const getHomeLink = () => `/${currentLang}`;
 
-  // Funkcja do generowania linków zależnie od języka
+  // Generowanie linków w nawigacji
   const getLocalizedLink = (targetPath) => {
     if (!targetPath.startsWith("/")) return targetPath;
-    if (currentLang === "en") return `/${targetPath.replace(/^\/+/, "")}`;
     return `/${currentLang}${targetPath === "/" ? "" : targetPath}`;
   };
 
-  // Funkcja do generowania linków w switcherze języków
+  // Generowanie linków w switcherze języków
   const getLangSwitcherLink = (targetLang) => {
     if (currentLang === targetLang) return pathname;
 
-    // Usuń aktualny prefix języka
-    let pathWithoutLang = pathname;
-    if (currentLang !== "en") {
-      pathWithoutLang = pathname.replace(`/${currentLang}`, "") || "/";
-    }
-
-    // Zawsze dodaj prefiks docelowego języka
+    // Usuń obecny prefiks języka
+    let pathWithoutLang = pathname.replace(`/${currentLang}`, "") || "/";
     return `/${targetLang}${pathWithoutLang === "/" ? "" : pathWithoutLang}`;
   };
 
@@ -120,23 +115,6 @@ export default function Navigation({ data, dataMobile, lang }) {
               </li>
             ))}
           </ul>
-
-          <div className="absolute bottom-[20px] left-0 w-full flex justify-between items-end">
-            <ul className="flex flex-col text-[12px] gap-[8px] ml-margin-mobile">
-              {dataMobile.socialMedia.map((social, index) => (
-                <li key={index}>
-                  <Link href={social.url}>{social.title}</Link>
-                </li>
-              ))}
-            </ul>
-            <ul className="flex flex-col text-[12px] gap-[8px] text-right mr-margin-mobile">
-              {dataMobile.legalLinks.map((legal, index) => (
-                <Link key={index} href={getLocalizedLink(legal?.href?.[lang])}>
-                  {legal?.label?.[lang]}
-                </Link>
-              ))}
-            </ul>
-          </div>
         </div>
       )}
 
