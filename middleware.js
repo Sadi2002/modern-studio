@@ -5,7 +5,7 @@ const SUPPORTED = ["pl", "de", "en"];
 export function middleware(request) {
   const { pathname } = request.nextUrl;
 
-  // 1️⃣ pomijamy assety i już zlokalizowane ścieżki
+  // 1️⃣ Pomijamy assety i już zlokalizowane ścieżki
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
@@ -14,7 +14,7 @@ export function middleware(request) {
     return;
   }
 
-  // 2️⃣ cookie
+  // 2️⃣ Cookie
   const cookieLang = request.cookies.get("lang")?.value;
   if (cookieLang && SUPPORTED.includes(cookieLang)) {
     return NextResponse.redirect(
@@ -24,6 +24,7 @@ export function middleware(request) {
 
   // 3️⃣ GEO (Vercel)
   const country = request.geo?.country;
+
   if (country === "DE") {
     return NextResponse.redirect(new URL(`/de${pathname}`, request.url));
   }
@@ -35,9 +36,14 @@ export function middleware(request) {
   const accept = request.headers.get("accept-language") || "";
   const lang = accept.split(",")[0].slice(0, 2);
 
-  const finalLang = SUPPORTED.includes(lang) ? lang : "";
+  // Jeśli język nie jest PL lub DE, albo to US, zostaw URL bez prefiksu
+  if (lang === "pl") {
+    return NextResponse.redirect(new URL(`/pl${pathname}`, request.url));
+  }
+  if (lang === "de") {
+    return NextResponse.redirect(new URL(`/de${pathname}`, request.url));
+  }
 
-  return NextResponse.redirect(
-    new URL(`/${finalLang}${pathname}`, request.url)
-  );
+  // Dla wszystkich innych (np. US) zwracamy „czysty” URL
+  return NextResponse.next();
 }
