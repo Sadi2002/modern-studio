@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Navigation({ data, dataMobile, lang }) {
   const pathname = usePathname();
@@ -10,63 +10,110 @@ export default function Navigation({ data, dataMobile, lang }) {
   const isContact = pathname.includes("/contact");
 
   const [isOpen, setIsOpen] = useState(false);
+  const [hideNav, setHideNav] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const lastScrollY = useRef(0);
 
   const SUPPORTED_LANGS = ["en", "pl", "de"];
-
-  // Określamy bieżący język na podstawie prefixu
-  let currentLang =
+  const currentLang =
     SUPPORTED_LANGS.find((l) => pathname.startsWith(`/${l}`)) || "en";
-
-  // Pozostałe języki do switchera
   const availableLangs = SUPPORTED_LANGS.filter((l) => l !== currentLang);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  if (!data) return null;
-
-  // Link do strony głównej z prefiksem języka
   const getHomeLink = () => `/${currentLang}`;
 
-  // Generowanie linków w nawigacji
   const getLocalizedLink = (targetPath) => {
     if (!targetPath.startsWith("/")) return targetPath;
     return `/${currentLang}${targetPath === "/" ? "" : targetPath}`;
   };
 
-  // Generowanie linków w switcherze języków
   const getLangSwitcherLink = (targetLang) => {
     if (currentLang === targetLang) return pathname;
-
-    // Usuń obecny prefiks języka
     let pathWithoutLang = pathname.replace(`/${currentLang}`, "") || "/";
     return `/${targetLang}${pathWithoutLang === "/" ? "" : pathWithoutLang}`;
   };
 
+  // Scroll effect - hide/show + zmiana kolorów
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isOpen) return; // jeśli menu otwarte, nie reagujemy na scroll
+
+      const currentScrollY = window.scrollY;
+
+      // Hide/show navbar
+      if (currentScrollY > lastScrollY.current) {
+        setHideNav(true);
+      } else {
+        setHideNav(false);
+      }
+      lastScrollY.current = currentScrollY;
+
+      // Zmiana kolorów dla strony głównej
+      if (isHome) {
+        if (currentScrollY > window.innerHeight - 30) {
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isHome, isOpen]);
+
+  // Blokada scrolla body kiedy mobile menu otwarte
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  if (!data) return null;
+
+  const logoColor =
+    !isHome || isScrolled || isContact ? "text-main-black" : "text-main-white";
+  const linkColor =
+    !isHome || isScrolled || isContact
+      ? "md:text-main-black"
+      : "text-main-white";
+
   return (
-    <nav className="flex items-center justify-between mx-margin-mobile lg:mx-desktop pt-mobile-navigation-top md:mx-tablet 2xl:mx-desktop lg:pt-desktop-navigation-top">
+    <nav
+      className={`flex items-center justify-between px-[20px] md:px-[0] lg:mx-desktop pt-mobile-navigation-top md:mx-tablet 2xl:mx-desktop lg:pt-desktop-navigation-top transition-transform duration-500 ease-in-out ${
+        hideNav ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
       {/* LOGO */}
-      <span
-        className={`md:text-logo-font-size ${
-          isHome ? "text-main-white" : "text-main-black"
-        }`}
-      >
+      <span className={`md:text-logo-font-size ${logoColor}`}>
         <Link href={getHomeLink()}>{data.logo}</Link>
       </span>
 
       {/* MOBILE BURGER */}
       <div className="flex items-center flex-row-reverse gap-[40px]">
         <div
-          className="md:hidden flex flex-col gap-burger-line-gap items-end"
+          className="md:hidden flex flex-col gap-burger-line-gap items-end cursor-pointer"
           onClick={toggleMenu}
         >
           <span
             className={`h-burger-line-height w-[17px] ${
-              isHome ? "bg-main-white" : "bg-main-black"
+              !isHome || isScrolled || isContact
+                ? "bg-main-black"
+                : "bg-main-white"
             }`}
           ></span>
           <span
             className={`h-burger-line-height w-[24px] ${
-              isHome ? "bg-main-white" : "bg-main-black"
+              !isHome || isScrolled || isContact
+                ? "bg-main-black"
+                : "bg-main-white"
             }`}
           ></span>
         </div>
@@ -74,14 +121,14 @@ export default function Navigation({ data, dataMobile, lang }) {
 
       {/* MOBILE MENU */}
       {isOpen && (
-        <div className="h-[100dvh] w-full fixed top-0 left-0 bg-main-black z-50 md:hidden text-main-white">
-          <div className="flex justify-between items-center mx-margin-mobile pt-mobile-navigation-top">
+        <div className="h-[100dvh] w-full fixed top-0 left-0 z-50 md:hidden bg-main-black text-main-white">
+          <div className="flex justify-between items-center pt-mobile-navigation-top px-[20px]">
             <Link href={getHomeLink()} onClick={toggleMenu}>
               {dataMobile.logo}
             </Link>
             <div className="flex flex-row-reverse gap-[30px]">
               <span
-                className="uppercase text-[14px] text-white font-medium-font-weight"
+                className="uppercase text-[14px] text-white font-medium-font-weight cursor-pointer"
                 onClick={toggleMenu}
               >
                 {dataMobile?.closeIcon?.[lang]}
@@ -98,6 +145,7 @@ export default function Navigation({ data, dataMobile, lang }) {
               </div>
             </div>
           </div>
+
           <ul className="flex flex-col gap-[5px] absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(20px,6vw,40px)] font-normal-font-weight uppercase border-t border-[rgba(255,255,255,0.2)] max-w-[50%]">
             {dataMobile.links.map((link, index) => (
               <li
@@ -114,15 +162,16 @@ export default function Navigation({ data, dataMobile, lang }) {
               </li>
             ))}
           </ul>
-          <div className="absolute bottom-[20px] left-0 w-full flex justify-between items-end">
-            <ul className="flex flex-col text-[12px] gap-[8px] ml-margin-mobile">
+
+          <div className="absolute bottom-[20px] left-0 w-full flex justify-between items-end px-[20px]">
+            <ul className="flex flex-col text-[12px] gap-[8px]">
               {dataMobile.socialMedia.map((social, index) => (
                 <li key={index}>
                   <Link href={"#"}>{social?.title}</Link>
                 </li>
               ))}
             </ul>
-            <ul className="flex flex-col text-[12px] gap-[8px] text-right mr-margin-mobile">
+            <ul className="flex flex-col text-[12px] gap-[8px] text-right">
               {dataMobile.legalLinks.map((legal, index) => (
                 <Link
                   key={index}
@@ -140,9 +189,9 @@ export default function Navigation({ data, dataMobile, lang }) {
       {/* DESKTOP MENU */}
       <div className="hidden md:flex gap-[80px]">
         <ul
-          className={`hidden md:flex gap-between-navigation-links items-center xl:gap-between-navigation-links-xl ${
-            isHome ? "text-main-white" : "md:text-main-black"
-          } ${isContact ? "lg:text-main-white" : ""}`}
+          className={`hidden md:flex gap-between-navigation-links items-center xl:gap-between-navigation-links-xl ${linkColor} ${
+            isContact ? "lg:text-main-white" : ""
+          }`}
         >
           {data.links.map((link, index) => (
             <li key={index}>
@@ -157,9 +206,9 @@ export default function Navigation({ data, dataMobile, lang }) {
         </ul>
 
         <div
-          className={`hidden md:flex items-center gap-2 uppercase text-[16px] ${
-            isHome ? "text-main-white" : "md:text-main-black"
-          } ${isContact ? "lg:text-main-white" : ""}`}
+          className={`hidden md:flex items-center gap-2 uppercase text-[16px] ${linkColor} ${
+            isContact ? "lg:text-main-white" : ""
+          }`}
         >
           {availableLangs.map((l, idx) => (
             <div key={l} className="flex items-center gap-2">
