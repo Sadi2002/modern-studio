@@ -1,13 +1,8 @@
 import { NextResponse } from "next/server";
 
 export function middleware(request) {
-  console.log("MIDDLEWARE RUN", {
-    pathname: request.nextUrl.pathname,
-    country: request.geo?.country,
-  });
   const { pathname } = request.nextUrl;
 
-  // pomiń zasoby techniczne
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
@@ -16,22 +11,38 @@ export function middleware(request) {
     return NextResponse.next();
   }
 
-  // jeśli URL już zawiera język — nie rób nic
-  if (/^\/(de|en|pl)(\/|$)/.test(pathname)) {
+  if (/^\/(pl|de|en)(\/|$)/.test(pathname)) {
     return NextResponse.next();
   }
 
-  const country = request.geo?.country; // "DE", "PL", itd.
+  // 1. cookie
+  const cookieLang = request.cookies.get("lang")?.value;
 
-  if (country === "DE") {
+  // 2. Accept-Language
+  const headerLang = (() => {
+    const al = request.headers.get("accept-language");
+    if (!al) return null;
+    if (al.startsWith("pl")) return "pl";
+    if (al.startsWith("de")) return "de";
+    if (al.startsWith("en")) return "en";
+    return null;
+  })();
+
+  // 3. Geo (fallback)
+  const geoLang =
+    request.geo?.country === "PL"
+      ? "pl"
+      : request.geo?.country === "DE"
+      ? "de"
+      : null;
+
+  const lang = cookieLang || headerLang || geoLang;
+
+  if (lang) {
     const url = request.nextUrl.clone();
-    url.pathname = `/de${pathname === "/" ? "" : pathname}`;
+    url.pathname = `/${lang}${pathname === "/" ? "" : pathname}`;
     return NextResponse.redirect(url);
   }
 
   return NextResponse.next();
 }
-
-export const config = {
-  matcher: ["/", "/((?!_next|api|.*\\.).*)"],
-};
