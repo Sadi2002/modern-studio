@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function Navigation({ data, dataMobile, lang }) {
+  console.log(dataMobile);
   const pathname = usePathname();
   const isHome = ["/en", "/pl", "/de"].includes(pathname);
   const isContact = pathname.includes("/contact");
@@ -98,7 +99,6 @@ export default function Navigation({ data, dataMobile, lang }) {
               </div>
             </div>
           </div>
-
           <ul className="flex flex-col gap-[5px] absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(20px,6vw,40px)] font-normal-font-weight uppercase border-t border-[rgba(255,255,255,0.2)] max-w-[50%]">
             {dataMobile.links.map((link, index) => (
               <li
@@ -115,6 +115,22 @@ export default function Navigation({ data, dataMobile, lang }) {
               </li>
             ))}
           </ul>
+          <div className="absolute bottom-[20px] left-0 w-full flex justify-between items-end">
+            <ul className="flex flex-col text-[12px] gap-[8px] ml-margin-mobile">
+              {dataMobile.socialMedia.map((social, index) => (
+                <li key={index}>
+                  <Link href={"#"}>{social?.title}</Link>
+                </li>
+              ))}
+            </ul>
+            <ul className="flex flex-col text-[12px] gap-[8px] text-right mr-margin-mobile">
+              {dataMobile.legalLinks.map((legal, index) => (
+                <Link key={index} href={`${lang}${legal?.href?.[lang]}`}>
+                  {legal?.label?.[lang]}
+                </Link>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
 
