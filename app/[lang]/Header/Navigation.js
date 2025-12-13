@@ -124,7 +124,11 @@ export default function Navigation({ data, dataMobile, lang }) {
             </ul>
             <ul className="flex flex-col text-[12px] gap-[8px] text-right mr-margin-mobile">
               {dataMobile.legalLinks.map((legal, index) => (
-                <Link key={index} href={`${lang}${legal?.href?.[lang]}`}>
+                <Link
+                  key={index}
+                  href={`/${lang}${legal?.href?.[lang]}`}
+                  onClick={toggleMenu}
+                >
                   {legal?.label?.[lang]}
                 </Link>
               ))}

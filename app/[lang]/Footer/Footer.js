@@ -69,7 +69,7 @@ export default async function Footer({ lang }) {
         </div>
       </div>
       <div className="flex flex-col gap-[5px] items-end mx-margin-mobile md:mx-tablet lg:flex-row lg:justify-end lg:gap-x-[50px] 2xl:gap-x-[80px]">
-        <Link href={footer?.privacyPolicyHref?.[lang]}>
+        <Link href={`/${lang}${footer?.privacyPolicyHref?.[lang]}`}>
           <span className="text-[clamp(12px,3.5vw,16px)]   text-white">
             {footer?.privacyPolicyLabel?.[lang]}
           </span>
