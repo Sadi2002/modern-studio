@@ -28,12 +28,12 @@ export default async function Projects({ data, lang }) {
                   fill
                 />
               </div>
-              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight gap-[20px]">
                 <span className="font-medium-font-weight">
                   {project[0]?.title?.[lang]}, {project[0]?.location?.[lang]}
                 </span>
                 <span className="font-medium-font-weight">
-                  {project[0]?.year?.[lang]}
+                  {project[0]?.year}
                 </span>
               </div>
             </div>
@@ -52,12 +52,12 @@ export default async function Projects({ data, lang }) {
                   fill
                 />
               </div>
-              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px]">
-                <span className="font-medium-font-weight">
+              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] gap-[20px]">
+                <span className="font-medium-font-weight ">
                   {project[1]?.title?.[lang]}, {project[1]?.location?.[lang]}
                 </span>
                 <span className="font-medium-font-weight">
-                  {project[1]?.year?.[lang]}
+                  {project[1]?.year}
                 </span>
               </div>
             </div>
@@ -75,12 +75,12 @@ export default async function Projects({ data, lang }) {
                   fill
                 />
               </div>
-              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px]">
+              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] gap-[20px]">
                 <span className="font-medium-font-weight">
                   {project[2]?.title?.[lang]}, {project[2]?.location?.[lang]}
                 </span>
                 <span className="font-medium-font-weight">
-                  {project[2]?.year?.[lang]}
+                  {project[2]?.year}
                 </span>
               </div>
             </div>
@@ -97,12 +97,12 @@ export default async function Projects({ data, lang }) {
                 />
               </div>
 
-              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px]">
+              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] gap-[20px]">
                 <span className="font-medium-font-weight">
                   {project[3]?.title?.[lang]}, {project[3]?.location?.[lang]}
                 </span>
                 <span className="font-medium-font-weight ">
-                  {project[3]?.year?.[lang]}
+                  {project[3]?.year}
                 </span>
               </div>
             </div>

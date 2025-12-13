@@ -262,11 +262,11 @@ export default function PortfolioClient({
                   />
                 </div>
               </div>
-              <div className="flex justify-between mt-[5px] xl:mt-[7px] 2xl:mt-[10px] items-center">
+              <div className="flex justify-between mt-[5px] xl:mt-[7px] 2xl:mt-[10px] items-start gap-[20px]">
                 <span className=" text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-medium-font-weight ">{`${p?.title?.[lang]}, ${p.location?.[lang]}`}</span>
                 <div className="flex items-center gap-4">
                   <span className="sm:inline  text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px]  font-medium-font-weight">
-                    {p?.year?.[lang]}
+                    {p?.year}
                   </span>
                 </div>
               </div>
