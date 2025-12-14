@@ -87,7 +87,9 @@ export default async function Project({ params }) {
         </div>
       </div>
 
-      <PortfolioDetails />
+      {project?.details?.length > 0 && (
+        <PortfolioDetails lang={lang} details={project.details} />
+      )}
 
       <div className="px-[10px] md:px-[20px] 2xl:px-[30px] mt-[10px] md:mt-[16px]">
         <div className="mt-[30px]">
