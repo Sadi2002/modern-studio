@@ -41,7 +41,7 @@ export default async function Hero({ data, lang }) {
       </div>
 
       <span className="absolute bottom-5 left-0 mx-margin-mobile font-normal-font-weight text-[#c6c6c6] text-[10px] md:mx-desktop md:bottom-[50px] md:left-auto md:right-0 md:text-[14px] opacity-[64%] 2xl:mx-desktop">
-        (scroll down)
+        ({data?.scrollDown?.[lang] || "Scroll down"})
       </span>
     </section>
   );
