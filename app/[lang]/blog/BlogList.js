@@ -83,7 +83,7 @@ export default function BlogList({ posts, postsSection, lang }) {
       </div>
 
       <div
-        className={`flex flex-col flex-wrap  gap-y-[80px]  lg:flex-row mb-[50px] lg:mb-[80px] ${
+        className={`flex flex-col lg:flex-wrap gap-y-[50px]  lg:gap-y-[80px]  lg:flex-row mb-[50px] lg:mb-[80px] ${
           search || selectedCategory
             ? "justify-start gap-x-[80px]"
             : "justify-between"
@@ -91,7 +91,7 @@ export default function BlogList({ posts, postsSection, lang }) {
       >
         {/* 0 */}
         <div
-          className="max-w-[80%] lg:max-w-full mb-[50px] lg:mb-[0] lg:w-[39%] inline-block"
+          className="max-w-[80%] lg:max-w-full lg:mb-[0] lg:mb-[50px] lg:w-[39%] inline-block"
           style={{ display: match(posts[0]) ? "inline-block" : "none" }}
         >
           <Link href={`blog/${posts[0]?.slug.current}`}>
@@ -120,7 +120,7 @@ export default function BlogList({ posts, postsSection, lang }) {
 
         {/* 1 */}
         <div
-          className="w-full mb-[50px] max-w-[86%] ml-auto lg:ml-0 flex lg:max-w-[100%] lg:mb-[0] lg:w-[30%] inline-block"
+          className="w-full lg:mb-[0] max-w-[86%] ml-auto lg:ml-0 flex lg:max-w-[100%] lg:mb-[0] lg:w-[30%] inline-block"
           style={{ display: match(posts[1]) ? "inline-block" : "none" }}
         >
           <Link href={`blog/${posts[1]?.slug.current}`}>
