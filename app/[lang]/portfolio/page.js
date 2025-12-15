@@ -1,5 +1,7 @@
 import PortfolioClient from "./PortfolioClient";
 import dataProjects from "../../data/dataProjects";
+import { portfolioPageQuery } from "@/lib/sanity/queries";
+import { sanityClient } from "@/lib/sanity/client";
 export const revalidate = 0;
 
 export const metadata = {
@@ -13,5 +15,15 @@ export default async function Portfolio({ params }) {
   const lang = getParams.lang;
   const projects = await dataProjects();
 
-  return <PortfolioClient projects={projects} lang={lang} />;
+  const portfolioPageData = await sanityClient.fetch(portfolioPageQuery);
+
+  const { beforeProjectsText } = portfolioPageData;
+
+  return (
+    <PortfolioClient
+      projects={projects}
+      lang={lang}
+      beforeProjectsText={beforeProjectsText}
+    />
+  );
 }

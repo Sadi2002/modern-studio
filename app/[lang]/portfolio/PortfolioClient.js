@@ -25,6 +25,7 @@ export default function PortfolioClient({
   isProject = false,
   isBtn = true,
   lang,
+  beforeProjectsText,
 }) {
   const pathname = usePathname();
   const isPortfolio = pathname === "/portfolio";
@@ -216,7 +217,7 @@ export default function PortfolioClient({
               style={{ opacity: headerOpacity }}
               className="transition-opacity duration-150 ease-linear will-change-opacity"
             >
-              A national practice for design—
+              {beforeProjectsText?.[lang]}
             </div>
             {projects.map((p, i) => (
               <div key={i} className="">

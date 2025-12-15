@@ -34,7 +34,7 @@ export default function PortfolioDetails({ lang, details }) {
                   {item?.title?.[lang]}
                 </span>
               </div>
-              <p className="ml-0 lg:ml-[60px] pb-[20px] border-b border-[rgba(0,0,0,0.48)] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)]">
+              <p className="ml-0 lg:ml-[60px] pb-[20px] border-b  border-[rgba(0,0,0,0.48)] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)]">
                 {item?.text?.[lang]}
               </p>
             </div>
