@@ -3,6 +3,7 @@ import ArrowWhite from "../../../public/arrow-right-white.png";
 import Button from "../../components/Button";
 import { sanityClient } from "../../../lib/sanity/client";
 import { contactPageQuery } from "@/lib/sanity/queries";
+import ContactForm from "../../components/ContactForm";
 
 export const revalidate = 0;
 
@@ -11,6 +12,8 @@ export default async function Contact({ params }) {
   console.log(getParams);
   const lang = getParams.lang;
   const contactPageData = await sanityClient.fetch(contactPageQuery);
+
+  console.log(contactPageData);
 
   const section = contactPageData?.contactSection || {};
 
@@ -39,50 +42,13 @@ export default async function Contact({ params }) {
         <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight max-w-[600px] mb-[40px] lg:mb-[40px]">
           {description}
         </p>
-        <form className="space-y-8 max-w-[100%] lg:max-w-[800px] ">
-          <h2 className="text-[20px] font-medium-font-weight mb-[20px] lg:mb-[40px]">
-            {formTitle}
-          </h2>
-          <div className="flex flex-col gap-[20px] md:flex-row md:gap-8 max-w-[80%] lg:max-w-[100%] mb-[40px] ">
-            <div className="flex-1 ">
-              <input
-                id="name"
-                type="text"
-                className="w-full border-b border-black outline-none py-1 bg-transparent placeholder:text-[12px] lg:placeholder:text-[16px]  placeholder:font-light"
-                autoComplete="off"
-                placeholder={nameLabel}
-              />
-            </div>
-            <div className="flex-1 ">
-              <input
-                id="email"
-                type="email"
-                className="w-full border-b border-black outline-none py-1 bg-transparent placeholder:text-[12px] placeholder:font-light lg:placeholder:text-[16px]"
-                autoComplete="off"
-                placeholder={emailLabel}
-              />
-            </div>
-          </div>
-          <div className="max-w-[80%] lg:max-w-[100%]">
-            <textarea
-              id="message"
-              rows={1}
-              className="w-full border-b border-black outline-none py-1 bg-transparent resize-none placeholder:text-[12px] placeholder:font-light lg:placeholder:text-[16px]"
-              placeholder={messageLabel}
-            />
-          </div>
-          <div className="flex justify-end">
-            <Button
-              arrow={ArrowWhite}
-              linkTo="/portfolio"
-              bgColor="main-black"
-              textColor="main-white"
-              additionalStyles="md:self-end"
-            >
-              {submitLabel}
-            </Button>
-          </div>
-        </form>
+        <ContactForm
+          formTitle={formTitle}
+          nameLabel={nameLabel}
+          emailLabel={emailLabel}
+          messageLabel={messageLabel}
+          submitLabel={submitLabel}
+        />
       </div>
       <div className=" lg:bg-black flex pt-[40px] px-[20px] pb-[40px] md:px-[40px] lg:p-0 lg:h-[100dvh] w-[100%] lg:w-[clamp(31rem,3vw,10rem)]  relative lg:ml-auto xl:w-[clamp(36rem,3vw,10rem)] 2xl:w-[clamp(40rem,3vw,10rem)]">
         <div className="lg:text-main-white  text-[14px] flex flex-col lg:ml-[40px] xl:ml-[40px] 2xl:ml-[70px] md:text-[16px] space-y-4 lg:absolute  bottom-[100px]">

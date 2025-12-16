@@ -96,7 +96,7 @@ export default function Navigation({ data, dataMobile, lang }) {
 
   return (
     <nav
-      className={`flex items-center justify-between px-[20px] md:px-[0] lg:mx-desktop pt-mobile-navigation-top md:mx-tablet 2xl:mx-desktop lg:pt-desktop-navigation-top transition-transform duration-500 ease-in-out ${
+      className={`flex items-center justify-between px-[20px] lg:mx-desktop pt-mobile-navigation-top md:px-[40px] lg:px-0 2xl:mx-desktop lg:pt-desktop-navigation-top transition-transform duration-500 ease-in-out ${
         hideNav ? "-translate-y-full" : "translate-y-0"
       }`}
     >
@@ -108,7 +108,7 @@ export default function Navigation({ data, dataMobile, lang }) {
       {/* MOBILE BURGER */}
       <div className="flex items-center flex-row-reverse gap-[40px]">
         <div
-          className="md:hidden flex flex-col gap-burger-line-gap items-end cursor-pointer"
+          className="lg:hidden flex flex-col gap-burger-line-gap items-end cursor-pointer"
           onClick={toggleMenu}
         >
           <span
@@ -130,19 +130,19 @@ export default function Navigation({ data, dataMobile, lang }) {
 
       {/* MOBILE MENU */}
       {isOpen && (
-        <div className="h-[100dvh] w-full fixed top-0 left-0 z-50 md:hidden bg-main-black text-main-white">
-          <div className="flex justify-between items-center pt-mobile-navigation-top px-[20px]">
+        <div className="h-[100dvh] w-full fixed top-0 left-0 z-50 lg:hidden bg-main-black text-main-white">
+          <div className="flex justify-between items-center pt-mobile-navigation-top px-[20px] md:px-[40px] md:text-logo-font-size ">
             <Link href={getHomeLink()} onClick={toggleMenu}>
               {dataMobile.logo}
             </Link>
             <div className="flex flex-row-reverse gap-[30px]">
               <span
-                className="uppercase text-[14px] text-white font-medium-font-weight cursor-pointer"
+                className="uppercase text-[14px] text-white font-medium-font-weight cursor-pointer md:text-[16px]"
                 onClick={toggleMenu}
               >
                 {dataMobile?.closeIcon?.[lang]}
               </span>
-              <div className="flex md:hidden items-center justify-end gap-2 uppercase text-[14px] text-white">
+              <div className="flex lg:hidden items-center justify-end gap-2 uppercase text-[14px] md:text-[16px] text-white">
                 {availableLangs.map((l, idx) => (
                   <div key={l} className="flex items-center gap-2">
                     <Link href={getLangSwitcherLink(l)} onClick={toggleMenu}>
@@ -155,7 +155,7 @@ export default function Navigation({ data, dataMobile, lang }) {
             </div>
           </div>
 
-          <ul className="flex flex-col gap-[5px] absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(20px,6vw,40px)] font-normal-font-weight uppercase border-t border-[rgba(255,255,255,0.2)] max-w-[50%]">
+          <ul className="flex flex-col gap-[5px] absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(20px,6vw,40px)] font-normal-font-weight uppercase border-t border-[rgba(255,255,255,0.2)] max-w-[50%] ">
             {dataMobile.links.map((link, index) => (
               <li
                 key={index}
@@ -163,7 +163,7 @@ export default function Navigation({ data, dataMobile, lang }) {
               >
                 <Link
                   href={getLocalizedLink(link?.href?.[lang])}
-                  className="pl-[20px]"
+                  className="pl-[20px] md:pl-[40px]"
                   onClick={toggleMenu}
                 >
                   {link?.label?.[lang]}
@@ -172,15 +172,15 @@ export default function Navigation({ data, dataMobile, lang }) {
             ))}
           </ul>
 
-          <div className="absolute bottom-[20px] left-0 w-full flex justify-between items-end px-[20px]">
-            <ul className="flex flex-col text-[12px] gap-[8px]">
+          <div className="absolute bottom-[20px] left-0 w-full flex justify-between items-end px-[20px] md:px-[40px]">
+            <ul className="flex flex-col text-[14px] gap-[8px] md:text-[16px]">
               {dataMobile.socialMedia.map((social, index) => (
                 <li key={index}>
                   <Link href={"#"}>{social?.title}</Link>
                 </li>
               ))}
             </ul>
-            <ul className="flex flex-col text-[12px] gap-[8px] text-right">
+            <ul className="flex flex-col text-[12px] gap-[8px] text-right md:text-[14px]">
               {dataMobile.legalLinks.map((legal, index) => (
                 <Link
                   key={index}
@@ -196,9 +196,9 @@ export default function Navigation({ data, dataMobile, lang }) {
       )}
 
       {/* DESKTOP MENU */}
-      <div className="hidden md:flex gap-[80px]">
+      <div className="hidden lg:flex gap-[80px]">
         <ul
-          className={`hidden md:flex gap-between-navigation-links items-center xl:gap-between-navigation-links-xl ${linkColor} ${
+          className={`hidden lg:flex gap-between-navigation-links items-center xl:gap-between-navigation-links-xl ${linkColor} ${
             isContact ? "lg:text-main-white" : ""
           }`}
         >

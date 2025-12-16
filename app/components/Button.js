@@ -8,17 +8,32 @@ export default function Button({
   textColor,
   additionalStyles = "",
   children,
+  type, // ⬅️ NOWE
 }) {
+  const classNames = `cursor-pointer flex justify-center items-center bg-${bgColor} rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-${textColor} font-medium md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)] self-end ${additionalStyles}`;
+
+  // ✅ JEŚLI SUBMIT → PRAWDZIWY BUTTON
+  if (type === "submit") {
+    return (
+      <button type="submit" className={classNames}>
+        {children}
+        <Image
+          src={arrow}
+          alt="Arrow Icon"
+          className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative"
+        />
+      </button>
+    );
+  }
+
+  // ✅ DOMYŚLNIE LINK (JAK BYŁO)
   return (
-    <Link
-      href={linkTo}
-      className={` cursor-pointer flex justify-center items-center bg-${bgColor} rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-${textColor} font-medium md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)] self-end ${additionalStyles}`}
-    >
+    <Link href={linkTo} className={classNames}>
       {children}
       <Image
         src={arrow}
         alt="Arrow Icon"
-        className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative "
+        className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative"
       />
     </Link>
   );

@@ -12,6 +12,7 @@ import Button from "@/app/components/Button";
 import PortfolioDetails from "../PortfolioDetails";
 import Model from "./Model";
 import { getFile } from "@sanity/asset-utils";
+import { portfolioPageQuery } from "@/lib/sanity/queries";
 
 export async function generateStaticParams() {
   const projects = await dataProjects();
@@ -23,11 +24,17 @@ export default async function Project({ params }) {
   const getParams = await params;
   const lang = getParams.lang;
 
+  const portfolioPageData = await sanityClient.fetch(portfolioPageQuery);
+
+  const { beforeProjectsText } = portfolioPageData;
+
   const { slug } = await params;
   const projects = await dataProjects();
   console.log(projects);
 
   const project = projects.find((project) => project.slug.current === slug);
+
+  console.log(project);
 
   const collaborators = project?.collaborators || [];
 
@@ -156,6 +163,7 @@ export default async function Project({ params }) {
           isBtn={false}
           isProject={true}
           lang={lang}
+          beforeProjectsText={beforeProjectsText}
         />
       </div>
     </section>
