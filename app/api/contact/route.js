@@ -8,7 +8,7 @@ export async function POST(req) {
     service: "gmail",
     auth: {
       user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD, // hasło aplikacyjne
+      pass: process.env.GMAIL_APP_PASSWORD,
     },
   });
 

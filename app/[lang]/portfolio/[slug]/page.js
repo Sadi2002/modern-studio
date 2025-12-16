@@ -27,6 +27,8 @@ export default async function Project({ params }) {
   const portfolioPageData = await sanityClient.fetch(portfolioPageQuery);
 
   const { beforeProjectsText } = portfolioPageData;
+  const { viewDetails } = portfolioPageData;
+  const { hideDetails } = portfolioPageData;
 
   const { slug } = await params;
   const projects = await dataProjects();
@@ -112,7 +114,12 @@ export default async function Project({ params }) {
       </div>
 
       {project?.details?.length > 0 && (
-        <PortfolioDetails lang={lang} details={project.details} />
+        <PortfolioDetails
+          lang={lang}
+          details={project.details}
+          viewDetails={viewDetails}
+          hideDetails={hideDetails}
+        />
       )}
 
       <div className="px-[10px] md:px-[20px] 2xl:px-[30px] mt-[10px] md:mt-[16px]">

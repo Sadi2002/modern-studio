@@ -17,13 +17,14 @@ export default async function Portfolio({ params }) {
 
   const portfolioPageData = await sanityClient.fetch(portfolioPageQuery);
 
-  const { beforeProjectsText } = portfolioPageData;
+  const { beforeProjectsText, viewDetails } = portfolioPageData;
 
   return (
     <PortfolioClient
       projects={projects}
       lang={lang}
       beforeProjectsText={beforeProjectsText}
+      viewDetails={viewDetails}
     />
   );
 }
