@@ -36,7 +36,7 @@ export default function FirstSection({ data, lang }) {
             </Button>
           </div>
         </div>
-        <div className="relative aspect-[5/6] md:aspect-[6/7] max-w-[80%] w-[80%]  xl:aspect-[5/8]  lg:w-[45%] lg:aspect-[4/5] lg:h-[calc(100dvh-100px)] 2xl:w-[46%]">
+        <div className="relative aspect-[5/6] md:aspect-[6/7] max-w-[80%] w-[80%]  xl:aspect-[5/8]  lg:w-[45%] lg:aspect-[4/5] lg:h-[calc(100vh-100px)] 2xl:w-[46%]">
           <Image
             src={urlFor(data.image).url()}
             alt="projekt"

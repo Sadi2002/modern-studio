@@ -44,11 +44,11 @@ export default function BlogList({ posts, postsSection, lang }) {
   return (
     <div>
       <div className="w-full lg:w-[25%] flex flex-col mb-[40px] lg:mb-0 relative lg:absolute lg:top-[200px] lg:right-[50px]">
-        <div className="relative border-b border-[rgb(0,0,0)] pb-[10px]">
+        <div className="relative border-b border-[rgb(0,0,0)] pb-[5px]">
           <input
             type="text"
             placeholder={postsSection?.searchPlaceholder?.[lang]}
-            className="w-[90%] focus:outline-none pl-[15px]"
+            className="w-[90%] focus:outline-none pl-[10px] placeholder:text-[clamp(0.85rem,3.35vw,1rem)] placeholder:leading-[clamp(0.75rem,10vw,1.5rem)]"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
@@ -63,7 +63,7 @@ export default function BlogList({ posts, postsSection, lang }) {
         </div>
 
         {/* Kategorie */}
-        <div className="font-medium-font-weight flex flex-col gap-[15px] mt-[40px]">
+        <div className="font-medium-font-weight flex flex-col gap-[10px] mt-[20px] text-[clamp(14px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)]">
           {categories.map((category, index) => (
             <span
               key={index}
