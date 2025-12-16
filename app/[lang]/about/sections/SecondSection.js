@@ -8,7 +8,7 @@ export default function SecondSection({ data, lang }) {
       <div className="flex flex-col gap-[40px] lg:flex-row lg:justify-between">
         <div className="w-full lg:w-[45%]">
           <div className="mx-margin-mobile md:mx-tablet lg:mx-desktop 2xl:mx-[50px]">
-            <h3 className="text-[clamp(23px,5.5vw,36px)] leading-[clamp(32px,10vw,48px)] font-medium-font-weight mb-[20px] ">
+            <h3 className="text-[clamp(23px,5.5vw,36px)] leading-[clamp(32px,10vw,48px)] font-medium-font-weight lg:font-normal mb-[20px] ">
               {data?.leftBox?.title?.[lang]}
             </h3>
             <div className="font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] flex flex-col gap-[16px] mb-[40px] lg:max-w-[600px]">
@@ -27,7 +27,7 @@ export default function SecondSection({ data, lang }) {
         </div>
         <div className="lg:pt-[200px] lg:w-[45%]">
           <div className="mx-margin-mobile md:mx-tablet 2xl:mx-[50px]">
-            <h3 className="text-[clamp(23px,5.5vw,36px)] leading-[clamp(32px,10vw,48px)] font-medium-font-weight mb-[20px] ">
+            <h3 className="text-[clamp(23px,5.5vw,36px)] leading-[clamp(32px,10vw,48px)] font-medium-font-weight lg:font-normal mb-[20px] ">
               {data?.rightBox?.title?.[lang]}
             </h3>
             <div className="font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] flex flex-col gap-[16px] mb-[40px] lg:max-w-[600px] ">
