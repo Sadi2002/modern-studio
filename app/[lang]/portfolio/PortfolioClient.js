@@ -29,7 +29,7 @@ export default function PortfolioClient({
 }) {
   console.log(beforeProjectsText);
   const pathname = usePathname();
-  const isPortfolio = pathname === "/portfolio";
+  const isPortfolio = pathname === `/${lang}/portfolio`;
 
   const cardRefs = useRef([]); // DOM refs for right-side cards
   const linkRefs = useRef([]); // DOM refs for left-side links
@@ -196,7 +196,7 @@ export default function PortfolioClient({
     <div
       className={`lg:flex mx-margin-mobile md:mx-tablet xl:mx-desktop
     ${isProject ? "mt-[20px] lg:mt-[150px]" : "mt-[100px] lg:mt-[100px]"}
-    ${isPortfolio ? "mb-[80px]" : "mb-[30px]"}
+    ${isPortfolio ? "mb-[80px] xl:mb-[150px]" : "mb-[30px] xl:mb-[100px]"}
     2xl:mb-[100px]"
   `}
     >
