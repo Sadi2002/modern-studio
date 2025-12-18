@@ -41,7 +41,7 @@ export default function Blog({ data, lang }) {
     <section className="mx-margin-mobile flex flex-col md:mx-tablet  lg:mx-small-laptop mb-[80px]  xl:mb-[150px]">
       <div className="md:flex md:flex-col md:justify-between w-full  ">
         <div className="flex flex-col">
-          <h3 className="mb-5 text-[clamp(36px,6.5vw,45px)] leading-[clamp(36px,6.5vw,45px)]   font-medium uppercase relative after:content-['(03)'] after:absolute after:bottom-[15px] md:after:bottom-[20px] xl:after:top-[-25px] 2xl:after:top-[-35px] after:text-[10px] md:after:text-[12px] xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px]  2xl:text-[80px] 2xl:leading-[80px] lg:font-normal xl:mb-[20px] 2xl:max-w-[1200px]">
+          <h3 className="mb-5 text-[clamp(30px,6.5vw,45px)] leading-[clamp(36px,6.5vw,45px)]   font-medium uppercase relative after:content-['(03)'] after:absolute after:bottom-[15px] md:after:bottom-[20px] xl:after:top-[-25px] 2xl:after:top-[-35px] after:text-[10px] md:after:text-[12px] xl:text-6xl xl:after:text-[14px] xl:after:top-[-3px]  2xl:text-[80px] 2xl:leading-[80px] lg:font-normal xl:mb-[20px] 2xl:max-w-[1200px]">
             {title}
           </h3>
           <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[40px] xl:mb-[40px] min-[380px]:max-w-[390px] md:max-w-[500px] ">

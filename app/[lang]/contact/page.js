@@ -36,7 +36,7 @@ export default async function Contact({ params }) {
   return (
     <section className="flex flex-col gap-[40px] lg:gap-0 lg:flex-row w-full lg:items-center lg:mt-[100px] lg:h-[calc(100dvh-100px)]">
       <div className="flex-1 pt-[100px] md:pt-[150px] lg:pt-0 mx-margin-mobile md:mx-tablet lg:ml-[50px] 2xl:mx-[50px]">
-        <h1 className="text-[clamp(36px,8vw,45px)] leading-[clamp(36px,8vw,45px)] uppercase font-medium mb-[20px] max-w-[500px] xl:max-w-[700px] lg:text-[45px] lg:leading-[45px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px]  2xl:text-[80px] 2xl:leading-[80px] lg:font-normal 2xl:max-w-[75%]">
+        <h1 className="text-[clamp(30px,8vw,45px)] leading-[clamp(36px,8vw,45px)] uppercase font-medium mb-[20px] max-w-[500px] xl:max-w-[700px] lg:text-[45px] lg:leading-[45px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px]  2xl:text-[80px] 2xl:leading-[80px] lg:font-normal 2xl:max-w-[75%]">
           {title}
         </h1>
         <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight mb-[40px] lg:mb-[40px] xl:max-w-[700px]">

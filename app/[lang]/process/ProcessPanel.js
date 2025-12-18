@@ -7,7 +7,7 @@ export default function ProcessPanel({ index, title, description, image }) {
         <span className="text-[16px] md:text-[20px] block mb-[10px] font-normal-font-weight">
           ({String(index).padStart(2, "0")})
         </span>
-        <h3 className="text-[clamp(30px,3vw,64px)] max-w-[350px] md:text-[45px] md:max-w-[525px] leading-[clamp(36px,3vw,64px)] md:leading-[45px] mb-[20px] lg:text-[clamp(30px,3vw,64px)] lg:leading-[clamp(36px,3vw,64px)] font-medium-font-weight lg:font-normal-font-weight 2xl:max-w-[100%]">
+        <h3 className="text-[clamp(23px,3vw,64px)] max-w-[350px] md:text-[45px] md:max-w-[525px] leading-[clamp(30px,3vw,64px)] md:leading-[45px] mb-[20px] lg:text-[clamp(30px,3vw,64px)] lg:leading-[clamp(36px,3vw,64px)] font-medium-font-weight lg:font-normal-font-weight 2xl:max-w-[100%]">
           {title}
         </h3>
         <div className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight mb-[40px] flex flex-col gap-[16px] md:max-w-[85%] lg:max-w-[100%]">
