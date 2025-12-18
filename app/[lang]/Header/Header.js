@@ -17,9 +17,17 @@ export default async function Header({ lang }) {
   };
 
   const navigationMobileData = await sanityClient.fetch(navigationMobileQuery);
-  const navigationMobile = navigationMobileData;
+  // const navigationMobile = navigationMobileData;
 
-  console.log(navigation);
+  const navigationMobile = {
+    logo: navigationMobileData.logo?.logoLabel,
+    links: navigationMobileData.links || [],
+    closeIcon: navigationMobileData.closeIcon?.[lang],
+    socialMedia: navigationMobileData.socialMedia || [],
+    legalLinks: navigationMobileData.legalLinks || [],
+  };
+
+  console.log(navigationMobile);
 
   return (
     <header className="fixed z-1000 w-full top-0">

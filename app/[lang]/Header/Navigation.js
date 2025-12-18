@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 
 export default function Navigation({ data, dataMobile, lang }) {
-  console.log(data);
+  console.log(dataMobile?.closeIcon?.[lang]);
   const pathname = usePathname();
   const isHome = ["/en", "/pl", "/de"].includes(pathname);
   const isContact = pathname.includes("/contact");
@@ -141,7 +141,7 @@ export default function Navigation({ data, dataMobile, lang }) {
                 className="uppercase text-[14px] text-white font-medium-font-weight cursor-pointer md:text-[16px]"
                 onClick={toggleMenu}
               >
-                {dataMobile?.closeIcon?.[lang]}
+                {dataMobile?.closeIcon}
               </span>
               <div className="flex lg:hidden items-center justify-end gap-2 uppercase text-[14px] md:text-[16px] text-white">
                 {availableLangs.map((l, idx) => (
@@ -157,13 +157,13 @@ export default function Navigation({ data, dataMobile, lang }) {
           </div>
 
           <ul className="flex flex-col gap-[5px] absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(20px,6vw,40px)] font-normal-font-weight uppercase border-t border-[rgba(255,255,255,0.2)] max-w-[50%] ">
-            {dataMobile.links.map((link, index) => (
+            {dataMobile.links.items.map((link, index) => (
               <li
                 key={index}
                 className="border-b border-[rgba(255,255,255,0.2)] py-[15px]"
               >
                 <Link
-                  href={getLocalizedLink(link?.href?.[lang])}
+                  href={`/${getLocalizedLink(link?.href)}`}
                   className="pl-[20px] md:pl-[40px]"
                   onClick={toggleMenu}
                 >
