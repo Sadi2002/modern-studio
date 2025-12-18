@@ -106,9 +106,9 @@ export default function Navigation({ data, dataMobile, lang }) {
       </span>
 
       {/* MOBILE BURGER */}
-      <div className="flex items-center flex-row-reverse gap-[40px] absolute right-0 p-[20px] md:right-[20px]">
+      <div className="flex items-center flex-row-reverse gap-[40px] absolute right-0  md:right-[20px]">
         <div
-          className="lg:hidden flex flex-col gap-burger-line-gap items-end cursor-pointer"
+          className="lg:hidden flex flex-col gap-burger-line-gap items-end cursor-pointer p-[20px]"
           onClick={toggleMenu}
         >
           <span
