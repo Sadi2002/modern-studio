@@ -81,7 +81,7 @@ export default function Process({ data, lang }) {
                     activeIndex === index ? "mt-[10px]" : "hidden"
                   }`}
                 >
-                  <p className="font-light-font-weight mb-[20px] text-[clamp(12px,3.35vw,1rem)] leading-[clamp(16px,4.5vw,1.5rem)] pr-[30px] md:pr-[70px]   lg:text-[16px] lg:leading-[24px]  ">
+                  <p className="font-light-font-weight mb-[20px] text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] pr-[30px] md:pr-[70px] lg:text-[16px] lg:leading-[24px]">
                     {step?.description?.[lang]}
                   </p>
                   {activeIndex === index && step.imgSrc && (

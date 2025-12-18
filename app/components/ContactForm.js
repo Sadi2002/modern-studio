@@ -1,8 +1,9 @@
 // components/ContactForm.js
 "use client";
+
 import ArrowWhite from "../../public/arrow-right-white.png";
-import { useState } from "react";
-import Button from "../components/Button"; // dostosuj ścieżkę do Twojego projektu
+import { useState, useRef } from "react";
+import Button from "../components/Button";
 
 export default function ContactForm({
   formTitle,
@@ -15,6 +16,14 @@ export default function ContactForm({
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(null);
+
+  const textareaRef = useRef(null);
+
+  const autoGrow = (el) => {
+    if (el.style.height >= "96px") return;
+    el.style.height = "auto";
+    el.style.height = el.scrollHeight + "px";
+  };
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -29,10 +38,13 @@ export default function ContactForm({
 
       if (response.ok) {
         setStatus("Wiadomość wysłana pomyślnie.");
-        // czyszczenie pól
         setName("");
         setEmail("");
         setMessage("");
+
+        if (textareaRef.current) {
+          textareaRef.current.style.height = "";
+        }
       } else {
         const { error } = await response.json();
         setStatus(error || "Wystąpił błąd.");
@@ -42,15 +54,23 @@ export default function ContactForm({
     }
   }
 
+  const baseInputClasses = `
+    w-full border-b border-black outline-none bg-transparent
+    h-[32px] leading-[32px]  
+    placeholder:text-[clamp(12px,3.35vw,1rem)] placeholder:leading-[clamp(0.75rem,10vw,1.5rem)]
+    placeholder:font-light
+  `;
+
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-8 max-w-[100%] lg:max-w-[800px]"
+      className="space-y-8 max-w-full lg:max-w-[800px]"
     >
-      <h2 className="text-[20px] font-medium-font-weight mb-[20px] lg:mb-[40px]">
+      <h2 className="text-[20px] font-medium mb-[20px] lg:mb-[40px]">
         {formTitle}
       </h2>
-      <div className="flex flex-col gap-[20px] md:flex-row md:gap-8 max-w-[80%] lg:max-w-[100%] mb-[40px]">
+
+      <div className="flex flex-col gap-[20px] md:flex-row md:gap-8 max-w-[80%] lg:max-w-full mb-[40px]">
         <div className="flex-1">
           <input
             type="text"
@@ -58,9 +78,10 @@ export default function ContactForm({
             onChange={(e) => setName(e.target.value)}
             placeholder={nameLabel}
             autoComplete="off"
-            className="w-full border-b border-black outline-none py-1 bg-transparent placeholder:text-[12px] lg:placeholder:text-[16px] placeholder:font-light"
+            className={baseInputClasses}
           />
         </div>
+
         <div className="flex-1">
           <input
             type="email"
@@ -68,22 +89,32 @@ export default function ContactForm({
             onChange={(e) => setEmail(e.target.value)}
             placeholder={emailLabel}
             autoComplete="off"
-            className="w-full border-b border-black outline-none py-1 bg-transparent placeholder:text-[12px] lg:placeholder:text-[16px] placeholder:font-light"
+            className={baseInputClasses}
           />
         </div>
       </div>
-      <div className="max-w-[80%] lg:max-w-[100%]">
+
+      <div className="max-w-[80%] lg:max-w-full">
         <textarea
+          ref={textareaRef}
           rows={1}
           value={message}
-          onChange={(e) => setMessage(e.target.value)}
           placeholder={messageLabel}
-          className="w-full border-b border-black outline-none py-1 bg-transparent resize-none placeholder:text-[12px] lg:placeholder:text-[16px] placeholder:font-light"
+          onInput={(e) => {
+            setMessage(e.target.value);
+            autoGrow(e.target);
+          }}
+          className={`
+            ${baseInputClasses}
+            resize-none overflow-hidden py-0
+            placeholder:break-keep placeholder:break-words
+          `}
         />
       </div>
+
       {status && <p className="text-sm mt-2">{status}</p>}
+
       <div className="flex justify-end">
-        {/* Używamy Button jako elementu button; linkTo pomijamy, aby nie przekierowywać */}
         <Button
           arrow={ArrowWhite}
           type="submit"

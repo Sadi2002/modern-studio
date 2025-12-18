@@ -198,9 +198,7 @@ export default function Navigation({ data, dataMobile, lang }) {
       {/* DESKTOP MENU */}
       <div className="hidden lg:flex gap-[80px]">
         <ul
-          className={`hidden lg:flex gap-between-navigation-links items-center xl:gap-between-navigation-links-xl ${linkColor} ${
-            isContact ? "lg:text-main-white" : ""
-          }`}
+          className={`hidden lg:flex gap-between-navigation-links items-center xl:gap-between-navigation-links-xl ${linkColor} `}
         >
           {data.links.map((link, index) => (
             <li key={index}>
@@ -215,9 +213,7 @@ export default function Navigation({ data, dataMobile, lang }) {
         </ul>
 
         <div
-          className={`hidden md:flex items-center gap-2 uppercase text-[16px] ${linkColor} ${
-            isContact ? "lg:text-main-white" : ""
-          }`}
+          className={`hidden md:flex items-center gap-2 uppercase text-[16px] ${linkColor} `}
         >
           {availableLangs.map((l, idx) => (
             <div key={l} className="flex items-center gap-2">

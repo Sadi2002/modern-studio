@@ -24,7 +24,7 @@ export default async function Hero({ data, lang }) {
             {data?.title?.[lang] || "Default title"}
           </h1>
 
-          <p className="text-main-white font-light-font-weight mb-[40px] text-[clamp(0.85rem,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] max-w-[300px] lg:max-w-[450px] min-[420px]:max-w-[400px] xl:max-w-[600px] xl:mb-[70px]">
+          <p className="text-main-white font-light-font-weight mb-[40px] text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] max-w-[300px] lg:max-w-[450px] min-[420px]:max-w-[400px] xl:max-w-[600px] xl:mb-[70px]">
             {data?.subtitle?.[lang] || ""}
           </p>
 
