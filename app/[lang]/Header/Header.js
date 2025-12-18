@@ -21,10 +21,11 @@ export default async function Header({ lang }) {
 
   const navigationMobile = {
     logo: navigationMobileData.logo?.logoLabel,
-    links: navigationMobileData.links || [],
+    links: navigationMobileData.links?.items || [],
     closeIcon: navigationMobileData.closeIcon?.[lang],
     socialMedia: navigationMobileData.socialMedia || [],
-    legalLinks: navigationMobileData.legalLinks || [],
+    legalLinks: navigationMobileData.legalLinks?.links || [],
+    socialMedia: navigationMobileData.socialMedia?.socials || [],
   };
 
   console.log(navigationMobile);

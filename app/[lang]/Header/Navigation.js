@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 
 export default function Navigation({ data, dataMobile, lang }) {
-  console.log(dataMobile?.closeIcon?.[lang]);
   const pathname = usePathname();
   const isHome = ["/en", "/pl", "/de"].includes(pathname);
   const isContact = pathname.includes("/contact");
@@ -157,13 +156,13 @@ export default function Navigation({ data, dataMobile, lang }) {
           </div>
 
           <ul className="flex flex-col gap-[5px] absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(20px,6vw,40px)] font-normal-font-weight uppercase border-t border-[rgba(255,255,255,0.2)] max-w-[50%] ">
-            {dataMobile.links.items.map((link, index) => (
+            {dataMobile.links.map((link, index) => (
               <li
                 key={index}
                 className="border-b border-[rgba(255,255,255,0.2)] py-[15px]"
               >
                 <Link
-                  href={`/${getLocalizedLink(link?.href)}`}
+                  href={`/${lang}/${getLocalizedLink(link?.href)}`}
                   className="pl-[20px] md:pl-[40px]"
                   onClick={toggleMenu}
                 >
@@ -177,7 +176,9 @@ export default function Navigation({ data, dataMobile, lang }) {
             <ul className="flex flex-col text-[14px] gap-[8px] md:text-[16px]">
               {dataMobile.socialMedia.map((social, index) => (
                 <li key={index}>
-                  <Link href={"#"}>{social?.title}</Link>
+                  <Link target="_blank" href={social?.url}>
+                    {social?.title}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -185,7 +186,7 @@ export default function Navigation({ data, dataMobile, lang }) {
               {dataMobile.legalLinks.map((legal, index) => (
                 <Link
                   key={index}
-                  href={`/${lang}${legal?.href?.[lang]}`}
+                  href={`/${lang}/${legal?.href}`}
                   onClick={toggleMenu}
                 >
                   {legal?.label?.[lang]}
@@ -204,7 +205,7 @@ export default function Navigation({ data, dataMobile, lang }) {
           {data.links.map((link, index) => (
             <li key={index}>
               <Link
-                href={`/${getLocalizedLink(link?.href)}`}
+                href={`/${lang}/${getLocalizedLink(link?.href)}`}
                 className="text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
               >
                 {link?.label?.[lang]}
