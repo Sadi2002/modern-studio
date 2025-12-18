@@ -10,10 +10,16 @@ export const revalidate = 0;
 
 export default async function Header({ lang }) {
   const navigationData = await sanityClient.fetch(navigationQuery);
-  const navigation = navigationData;
+
+  const navigation = {
+    logo: navigationData.logo?.logoLabel,
+    links: navigationData.links?.items || [],
+  };
 
   const navigationMobileData = await sanityClient.fetch(navigationMobileQuery);
   const navigationMobile = navigationMobileData;
+
+  console.log(navigation);
 
   return (
     <header className="fixed z-1000 w-full top-0">

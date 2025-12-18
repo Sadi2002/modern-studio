@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 
 export default function Navigation({ data, dataMobile, lang }) {
+  console.log(data);
   const pathname = usePathname();
   const isHome = ["/en", "/pl", "/de"].includes(pathname);
   const isContact = pathname.includes("/contact");
@@ -203,7 +204,7 @@ export default function Navigation({ data, dataMobile, lang }) {
           {data.links.map((link, index) => (
             <li key={index}>
               <Link
-                href={getLocalizedLink(link?.href?.[lang])}
+                href={getLocalizedLink(link?.href)}
                 className="text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
               >
                 {link?.label?.[lang]}
