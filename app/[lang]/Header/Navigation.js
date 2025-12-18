@@ -204,7 +204,7 @@ export default function Navigation({ data, dataMobile, lang }) {
           {data.links.map((link, index) => (
             <li key={index}>
               <Link
-                href={getLocalizedLink(link?.href)}
+                href={`/${getLocalizedLink(link?.href)}`}
                 className="text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
               >
                 {link?.label?.[lang]}
