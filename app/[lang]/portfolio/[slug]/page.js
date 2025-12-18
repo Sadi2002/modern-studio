@@ -52,7 +52,7 @@ export default async function Project({ params }) {
     <section className="flex flex-col pb-[0px]">
       <div
         id="start"
-        className="flex  w-full justify-between pt-[100px] lg:pt-[150px] 2xl:pt-[200px] px-[20px] mb-[40px] lg:mb-[80px] xl:mb-[150px] md:px-[40px] lg:px-[50px] flex-col lg:flex-row "
+        className="flex  w-full justify-between pt-[100px] md:pt-[150px] 2xl:pt-[200px] px-[20px] mb-[40px] lg:mb-[80px] xl:mb-[150px] md:px-[40px] lg:px-[50px] flex-col lg:flex-row "
       >
         <h1 className="text-[clamp(36px,6.5vw,45px)] leading-[clamp(36px,6.5vw,45px)] font-medium uppercase relative mb-5 xl:text-6xl  xl:mb-[20px] 2xl:text-[80px] 2xl:leading-[80px] lg:font-normal 2xl:max-w-[1200px]">
           {project?.title?.[lang]}

@@ -195,8 +195,16 @@ export default function PortfolioClient({
   return (
     <div
       className={`lg:flex mx-margin-mobile md:mx-tablet xl:mx-desktop
-    ${isProject ? "mt-[20px] lg:mt-[150px]" : "mt-[100px] lg:mt-[100px]"}
-    ${isPortfolio ? "mb-[80px] xl:mb-[150px]" : "mb-[30px] xl:mb-[100px]"}
+    ${
+      isProject
+        ? "mt-[20px] lg:mt-[80px] xl:mt-[150px]"
+        : "mt-[100px] lg:mt-[100px]"
+    }
+    ${
+      isPortfolio
+        ? "mb-[80px] xl:mb-[150px] md:mt-[150px]"
+        : "mb-[30px] xl:mb-[100px]"
+    }
     2xl:mb-[100px]"
   `}
     >

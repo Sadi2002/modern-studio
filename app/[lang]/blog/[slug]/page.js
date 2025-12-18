@@ -43,32 +43,34 @@ export default async function Post({ params }) {
   };
 
   return (
-    <section className="pt-[100px] px-[20px] md:px-[40px] lg:px-[50px] md:pt-[150px] lg:pt-[150px] 2xl:pt-[200px] w-full mb-[80px] lg:mb-[80px] relative">
+    <section className="pt-[100px] px-[20px] md:px-[40px] lg:px-[50px] md:pt-[150px] 2xl:pt-[200px] w-full mb-[80px] lg:mb-[80px] xl:mb-[150px] relative">
       <div>
         <div>
-          <div className=" flex flex-col lg:flex-row justify-between lg:items-end mb-[20px] md:mb-[40px] lg:mb-[0px] gap-[20px]">
-            <div className=" lg:max-w-[1000px]  2xl:max-w-[570px] ">
-              <h1 className="text-[clamp(30px,8vw,45px)] leading-[clamp(36px,8vw,45px)] font-medium mb-[20px] xl:mb-[20px] max-w-[500px] lg:text-[45px] lg:leading-[45 px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] xl:max-w-[1200px] 2xl:max-w-[1200px] lg:font-normal 2xl:text-[80px] 2xl:leading-[80px] 2xl:w-[900px] uppercase">
+          <div className=" flex flex-col lg:flex-row justify-between lg:items-end mb-[40px] md:mb-[40px] lg:mb-[0px] gap-[20px]">
+            <div className=" lg:max-w-[1000px] 2xl:max-w-[1200px]">
+              <h1 className="text-[clamp(30px,8vw,45px)] leading-[clamp(36px,8vw,45px)] font-medium mb-[20px] xl:mb-[20px] max-w-[600px] lg:text-[45px] lg:leading-[45px] lg:max-w-[600px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] xl:max-w-[750px] 2xl:max-w-[1000px] lg:font-normal 2xl:text-[80px] 2xl:leading-[80px] uppercase">
                 {blog?.title?.[lang]}
               </h1>
-              <p className="font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] flex flex-col gap-[16px]  lg:max-w-[600px]">
+              <p className="font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] flex flex-col gap-[16px] lg:max-w-[580px] 2xl:max-w-[800px]">
                 {blog?.description?.[lang]}
               </p>
             </div>
           </div>
-          <div className="flex flex-col-reverse lg:flex-col lg:items-end lg:gap-[20px]  mb-[40px] lg:mb-[80px]">
-            <div className="flex gap-[20px] justify-between lg:justify-end w-full lg:w-[40%] lg:relative lg:top-[-25px]">
+          <div className="flex flex-col-reverse lg:flex-col lg:items-end lg:gap-[56px]  mb-[40px] lg:mb-[80px]">
+            <div className="flex justify-between lg:justify-end w-full lg:w-[40%] lg:relative lg:top-[-25px] flex flex-col lg:flex-row lg:items-center gap-[5px] lg:gap-[10px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
               <div className="flex gap-[5px] ">
                 <span className="font-medium-font-weight">
                   {blog?.category?.[lang]}
                 </span>
               </div>
               <div className="flex gap-[5px]">
-                <span className="font-light-font-weight">{blog?.date}</span>
+                <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
+                  {blog?.date}
+                </span>
               </div>
             </div>
 
-            <div className="relative aspect-[16/9] w-full mb-[10px] lg:mb-[0]">
+            <div className="relative aspect-[16/9] w-full mb-[5px] lg:mb-[0]">
               <Image
                 src={urlFor(blog.imgSrc).url()}
                 alt="projekt"
@@ -78,14 +80,14 @@ export default async function Post({ params }) {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-[40px] mb-[80px] xl:mb-[150px] max-w-[850px]">
+        <div className="flex flex-col gap-[40px] mb-[80px] xl:mb-[150px] max-w-[850px] 2xl:max-w-[1000px]">
           {blog.longDescription.contentBlocks.map((content, index) => {
             return (
               <div key={index}>
-                <h3 className="text-[30px] mb-[20px] font-medium">
+                <h3 className="mb-[20px] text-[clamp(23px,5.5vw,36px)] leading-[clamp(32px,7vw,42px)] md:leading-[clamp(36px,10vw,42px)] max-w-[85%] md:max-w-[75%] font-medium-font-weight lg:font-normal ">
                   {content?.title?.[lang]}
                 </h3>
-                <div className="flex flex-col gap-[16px] font-light-font-weight">
+                <div className="flex flex-col gap-[16px] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)]">
                   {content.paragraphs.map((paragraph, pIndex) => {
                     return <p key={pIndex}>{paragraph?.[lang]}</p>;
                   })}
@@ -127,12 +129,12 @@ export default async function Post({ params }) {
                   className="object-cover"
                 />
               </div>
-              <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+              <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
                 <span className="font-medium-font-weight max-w-[65%]">
                   {posts[0]?.title?.[lang] ||
                     "Designing a Luxury Mediterranean Villa"}
                 </span>
-                <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
+                <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
                   {posts[0]?.date?.[lang] || "March 2025"}
                 </span>
               </div>
@@ -153,12 +155,12 @@ export default async function Post({ params }) {
                 />
               </div>
             </Link>
-            <div className="flex lg:flex-col gap-[4px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+            <div className="flex flex-col gap-[4px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
               <span className="font-medium-font-weight max-w-[70%]">
                 {posts[1]?.title?.[lang] ||
                   "Maximizing Light and Views in Your Mallorca Home"}
               </span>
-              <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
+              <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
                 {posts[1]?.date?.[lang] || "January 2025"}
               </span>
             </div>
@@ -178,12 +180,12 @@ export default async function Post({ params }) {
                 />
               </div>
             </Link>
-            <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
-              <span className="font-medium-font-weight max-w-[85%]">
+            <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+              <span className="font-medium-font-weight max-w-[100%]">
                 {posts[2]?.title?.[lang] ||
                   "Materials and Finishes Inspired by Mallorca."}
               </span>
-              <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
+              <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
                 {posts[2]?.date?.[lang] || "August 2024"}
               </span>
             </div>

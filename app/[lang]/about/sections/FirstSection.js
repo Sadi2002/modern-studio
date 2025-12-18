@@ -6,7 +6,7 @@ import { urlFor } from "../../../../lib/sanity/client";
 
 export default function FirstSection({ data, lang }) {
   return (
-    <section className="pt-[100px] md:pt-[150px] lg:pt-[100px] w-full mb-[40px] lg:mb-[80px] relative ">
+    <section className="pt-[100px] md:pt-[150px] xl:pt-[100px] w-full mb-[40px] lg:mb-[80px] relative ">
       <div className="hidden lg:flex justify-center items-center w-[70px] h-[70px] rounded-[500px] bg-black absolute bottom-[30px] left-[50%] translate-x-[-50%] cursor-pointer">
         <Image
           src={ArrowWhite}

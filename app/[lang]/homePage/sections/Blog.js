@@ -79,12 +79,12 @@ export default function Blog({ data, lang }) {
                 className="object-cover"
               />
             </div>
-            <div className="flex flex lg:flex-col gap-[5px] justify-between mt-[5px]  w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+            <div className="flex flex flex-col gap-[5px] justify-between mt-[5px]  w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
               <span className="font-medium-font-weight max-w-[65%]">
                 {posts[0]?.title?.[lang] ||
                   "Designing a Luxury Mediterranean Villa"}
               </span>
-              <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
+              <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
                 {posts[0]?.date?.[lang] || "March 2025"}
               </span>
             </div>
@@ -105,12 +105,12 @@ export default function Blog({ data, lang }) {
               />
             </div>
           </Link>
-          <div className="flex flex lg:flex-col gap-[5px]  justify-between mt-[5px]  w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight ">
+          <div className="flex flex flex-col gap-[5px]  justify-between mt-[5px]  w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight ">
             <span className="font-medium-font-weight max-w-[70%]">
               {posts[1]?.title?.[lang] ||
                 "Maximizing Light and Views in Your Mallorca Home"}
             </span>
-            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
+            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
               {posts[1]?.date?.[lang] || "January 2025"}
             </span>
           </div>
@@ -130,12 +130,12 @@ export default function Blog({ data, lang }) {
               />
             </div>
           </Link>
-          <div className="flex flex lg:flex-col gap-[5px] justify-between mt-[5px]  w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight ">
-            <span className="font-medium-font-weight max-w-[85%]">
+          <div className="flex flex flex-col gap-[5px] justify-between mt-[5px]  w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight ">
+            <span className="font-medium-font-weight max-w-[100%]">
               {posts[2]?.title?.[lang] ||
                 "Materials and Finishes Inspired by Mallorca."}
             </span>
-            <span className="text-[#757575] lg:text-[14px] 2xl:text-[16px] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight">
+            <span className="text-[#757575] lg:text-[14px] 2xl:text-[16px] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight">
               {posts[2]?.date?.[lang] || "August 2024"}
             </span>
           </div>

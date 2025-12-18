@@ -43,7 +43,7 @@ export default function BlogList({ posts, postsSection, lang }) {
 
   return (
     <div>
-      <div className="w-full lg:w-[25%] flex flex-col mb-[40px] lg:mb-0 relative lg:absolute lg:top-[200px] lg:right-[50px]">
+      <div className="w-full lg:w-[25%] flex flex-col mb-[80px] lg:mb-0 relative lg:absolute lg:top-[150px] 2xl:top-[200px] lg:right-[50px]">
         <div className="relative border-b border-[rgb(0,0,0)] pb-[5px]">
           <input
             type="text"
@@ -106,12 +106,12 @@ export default function BlogList({ posts, postsSection, lang }) {
                 sizes="(min-width: 1024px) 23vw, 80vw"
               />
             </div>
-            <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
-              <span className="font-medium-font-weight max-w-[65%]">
+            <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+              <span className="font-medium-font-weight max-w-[85%]">
                 {posts[0]?.title?.[lang] ||
                   "Designing a Luxury Mediterranean Villa"}
               </span>
-              <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
+              <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px] ">
                 {posts[0]?.date?.[lang] || "March 2025"}
               </span>
             </div>
@@ -136,12 +136,12 @@ export default function BlogList({ posts, postsSection, lang }) {
               />
             </div>
           </Link>
-          <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
-            <span className="font-medium-font-weight max-w-[70%]">
+          <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+            <span className="font-medium-font-weight max-w-[85%]">
               {posts[1]?.title?.[lang] ||
                 "Maximizing Light and Views in Your Mallorca Home"}
             </span>
-            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
+            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
               {posts[1]?.date?.[lang] || "January 2025"}
             </span>
           </div>
@@ -165,12 +165,12 @@ export default function BlogList({ posts, postsSection, lang }) {
               />
             </div>
           </Link>
-          <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
-            <span className="font-medium-font-weight max-w-[85%]">
+          <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+            <span className="font-medium-font-weight max-w-[100%]">
               {posts[2]?.title?.[lang] ||
                 "Materials and Finishes Inspired by Mallorca."}
             </span>
-            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
+            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
               {posts[2]?.date?.[lang] || "August 2024"}
             </span>
           </div>
@@ -192,12 +192,12 @@ export default function BlogList({ posts, postsSection, lang }) {
               />
             </div>
           </Link>
-          <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
-            <span className="font-medium-font-weight max-w-[65%]">
+          <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+            <span className="font-medium-font-weight max-w-[85%]">
               {posts[3]?.title?.[lang] ||
                 "Maximizing Light and Views in Your Mallorca Home"}
             </span>
-            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
+            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
               {posts[3]?.date?.[lang] || "March 2025"}
             </span>
           </div>
@@ -219,12 +219,12 @@ export default function BlogList({ posts, postsSection, lang }) {
               />
             </div>
           </Link>
-          <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
-            <span className="font-medium-font-weight max-w-[65%]">
+          <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+            <span className="font-medium-font-weight max-w-[85%]">
               {posts[4]?.title?.[lang] ||
                 "Maximizing Light and Views in Your Mallorca Home"}
             </span>
-            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
+            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
               {posts[4]?.date?.[lang] || "March 2025"}
             </span>
           </div>
@@ -246,12 +246,12 @@ export default function BlogList({ posts, postsSection, lang }) {
               />
             </div>
           </Link>
-          <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
-            <span className="font-medium-font-weight max-w-[70%]">
+          <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+            <span className="font-medium-font-weight max-w-[85%]">
               {posts[5]?.title?.[lang] ||
                 "Maximizing Light and Views in Your Mallorca Home"}
             </span>
-            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
+            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
               {posts[5]?.date?.[lang] || "March 2025"}
             </span>
           </div>
@@ -273,12 +273,12 @@ export default function BlogList({ posts, postsSection, lang }) {
               />
             </div>
           </Link>
-          <div className="flex lg:flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+          <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
               {posts[6]?.title?.[lang] ||
                 "Maximizing Light and Views in Your Mallorca Home"}
             </span>
-            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-end lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
+            <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
               {posts[6]?.date?.[lang] || "March 2025"}
             </span>
           </div>
