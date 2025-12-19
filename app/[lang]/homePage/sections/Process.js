@@ -28,7 +28,7 @@ export default function Process({ data, lang }) {
         {/* LEWY DIV: tytuł, opis, przyciski + lista kroków */}
         <div className="mb-[40px] lg:mb-0 lg:w-[50%] ">
           {/* Tytuł / opis / przyciski – jak wcześniej */}
-          <h3 className="text-[clamp(30px,6.5vw,45px)] leading-[clamp(36px,6.5vw,45px)] font-medium uppercase relative after:content-['(05)'] after:absolute after:bottom-[15px] md:after:bottom-[20px] after:text-[10px] md:after:text-[12px] xl:after:top-[-25px] 2xl:after:top-[-35px] mb-5 xl:text-6xl xl:after:text-[14px] xl:after:bottom-[3px]  xl:mb-[20px] 2xl:text-[80px] 2xl:leading-[80px] lg:font-normal 2xl:max-w-[1200px]">
+          <h3 className="text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium uppercase relative after:content-['(05)'] after:absolute after:bottom-[clamp(15px,4vw,25px)] md:after:bottom-[clamp(20px,4vw,25px)] xl:after:bottom-[clamp(20px,4vw,30px)] 2xl:after:top-[-35px] after:text-[10px] md:after:text-[12px]  2xl:after:top-[-35px] mb-5 xl:text-6xl xl:after:text-[14px] xl:mb-[20px] 2xl:text-[80px] 2xl:leading-[80px] lg:font-normal 2xl:max-w-[1200px]">
             {data?.title?.[lang]}
           </h3>
           <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[40px] xl:mb-[50px] min-[380px]:max-w-[390px] md:max-w-[400px] lg:max-w-[500px]">

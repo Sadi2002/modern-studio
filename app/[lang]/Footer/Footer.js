@@ -11,6 +11,7 @@ export const revalidate = 0;
 export default async function Footer({ lang }) {
   const footerData = await sanityClient.fetch(footerQuery);
   const footer = footerData;
+  console.log(footer);
 
   return (
     <footer className="bg-main-black pb-[30px]">
@@ -69,9 +70,9 @@ export default async function Footer({ lang }) {
         </div>
       </div>
       <div className="flex flex-col gap-[5px] items-end mx-margin-mobile md:mx-tablet lg:flex-row lg:justify-end lg:gap-x-[50px] 2xl:gap-x-[80px]">
-        <Link href={`/${lang}${footer?.privacyPolicyHref?.[lang]}`}>
-          <span className="text-[clamp(12px,3.5vw,16px)]   text-white">
-            {footer?.privacyPolicyLabel?.[lang]}
+        <Link href={`/${lang}/${footer?.privacyPolicy?.privacyPolicyHref}`}>
+          <span className="text-[clamp(12px,3.5vw,16px)] text-white">
+            {footer?.privacyPolicy?.privacyPolicyLabel?.[lang]}
           </span>
         </Link>
         <span className="text-[clamp(12px,3.5vw,16px)]   text-white">
