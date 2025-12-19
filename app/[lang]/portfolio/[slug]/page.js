@@ -27,8 +27,7 @@ export default async function Project({ params }) {
   const portfolioPageData = await sanityClient.fetch(portfolioPageQuery);
 
   const { beforeProjectsText } = portfolioPageData;
-  const { viewDetails } = portfolioPageData;
-  const { hideDetails } = portfolioPageData;
+  const { detailsLabel } = portfolioPageData;
 
   const { slug } = await params;
   const projects = await dataProjects();
@@ -117,8 +116,7 @@ export default async function Project({ params }) {
         <PortfolioDetails
           lang={lang}
           details={project.details}
-          viewDetails={viewDetails}
-          hideDetails={hideDetails}
+          detailsLabel={detailsLabel}
         />
       )}
 

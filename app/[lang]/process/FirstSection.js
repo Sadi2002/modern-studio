@@ -5,6 +5,7 @@ import ArrowWhite from "../../../public/arrow-right-white.png";
 import { urlFor } from "../../../lib/sanity/client";
 
 export default function FirstSection({ data, lang }) {
+  console.log(data);
   return (
     <section className="pt-[100px] md:pt-[150px] lg:pt-[100px] w-screen mb-[40px] md:mb-[40px] lg:mb-[80px] relative ">
       <div className="hidden lg:flex justify-center items-center w-[70px] h-[70px] rounded-[500px] bg-black absolute bottom-[30px] left-[50%] translate-x-[-50%] cursor-pointer">
@@ -27,19 +28,19 @@ export default function FirstSection({ data, lang }) {
           <div className="flex justify-end lg:justify-start mb-[40px]">
             <Button
               arrow={ArrowWhite}
-              linkTo={data?.buttonLink?.[lang]}
+              linkTo={`#${data?.button?.buttonLink}`}
               bgColor="main-black"
               textColor="main-white"
               additionalStyles="md:self-end"
             >
-              {data?.buttonLabel?.[lang]}
+              {data?.button?.buttonLabel?.[lang]}
             </Button>
           </div>
         </div>
         <div className="relative aspect-[5/6] md:aspect-[6/7] max-w-[80%] w-[80%]  xl:aspect-[5/8]  lg:w-[45%] lg:aspect-[4/5] lg:h-[calc(100vh-100px)] 2xl:w-[46%]">
           <Image
             src={urlFor(data.image).url()}
-            alt="projekt"
+            alt={data?.alt?.[lang] || "First Section Image"}
             className="object-cover absolute
                 top-0 left-0 w-full h-full"
             fill

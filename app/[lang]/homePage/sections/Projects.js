@@ -114,12 +114,12 @@ export default async function Projects({ data, lang }) {
             </p>
             <Button
               arrow={ArrowWhite}
-              linkTo={`/${lang}${data?.buttonLink?.[lang]}`}
+              linkTo={`/${lang}/${data?.button?.buttonLink}`}
               bgColor="main-black"
               textColor="main-white"
               additionalStyles="md:self-end"
             >
-              {data?.buttonLabel?.[lang]}
+              {data?.button?.buttonLabel?.[lang]}
             </Button>
           </div>
         </div>

@@ -39,12 +39,12 @@ export default function ThirdSection({ data, lang }) {
         <div className="flex justify-end lg:justify-start">
           <Button
             arrow={ArrowWhite}
-            linkTo={data?.buttonLink?.[lang]}
+            linkTo={`/${lang}/${data?.button?.buttonLink}`}
             bgColor="main-black"
             textColor="main-white"
             additionalStyles="md:self-end lg:flex"
           >
-            {data?.buttonLabel?.[lang]}
+            {data?.button?.buttonLabel?.[lang]}
           </Button>
         </div>
       </div>

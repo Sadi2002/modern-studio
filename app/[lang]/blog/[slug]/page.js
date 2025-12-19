@@ -65,7 +65,7 @@ export default async function Post({ params }) {
               </div>
               <div className="flex gap-[5px]">
                 <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-                  {blog?.date}
+                  {blog?.date?.[lang]}
                 </span>
               </div>
             </div>

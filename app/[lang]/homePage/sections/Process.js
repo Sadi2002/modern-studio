@@ -42,12 +42,12 @@ export default function Process({ data, lang }) {
           <div className="lg:flex lg:justify-end">
             <Button
               arrow={ArrowWhite}
-              linkTo={`/${lang}${data?.buttonLink?.[lang]}`}
+              linkTo={`/${lang}/${data?.button?.buttonLink}`}
               bgColor="main-black"
               textColor="main-white"
               additionalStyles="hidden md:self-end lg:flex"
             >
-              {data?.buttonLabel?.[lang]}
+              {data?.button?.buttonLabel?.[lang]}
             </Button>
           </div>
 

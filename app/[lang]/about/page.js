@@ -29,6 +29,8 @@ export default async function About({ params }) {
   const { awardsSection } = aboutPageData;
   const { overviewSection } = aboutPageData;
 
+  console.log(moreInformationSection);
+
   return (
     <>
       <DynamicFirstSection data={welcomeSection} lang={lang} />

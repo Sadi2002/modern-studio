@@ -18,8 +18,8 @@ export default function Blog({ data, lang }) {
   const description =
     data?.description?.[lang] ||
     "Welcome to our blog, where we explore design ideas, materials and architectural insights inspired by Mallorca.";
-  const buttonLabel = data?.buttonLabel?.[lang] || "Zobacz wszystkie";
-  const buttonLink = data?.buttonLink?.[lang] || "/blog";
+  const buttonLabel = data?.button?.buttonLabel?.[lang] || "View all";
+  const buttonLink = data?.button?.buttonLink || "blog";
 
   // w Sanity: posts = array of {post: {...}}
   const posts =
@@ -50,7 +50,7 @@ export default function Blog({ data, lang }) {
         </div>
         <div className="flex justify-end">
           <Link
-            href={`/${lang}${buttonLink}`}
+            href={`/${lang}/${buttonLink}`}
             className="bg-main-black mb-[40px] rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)] md:flex md:max-h-[50px] self-end"
           >
             {buttonLabel}

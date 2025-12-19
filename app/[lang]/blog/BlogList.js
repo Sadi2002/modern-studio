@@ -9,6 +9,7 @@ import { urlFor } from "../../../lib/sanity/client";
 import { useState } from "react";
 
 export default function BlogList({ posts, postsSection, lang }) {
+  console.log(postsSection);
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -185,7 +186,7 @@ export default function BlogList({ posts, postsSection, lang }) {
             <div className="aspect-[8/8] relative xl:aspect-[11/9]">
               <Image
                 src={posts[3] ? getImg(posts[3], projekt4) : projekt4}
-                alt="pokoj"
+                alt={posts[3]?.alt?.[lang] || "post image"}
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 23vw, 80vw"
@@ -212,7 +213,7 @@ export default function BlogList({ posts, postsSection, lang }) {
             <div className="aspect-[8/10] relative xl:aspect-[8/10]">
               <Image
                 src={posts[4] ? getImg(posts[4], projekt4) : projekt4}
-                alt="pokoj"
+                alt={posts[4]?.alt?.[lang] || "post image"}
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 23vw, 80vw"
@@ -239,7 +240,7 @@ export default function BlogList({ posts, postsSection, lang }) {
             <div className="aspect-[8/5] relative ">
               <Image
                 src={posts[5] ? getImg(posts[5], projekt4) : projekt4}
-                alt="pokoj"
+                alt={posts[5]?.alt?.[lang] || "post image"}
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 23vw, 80vw"
@@ -266,7 +267,7 @@ export default function BlogList({ posts, postsSection, lang }) {
             <div className="aspect-[6/8] xl:aspect-[6/7] relative ">
               <Image
                 src={posts[6] ? getImg(posts[6], projekt4) : projekt4}
-                alt="pokoj"
+                alt={posts[6]?.alt?.[lang] || "post image"}
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 23vw, 80vw"
@@ -287,7 +288,8 @@ export default function BlogList({ posts, postsSection, lang }) {
 
       {!hasMatch && (
         <div className="w-full flex justify-center items-center py-10 text-center text-[#757575]">
-          Nie znaleziono postów pasujących do wyszukiwania.
+          {postsSection?.notFound?.[lang] ||
+            "No posts found matching your criteria."}
         </div>
       )}
     </div>

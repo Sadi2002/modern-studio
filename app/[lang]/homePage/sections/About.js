@@ -21,9 +21,9 @@ export default function About({ data, lang }) {
               {data?.subtitle2?.[lang]}
             </p>
           </div>
-          <Link href={`/${lang}${data?.buttonLink?.[lang]}`}>
+          <Link href={`/${lang}/${data?.button.buttonLink}`}>
             <button className="font-medium-font-weight text-[clamp(0.75rem,3.5vw,1rem)] relative uppercase after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:w-full-width after:h-[1px] after:w-full">
-              {data?.buttonLabel?.[lang]}
+              {data?.button.buttonLabel?.[lang]}
             </button>
           </Link>
         </div>

@@ -19,7 +19,7 @@ export default function SecondSection({ data, lang }) {
           <div className="relative aspect-[5/4]">
             <Image
               src={urlFor(data.leftBox.image).url()}
-              alt="projekt"
+              alt={data?.leftBox?.alt?.[lang] || "projekt"}
               className="object-cover absolute top-0 left-0 w-full h-full  px-[20px]  md:px-[40px]  lg:px-[50px] 2xl:px-[50px]"
               fill
             />
@@ -38,7 +38,7 @@ export default function SecondSection({ data, lang }) {
           <div className="relative aspect-[6/4] 2xl:aspect-[7/4]">
             <Image
               src={urlFor(data.rightBox.image).url()}
-              alt="projekt"
+              alt={data?.rightBox?.alt?.[lang] || "projekt"}
               className="object-cover absolute top-0 left-0 w-full h-full  px-[20px] md:px-[40px] 2xl:px-[50px]"
               fill
             />

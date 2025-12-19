@@ -27,7 +27,7 @@ export default function TeamMember({
         </div>
         <div className="flex gap-[10px] pt-[2px]">
           {instagram && (
-            <Link href={instagram}>
+            <Link target="_blank" href={instagram}>
               <Image
                 src="/instagram.png"
                 alt={`Instagram of ${name}`}
@@ -38,7 +38,7 @@ export default function TeamMember({
             </Link>
           )}
           {linkedin && (
-            <Link href={linkedin}>
+            <Link target="_blank" href={linkedin}>
               <Image
                 src="/linkedIn.png"
                 alt={`LinkedIn of ${name}`}

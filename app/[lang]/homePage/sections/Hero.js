@@ -30,12 +30,12 @@ export default async function Hero({ data, lang }) {
 
           <Button
             arrow={arrow}
-            linkTo={data?.buttonLink?.[lang]}
+            linkTo={`#${data?.button?.buttonLink}`}
             bgColor="main-white"
             textColor="main-black"
             additionalStyles="md:self-start"
           >
-            {data?.buttonLabel?.[lang] || "Click."}
+            {data?.button?.buttonLabel?.[lang] || "Click"}
           </Button>
         </div>
       </div>

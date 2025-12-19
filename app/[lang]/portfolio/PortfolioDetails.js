@@ -5,12 +5,7 @@ import arrow from "../../../public/arrow.png";
 import { useState } from "react";
 import Link from "next/link";
 
-export default function PortfolioDetails({
-  lang,
-  details,
-  viewDetails,
-  hideDetails,
-}) {
+export default function PortfolioDetails({ lang, details, detailsLabel }) {
   const [isOpen, setIsOpen] = useState(false);
 
   if (!details || details.length === 0) return null;
@@ -52,7 +47,9 @@ export default function PortfolioDetails({
           className="font-medium-font-weight text-[clamp(0.75rem,3.5vw,1rem)] relative uppercase after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:w-full-width after:h-[1px] after:w-full flex items-center ml-auto cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? `${hideDetails?.[lang]}` : `${viewDetails?.[lang]}`}
+          {isOpen
+            ? `${detailsLabel?.hideDetails?.[lang]}`
+            : `${detailsLabel?.viewDetails?.[lang]}`}
           <Image
             src={arrow}
             alt="Arrow Icon"
