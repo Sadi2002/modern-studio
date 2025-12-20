@@ -84,16 +84,22 @@ export default function Process({ data, lang }) {
                   <p className="font-light-font-weight mb-[20px] text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] pr-[30px] md:pr-[70px] lg:text-[16px] lg:leading-[24px]">
                     {step?.description?.[lang]}
                   </p>
-                  {activeIndex === index && step.imgSrc && (
-                    <div className="relative w-full mb-[0px] aspect-8/5">
-                      <Image
-                        src={urlFor(step.imgSrc).url()}
-                        alt={step.alt}
-                        width={600}
-                        height={400}
-                        className="object-cover w-full h-full"
-                      />
-                    </div>
+                  {step.imgSrc && (
+                    <Image
+                      src={urlFor(step.imgSrc).url()}
+                      alt={step?.alt?.[lang] || ""}
+                      width={600}
+                      height={400}
+                      loading="eager"
+                      sizes="100vw"
+                      className={`object-cover w-full h-full transition-opacity duration-300
+        ${
+          activeIndex === index
+            ? "opacity-100"
+            : "opacity-0 absolute top-0 left-0"
+        }
+      `}
+                    />
                   )}
                 </div>
               </div>
@@ -104,20 +110,29 @@ export default function Process({ data, lang }) {
         {/* PRAWY DIV: sticky obraz + opis na desktopie */}
         <div className="hidden lg:flex lg:w-[40%] items-end">
           <div className=" lg:mt-[70px] lg:w-full xl:mt-[100px] 2xl:mt-[130px] ">
-            <div className="relative aspect-8/5 mb-[40px] lg:w-[100%] lg:h-[300px] lg:mb-0 2xl:h-[350px] lg:aspect-8/7">
-              {activeDesktopStep?.imgSrc && (
-                <Image
-                  src={urlFor(activeDesktopStep.imgSrc).url()}
-                  alt={activeDesktopStep?.alt?.[lang]}
-                  fill
-                  className="object-cover absolute top-0 left-0 w-full h-full"
-                />
+            <div className="relative aspect-8/5 mb-[40px] lg:w-[100%] lg:h-[300px] lg:mb-0 2xl:h-[400px] lg:aspect-8/7">
+              {steps.map(
+                (step, index) =>
+                  step.imgSrc && (
+                    <Image
+                      key={step._key ?? index}
+                      src={urlFor(step.imgSrc).url()}
+                      alt={step?.alt?.[lang] || ""}
+                      fill
+                      priority={index === 0}
+                      loading="eager"
+                      sizes="(min-width: 1024px) 40vw, 100vw"
+                      className={`object-cover transition-opacity duration-300
+          ${activeIndexDesktop === index ? "opacity-100 z-10" : "opacity-0 z-0"}
+        `}
+                    />
+                  )
               )}
             </div>
 
-            <p className="hidden mt-[10px] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(16px,4.5vw,1.5rem)] max-w-[360px] lg:mt-[10px] lg:text-[16px] lg:leading-[24px] lg:flex xl:max-w-[400px] 2xl:max-w-[450px]">
+            {/* <p className="hidden mt-[10px] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(16px,4.5vw,1.5rem)] max-w-[360px] lg:mt-[10px] lg:text-[16px] lg:leading-[24px] lg:flex xl:max-w-[400px] 2xl:max-w-[450px]">
               {steps[activeIndex]?.description?.[lang]}
-            </p>
+            </p> */}
           </div>
         </div>
       </div>
