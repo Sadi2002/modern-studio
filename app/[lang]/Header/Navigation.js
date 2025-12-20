@@ -3,7 +3,6 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import TransitionLink from "@/app/components/TransitionLink";
 
 export default function Navigation({ data, dataMobile, lang }) {
   const pathname = usePathname();
@@ -103,7 +102,7 @@ export default function Navigation({ data, dataMobile, lang }) {
     >
       {/* LOGO */}
       <span className={`md:text-logo-font-size ${logoColor}`}>
-        <TransitionLink href={getHomeLink()}>{data.logo}</TransitionLink>
+        <Link href={getHomeLink()}>{data.logo}</Link>
       </span>
 
       {/* MOBILE BURGER */}
@@ -133,9 +132,9 @@ export default function Navigation({ data, dataMobile, lang }) {
       {isOpen && (
         <div className="h-[100dvh] w-full fixed top-0 left-0 z-50 lg:hidden bg-main-black text-main-white">
           <div className="flex justify-between items-center pt-mobile-navigation-top px-[20px] md:px-[40px] md:text-logo-font-size ">
-            <TransitionLink href={getHomeLink()} onClick={toggleMenu}>
+            <Link href={getHomeLink()} onClick={toggleMenu}>
               {dataMobile.logo}
-            </TransitionLink>
+            </Link>
             <div className="flex flex-row-reverse gap-[30px]">
               <span
                 className="uppercase text-[14px] text-white font-medium-font-weight cursor-pointer md:text-[16px]"
@@ -146,12 +145,9 @@ export default function Navigation({ data, dataMobile, lang }) {
               <div className="flex lg:hidden items-center justify-end gap-2 uppercase text-[14px] md:text-[16px] text-white">
                 {availableLangs.map((l, idx) => (
                   <div key={l} className="flex items-center gap-2">
-                    <TransitionLink
-                      href={getLangSwitcherLink(l)}
-                      onClick={toggleMenu}
-                    >
+                    <Link href={getLangSwitcherLink(l)} onClick={toggleMenu}>
                       {l}
-                    </TransitionLink>
+                    </Link>
                     {idx < availableLangs.length - 1 && <span>/</span>}
                   </div>
                 ))}
@@ -165,13 +161,13 @@ export default function Navigation({ data, dataMobile, lang }) {
                 key={index}
                 className="border-b border-[rgba(255,255,255,0.2)] py-[15px]"
               >
-                <TransitionLink
+                <Link
                   href={`/${lang}/${getLocalizedLink(link?.href)}`}
                   className="pl-[20px] md:pl-[40px]"
                   onClick={toggleMenu}
                 >
                   {link?.label?.[lang]}
-                </TransitionLink>
+                </Link>
               </li>
             ))}
           </ul>
@@ -180,21 +176,21 @@ export default function Navigation({ data, dataMobile, lang }) {
             <ul className="flex flex-col text-[14px] gap-[8px] md:text-[16px]">
               {dataMobile.socialMedia.map((social, index) => (
                 <li key={index}>
-                  <TransitionLink target="_blank" href={social?.url}>
+                  <Link target="_blank" href={social?.url}>
                     {social?.title}
-                  </TransitionLink>
+                  </Link>
                 </li>
               ))}
             </ul>
             <ul className="flex flex-col text-[12px] gap-[8px] text-right md:text-[14px]">
               {dataMobile.legalLinks.map((legal, index) => (
-                <TransitionLink
+                <Link
                   key={index}
                   href={`/${lang}/${legal?.href}`}
                   onClick={toggleMenu}
                 >
                   {legal?.label?.[lang]}
-                </TransitionLink>
+                </Link>
               ))}
             </ul>
           </div>
@@ -208,7 +204,7 @@ export default function Navigation({ data, dataMobile, lang }) {
         >
           {data.links.map((link, index) => (
             <li key={index}>
-              <TransitionLink
+              <Link
                 href={`/${lang}/${getLocalizedLink(link?.href)}`}
                 className="group relative inline-flex leading-none overflow-hidden text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
               >
@@ -223,7 +219,7 @@ export default function Navigation({ data, dataMobile, lang }) {
                     {link?.label?.[lang]}
                   </span>
                 </span>
-              </TransitionLink>
+              </Link>
             </li>
           ))}
         </ul>
@@ -233,7 +229,7 @@ export default function Navigation({ data, dataMobile, lang }) {
         >
           {availableLangs.map((l, idx) => (
             <div key={l} className="flex items-center gap-2">
-              <TransitionLink href={getLangSwitcherLink(l)}>{l}</TransitionLink>
+              <Link href={getLangSwitcherLink(l)}>{l}</Link>
               {idx < availableLangs.length - 1 && <span>/</span>}
             </div>
           ))}
