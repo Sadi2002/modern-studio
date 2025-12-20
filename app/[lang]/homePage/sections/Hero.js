@@ -33,7 +33,7 @@ export default async function Hero({ data, lang }) {
             linkTo={`#${data?.button?.buttonLink}`}
             bgColor="main-white"
             textColor="main-black"
-            additionalStyles="md:self-start"
+            additionalStyles="self-end md:self-start"
           >
             {data?.button?.buttonLabel?.[lang] || "Click"}
           </Button>
