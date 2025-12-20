@@ -2,7 +2,12 @@ import nodemailer from "nodemailer";
 
 export async function POST(req) {
   const { name, email, message } = await req.json();
-  // …walidacja pól…
+
+  if (!name || !email || !message) {
+    return new Response(JSON.stringify({ error: "Missing required fields." }), {
+      status: 400,
+    });
+  }
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -12,30 +17,24 @@ export async function POST(req) {
     },
   });
 
-  const mailOptions = {
-    from: `"${name}" <${email}>`,
-    to: process.env.RECIPIENT_EMAIL,
-    subject: `Nowa wiadomość od ${name}`,
-    text: message,
-    html: `<p><strong>Imię:</strong> ${name}</p>
-           <p><strong>Email:</strong> ${email}</p>
-           <p><strong>Wiadomość:</strong><br/>${message.replace(
-             /\n/g,
-             "<br/>"
-           )}</p>`,
-  };
-
   try {
-    await transporter.sendMail(mailOptions);
-    return new Response(JSON.stringify({ message: "Wiadomość wysłana." }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
+    await transporter.sendMail({
+      from: `"${name}" <${email}>`,
+      to: process.env.RECIPIENT_EMAIL,
+      subject: `New message from ${name}`,
+      text: message,
+      html: `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong><br/>${message.replace(/\n/g, "<br/>")}</p>
+      `,
     });
+
+    return new Response(null, { status: 200 });
   } catch (error) {
-    console.error("Błąd przy wysyłaniu e-maila:", error);
-    return new Response(
-      JSON.stringify({ error: "Wystąpił błąd przy wysyłaniu." }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
-    );
+    console.error(error);
+    return new Response(JSON.stringify({ error: "EMAIL_SEND_FAILED" }), {
+      status: 500,
+    });
   }
 }

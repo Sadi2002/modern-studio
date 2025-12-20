@@ -17,6 +17,8 @@ export default async function Contact({ params }) {
 
   const section = contactPageData?.contactSection || {};
 
+  console.log(section);
+
   const title = section?.title?.[lang] || "Let’s create the unforgettable";
   const description =
     section?.description?.[lang] ||
@@ -26,6 +28,16 @@ export default async function Contact({ params }) {
   const emailLabel = section?.emailLabel?.[lang] || "Email";
   const messageLabel = section?.messageLabel?.[lang] || "Message";
   const submitLabel = section?.submitLabel?.[lang] || "Send message";
+
+  const thankYouMessage =
+    section?.thankYouMessage?.[lang] ||
+    "Your message has been sent successfully.";
+
+  const errorMessage =
+    section?.errorMessage?.[lang] || "An error occurred. Please try again.";
+
+  const privacyText =
+    section?.privacyPolicyText?.[lang] || "I accept the privacy policy.";
 
   const additional = section.additionalInfo || {};
   const email = additional.email || "kontakt@sadowskistudio.com";
@@ -50,6 +62,9 @@ export default async function Contact({ params }) {
           emailLabel={emailLabel}
           messageLabel={messageLabel}
           submitLabel={submitLabel}
+          thankYouMessage={thankYouMessage}
+          errorMessage={errorMessage}
+          privacyText={privacyText}
         />
       </div>
       <div className=" lg:bg-black flex lg:pt-[40px] px-[20px] pb-[70px] md:px-[40px] lg:p-0 lg:mt-[100px] lg:h-[100dvh] w-[100% relative lg:ml-auto lg:w-[clamp(30rem,3vw,10rem)] 2xl:w-[clamp(36rem,35vw,50%)]">
