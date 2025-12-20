@@ -206,9 +206,19 @@ export default function Navigation({ data, dataMobile, lang }) {
             <li key={index}>
               <Link
                 href={`/${lang}/${getLocalizedLink(link?.href)}`}
-                className="text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
+                className="group relative inline-flex leading-none overflow-hidden text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
               >
-                {link?.label?.[lang]}
+                <span className="relative block h-[1em] overflow-hidden">
+                  {/* pierwszy */}
+                  <span className="block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
+                    {link?.label?.[lang]}
+                  </span>
+
+                  {/* drugi */}
+                  <span className="absolute left-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
+                    {link?.label?.[lang]}
+                  </span>
+                </span>
               </Link>
             </li>
           ))}

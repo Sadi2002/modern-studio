@@ -86,6 +86,8 @@ body {
   scrollbar-width: none;
 }
 
+/* RESPONSYWNOSC */
+
 @media (max-width: 1024px) {
   .container {
     display: block;

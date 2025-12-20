@@ -51,13 +51,23 @@ export default function Blog({ data, lang }) {
         <div className="flex justify-end">
           <Link
             href={`/${lang}/${buttonLink}`}
-            className="bg-main-black mb-[40px] rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)] md:flex md:max-h-[50px] self-end"
+            className="group bg-main-black mb-[40px] rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium inline-flex gap-2 items-center leading-none text-[clamp(0.75rem,3.35vw,1rem)] md:max-h-[50px] self-end"
           >
-            {buttonLabel}
+            {/* ANIMOWANY TEKST */}
+            <span className="relative overflow-hidden h-[1em] leading-none block">
+              <span className="block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full will-change-transform">
+                {buttonLabel}
+              </span>
+              <span className="absolute left-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full will-change-transform">
+                {buttonLabel}
+              </span>
+            </span>
+
+            {/* STRZAŁKA */}
             <Image
               src={ArrowWhite}
               alt="strzałka"
-              className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] top-[0.5px] relative "
+              className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] relative top-[0.5px]"
             />
           </Link>
         </div>

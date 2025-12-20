@@ -34,9 +34,16 @@ export default async function Footer({ lang }) {
               >
                 <Link
                   href={`/${lang}${link?.url?.[lang]}`}
-                  className="uppercase text-white text-[clamp(20px,5vw,23px)] flex pl-[20px] md:pl-[40px]"
+                  className="group uppercase text-white text-[clamp(20px,5vw,23px)] flex pl-[20px] md:pl-[40px] leading-none"
                 >
-                  {link?.title?.[lang]}
+                  <span className="relative overflow-hidden h-[1em] block">
+                    <span className="block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
+                      {link?.title?.[lang]}
+                    </span>
+                    <span className="absolute left-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
+                      {link?.title?.[lang]}
+                    </span>
+                  </span>
                 </Link>
               </li>
             ))}
