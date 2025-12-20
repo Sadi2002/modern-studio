@@ -53,7 +53,7 @@ export default async function Project({ params }) {
         id="start"
         className="flex  w-full justify-between pt-[100px] md:pt-[150px] 2xl:pt-[200px] px-[20px] mb-[40px] lg:mb-[80px] xl:mb-[150px] md:px-[40px] lg:px-[50px] flex-col lg:flex-row "
       >
-        <h1 className="text-[clamp(30px,6.5vw,45px)] leading-[clamp(36px,6.5vw,45px)] font-medium uppercase relative mb-5 xl:text-6xl  xl:mb-[20px] 2xl:text-[80px] 2xl:leading-[80px] lg:font-normal 2xl:max-w-[1200px]">
+        <h1 className="text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium uppercase relative mb-5 xl:text-6xl  xl:mb-[20px] 2xl:text-[80px] 2xl:leading-[80px] lg:font-normal 2xl:max-w-[1200px]">
           {project?.title?.[lang]}
         </h1>
         <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight lg:w-[50%] max-w-[700px] ">
@@ -160,7 +160,7 @@ export default async function Project({ params }) {
       </div>
 
       <div className="mt-[80px] lg:mt-[0]">
-        <h3 className="text-[clamp(30px,6.5vw,45px)] leading-[36px] font-medium uppercase relative mb-5 lg:text-6xl  lg:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal mx-margin-mobile md:mx-tablet lg:hidden">
+        <h3 className="text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium uppercase relative mb-5 lg:text-6xl  lg:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal mx-margin-mobile md:mx-tablet lg:hidden">
           Our projects
         </h3>
         <PortfolioClient

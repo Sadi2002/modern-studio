@@ -48,7 +48,7 @@ export default async function Post({ params }) {
         <div>
           <div className=" flex flex-col lg:flex-row justify-between lg:items-end mb-[40px] md:mb-[40px] lg:mb-[0px] gap-[20px]">
             <div className=" lg:max-w-[1000px] 2xl:max-w-[1200px]">
-              <h1 className="text-[clamp(24px,8vw,45px)] leading-[clamp(36px,8vw,45px)] font-medium mb-[20px] xl:mb-[20px] max-w-[600px] lg:text-[45px] lg:leading-[45px] lg:max-w-[600px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] xl:max-w-[750px] 2xl:max-w-[1000px] lg:font-normal 2xl:text-[80px] 2xl:leading-[80px] uppercase">
+              <h1 className="text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[20px] xl:mb-[20px] max-w-[600px] lg:text-[45px] lg:leading-[45px] lg:max-w-[600px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] xl:max-w-[750px] 2xl:max-w-[1000px] lg:font-normal 2xl:text-[80px] 2xl:leading-[80px] uppercase">
                 {blog?.title?.[lang]}
               </h1>
               <p className="font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] flex flex-col gap-[16px] lg:max-w-[580px] 2xl:max-w-[800px]">
@@ -98,7 +98,7 @@ export default async function Post({ params }) {
         </div>
       </div>
       <div>
-        <h3 className="text-[clamp(36px,8vw,45px)] leading-[clamp(36px,8vw,45px)] font-medium mb-[20px] xl:mb-[20px] max-w-[500px] lg:text-[45px] lg:leading-[45 px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] xl:max-w-[600px] 2xl:max-w-[1200px] 2xl:font-normal 2xl:text-[80px] 2xl:leading-[80px] 2xl:w-[850px] uppercase">
+        <h3 className="text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[20px] xl:mb-[20px] max-w-[500px] lg:text-[45px] lg:leading-[45 px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] xl:max-w-[600px] 2xl:max-w-[1200px] 2xl:font-normal 2xl:text-[80px] 2xl:leading-[80px] 2xl:w-[850px] uppercase">
           SEE OTHER BLOGS
         </h3>
         <div className="flex justify-end">
