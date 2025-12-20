@@ -146,7 +146,7 @@ export default function ContactForm({
           bgColor="main-black"
           textColor="main-white"
           additionalStyles={`md:self-end mt-[8px] ${
-            !isFormValid ? "opacity-50 pointer-events-none" : ""
+            !isFormValid ? "pointer-events-none" : ""
           }`}
         >
           {submitLabel}
