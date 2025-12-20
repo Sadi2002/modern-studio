@@ -28,6 +28,8 @@ export default async function Project({ params }) {
 
   const { beforeProjectsText } = portfolioPageData;
   const { detailsLabel } = portfolioPageData;
+  const { button } = portfolioPageData;
+  const { beforePortfolioText } = portfolioPageData;
 
   const { slug } = await params;
   const projects = await dataProjects();
@@ -149,19 +151,19 @@ export default async function Project({ params }) {
         <div className="flex justify-end mt-[30px] px-[10px] md:px-[20px] 2xl:px-[40px] ">
           <Button
             arrow={ArrowWhite}
-            linkTo={`/${lang}/contact`}
+            linkTo={`/${lang}/${button?.beforePortfolioButtonLink}`}
             bgColor="main-black"
             textColor="main-white"
             additionalStyles="md:self-end"
           >
-            Contact us
+            {button?.beforePortfolioButton?.[lang]}
           </Button>
         </div>
       </div>
 
       <div className="mt-[80px] lg:mt-[0]">
         <h3 className="text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium uppercase relative mb-5 lg:text-6xl  lg:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal mx-margin-mobile md:mx-tablet lg:hidden">
-          Our projects
+          {beforePortfolioText?.[lang]}
         </h3>
         <PortfolioClient
           projects={projects}

@@ -33,6 +33,8 @@ export default async function Contact({ params }) {
   const facebookLabel = additional.facebookLabel || "Facebook";
   const facebookUrl = additional.facebookUrl || "https://google.com";
 
+  console.log(additional);
+
   return (
     <section className="flex flex-col gap-[40px] lg:gap-0 lg:flex-row w-full lg:items-center lg:mt-[100px] lg:h-[calc(100dvh-100px)]">
       <div className="flex-1 pt-[100px] md:pt-[150px] lg:pt-0 mx-margin-mobile md:mx-tablet lg:ml-[50px] 2xl:mx-[50px]">
@@ -53,15 +55,21 @@ export default async function Contact({ params }) {
       <div className=" lg:bg-black flex lg:pt-[40px] px-[20px] pb-[70px] md:px-[40px] lg:p-0 lg:mt-[100px] lg:h-[100dvh] w-[100% relative lg:ml-auto lg:w-[clamp(30rem,3vw,10rem)] 2xl:w-[clamp(36rem,35vw,50%)]">
         <div className="lg:text-main-white  text-[14px] flex flex-col lg:ml-[40px] xl:ml-[40px] 2xl:ml-[60px] md:text-[18px] space-y-4 lg:absolute bottom-[200px]">
           <span className="mb-[10px]">
-            E-mail:&nbsp;
-            <Link href={`mailto:${email}`}>{email}</Link>
+            {additional?.email?.emailLabel?.[lang]}:&nbsp;
+            <Link href={`mailto:${additional?.email?.emailAddress}`}>
+              {additional?.email?.emailAddress}
+            </Link>
           </span>
           <span className="mb-[10px]">
-            Phone:&nbsp;
-            <Link href={`tel:${phone}`}>{phone}</Link>
+            {additional?.phone?.phoneLabel?.[lang]}:&nbsp;
+            <Link href={`tel:${additional?.phone?.phoneNumber}`}>
+              {additional?.phone?.phoneNumber}
+            </Link>
           </span>
           <span className="mb-[10px]">
-            <Link href={facebookUrl}>{facebookLabel}</Link>
+            <Link target="_blank" href={facebookUrl}>
+              {facebookLabel}
+            </Link>
           </span>
         </div>
       </div>

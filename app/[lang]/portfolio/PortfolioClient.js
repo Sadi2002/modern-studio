@@ -26,6 +26,7 @@ export default function PortfolioClient({
   isBtn = true,
   lang,
   beforeProjectsText,
+  button,
 }) {
   console.log(beforeProjectsText);
   const pathname = usePathname();
@@ -287,12 +288,12 @@ export default function PortfolioClient({
           {isBtn && (
             <Button
               arrow={ArrowWhite}
-              linkTo="/portfolio"
+              linkTo={`/${lang}/${button?.beforePortfolioButtonLink}`}
               bgColor="main-black"
               textColor="main-white"
               additionalStyles="md:self-end"
             >
-              Contact us
+              {button?.beforePortfolioButton?.[lang]}
             </Button>
           )}
         </div>

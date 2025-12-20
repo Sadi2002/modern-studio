@@ -17,7 +17,9 @@ export default async function Portfolio({ params }) {
 
   const portfolioPageData = await sanityClient.fetch(portfolioPageQuery);
 
-  const { beforeProjectsText, viewDetails } = portfolioPageData;
+  const { beforeProjectsText, viewDetails, button, beforePortfolioText } =
+    portfolioPageData;
+  console.log(portfolioPageData);
 
   return (
     <PortfolioClient
@@ -25,6 +27,8 @@ export default async function Portfolio({ params }) {
       lang={lang}
       beforeProjectsText={beforeProjectsText}
       viewDetails={viewDetails}
+      button={button}
+      beforePortfolioText={beforePortfolioText}
     />
   );
 }
