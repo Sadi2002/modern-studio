@@ -23,6 +23,10 @@ export default async function Post({ params }) {
   const lang = getParams.lang;
   const blogPageData = await sanityClient.fetch(blogPageQuery);
 
+  function getRandomPosts(posts, count) {
+    return [...posts].sort(() => Math.random() - 0.5).slice(0, count);
+  }
+
   const { postsSection } = blogPageData;
 
   console.log(postsSection);
@@ -34,7 +38,13 @@ export default async function Post({ params }) {
   const { slug } = await params;
   const posts = await dataBlog();
 
+  console.log(posts);
+
   const blog = posts.find((post) => post.slug.current === slug);
+  const relatedPosts = getRandomPosts(
+    posts.filter((post) => post.slug.current !== slug),
+    3
+  );
 
   const getImg = (post, fallback) => {
     if (post?.imgSrc) {
@@ -130,9 +140,15 @@ export default async function Post({ params }) {
             <Link href={`${posts[0]?.slug.current}`}>
               <div className="aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
                 <Image
-                  src={posts[0] ? getImg(posts[0], projekt3) : projekt3}
+                  src={
+                    relatedPosts[0]
+                      ? getImg(relatedPosts[0], projekt3)
+                      : projekt3
+                  }
                   alt={
-                    posts[0]?.alt?.[lang] || posts[0]?.title?.[lang] || "pokoj"
+                    relatedPosts[0]?.alt?.[lang] ||
+                    relatedPosts[0]?.title?.[lang] ||
+                    "pokoj"
                   }
                   fill
                   className="object-cover"
@@ -140,11 +156,11 @@ export default async function Post({ params }) {
               </div>
               <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
                 <span className="font-medium-font-weight max-w-[65%]">
-                  {posts[0]?.title?.[lang] ||
+                  {relatedPosts[0]?.title?.[lang] ||
                     "Designing a Luxury Mediterranean Villa"}
                 </span>
                 <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-                  {posts[0]?.date?.[lang] || "March 2025"}
+                  {relatedPosts[0]?.date?.[lang] || "March 2025"}
                 </span>
               </div>
             </Link>
@@ -152,12 +168,18 @@ export default async function Post({ params }) {
 
           {/* 2 kolumna */}
           <div className="w-full mb-[50px] max-w-[86%] ml-auto lg:ml-0 flex lg:max-w-[100%] lg:mb-[0] lg:w-[30%] inline-block">
-            <Link href={`${posts[1]?.slug.current}`}>
+            <Link href={`${relatedPosts[1]?.slug.current}`}>
               <div className="flex lg:block aspect-[5/3]  lg:aspect-[8/5] relative ">
                 <Image
-                  src={posts[1] ? getImg(posts[1], projekt2) : projekt2}
+                  src={
+                    relatedPosts[1]
+                      ? getImg(relatedPosts[1], projekt2)
+                      : projekt2
+                  }
                   alt={
-                    posts[1]?.alt?.[lang] || posts[1]?.title?.[lang] || "pokoj"
+                    relatedPosts[1]?.alt?.[lang] ||
+                    relatedPosts[1]?.title?.[lang] ||
+                    "pokoj"
                   }
                   fill
                   className="object-cover"
@@ -166,23 +188,29 @@ export default async function Post({ params }) {
             </Link>
             <div className="flex flex-col gap-[4px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
               <span className="font-medium-font-weight max-w-[70%]">
-                {posts[1]?.title?.[lang] ||
+                {relatedPosts[1]?.title?.[lang] ||
                   "Maximizing Light and Views in Your Mallorca Home"}
               </span>
               <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-                {posts[1]?.date?.[lang] || "January 2025"}
+                {relatedPosts[1]?.date?.[lang] || "January 2025"}
               </span>
             </div>
           </div>
 
           {/* 3 kolumna */}
           <div className="max-w-[78%] lg:max-w-[100%] lg:w-[20%] inline-block xl:w-[20%] ">
-            <Link href={`${posts[2]?.slug.current}`}>
+            <Link href={`${relatedPosts[2]?.slug.current}`}>
               <div className="aspect-[7/8]  lg:aspect-[6/8] xl:aspect-[6/8] relative ">
                 <Image
-                  src={posts[2] ? getImg(posts[2], projekt4) : projekt4}
+                  src={
+                    relatedPosts[2]
+                      ? getImg(relatedPosts[2], projekt4)
+                      : projekt4
+                  }
                   alt={
-                    posts[2]?.alt?.[lang] || posts[2]?.title?.[lang] || "pokoj"
+                    relatedPosts[2]?.alt?.[lang] ||
+                    relatedPosts[2]?.title?.[lang] ||
+                    "pokoj"
                   }
                   fill
                   className="object-cover"
@@ -191,11 +219,11 @@ export default async function Post({ params }) {
             </Link>
             <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
               <span className="font-medium-font-weight max-w-[100%]">
-                {posts[2]?.title?.[lang] ||
+                {relatedPosts[2]?.title?.[lang] ||
                   "Materials and Finishes Inspired by Mallorca."}
               </span>
               <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-                {posts[2]?.date?.[lang] || "August 2024"}
+                {relatedPosts[2]?.date?.[lang] || "August 2024"}
               </span>
             </div>
           </div>
