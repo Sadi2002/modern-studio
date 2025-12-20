@@ -34,9 +34,9 @@ export default function Process({ data, lang }) {
           <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[40px] xl:mb-[50px] min-[380px]:max-w-[390px] md:max-w-[400px] lg:max-w-[500px]">
             {data?.description?.[lang]}
           </p>
-          <Link href={`/${lang}${data?.buttonLink?.[lang]}`}>
+          <Link href={`/${lang}/${data?.button?.buttonLink}`}>
             <button className="font-medium-font-weight text-[clamp(0.75rem,3.5vw,1rem)] relative uppercase after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:w-full-width after:h-[1px] ml-auto mr-0 block after:w-full lg:hidden">
-              {data?.buttonLabel?.[lang]}
+              {data?.button?.buttonLabel?.[lang]}
             </button>
           </Link>
           <div className="lg:flex lg:justify-end">
