@@ -10,6 +10,7 @@ export default async function Blog({ params }) {
   const lang = getParams.lang;
   const blogPageData = await sanityClient.fetch(blogPageQuery);
   const { postsSection } = blogPageData;
+  console.log(postsSection);
   const posts = await dataBlog();
   console.log(posts);
 

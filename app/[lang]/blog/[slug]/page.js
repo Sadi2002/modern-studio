@@ -3,7 +3,7 @@ import Link from "next/link";
 import ArrowWhite from "../../../../public/arrow-right-white.png";
 import dataBlog from "@/app/data/dataBlog";
 import { sanityClient } from "../../../../lib/sanity/client";
-import { blogPostQuery } from "@/lib/sanity/queries";
+import { blogPageQuery, blogPostQuery } from "@/lib/sanity/queries";
 import { urlFor } from "../../../../lib/sanity/client";
 import projekt1 from "../../../../public/projekt1-large.webp";
 import projekt2 from "../../../../public/projekt2-large.webp";
@@ -21,6 +21,11 @@ export async function generateStaticParams() {
 export default async function Post({ params }) {
   const getParams = await params;
   const lang = getParams.lang;
+  const blogPageData = await sanityClient.fetch(blogPageQuery);
+
+  const { postsSection } = blogPageData;
+
+  console.log(postsSection);
 
   const whatsLanguage = lang === "en" ? "/blog" : `/${lang}/blog`;
 
@@ -98,15 +103,19 @@ export default async function Post({ params }) {
         </div>
       </div>
       <div>
-        <h3 className="text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[20px] xl:mb-[20px] max-w-[500px] lg:text-[45px] lg:leading-[45 px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] xl:max-w-[600px] 2xl:max-w-[1200px] 2xl:font-normal 2xl:text-[80px] 2xl:leading-[80px] 2xl:w-[850px] uppercase">
-          SEE OTHER BLOGS
+        <h3 className="text-[clamp(1.5rem,8vw,3rem)] uppercase leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[20px] xl:mb-[20px] max-w-[500px] lg:text-[45px] lg:leading-[45 px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] xl:max-w-[600px] 2xl:max-w-[1200px] 2xl:font-normal 2xl:text-[80px] 2xl:leading-[80px] 2xl:w-[850px] uppercase">
+          {postsSection?.seeOtherBlogs?.seeOtherBlogsLabel?.[lang]}
         </h3>
         <div className="hidden lg:flex justify-end">
           <Link
-            href={`/${lang}/blog`}
+            href={`/${lang}/${postsSection?.seeOtherBlogs?.button?.seeOtherBlogsButtonLink}`}
             className="bg-main-black mb-[40px] rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)] md:flex md:max-h-[50px] self-end"
           >
-            Zobacz wszystkie
+            {
+              postsSection?.seeOtherBlogs?.button?.seeOtherBlogsButtonLabel?.[
+                lang
+              ]
+            }
             <Image
               src={ArrowWhite}
               alt="strzałka"
@@ -193,10 +202,14 @@ export default async function Post({ params }) {
         </div>
         <div className="flex lg:hidden justify-end">
           <Link
-            href={`/${lang}/blog`}
+            href={`/${lang}/${postsSection?.seeOtherBlogs?.button?.seeOtherBlogsButtonLink}`}
             className="bg-main-black rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium flex items-center md:ml-0 text-[clamp(0.75rem,3.35vw,1rem)] md:flex md:max-h-[50px] self-end"
           >
-            Zobacz wszystkie
+            {
+              postsSection?.seeOtherBlogs?.button?.seeOtherBlogsButtonLabel?.[
+                lang
+              ]
+            }
             <Image
               src={ArrowWhite}
               alt="strzałka"
