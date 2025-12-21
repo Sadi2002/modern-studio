@@ -176,21 +176,21 @@ export default function Navigation({ data, dataMobile, lang }) {
             <ul className="flex flex-col text-[14px] gap-[8px] md:text-[16px]">
               {dataMobile.socialMedia.map((social, index) => (
                 <li key={index}>
-                  <Link target="_blank" href={social?.url}>
+                  <TransitionLink target="_blank" href={social?.url}>
                     {social?.title}
-                  </Link>
+                  </TransitionLink>
                 </li>
               ))}
             </ul>
             <ul className="flex flex-col text-[12px] gap-[8px] text-right md:text-[14px]">
               {dataMobile.legalLinks.map((legal, index) => (
-                <Link
+                <TransitionLink
                   key={index}
                   href={`/${lang}/${legal?.href}`}
                   onClick={toggleMenu}
                 >
                   {legal?.label?.[lang]}
-                </Link>
+                </TransitionLink>
               ))}
             </ul>
           </div>
