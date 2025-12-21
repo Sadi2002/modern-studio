@@ -9,7 +9,7 @@ export default function About({ data, lang }) {
       className="pt-[80px] flex flex-col gap-[40px] xl:gap-[80px] xl:pt-[150px] mb-[80px] xl:mb-[150px]"
     >
       <div className="mx-margin-mobile lg:flex md:mx-tablet lg:mx-small-laptop lg:justify-between xl:justify-between 2xl:mx-desktop">
-        <h2 className="text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[20px] max-w-[500px] lg:text-[clamp(2rem,3.5vw,64px)] lg:leading-[clamp(2rem,4vw,64px)] lg:max-w-[700px] lg:w-[50%] 2xl:max-w-[850px] xl:font-normal">
+        <h2 className="text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[20px] max-w-[550px] lg:text-[clamp(2rem,3.5vw,64px)] lg:leading-[clamp(2rem,4vw,64px)] lg:max-w-[700px] lg:w-[50%] 2xl:max-w-[850px] xl:font-normal">
           {data?.title?.[lang]}
         </h2>
         <div className="flex flex-col items-end lg:items-start lg:w-[50%]">

@@ -42,7 +42,7 @@ export default function PortfolioDetails({ lang, details, detailsLabel }) {
         </div>
       </div>
 
-      <div className="px-[20px] md:px-[40px] 2xl:px-[70px]">
+      <div className="px-[20px] md:px-[40px] lg:px-[50px] 2xl:px-[50px]">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="group relative ml-auto flex items-center gap-2 cursor-pointer font-medium-font-weight uppercase text-[clamp(0.75rem,3.5vw,1rem)] leading-none

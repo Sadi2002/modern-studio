@@ -62,7 +62,7 @@ export default async function Project({ params }) {
           {project?.description?.[lang]}
         </p>
       </div>
-      <div className="flex flex-col gap-[40px] 2xl:gap-0 lg:flex-row w-full justify-between mb-[40px] xl:mb-[80px] px-[20px] md:px-[40px] 2xl:px-[70px]">
+      <div className="flex flex-col gap-[40px] 2xl:gap-0 lg:flex-row w-full justify-between mb-[40px] xl:mb-[80px] px-[20px] md:px-[40px] lg:px-[50px] 2xl:px-[50px]">
         {project?.location && (
           <div>
             <span className="font-medium-font-weight text-[clamp(16px,4vw,20px)] leading-[clamp(0.75rem,10vw,20px)] 2xl:text-[20px]">

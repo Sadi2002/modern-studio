@@ -94,7 +94,7 @@ export default function Process({ data, lang }) {
                       height={400}
                       loading="eager"
                       sizes="100vw"
-                      className={`object-cover w-full h-full transition-opacity duration-300
+                      className={`object-cover w-full h-[200px] transition-opacity duration-300
         ${
           activeIndex === index
             ? "opacity-100"
