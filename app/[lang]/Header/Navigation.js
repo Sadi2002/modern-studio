@@ -12,16 +12,13 @@ export default function Navigation({ data, dataMobile, lang }) {
   const router = useTransitionRouter();
 
   function slideInOut() {
+    if (!document.startViewTransition) return;
+    if (window.__FIRST_LOAD__) return;
+
     document.documentElement.animate(
       [
-        {
-          opacity: 1,
-          transform: "translateY(0)",
-        },
-        {
-          opacity: 0.75,
-          transform: "translateY(-35%)",
-        },
+        { opacity: 1, transform: "translateY(0)" },
+        { opacity: 0.75, transform: "translateY(-35%)" },
       ],
       {
         duration: 1500,
@@ -33,12 +30,8 @@ export default function Navigation({ data, dataMobile, lang }) {
 
     document.documentElement.animate(
       [
-        {
-          clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-        },
-        {
-          clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
-        },
+        { clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" },
+        { clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)" },
       ],
       {
         duration: 1500,
@@ -147,17 +140,21 @@ export default function Navigation({ data, dataMobile, lang }) {
       {/* LOGO */}
       <span className={`md:text-logo-font-size ${logoColor}`}>
         <Link
+          href={getHomeLink()} // = `/${currentLang}`
           onClick={(e) => {
-            const target = `/${lang}/${getLocalizedLink(link?.href)}`;
+            const target = getHomeLink(); // `/${currentLang}`
 
-            if (isSameRoute(target)) return;
+            if (pathname === target) {
+              // jesteś już na home → nie odpalaj animacji
+              return;
+            }
+
             e.preventDefault();
 
-            router.push("/", {
+            router.push(target, {
               onTransitionReady: slideInOut,
             });
           }}
-          href={getHomeLink()}
         >
           {data.logo}
         </Link>
@@ -190,9 +187,30 @@ export default function Navigation({ data, dataMobile, lang }) {
       {isOpen && (
         <div className="h-[100dvh] w-full fixed top-0 left-0 z-50 lg:hidden bg-main-black text-main-white">
           <div className="flex justify-between items-center pt-mobile-navigation-top px-[20px] md:px-[40px] md:text-logo-font-size ">
-            <Link href={getHomeLink()} onClick={toggleMenu}>
+            <Link
+              href={getHomeLink()}
+              onClick={(e) => {
+                const target = getHomeLink(); // `/${currentLang}`
+
+                if (pathname === target) {
+                  // jesteś już na home → tylko zamknij menu
+                  toggleMenu();
+                  return;
+                }
+
+                e.preventDefault();
+
+                router.push(target, {
+                  onTransitionReady: () => {
+                    slideInOut();
+                    toggleMenu(); // zamykamy menu po starcie animacji
+                  },
+                });
+              }}
+            >
               {dataMobile.logo}
             </Link>
+
             <div className="flex flex-row-reverse gap-[30px]">
               <span
                 className="uppercase text-[14px] text-white font-medium-font-weight cursor-pointer md:text-[16px]"
@@ -203,9 +221,30 @@ export default function Navigation({ data, dataMobile, lang }) {
               <div className="flex lg:hidden items-center justify-end gap-2 uppercase text-[14px] md:text-[16px] text-white">
                 {availableLangs.map((l, idx) => (
                   <div key={l} className="flex items-center gap-2">
-                    <Link href={getLangSwitcherLink(l)} onClick={toggleMenu}>
+                    <Link
+                      href={getLangSwitcherLink(l)}
+                      onClick={(e) => {
+                        const target = getLangSwitcherLink(l);
+
+                        if (pathname === target) {
+                          // ten sam język → tylko zamknij menu
+                          toggleMenu();
+                          return;
+                        }
+
+                        e.preventDefault();
+
+                        router.push(target, {
+                          onTransitionReady: () => {
+                            slideInOut();
+                            toggleMenu(); // zamykamy menu po starcie animacji
+                          },
+                        });
+                      }}
+                    >
                       {l}
                     </Link>
+
                     {idx < availableLangs.length - 1 && <span>/</span>}
                   </div>
                 ))}
@@ -254,15 +293,34 @@ export default function Navigation({ data, dataMobile, lang }) {
               ))}
             </ul>
             <ul className="flex flex-col text-[12px] gap-[8px] text-right md:text-[14px]">
-              {dataMobile.legalLinks.map((legal, index) => (
-                <Link
-                  key={index}
-                  href={`/${lang}/${legal?.href}`}
-                  onClick={toggleMenu}
-                >
-                  {legal?.label?.[lang]}
-                </Link>
-              ))}
+              {dataMobile.legalLinks.map((legal, index) => {
+                const target = `/${lang}/${legal?.href}`;
+
+                return (
+                  <Link
+                    key={index}
+                    href={target}
+                    onClick={(e) => {
+                      if (pathname === target) {
+                        // ta sama strona → tylko zamknij menu
+                        toggleMenu();
+                        return;
+                      }
+
+                      e.preventDefault();
+
+                      router.push(target, {
+                        onTransitionReady: () => {
+                          slideInOut();
+                          toggleMenu(); // zamykamy menu PO starcie animacji
+                        },
+                      });
+                    }}
+                  >
+                    {legal?.label?.[lang]}
+                  </Link>
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -312,6 +370,20 @@ export default function Navigation({ data, dataMobile, lang }) {
             <div key={l} className="flex items-center gap-2">
               <Link
                 href={getLangSwitcherLink(l)}
+                onClick={(e) => {
+                  const target = getLangSwitcherLink(l);
+
+                  if (pathname === target) {
+                    // klik w aktualny język → brak animacji
+                    return;
+                  }
+
+                  e.preventDefault();
+
+                  router.push(target, {
+                    onTransitionReady: slideInOut,
+                  });
+                }}
                 className="group relative inline-flex leading-none overflow-hidden"
               >
                 <span className="relative block overflow-hidden leading-[20px]">

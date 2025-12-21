@@ -10,9 +10,7 @@ export default async function RootLayout({ children, params }) {
   return (
     <>
       <Header lang={lang} />
-
       <main>{children}</main>
-
       <Footer lang={lang} />
     </>
   );
