@@ -3,8 +3,52 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import { useTransitionRouter } from "next-view-transitions";
 
 export default function Navigation({ data, dataMobile, lang }) {
+  const isSameRoute = (href) => {
+    return href === pathname;
+  };
+  const router = useTransitionRouter();
+
+  function slideInOut() {
+    document.documentElement.animate(
+      [
+        {
+          opacity: 1,
+          transform: "translateY(0)",
+        },
+        {
+          opacity: 0.75,
+          transform: "translateY(-35%)",
+        },
+      ],
+      {
+        duration: 1500,
+        easing: "cubic-bezier(0.87, 0, 0.13, 1)",
+        fill: "forwards",
+        pseudoElement: "::view-transition-old(root)",
+      }
+    );
+
+    document.documentElement.animate(
+      [
+        {
+          clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+        },
+        {
+          clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
+        },
+      ],
+      {
+        duration: 1500,
+        easing: "cubic-bezier(0.87, 0, 0.13, 1)",
+        fill: "forwards",
+        pseudoElement: "::view-transition-new(root)",
+      }
+    );
+  }
+
   const pathname = usePathname();
   const isHome = ["/en", "/pl", "/de"].includes(pathname);
   const isContact = pathname.includes("/contact");
@@ -102,7 +146,21 @@ export default function Navigation({ data, dataMobile, lang }) {
     >
       {/* LOGO */}
       <span className={`md:text-logo-font-size ${logoColor}`}>
-        <Link href={getHomeLink()}>{data.logo}</Link>
+        <Link
+          onClick={(e) => {
+            const target = `/${lang}/${getLocalizedLink(link?.href)}`;
+
+            if (isSameRoute(target)) return;
+            e.preventDefault();
+
+            router.push("/", {
+              onTransitionReady: slideInOut,
+            });
+          }}
+          href={getHomeLink()}
+        >
+          {data.logo}
+        </Link>
       </span>
 
       {/* MOBILE BURGER */}
@@ -164,7 +222,20 @@ export default function Navigation({ data, dataMobile, lang }) {
                 <Link
                   href={`/${lang}/${getLocalizedLink(link?.href)}`}
                   className="pl-[20px] md:pl-[40px]"
-                  onClick={toggleMenu}
+                  onClick={(e) => {
+                    const target = `/${lang}/${getLocalizedLink(link?.href)}`;
+
+                    if (isSameRoute(target)) return;
+
+                    e.preventDefault();
+
+                    router.push(target, {
+                      onTransitionReady: () => {
+                        slideInOut();
+                        setIsOpen(false);
+                      },
+                    });
+                  }}
                 >
                   {link?.label?.[lang]}
                 </Link>
@@ -176,21 +247,21 @@ export default function Navigation({ data, dataMobile, lang }) {
             <ul className="flex flex-col text-[14px] gap-[8px] md:text-[16px]">
               {dataMobile.socialMedia.map((social, index) => (
                 <li key={index}>
-                  <TransitionLink target="_blank" href={social?.url}>
+                  <Link target="_blank" href={social?.url}>
                     {social?.title}
-                  </TransitionLink>
+                  </Link>
                 </li>
               ))}
             </ul>
             <ul className="flex flex-col text-[12px] gap-[8px] text-right md:text-[14px]">
               {dataMobile.legalLinks.map((legal, index) => (
-                <TransitionLink
+                <Link
                   key={index}
                   href={`/${lang}/${legal?.href}`}
                   onClick={toggleMenu}
                 >
                   {legal?.label?.[lang]}
-                </TransitionLink>
+                </Link>
               ))}
             </ul>
           </div>
@@ -205,6 +276,16 @@ export default function Navigation({ data, dataMobile, lang }) {
           {data.links.map((link, index) => (
             <li key={index}>
               <Link
+                onClick={(e) => {
+                  const target = `/${lang}/${getLocalizedLink(link?.href)}`;
+
+                  if (isSameRoute(target)) return;
+                  e.preventDefault();
+
+                  router.push(`/${lang}/${getLocalizedLink(link?.href)}`, {
+                    onTransitionReady: slideInOut,
+                  });
+                }}
                 href={`/${lang}/${getLocalizedLink(link?.href)}`}
                 className="group relative inline-flex leading-none overflow-hidden text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
               >

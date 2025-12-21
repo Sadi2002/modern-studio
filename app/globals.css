@@ -130,45 +130,29 @@ html.is-revealing .transition-panel--bottom {
   transform: translateY(100%);
 }
 
-html {
-  view-transition-name: none;
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none !important;
 }
 
-/* warstwa, którą snapshotujemy */
-.vt-page {
-  view-transition-name: vt-page;
-  /* pomaga ograniczyć “glitche” przy kompozycji */
+::view-transition-group(root) {
+  z-index: auto !important;
+}
+
+::view-transition-image-pair(root) {
   isolation: isolate;
-}
-
-/* dłużej + clean */
-@keyframes vt-fade-out {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-::view-transition-old(vt-page) {
-  animation: vt-fade-out 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
-  will-change: opacity;
-  transform: translateZ(0);
-  z-index: 2;
-}
-
-::view-transition-new(vt-page) {
-  animation: none;
-  opacity: 1;
+  will-change: transform, opacity, clip-path;
   z-index: 1;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  ::view-transition-old(vt-page),
-  ::view-transition-new(vt-page) {
-    animation: none !important;
-  }
+::view-transition-new(root) {
+  z-index: 10000;
+  animation: none !important;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+  animation: none !important;
 }
 
 /* RESPONSYWNOSC */

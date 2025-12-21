@@ -1,4 +1,5 @@
 import "../globals.css";
+
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import { Poppins } from "next/font/google";
