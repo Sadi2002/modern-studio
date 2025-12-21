@@ -6,6 +6,8 @@ import { footerQuery } from "../../../lib/sanity/queries";
 
 import { urlFor } from "../../../lib/sanity/client";
 
+import FooterNavLink from "@/app/components/FooterNavLink";
+
 export const revalidate = 0;
 
 export default async function Footer({ lang }) {
@@ -32,19 +34,11 @@ export default async function Footer({ lang }) {
                 key={index}
                 className="py-[15px] border-b border-[rgba(255,255,255,.2)]  lg:py-[30px] last:lg:border-b-0"
               >
-                <Link
+                <FooterNavLink
                   href={`/${lang}${link?.url?.[lang]}`}
-                  className="group uppercase text-white text-[clamp(20px,5vw,23px)] flex pl-[20px] md:pl-[40px] leading-none"
-                >
-                  <span className="relative overflow-hidden block">
-                    <span className="block leading-[30px] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
-                      {link?.title?.[lang]}
-                    </span>
-                    <span className="absolute leading-[30px] left-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
-                      {link?.title?.[lang]}
-                    </span>
-                  </span>
-                </Link>
+                  label={link?.title?.[lang]}
+                  className="uppercase text-white text-[clamp(20px,5vw,23px)] flex pl-[20px] md:pl-[40px] leading-none"
+                />
               </li>
             ))}
           </ul>
@@ -77,11 +71,12 @@ export default async function Footer({ lang }) {
         </div>
       </div>
       <div className="flex flex-col gap-[5px] items-end mx-margin-mobile md:mx-tablet lg:flex-row lg:justify-end lg:gap-x-[50px] 2xl:gap-x-[80px]">
-        <Link href={`/${lang}/${footer?.privacyPolicy?.privacyPolicyHref}`}>
-          <span className="text-[clamp(12px,3.5vw,16px)] text-white">
-            {footer?.privacyPolicy?.privacyPolicyLabel?.[lang]}
-          </span>
-        </Link>
+        <FooterNavLink
+          href={`/${lang}/${footer?.privacyPolicy?.privacyPolicyHref}`}
+          label={footer?.privacyPolicy?.privacyPolicyLabel?.[lang]}
+          className="text-[clamp(12px,3.5vw,16px)] text-white"
+        />
+
         <span className="text-[clamp(12px,3.5vw,16px)]   text-white">
           {footer?.copyrightText?.[lang]}
         </span>

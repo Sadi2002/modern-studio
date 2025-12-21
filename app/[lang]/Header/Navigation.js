@@ -4,43 +4,13 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { useTransitionRouter } from "next-view-transitions";
+import { slideInOut } from "../../components/animations/slideInOut";
 
 export default function Navigation({ data, dataMobile, lang }) {
   const isSameRoute = (href) => {
     return href === pathname;
   };
   const router = useTransitionRouter();
-
-  function slideInOut() {
-    if (!document.startViewTransition) return;
-    if (window.__FIRST_LOAD__) return;
-
-    document.documentElement.animate(
-      [
-        { opacity: 1, transform: "translateY(0)" },
-        { opacity: 0.75, transform: "translateY(-35%)" },
-      ],
-      {
-        duration: 1500,
-        easing: "cubic-bezier(0.87, 0, 0.13, 1)",
-        fill: "forwards",
-        pseudoElement: "::view-transition-old(root)",
-      }
-    );
-
-    document.documentElement.animate(
-      [
-        { clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" },
-        { clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)" },
-      ],
-      {
-        duration: 1500,
-        easing: "cubic-bezier(0.87, 0, 0.13, 1)",
-        fill: "forwards",
-        pseudoElement: "::view-transition-new(root)",
-      }
-    );
-  }
 
   const pathname = usePathname();
   const isHome = ["/en", "/pl", "/de"].includes(pathname);

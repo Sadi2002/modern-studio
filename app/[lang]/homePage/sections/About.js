@@ -1,8 +1,14 @@
 import Image from "next/image";
 import { urlFor } from "../../../../lib/sanity/client";
 import Link from "next/link";
+import { slideInOut } from "../../../components/animations/slideInOut";
+
+import { useTransitionRouter } from "next-view-transitions";
+import AboutButton from "@/app/components/AboutButton";
 
 export default function About({ data, lang }) {
+  const target = `/${lang}/${data?.button?.buttonLink}`;
+  const label = data?.button?.buttonLabel?.[lang];
   return (
     <section
       id="about"
@@ -21,21 +27,7 @@ export default function About({ data, lang }) {
               {data?.subtitle2?.[lang]}
             </p>
           </div>
-          <Link href={`/${lang}/${data?.button.buttonLink}`}>
-            <button className="group relative font-medium-font-weight uppercase text-[clamp(0.75rem,3.5vw,1rem)] leading-none after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:h-[1px] after:w-full">
-              <span className="relative block overflow-hidden">
-                {/* pierwszy */}
-                <span className="block leading-[20px] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
-                  {data?.button.buttonLabel?.[lang]}
-                </span>
-
-                {/* drugi */}
-                <span className="absolute leading-[20px] left-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
-                  {data?.button.buttonLabel?.[lang]}
-                </span>
-              </span>
-            </button>
-          </Link>
+          <AboutButton href={target} label={label} />
         </div>
       </div>
 
