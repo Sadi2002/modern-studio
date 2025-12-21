@@ -122,15 +122,15 @@ export default async function Post({ params }) {
             className="group bg-main-black mb-[40px] rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-main-white ml-auto mr-0 font-medium inline-flex items-center gap-2 leading-none text-[clamp(0.75rem,3.35vw,1rem)] md:max-h-[50px] self-end"
           >
             {/* ANIMOWANY TEKST */}
-            <span className="relative block overflow-hidden h-[1em]">
-              <span className="block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
+            <span className="relative block overflow-hidden">
+              <span className="block leading-[20px] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
                 {
                   postsSection?.seeOtherBlogs?.button
                     ?.seeOtherBlogsButtonLabel?.[lang]
                 }
               </span>
 
-              <span className="absolute left-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
+              <span className="absolute leading-[20px] left-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
                 {
                   postsSection?.seeOtherBlogs?.button
                     ?.seeOtherBlogsButtonLabel?.[lang]

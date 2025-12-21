@@ -208,14 +208,14 @@ export default function Navigation({ data, dataMobile, lang }) {
                 href={`/${lang}/${getLocalizedLink(link?.href)}`}
                 className="group relative inline-flex leading-none overflow-hidden text-links-size-navigation-mobile xl:text-links-size-navigation-desktop"
               >
-                <span className="relative block h-[1em] overflow-hidden">
+                <span className="relative block overflow-hidden">
                   {/* pierwszy */}
-                  <span className="block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
+                  <span className="block leading-[20px] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
                     {link?.label?.[lang]}
                   </span>
 
                   {/* drugi */}
-                  <span className="absolute left-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
+                  <span className="absolute leading-[20px] left-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
                     {link?.label?.[lang]}
                   </span>
                 </span>
@@ -229,7 +229,22 @@ export default function Navigation({ data, dataMobile, lang }) {
         >
           {availableLangs.map((l, idx) => (
             <div key={l} className="flex items-center gap-2">
-              <Link href={getLangSwitcherLink(l)}>{l}</Link>
+              <Link
+                href={getLangSwitcherLink(l)}
+                className="group relative inline-flex leading-none overflow-hidden"
+              >
+                <span className="relative block overflow-hidden leading-[20px]">
+                  {/* pierwszy */}
+                  <span className="block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
+                    {l}
+                  </span>
+
+                  {/* drugi */}
+                  <span className="absolute left-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
+                    {l}
+                  </span>
+                </span>
+              </Link>
               {idx < availableLangs.length - 1 && <span>/</span>}
             </div>
           ))}

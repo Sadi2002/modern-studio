@@ -49,14 +49,14 @@ export default function PortfolioDetails({ lang, details, detailsLabel }) {
   after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:h-[1px] after:w-full"
         >
           {/* ANIMOWANY TEKST */}
-          <span className="relative block overflow-hidden h-[1em]">
-            <span className="block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
+          <span className="relative block overflow-hidden">
+            <span className="block leading-[20px] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
               {isOpen
                 ? detailsLabel?.hideDetails?.[lang]
                 : detailsLabel?.viewDetails?.[lang]}
             </span>
 
-            <span className="absolute left-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
+            <span className="absolute leading-[20px] left-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
               {isOpen
                 ? detailsLabel?.hideDetails?.[lang]
                 : detailsLabel?.viewDetails?.[lang]}
