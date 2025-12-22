@@ -5,6 +5,7 @@ import { slideInOut } from "../../../components/animations/slideInOut";
 
 import { useTransitionRouter } from "next-view-transitions";
 import AboutButton from "@/app/components/AboutButton";
+import ParallaxImage from "@/app/components/ParallaxImage";
 
 export default function About({ data, lang }) {
   const target = `/${lang}/${data?.button?.buttonLink}`;
@@ -32,11 +33,10 @@ export default function About({ data, lang }) {
       </div>
 
       <div className="relative max-w-[90%] xl:w-[80%] aspect-[3/1.7]">
-        <Image
+        <ParallaxImage
           src={urlFor(data.aboutImage).url()}
           alt="pokój"
-          fill
-          className="object-cover"
+          intensity={200}
         />
       </div>
     </section>
