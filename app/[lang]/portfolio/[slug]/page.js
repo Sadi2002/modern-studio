@@ -13,6 +13,7 @@ import PortfolioDetails from "../PortfolioDetails";
 import Model from "./Model";
 import { getFile } from "@sanity/asset-utils";
 import { portfolioPageQuery } from "@/lib/sanity/queries";
+import HeroImageTransition from "@/app/components/HeroImageTransition";
 
 export async function generateStaticParams() {
   const projects = await dataProjects();
@@ -51,6 +52,7 @@ export default async function Project({ params }) {
 
   return (
     <section className="flex flex-col pb-[0px]">
+      <HeroImageTransition />
       <div
         id="start"
         className="flex  w-full justify-between pt-[100px] md:pt-[150px] 2xl:pt-[200px] px-[20px] mb-[40px] lg:mb-[80px] xl:mb-[150px] md:px-[40px] lg:px-[50px] flex-col lg:flex-row "
@@ -124,14 +126,16 @@ export default async function Project({ params }) {
 
       <div className="px-[10px] md:px-[20px] 2xl:px-[30px] mt-[10px] md:mt-[16px]">
         <div className="mt-[30px]">
-          <div className="relative w-full aspect-[8/6] lg:aspect-[6/3] ">
+          <div
+            data-hero-image
+            className="relative w-full aspect-[8/6] lg:aspect-[6/3] "
+          >
             <Image
               src={urlFor(project.imgSrc).url()}
               alt="pokój"
               fill
               className="object-cover"
               priority
-              fetchPriority="high"
             />
 
             {modelUrl && (

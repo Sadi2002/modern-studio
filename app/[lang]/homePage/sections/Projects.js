@@ -7,6 +7,7 @@ import DataProjects from "../../../data/dataProjects";
 import Link from "next/link";
 
 import { urlFor } from "../../../../lib/sanity/client";
+import AnimatedProjectImage from "@/app/components/AnimatedProjectImage";
 
 export default async function Projects({ data, lang }) {
   const project = await DataProjects();
@@ -18,26 +19,25 @@ export default async function Projects({ data, lang }) {
       </h3>
       <div className="flex flex-col lg:flex-row lg:justify-between">
         <div className="flex flex-col lg:w-[calc(50%-10px)]">
-          <Link href={`/${lang}/portfolio/${project[0]?.slug.current}`}>
-            <div className="max-w-[80%] mb-[50px] lg:mb-[50px] lg:max-w-[100%]">
-              <div className="relative aspect-8/7">
-                <Image
-                  src={urlFor(project[0]?.imgSrc).url()}
-                  alt={project[0]?.alt?.[lang]}
-                  className="object-cover absolute top-0 left-0 w-full h-full"
-                  fill
-                />
-              </div>
-              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight gap-[20px]">
-                <span className="font-medium-font-weight">
-                  {project[0]?.title?.[lang]}, {project[0]?.location?.[lang]}
-                </span>
-                <span className="font-medium-font-weight">
-                  {project[0]?.year}
-                </span>
-              </div>
+          <div className="max-w-[80%] mb-[50px] lg:mb-[50px] lg:max-w-[100%]">
+            <div className="relative aspect-8/7">
+              <AnimatedProjectImage
+                src={urlFor(project[0]?.imgSrc).url()}
+                alt={project[0]?.alt?.[lang]}
+                slug={project[0]?.slug.current}
+                className="object-cover absolute top-0 left-0 w-full h-full"
+                fill
+              />
             </div>
-          </Link>
+            <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight gap-[20px]">
+              <span className="font-medium-font-weight">
+                {project[0]?.title?.[lang]}, {project[0]?.location?.[lang]}
+              </span>
+              <span className="font-medium-font-weight">
+                {project[0]?.year}
+              </span>
+            </div>
+          </div>
 
           <Link
             href={`/${lang}/portfolio/${project[1]?.slug.current}`}

@@ -2,6 +2,9 @@ export function slideInOut() {
   if (!document.startViewTransition) return;
   if (window.__FIRST_LOAD__) return;
 
+  // 👇 jeśli idziemy w "project", to nie animujemy root
+  if (window.__VT_KIND__ === "project") return;
+
   document.documentElement.animate(
     [
       { opacity: 1, transform: "translateY(0)" },
