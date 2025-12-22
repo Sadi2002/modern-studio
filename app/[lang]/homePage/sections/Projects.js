@@ -39,29 +39,25 @@ export default async function Projects({ data, lang }) {
             </div>
           </div>
 
-          <Link
-            href={`/${lang}/portfolio/${project[1]?.slug.current}`}
-            className="h-full flex justify-end"
-          >
-            <div className="w-[86%] flex flex-col items-end self-end mb-[50px] lg:mb-[0px] lg:w-[100%] lg:h-full">
-              <div className="flex flex-col justify-end w-full relative aspect-5/3 lg:h-full">
-                <Image
-                  src={urlFor(project[1]?.imgSrc).url()}
-                  alt={project[1]?.alt?.[lang]}
-                  className="object-cover absolute top-0 left-0 w-full h-full"
-                  fill
-                />
-              </div>
-              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] gap-[20px]">
-                <span className="font-medium-font-weight ">
-                  {project[1]?.title?.[lang]}, {project[1]?.location?.[lang]}
-                </span>
-                <span className="font-medium-font-weight">
-                  {project[1]?.year}
-                </span>
-              </div>
+          <div className="w-[86%] flex flex-col items-end self-end mb-[50px] lg:mb-[0px] lg:w-[100%] lg:h-full">
+            <div className="flex flex-col justify-end w-full relative aspect-5/3 lg:h-full">
+              <AnimatedProjectImage
+                src={urlFor(project[1]?.imgSrc).url()}
+                alt={project[1]?.alt?.[lang]}
+                slug={project[1]?.slug.current}
+                className="object-cover absolute top-0 left-0 w-full h-full"
+                fill
+              />
             </div>
-          </Link>
+            <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] gap-[20px]">
+              <span className="font-medium-font-weight ">
+                {project[1]?.title?.[lang]}, {project[1]?.location?.[lang]}
+              </span>
+              <span className="font-medium-font-weight">
+                {project[1]?.year}
+              </span>
+            </div>
+          </div>
         </div>
 
         <div className="lg:flex lg:flex-col lg:w-[calc(50%-10px)]">

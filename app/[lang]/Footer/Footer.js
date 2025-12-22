@@ -77,7 +77,7 @@ export default async function Footer({ lang }) {
           className="text-[clamp(12px,3.5vw,16px)] text-white"
         />
 
-        <span className="text-[clamp(12px,3.5vw,16px)]   text-white">
+        <span className="text-[clamp(12px,3.5vw,16px)] leading-[20px]  text-white">
           {footer?.copyrightText?.[lang]}
         </span>
       </div>
