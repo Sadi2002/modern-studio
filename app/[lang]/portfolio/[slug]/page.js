@@ -14,6 +14,7 @@ import Model from "./Model";
 import { getFile } from "@sanity/asset-utils";
 import { portfolioPageQuery } from "@/lib/sanity/queries";
 import HeroImageTransition from "@/app/components/HeroImageTransition";
+import HeroImage from "@/app/components/HeroImage";
 
 export async function generateStaticParams() {
   const projects = await dataProjects();
@@ -130,13 +131,7 @@ export default async function Project({ params }) {
             data-hero-image
             className="relative w-full aspect-[8/6] lg:aspect-[6/3] "
           >
-            <Image
-              src={urlFor(project.imgSrc).url()}
-              alt="pokój"
-              fill
-              className="object-cover"
-              priority
-            />
+            <HeroImage src={urlFor(project.imgSrc).url()} alt="pokój" />
 
             {modelUrl && (
               <Model
