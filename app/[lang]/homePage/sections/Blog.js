@@ -11,6 +11,7 @@ import projekt4 from "../../../../public/projekt4-large.webp";
 
 import { urlFor } from "../../../../lib/sanity/client";
 import Button from "@/app/components/Button";
+import AnimatedLink from "@/app/components/AnimatedLink";
 
 export default function Blog({ data, lang }) {
   if (!data) return null;
@@ -67,7 +68,7 @@ export default function Blog({ data, lang }) {
         {/* 1 kolumna */}
 
         <div className="w-full mb-[50px] lg:mb-[0] max-w-[80%] lg:max-w-[100%] lg:w-[39%] inline-block">
-          <Link href={`/${lang}/blog/${posts[0]?.slug.current}`}>
+          <AnimatedLink href={`/${lang}/blog/${posts[0]?.slug.current}`}>
             <div className=" aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
               <Image
                 src={posts[0] ? getImg(posts[0], projekt3) : projekt3}
@@ -87,12 +88,12 @@ export default function Blog({ data, lang }) {
                 {posts[0]?.date?.[lang] || "March 2025"}
               </span>
             </div>
-          </Link>
+          </AnimatedLink>
         </div>
 
         {/* 2 kolumna */}
         <div className="w-full mb-[50px] max-w-[86%] ml-auto lg:ml-0 flex lg:max-w-[100%] lg:mb-[0] lg:w-[30%] inline-block">
-          <Link href={`/${lang}/blog/${posts[1]?.slug.current}`}>
+          <AnimatedLink href={`/${lang}/blog/${posts[1]?.slug.current}`}>
             <div className="flex lg:block aspect-[5/3]  lg:aspect-[8/5] relative ">
               <Image
                 src={posts[1] ? getImg(posts[1], projekt2) : projekt2}
@@ -103,7 +104,7 @@ export default function Blog({ data, lang }) {
                 className="object-cover"
               />
             </div>
-          </Link>
+          </AnimatedLink>
           <div className="flex flex flex-col gap-[5px]  justify-between mt-[5px]  w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight ">
             <span className="font-medium-font-weight max-w-[70%]">
               {posts[1]?.title?.[lang] ||
@@ -117,7 +118,7 @@ export default function Blog({ data, lang }) {
 
         {/* 3 kolumna */}
         <div className="max-w-[78%] lg:max-w-[100%] lg:w-[20%] inline-block xl:w-[20%] ">
-          <Link href={`/${lang}/blog/${posts[2]?.slug.current}`}>
+          <AnimatedLink href={`/${lang}/blog/${posts[1]?.slug.current}`}>
             <div className="aspect-[7/8]  lg:aspect-[6/8] xl:aspect-[6/8] relative ">
               <Image
                 src={posts[2] ? getImg(posts[2], projekt4) : projekt4}
@@ -128,7 +129,7 @@ export default function Blog({ data, lang }) {
                 className="object-cover"
               />
             </div>
-          </Link>
+          </AnimatedLink>
           <div className="flex flex flex-col gap-[5px] justify-between mt-[5px]  w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight ">
             <span className="font-medium-font-weight max-w-[100%]">
               {posts[2]?.title?.[lang] ||

@@ -18,16 +18,9 @@ export default function AnimatedLink({ href, children, className }) {
 
         e.preventDefault();
 
-        if (!document.startViewTransition) {
-          router.push(href);
-          return;
-        }
-
-        document.startViewTransition(() => {
-          router.push(href);
+        router.push(href, {
+          onTransitionReady: slideInOut,
         });
-
-        requestAnimationFrame(slideInOut);
       }}
     >
       {children}

@@ -7,6 +7,7 @@ import projekt3 from "../../../public/projekt3-large.webp";
 import projekt4 from "../../../public/projekt4-large.webp";
 import { urlFor } from "../../../lib/sanity/client";
 import { useState } from "react";
+import AnimatedLink from "@/app/components/AnimatedLink";
 
 export default function BlogList({ posts, postsSection, lang }) {
   console.log(postsSection);
@@ -95,7 +96,7 @@ export default function BlogList({ posts, postsSection, lang }) {
           className="max-w-[80%] lg:max-w-full lg:mb-[0] lg:mb-[50px] lg:w-[39%] inline-block"
           style={{ display: match(posts[0]) ? "inline-block" : "none" }}
         >
-          <Link href={`blog/${posts[0]?.slug.current}`}>
+          <AnimatedLink href={`/${lang}/blog/${posts[0]?.slug.current}`}>
             <div className=" aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
               <Image
                 src={posts[0] ? getImg(posts[0], projekt3) : projekt3}
@@ -116,7 +117,7 @@ export default function BlogList({ posts, postsSection, lang }) {
                 {posts[0]?.date?.[lang] || "March 2025"}
               </span>
             </div>
-          </Link>
+          </AnimatedLink>
         </div>
 
         {/* 1 */}
@@ -124,7 +125,7 @@ export default function BlogList({ posts, postsSection, lang }) {
           className="w-full lg:mb-[0] max-w-[86%] ml-auto lg:ml-0 flex lg:max-w-[100%] lg:mb-[0] lg:w-[30%] inline-block"
           style={{ display: match(posts[1]) ? "inline-block" : "none" }}
         >
-          <Link href={`blog/${posts[1]?.slug.current}`}>
+          <AnimatedLink href={`/${lang}/blog/${posts[1]?.slug.current}`}>
             <div className="flex lg:block aspect-[5/3]  lg:aspect-[8/5] relative ">
               <Image
                 src={posts[1] ? getImg(posts[1], projekt2) : projekt2}
@@ -136,7 +137,7 @@ export default function BlogList({ posts, postsSection, lang }) {
                 sizes="(min-width: 1024px) 23vw, 80vw"
               />
             </div>
-          </Link>
+          </AnimatedLink>
           <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
               {posts[1]?.title?.[lang] ||
@@ -153,7 +154,7 @@ export default function BlogList({ posts, postsSection, lang }) {
           className="max-w-[78%] lg:max-w-[100%] lg:w-[20%] inline-block xl:w-[20%]"
           style={{ display: match(posts[2]) ? "inline-block" : "none" }}
         >
-          <Link href={`blog/${posts[2]?.slug.current}`}>
+          <AnimatedLink href={`/${lang}/blog/${posts[2]?.slug.current}`}>
             <div className="aspect-[7/8] lg:aspect-[6/8] xl:aspect-[6/8] relative ">
               <Image
                 src={posts[2] ? getImg(posts[2], projekt4) : projekt4}
@@ -165,7 +166,7 @@ export default function BlogList({ posts, postsSection, lang }) {
                 sizes="(min-width: 1024px) 23vw, 80vw"
               />
             </div>
-          </Link>
+          </AnimatedLink>
           <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[100%]">
               {posts[2]?.title?.[lang] ||
@@ -182,7 +183,7 @@ export default function BlogList({ posts, postsSection, lang }) {
           className="w-[80%] ml-auto lg:ml-0 lg:w-[27%] inline-block"
           style={{ display: match(posts[3]) ? "inline-block" : "none" }}
         >
-          <Link href={`blog/${posts[3]?.slug.current}`}>
+          <AnimatedLink href={`/${lang}/blog/${posts[3]?.slug.current}`}>
             <div className="aspect-[8/8] relative xl:aspect-[11/9]">
               <Image
                 src={posts[3] ? getImg(posts[3], projekt4) : projekt4}
@@ -192,7 +193,7 @@ export default function BlogList({ posts, postsSection, lang }) {
                 sizes="(min-width: 1024px) 23vw, 80vw"
               />
             </div>
-          </Link>
+          </AnimatedLink>
           <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
               {posts[3]?.title?.[lang] ||
@@ -209,7 +210,7 @@ export default function BlogList({ posts, postsSection, lang }) {
           className="w-[70%] lg:w-[16%] inline-block"
           style={{ display: match(posts[4]) ? "inline-block" : "none" }}
         >
-          <Link href={`blog/${posts[4]?.slug.current}`}>
+          <AnimatedLink href={`/${lang}/blog/${posts[4]?.slug.current}`}>
             <div className="aspect-[8/10] relative xl:aspect-[8/10]">
               <Image
                 src={posts[4] ? getImg(posts[4], projekt4) : projekt4}
@@ -219,7 +220,7 @@ export default function BlogList({ posts, postsSection, lang }) {
                 sizes="(min-width: 1024px) 23vw, 80vw"
               />
             </div>
-          </Link>
+          </AnimatedLink>
           <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
               {posts[4]?.title?.[lang] ||
@@ -236,7 +237,7 @@ export default function BlogList({ posts, postsSection, lang }) {
           className="w-[80%] ml-auto lg:ml-0 lg:w-[23%] inline-block"
           style={{ display: match(posts[5]) ? "inline-block" : "none" }}
         >
-          <Link href={`blog/${posts[5]?.slug.current}`}>
+          <AnimatedLink href={`/${lang}/blog/${posts[5]?.slug.current}`}>
             <div className="aspect-[8/5] relative ">
               <Image
                 src={posts[5] ? getImg(posts[5], projekt4) : projekt4}
@@ -246,7 +247,7 @@ export default function BlogList({ posts, postsSection, lang }) {
                 sizes="(min-width: 1024px) 23vw, 80vw"
               />
             </div>
-          </Link>
+          </AnimatedLink>
           <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
               {posts[5]?.title?.[lang] ||
@@ -263,7 +264,7 @@ export default function BlogList({ posts, postsSection, lang }) {
           className="w-[65%] lg:w-[20%] inline-block xl:w-[18%]"
           style={{ display: match(posts[6]) ? "inline-block" : "none" }}
         >
-          <Link href={`blog/${posts[6]?.slug.current}`}>
+          <AnimatedLink href={`/${lang}/blog/${posts[6]?.slug.current}`}>
             <div className="aspect-[6/8] xl:aspect-[6/7] relative ">
               <Image
                 src={posts[6] ? getImg(posts[6], projekt4) : projekt4}
@@ -273,7 +274,7 @@ export default function BlogList({ posts, postsSection, lang }) {
                 sizes="(min-width: 1024px) 23vw, 80vw"
               />
             </div>
-          </Link>
+          </AnimatedLink>
           <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
               {posts[6]?.title?.[lang] ||

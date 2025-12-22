@@ -10,6 +10,7 @@ import projekt2 from "../../../../public/projekt2-large.webp";
 import projekt3 from "../../../../public/projekt3-large.webp";
 import projekt4 from "../../../../public/projekt4-large.webp";
 import Button from "@/app/components/Button";
+import AnimatedLink from "@/app/components/AnimatedLink";
 
 export const revalidate = 0;
 
@@ -64,7 +65,7 @@ export default async function Post({ params }) {
         <div>
           <div className=" flex flex-col lg:flex-row justify-between lg:items-end mb-[40px] md:mb-[40px] lg:mb-[0px] gap-[20px]">
             <div className=" lg:max-w-[1000px] 2xl:max-w-[1200px]">
-              <h1 className="text-[clamp(23px,7vw,36px)] leading-[clamp(32px,10vw,42px)] font-medium mb-[20px] xl:mb-[20px] max-w-[600px] lg:text-[45px] lg:leading-[55px] lg:max-w-[600px] lg:w-[100%] xl:text-[60px] xl:leading-[65px] xl:max-w-[750px] 2xl:max-w-[1000px] lg:font-normal 2xl:text-[clamp(60px,4.3vw,5rem)] 2xl:leading-[clamp(60px,5vw,6rem)] ">
+              <h1 className="text-[clamp(23px,7vw,36px)] leading-[clamp(32px,10vw,42px)] font-medium mb-[20px] xl:mb-[20px] max-w-[600px] lg:text-[45px] lg:leading-[55px] lg:max-w-[600px] lg:w-[100%] xl:text-[60px] xl:leading-[65px] xl:max-w-[1100px] 2xl:max-w-[1100px] lg:font-normal 2xl:text-[clamp(60px,4.3vw,5rem)] 2xl:leading-[clamp(60px,5vw,5.5rem)] ">
                 {blog?.title?.[lang]}
               </h1>
               <p className="font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] flex flex-col gap-[16px] lg:max-w-[580px] 2xl:max-w-[800px]">
@@ -136,7 +137,9 @@ export default async function Post({ params }) {
           {/* 1 kolumna */}
 
           <div className="w-full mb-[50px] max-w-[80%] lg:max-w-[100%] lg:mb-[0] lg:w-[39%] inline-block">
-            <Link href={`${posts[0]?.slug.current}`}>
+            <AnimatedLink
+              href={`/${lang}/blog/${relatedPosts[0]?.slug.current}`}
+            >
               <div className="aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
                 <Image
                   src={
@@ -162,12 +165,14 @@ export default async function Post({ params }) {
                   {relatedPosts[0]?.date?.[lang] || "March 2025"}
                 </span>
               </div>
-            </Link>
+            </AnimatedLink>
           </div>
 
           {/* 2 kolumna */}
           <div className="w-full mb-[50px] max-w-[86%] ml-auto lg:ml-0 flex lg:max-w-[100%] lg:mb-[0] lg:w-[30%] inline-block">
-            <Link href={`${relatedPosts[1]?.slug.current}`}>
+            <AnimatedLink
+              href={`/${lang}/blog/${relatedPosts[1]?.slug.current}`}
+            >
               <div className="flex lg:block aspect-[5/3]  lg:aspect-[8/5] relative ">
                 <Image
                   src={
@@ -184,7 +189,7 @@ export default async function Post({ params }) {
                   className="object-cover"
                 />
               </div>
-            </Link>
+            </AnimatedLink>
             <div className="flex flex-col gap-[4px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
               <span className="font-medium-font-weight max-w-[70%]">
                 {relatedPosts[1]?.title?.[lang] ||
@@ -198,7 +203,9 @@ export default async function Post({ params }) {
 
           {/* 3 kolumna */}
           <div className="max-w-[78%] lg:max-w-[100%] lg:w-[20%] inline-block xl:w-[20%] ">
-            <Link href={`${relatedPosts[2]?.slug.current}`}>
+            <AnimatedLink
+              href={`/${lang}/blog/${relatedPosts[2]?.slug.current}`}
+            >
               <div className="aspect-[7/8]  lg:aspect-[6/8] xl:aspect-[6/8] relative ">
                 <Image
                   src={
@@ -215,7 +222,7 @@ export default async function Post({ params }) {
                   className="object-cover"
                 />
               </div>
-            </Link>
+            </AnimatedLink>
             <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
               <span className="font-medium-font-weight max-w-[100%]">
                 {relatedPosts[2]?.title?.[lang] ||
