@@ -36,14 +36,14 @@ export default async function Hero({ data, lang }) {
             linkTo={`#${data?.button?.buttonLink}`}
             bgColor="main-white"
             textColor="main-black"
-            additionalStyles="self-end md:self-start"
+            additionalStyles="self-end md:self-start opacity-0 animate-fade-in"
           >
             {data?.button?.buttonLabel?.[lang] || "Click"}
           </Button>
         </div>
       </div>
 
-      <span className="absolute bottom-5 left-0 mx-margin-mobile font-normal-font-weight text-[#c6c6c6] text-[10px] md:mx-tablet md:bottom-[50px] md:left-auto md:right-0 md:text-[14px] opacity-[64%] 2xl:mx-desktop">
+      <span className="opacity-0 animate-fade-in absolute bottom-5 left-0 mx-margin-mobile font-normal-font-weight text-[#c6c6c6] text-[10px] md:mx-tablet md:bottom-[50px] md:left-auto md:right-0 md:text-[14px] opacity-[64%] 2xl:mx-desktop">
         ({data?.scrollDown?.[lang] || "Scroll down"})
       </span>
     </section>
