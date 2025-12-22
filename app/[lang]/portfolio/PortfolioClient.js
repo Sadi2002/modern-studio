@@ -19,6 +19,7 @@ import Button from "../../components/Button";
 import ArrowWhite from "../../../public/arrow-right-white.png";
 
 import { urlFor } from "../../../lib/sanity/client";
+import AnimatedProjectImage from "@/app/components/AnimatedProjectImage";
 
 export default function PortfolioClient({
   projects = [],
@@ -34,6 +35,7 @@ export default function PortfolioClient({
 
   const cardRefs = useRef([]); // DOM refs for right-side cards
   const linkRefs = useRef([]); // DOM refs for left-side links
+  const imageRefs = useRef([]);
   const linksViewportRef = useRef(null); // sticky container (visible area for links)
   const linksInnerRef = useRef(null); // inner list we translate
   const headerRef = useRef(null); // ref for the small header line
@@ -231,10 +233,11 @@ export default function PortfolioClient({
             </div>
             {projects.map((p, i) => (
               <div key={i} className="">
-                <Link
-                  href={`/${lang}/portfolio/${p.slug.current}`}
+                <button
                   ref={(el) => (linkRefs.current[i] = el)}
-                  className="text-[clamp(36px,6.5vw,45px)] leading-[clamp(36px,6.5vw,45px)] relative mb-5 xl:text-6xl  xl:mb-[20px] 2xl:text-[clamp(60px,4.3vw,5rem)] 2xl:leading-[80px] lg:font-light-font-weight block  min-[1535px]:w-[500px] min-[1600px]:w-[600px]"
+                  type="button"
+                  onClick={() => imageRefs.current[i]?.startTransition?.()}
+                  className="text-[clamp(36px,6.5vw,45px)] leading-[clamp(36px,6.5vw,45px)] relative mb-5 xl:text-6xl  xl:mb-[20px] 2xl:text-[clamp(60px,4.3vw,5rem)] 2xl:leading-[80px] lg:font-light-font-weight block min-[1535px]:w-[500px] min-[1600px]:w-[600px] text-left"
                   style={{
                     opacity: opacities[i],
                     pointerEvents:
@@ -242,7 +245,7 @@ export default function PortfolioClient({
                   }}
                 >
                   {p?.title?.[lang]}
-                </Link>
+                </button>
               </div>
             ))}
           </div>
@@ -256,32 +259,27 @@ export default function PortfolioClient({
             ref={(el) => (cardRefs.current[i] = el)}
             className="flex flex-col"
           >
-            <Link
-              href={`/${lang}/portfolio/${p.slug.current}`}
-              className="group block cursor-pointer"
-              aria-label={`Zobacz ${p?.title?.[lang]}`}
-            >
-              <div className="overflow-hidden">
-                <div className="relative w-full aspect-[8/6] xl:aspect-[8/5]">
-                  <Image
-                    src={urlFor(p.imgSrc).url()}
-                    alt={p?.title?.[lang]}
-                    className="w-full block object-cover"
-                    fill
-                    priority={i === 0}
-                    fetchPriority={i === 0 ? "high" : "auto"}
-                  />
-                </div>
+            <div className="overflow-hidden">
+              <div className="relative w-full aspect-[8/6] xl:aspect-[8/5]">
+                <AnimatedProjectImage
+                  ref={(el) => (imageRefs.current[i] = el)}
+                  src={urlFor(p.imgSrc).url()}
+                  alt={p?.title?.[lang]}
+                  slug={p.slug.current}
+                  fill
+                  priority={i === 0}
+                  fetchPriority={i === 0 ? "high" : "auto"}
+                />
               </div>
-              <div className="flex justify-between mt-[5px] xl:mt-[7px] 2xl:mt-[10px] items-start gap-[20px]">
-                <span className=" text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-medium-font-weight ">{`${p?.title?.[lang]}, ${p.location?.[lang]}`}</span>
-                <div className="flex items-center gap-4">
-                  <span className="sm:inline  text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px]  font-medium-font-weight">
-                    {p?.year}
-                  </span>
-                </div>
+            </div>
+            <div className="flex justify-between mt-[5px] xl:mt-[7px] 2xl:mt-[10px] items-start gap-[20px]">
+              <span className=" text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-medium-font-weight ">{`${p?.title?.[lang]}, ${p.location?.[lang]}`}</span>
+              <div className="flex items-center gap-4">
+                <span className="sm:inline  text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px]  font-medium-font-weight">
+                  {p?.year}
+                </span>
               </div>
-            </Link>
+            </div>
           </div>
         ))}
         <div className="flex justify-end lg:mt-[0px] xl:mt-[-50px]">

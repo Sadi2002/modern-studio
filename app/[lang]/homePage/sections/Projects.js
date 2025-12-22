@@ -61,48 +61,46 @@ export default async function Projects({ data, lang }) {
         </div>
 
         <div className="lg:flex lg:flex-col lg:w-[calc(50%-10px)]">
-          <Link href={`/${lang}/portfolio/${project[2]?.slug.current}`}>
-            <div className="w-full mb-[50px] lg:mb-[50px]">
-              <div className="relative aspect-8/5">
-                <Image
-                  src={urlFor(project[2]?.imgSrc).url()}
-                  alt={project[2]?.alt?.[lang]}
-                  className="object-cover absolute top-0 left-0 w-full h-full"
-                  fill
-                />
-              </div>
-              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] gap-[20px]">
-                <span className="font-medium-font-weight">
-                  {project[2]?.title?.[lang]}, {project[2]?.location?.[lang]}
-                </span>
-                <span className="font-medium-font-weight">
-                  {project[2]?.year}
-                </span>
-              </div>
+          <div className="w-full mb-[50px] lg:mb-[50px]">
+            <div className="relative aspect-8/5">
+              <AnimatedProjectImage
+                src={urlFor(project[2]?.imgSrc).url()}
+                alt={project[2]?.alt?.[lang]}
+                slug={project[2]?.slug.current}
+                className="object-cover absolute top-0 left-0 w-full h-full"
+                fill
+              />
             </div>
-          </Link>
-
-          <Link href={`/${lang}/portfolio/${project[3]?.slug.current}`}>
-            <div className="max-w-[78%] mb-[30px] lg:w-[100%] lg:max-w-[100%] lg:mb-[60px]">
-              <div className="relative aspect-7/8 lg:aspect-8/7">
-                <Image
-                  src={urlFor(project[3]?.imgSrc).url()}
-                  alt={project[3]?.alt?.[lang]}
-                  className="object-cover absolute top-0 left-0 w-full h-full"
-                  fill
-                />
-              </div>
-
-              <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] gap-[20px]">
-                <span className="font-medium-font-weight">
-                  {project[3]?.title?.[lang]}, {project[3]?.location?.[lang]}
-                </span>
-                <span className="font-medium-font-weight ">
-                  {project[3]?.year}
-                </span>
-              </div>
+            <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] gap-[20px]">
+              <span className="font-medium-font-weight">
+                {project[2]?.title?.[lang]}, {project[2]?.location?.[lang]}
+              </span>
+              <span className="font-medium-font-weight">
+                {project[2]?.year}
+              </span>
             </div>
-          </Link>
+          </div>
+
+          <div className="max-w-[78%] mb-[30px] lg:w-[100%] lg:max-w-[100%] lg:mb-[60px]">
+            <div className="relative aspect-7/8 lg:aspect-8/7">
+              <AnimatedProjectImage
+                src={urlFor(project[3]?.imgSrc).url()}
+                alt={project[3]?.alt?.[lang]}
+                slug={project[3]?.slug.current}
+                className="object-cover absolute top-0 left-0 w-full h-full"
+                fill
+              />
+            </div>
+
+            <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] gap-[20px]">
+              <span className="font-medium-font-weight">
+                {project[3]?.title?.[lang]}, {project[3]?.location?.[lang]}
+              </span>
+              <span className="font-medium-font-weight ">
+                {project[3]?.year}
+              </span>
+            </div>
+          </div>
 
           <div className="leading-[26px] flex flex-col gap-[40px] items-end lg:gap-[40px] xl:gap-[50px]">
             <p className="self-start text-[clamp(14px,3.5vw,18px)] leading-[clamp(20px,10vw,24px)] min-[900px]:max-w-[750px] lg:ml-10 lg:leading-[28px] md:leading-[28px] md:max-w-[600px] font-light-font-weight  xl:max-w-[600px] xl:text-[20px] xl:leading-[34px] 2xl:text-[23px] 2xl:leading-[36px] 2xl:max-w-[800px]">

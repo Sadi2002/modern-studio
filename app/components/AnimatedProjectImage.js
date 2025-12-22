@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, forwardRef, useImperativeHandle } from "react";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import Image from "next/image";
@@ -9,19 +9,18 @@ import { transitionStore } from "@/lib/transitionStore";
 
 gsap.registerPlugin(CustomEase);
 
-const slowFastEase = CustomEase.create("slowFastEase", "0.87 0 0.13 1");
+const slowFastEase = CustomEase.create("slowFastEase", "0.75 0.10 0.22 1");
 
-export default function AnimatedProjectImage({ src, alt, slug }) {
+const AnimatedProjectImage = forwardRef(({ src, alt, slug }, ref) => {
   const imgRef = useRef(null);
   const router = useRouter();
 
-  const handleClick = () => {
+  const startTransition = () => {
     const img = imgRef.current;
     if (!img) return;
 
     const rect = img.getBoundingClientRect();
 
-    // 🔹 klon
     const clone = img.cloneNode(true);
     document.body.appendChild(clone);
 
@@ -38,17 +37,12 @@ export default function AnimatedProjectImage({ src, alt, slug }) {
       willChange: "top, left, width, height",
     });
 
-    // zapis do globalnego store
     transitionStore.clone = clone;
     transitionStore.isTransitioning = true;
-
-    // blokada scrolla
     document.body.style.overflow = "hidden";
 
-    // 🔥 TIMELINE
     const tl = gsap.timeline();
 
-    // 1️⃣ wejście do full screen
     tl.to(clone, {
       top: 0,
       left: 0,
@@ -58,17 +52,18 @@ export default function AnimatedProjectImage({ src, alt, slug }) {
       ease: slowFastEase,
     });
 
-    // 2️⃣ HOLD – pauza na pełnym ekranie
     tl.to({}, { duration: 0 });
 
-    // 3️⃣ reset scrolla + zmiana URL
     tl.call(() => {
-      // WAŻNE: nowa strona ma się renderować od góry
       window.scrollTo({ top: 0, left: 0 });
-
       router.push(`/portfolio/${slug}`, { scroll: false });
     });
   };
+
+  // 👇 expose method to parent
+  useImperativeHandle(ref, () => ({
+    startTransition,
+  }));
 
   return (
     <Image
@@ -76,8 +71,11 @@ export default function AnimatedProjectImage({ src, alt, slug }) {
       src={src}
       alt={alt}
       fill
-      onClick={handleClick}
+      onClick={startTransition}
       className="object-cover absolute top-0 left-0 w-full h-full cursor-pointer"
     />
   );
-}
+});
+
+AnimatedProjectImage.displayName = "AnimatedProjectImage";
+export default AnimatedProjectImage;

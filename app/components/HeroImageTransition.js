@@ -7,7 +7,7 @@ import { transitionStore } from "@/lib/transitionStore";
 
 gsap.registerPlugin(CustomEase);
 
-const slowFastEase = CustomEase.create("slowFastEaseHero", "0.87 0 0.13 1");
+const slowFastEase = CustomEase.create("slowFastEaseHero", "0.75 0.10 0.22 1");
 
 export default function HeroImageTransition() {
   useEffect(() => {

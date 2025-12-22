@@ -12,7 +12,7 @@ export function slideInOut() {
     ],
     {
       duration: 1200,
-      easing: "cubic-bezier(0.87, 0, 0.13, 1)",
+      easing: "cubic-bezier(0.75,0.10,0.22,1)",
       fill: "forwards",
       pseudoElement: "::view-transition-old(root)",
     }
@@ -25,7 +25,7 @@ export function slideInOut() {
     ],
     {
       duration: 1200,
-      easing: "cubic-bezier(0.87, 0, 0.13, 1)",
+      easing: "cubic-bezier(0.75,0.10,0.22,1)",
       fill: "forwards",
       pseudoElement: "::view-transition-new(root)",
     }
