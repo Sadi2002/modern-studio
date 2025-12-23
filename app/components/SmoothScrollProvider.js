@@ -1,18 +1,24 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 
 export default function SmoothScrollProvider({ children }) {
+  const lenisRef = useRef(null);
+
   useEffect(() => {
     const lenis = new Lenis({
-      // możesz dopasować feeling:
       duration: 1,
       smoothWheel: true,
       smoothTouch: false,
       wheelMultiplier: 1,
       touchMultiplier: 1.5,
     });
+
+    lenisRef.current = lenis;
+
+    // 🔥 UDOSTĘPNIAMY GLOBALNIE
+    window.__LENIS__ = lenis;
 
     let rafId;
     const raf = (time) => {
@@ -24,8 +30,10 @@ export default function SmoothScrollProvider({ children }) {
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      lenisRef.current = null;
+      window.__LENIS__ = null;
     };
   }, []);
 
-  return children;
+  return <>{children}</>;
 }

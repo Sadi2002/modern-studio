@@ -9,6 +9,7 @@ export const poppins = Poppins({
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import SmoothScrollProvider from "../components/SmoothScrollProvider";
+import LenisScrollReset from "../components/LenisScrollReset";
 
 export default async function RootLayout({ children, params }) {
   const getParams = await params;
@@ -18,7 +19,10 @@ export default async function RootLayout({ children, params }) {
     <>
       <SmoothScrollProvider>
         <Header lang={lang} />
-        <main className={poppins.className}>{children}</main>
+        <main className={poppins.className}>
+          <LenisScrollReset />
+          {children}
+        </main>
         <Footer lang={lang} />
       </SmoothScrollProvider>
     </>
