@@ -24,6 +24,7 @@ const FOLLOW_LERP = 0.25;
 const AnimatedProjectImage = forwardRef(({ src, alt, slug, lang }, ref) => {
   const imgRef = useRef(null);
   const router = useRouter();
+  const isTransitioningRef = useRef(false);
 
   // cursor refs
   const cursorRef = useRef(null);
@@ -44,6 +45,9 @@ const AnimatedProjectImage = forwardRef(({ src, alt, slug, lang }, ref) => {
   };
 
   const startTransition = () => {
+    if (isTransitioningRef.current) return;
+    isTransitioningRef.current = true;
+
     const img = imgRef.current;
     if (!img) return;
 
@@ -66,7 +70,12 @@ const AnimatedProjectImage = forwardRef(({ src, alt, slug, lang }, ref) => {
 
     transitionStore.clone = clone;
     transitionStore.isTransitioning = true;
-    document.body.style.overflow = "hidden";
+
+    /* 🔒 BLOKUJ SCROLL */
+    if (window.__LENIS__) {
+      window.__LENIS__.stop();
+    }
+    document.documentElement.style.pointerEvents = "none";
 
     const tl = gsap.timeline();
 

@@ -30,10 +30,18 @@ export default function HeroImageTransition() {
       onComplete: () => {
         hero.querySelector("img")?.classList.remove("opacity-0");
 
+        // 🧹 cleanup clone
         clone.remove();
         transitionStore.clone = null;
         transitionStore.isTransitioning = false;
-        document.body.style.overflow = "auto";
+
+        // 🔓 ODBLOKUJ INTERAKCJE
+        document.documentElement.style.pointerEvents = "";
+
+        // 🔓 ODBLOKUJ SCROLL (LENIS)
+        if (window.__LENIS__) {
+          window.__LENIS__.start();
+        }
       },
     });
   }, []);
