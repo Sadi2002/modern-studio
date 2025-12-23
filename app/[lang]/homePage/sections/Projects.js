@@ -25,6 +25,7 @@ export default async function Projects({ data, lang }) {
                 src={urlFor(project[0]?.imgSrc).url()}
                 alt={project[0]?.alt?.[lang]}
                 slug={project[0]?.slug.current}
+                lang={lang}
                 className="object-cover absolute top-0 left-0 w-full h-full"
                 fill
               />
@@ -45,6 +46,7 @@ export default async function Projects({ data, lang }) {
                 src={urlFor(project[1]?.imgSrc).url()}
                 alt={project[1]?.alt?.[lang]}
                 slug={project[1]?.slug.current}
+                lang={lang}
                 className="object-cover absolute top-0 left-0 w-full h-full"
                 fill
               />
@@ -67,6 +69,7 @@ export default async function Projects({ data, lang }) {
                 src={urlFor(project[2]?.imgSrc).url()}
                 alt={project[2]?.alt?.[lang]}
                 slug={project[2]?.slug.current}
+                lang={lang}
                 className="object-cover absolute top-0 left-0 w-full h-full"
                 fill
               />
@@ -87,6 +90,7 @@ export default async function Projects({ data, lang }) {
                 src={urlFor(project[3]?.imgSrc).url()}
                 alt={project[3]?.alt?.[lang]}
                 slug={project[3]?.slug.current}
+                lang={lang}
                 className="object-cover absolute top-0 left-0 w-full h-full"
                 fill
               />

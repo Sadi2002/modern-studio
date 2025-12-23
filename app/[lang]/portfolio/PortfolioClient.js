@@ -266,6 +266,7 @@ export default function PortfolioClient({
                   src={urlFor(p.imgSrc).url()}
                   alt={p?.title?.[lang]}
                   slug={p.slug.current}
+                  lang={lang}
                   fill
                   priority={i === 0}
                   fetchPriority={i === 0 ? "high" : "auto"}

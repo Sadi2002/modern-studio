@@ -21,7 +21,7 @@ const slowFastEase = CustomEase.create("slowFastEase", "0.75 0.10 0.22 1");
 const CURSOR_SIZE = 90;
 const FOLLOW_LERP = 0.25;
 
-const AnimatedProjectImage = forwardRef(({ src, alt, slug }, ref) => {
+const AnimatedProjectImage = forwardRef(({ src, alt, slug, lang }, ref) => {
   const imgRef = useRef(null);
   const router = useRouter();
 
@@ -81,7 +81,7 @@ const AnimatedProjectImage = forwardRef(({ src, alt, slug }, ref) => {
 
     tl.call(() => {
       window.scrollTo({ top: 0, left: 0 });
-      router.push(`/portfolio/${slug}`, { scroll: false });
+      router.push(`/${lang}/portfolio/${slug}`, { scroll: false });
     });
   };
 
