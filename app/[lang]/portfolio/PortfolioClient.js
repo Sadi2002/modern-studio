@@ -29,9 +29,12 @@ export default function PortfolioClient({
   beforeProjectsText,
   button,
 }) {
-  console.log(beforeProjectsText);
   const pathname = usePathname();
   const isPortfolio = pathname === `/${lang}/portfolio`;
+
+  const [cardOpacities, setCardOpacities] = useState(() =>
+    projects.map(() => 0)
+  );
 
   const cardRefs = useRef([]); // DOM refs for right-side cards
   const linkRefs = useRef([]); // DOM refs for left-side links
@@ -95,6 +98,29 @@ export default function PortfolioClient({
       return Math.max(OPACITY_FLOOR, Math.min(1, o));
     });
     setOpacities(nextOpacities);
+
+    // ===== RIGHT SIDE CARDS OPACITY (IMAGES) =====
+    // ===== RIGHT SIDE CARDS: BINARY VISIBILITY =====
+    const viewportHeight = window.innerHeight;
+
+    // ile px przed wejściem do viewport ma się już pokazać
+    const ENTER_OFFSET = 300;
+
+    setCardOpacities((prev) =>
+      cardRefs.current.map((el, i) => {
+        if (!el) return prev[i] ?? 0;
+
+        const r = el.getBoundingClientRect();
+        const isVisible =
+          r.top < viewportHeight - ENTER_OFFSET && r.bottom > ENTER_OFFSET;
+
+        // JEŚLI JUŻ JEST 1 → ZOSTAJE 1
+        if (prev[i] === 1) return 1;
+
+        // W PRZECIWNYM RAZIE → pojawia się gdy wejdzie
+        return isVisible ? 1 : 0;
+      })
+    );
 
     // Header opacity based on its own distance to viewport center (fade faster)
     if (headerRef.current) {
@@ -257,10 +283,14 @@ export default function PortfolioClient({
           <div
             key={i}
             ref={(el) => (cardRefs.current[i] = el)}
-            className="flex flex-col"
+            className="flex flex-col transition-opacity duration-1000 ease-out will-change-opacity"
+            style={{
+              opacity: cardOpacities[i],
+              pointerEvents: cardOpacities[i] < 0.15 ? "none" : "auto",
+            }}
           >
             <div className="overflow-hidden">
-              <div className="relative w-full aspect-[8/6] xl:aspect-[8/5]">
+              <div className="relative w-full aspect-[8/6] xl:aspect-[8/5] overflow-hidden">
                 <AnimatedProjectImage
                   ref={(el) => (imageRefs.current[i] = el)}
                   src={urlFor(p.imgSrc).url()}
@@ -270,6 +300,9 @@ export default function PortfolioClient({
                   fill
                   priority={i === 0}
                   fetchPriority={i === 0 ? "high" : "auto"}
+                  className={
+                    "transition-transform duration-500 ease-out hover:scale-105"
+                  }
                 />
               </div>
             </div>

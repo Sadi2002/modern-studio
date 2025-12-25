@@ -20,13 +20,14 @@ export default async function Projects({ data, lang }) {
       <div className="flex flex-col lg:flex-row lg:justify-between">
         <div className="flex flex-col lg:w-[calc(50%-10px)]">
           <div className="max-w-[80%] mb-[50px] lg:mb-[50px] lg:max-w-[100%]">
-            <div className="relative aspect-8/7">
+            <div className="relative aspect-8/7 overflow-hidden">
               <AnimatedProjectImage
                 src={urlFor(project[0]?.imgSrc).url()}
                 alt={project[0]?.alt?.[lang]}
                 slug={project[0]?.slug.current}
                 lang={lang}
-                className="object-cover absolute top-0 left-0 w-full h-full"
+                className="object-cover absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-out
+      hover:scale-105"
                 fill
               />
             </div>
@@ -41,13 +42,14 @@ export default async function Projects({ data, lang }) {
           </div>
 
           <div className="w-[86%] flex flex-col items-end self-end mb-[50px] lg:mb-[0px] lg:w-[100%] lg:h-full">
-            <div className="flex flex-col justify-end w-full relative aspect-5/3 lg:h-full">
+            <div className="flex flex-col justify-end w-full relative aspect-5/3 lg:h-full overflow-hidden">
               <AnimatedProjectImage
                 src={urlFor(project[1]?.imgSrc).url()}
                 alt={project[1]?.alt?.[lang]}
                 slug={project[1]?.slug.current}
                 lang={lang}
-                className="object-cover absolute top-0 left-0 w-full h-full"
+                className="object-cover absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-out
+      hover:scale-105"
                 fill
               />
             </div>
@@ -64,13 +66,14 @@ export default async function Projects({ data, lang }) {
 
         <div className="lg:flex lg:flex-col lg:w-[calc(50%-10px)]">
           <div className="w-full mb-[50px] lg:mb-[50px]">
-            <div className="relative aspect-8/5">
+            <div className="relative aspect-8/5 overflow-hidden">
               <AnimatedProjectImage
                 src={urlFor(project[2]?.imgSrc).url()}
                 alt={project[2]?.alt?.[lang]}
                 slug={project[2]?.slug.current}
                 lang={lang}
-                className="object-cover absolute top-0 left-0 w-full h-full"
+                className="object-cover absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-out
+      hover:scale-105"
                 fill
               />
             </div>
@@ -85,13 +88,14 @@ export default async function Projects({ data, lang }) {
           </div>
 
           <div className="max-w-[78%] mb-[30px] lg:w-[100%] lg:max-w-[100%] lg:mb-[60px]">
-            <div className="relative aspect-7/8 lg:aspect-8/7">
+            <div className="relative aspect-7/8 lg:aspect-8/7 overflow-hidden">
               <AnimatedProjectImage
                 src={urlFor(project[3]?.imgSrc).url()}
                 alt={project[3]?.alt?.[lang]}
                 slug={project[3]?.slug.current}
                 lang={lang}
-                className="object-cover absolute top-0 left-0 w-full h-full"
+                className="object-cover absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-out
+      hover:scale-105"
                 fill
               />
             </div>

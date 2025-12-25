@@ -7,6 +7,7 @@ import Link from "next/link";
 import ArrowWhite from "../../../../public/arrow-right-white.png";
 import Button from "../../../components/Button";
 import { urlFor } from "../../../../lib/sanity/client";
+import AboutButton from "@/app/components/AboutButton";
 
 export default function Process({ data, lang }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -22,6 +23,9 @@ export default function Process({ data, lang }) {
 
   const activeDesktopStep = steps[activeIndexDesktop];
 
+  const target = `/${lang}/${data?.button?.buttonLink}`;
+  const label = data?.button?.buttonLabel?.[lang];
+
   return (
     <section className="mx-margin-mobile flex flex-col md:mx-tablet lg:mx-small-laptop mb-[40px] lg:mb-[80px] xl:mb-[150px]">
       <div className="flex flex-col lg:flex-row lg:justify-between">
@@ -35,11 +39,9 @@ export default function Process({ data, lang }) {
             {data?.description?.[lang]}
           </p>
 
-          <Link href={`/${lang}/${data?.button?.buttonLink}`}>
-            <button className="font-medium-font-weight text-[clamp(0.75rem,3.5vw,1rem)] relative uppercase after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:w-full-width after:h-[1px] ml-auto mr-0 block after:w-full lg:hidden">
-              {data?.button?.buttonLabel?.[lang]}
-            </button>
-          </Link>
+          <div className="lg:hidden flex justify-end">
+            <AboutButton href={target} label={label} />
+          </div>
 
           <div className="hidden lg:flex lg:justify-end">
             <Button
@@ -80,12 +82,9 @@ export default function Process({ data, lang }) {
                 {/* MOBILE: rozwijany opis + obrazek */}
                 <div
                   className={`lg:hidden ${
-                    activeIndex === index ? "mt-[10px]" : "hidden"
+                    activeIndex === index ? "mt-[20px]" : "hidden"
                   }`}
                 >
-                  <p className="font-light-font-weight mb-[20px] text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] pr-[30px] md:pr-[70px] lg:text-[16px] lg:leading-[24px]">
-                    {step?.description?.[lang]}
-                  </p>
                   {step.imgSrc && (
                     <Image
                       src={urlFor(step.imgSrc).url()}
@@ -94,7 +93,7 @@ export default function Process({ data, lang }) {
                       height={400}
                       loading="eager"
                       sizes="100vw"
-                      className={`object-cover w-full h-[200px] transition-opacity duration-300
+                      className={`object-cover w-full max-h-[500px] transition-opacity duration-300
         ${
           activeIndex === index
             ? "opacity-100"
@@ -131,10 +130,6 @@ export default function Process({ data, lang }) {
                   )
               )}
             </div>
-
-            {/* <p className="hidden mt-[10px] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(16px,4.5vw,1.5rem)] max-w-[360px] lg:mt-[10px] lg:text-[16px] lg:leading-[24px] lg:flex xl:max-w-[400px] 2xl:max-w-[450px]">
-              {steps[activeIndex]?.description?.[lang]}
-            </p> */}
           </div>
         </div>
       </div>
