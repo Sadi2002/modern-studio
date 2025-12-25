@@ -19,13 +19,18 @@ gsap.registerPlugin(CustomEase);
 const slowFastEase = CustomEase.create("slowFastEase", "0.75 0.10 0.22 1");
 
 const CURSOR_SIZE = 80;
-const FOLLOW_LERP = 0.2;
+const FOLLOW_LERP = 0.17;
 
 const AnimatedProjectImage = forwardRef(
   ({ src, alt, slug, lang, className }, ref) => {
     const imgRef = useRef(null);
     const router = useRouter();
     const isTransitioningRef = useRef(false);
+
+    const isClickingRef = useRef(false);
+
+    const cursorCircleRef = useRef(null);
+    const cursorTextWrapperRef = useRef(null);
 
     const textRef = useRef(null);
 
@@ -62,50 +67,73 @@ const AnimatedProjectImage = forwardRef(
       if (isTransitioningRef.current) return;
       isTransitioningRef.current = true;
 
+      isClickingRef.current = true;
+
       const img = imgRef.current;
       if (!img) return;
 
-      const rect = img.getBoundingClientRect();
-      const clone = img.cloneNode(true);
-      document.body.appendChild(clone);
-
-      Object.assign(clone.style, {
-        position: "fixed",
-        top: `${rect.top}px`,
-        left: `${rect.left}px`,
-        width: `${rect.width}px`,
-        height: `${rect.height}px`,
-        margin: 0,
-        zIndex: 9999,
-        objectFit: "cover",
-        pointerEvents: "none",
-        willChange: "top, left, width, height",
-      });
-
-      transitionStore.clone = clone;
-      transitionStore.isTransitioning = true;
-
-      /* 🔒 BLOKUJ SCROLL */
-      if (window.__LENIS__) {
-        window.__LENIS__.stop();
-      }
+      /* 🔒 BLOKUJ INTERAKCJE */
       document.documentElement.style.pointerEvents = "none";
+      if (window.__LENIS__) window.__LENIS__.stop();
 
       const tl = gsap.timeline();
 
-      tl.to(clone, {
-        top: 0,
-        left: 0,
-        width: window.innerWidth,
-        height: window.innerHeight,
-        duration: 1.05,
-        ease: slowFastEase,
+      /* 1️⃣ SCHOWAJ KURSOR + TEKST */
+      tl.to(cursorCircleRef.current, {
+        scale: 0,
+        duration: 0.8,
+        ease: "power4.out",
       });
 
-      tl.call(() => {
-        window.scrollTo({ top: 0, left: 0 });
-        router.push(`/${lang}/portfolio/${slug}`, { scroll: false });
-      });
+      tl.to(
+        cursorTextWrapperRef.current,
+        {
+          y: "100%",
+          duration: 0.25,
+          ease: "power3.inOut",
+        },
+        "<"
+      );
+
+      /* 2️⃣ DOPIERO TERAZ IMAGE TRANSITION */
+      tl.call(
+        () => {
+          const rect = img.getBoundingClientRect();
+          const clone = img.cloneNode(true);
+          document.body.appendChild(clone);
+
+          Object.assign(clone.style, {
+            position: "fixed",
+            top: `${rect.top}px`,
+            left: `${rect.left}px`,
+            width: `${rect.width}px`,
+            height: `${rect.height}px`,
+            margin: 0,
+            zIndex: 9999,
+            objectFit: "cover",
+            pointerEvents: "none",
+            willChange: "top, left, width, height",
+          });
+
+          transitionStore.clone = clone;
+          transitionStore.isTransitioning = true;
+
+          gsap.to(clone, {
+            top: 0,
+            left: 0,
+            width: window.innerWidth,
+            height: window.innerHeight,
+            duration: 1.05,
+            ease: slowFastEase,
+            onComplete: () => {
+              window.scrollTo({ top: 0, left: 0 });
+              router.push(`/${lang}/portfolio/${slug}`, { scroll: false });
+            },
+          });
+        },
+        null,
+        "+=0"
+      );
     };
 
     useImperativeHandle(ref, () => ({
@@ -127,10 +155,10 @@ const AnimatedProjectImage = forwardRef(
 
         if (cursorRef.current) {
           cursorRef.current.style.transform = `
-          translate3d(${pos.current.x - 0}px, ${pos.current.y}px, 0)
-          translate(0%, -50%)
-          scale(${hovered ? 1 : 0.8})
-        `;
+  translate3d(${pos.current.x}px, ${pos.current.y}px, 0)
+  translate(0%, -50%)
+  ${isClickingRef.current ? "" : `scale(${hovered ? 1 : 0.8})`}
+`;
         }
 
         rafRef.current = requestAnimationFrame(animate);
@@ -172,6 +200,7 @@ const AnimatedProjectImage = forwardRef(
         >
           {/* KOŁO */}
           <div
+            ref={cursorCircleRef}
             className="flex items-center justify-center
   rounded-full bg-black
   transition-transform duration-500 ease-out"
@@ -186,7 +215,11 @@ const AnimatedProjectImage = forwardRef(
 
           {/* TEKST */}
           {/* TEXT WRAPPER */}
-          <div className="overflow-hidden" style={{ height: "20px" }}>
+          <div
+            ref={cursorTextWrapperRef}
+            className="overflow-hidden"
+            style={{ height: "20px" }}
+          >
             <span
               ref={textRef}
               className="block text-black text-sm tracking-wide uppercase"

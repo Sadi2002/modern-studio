@@ -39,6 +39,8 @@ export default async function Project({ params }) {
 
   const project = projects.find((project) => project.slug.current === slug);
 
+  const relatedProjects = projects.filter((p) => p.slug.current !== slug);
+
   console.log(project);
 
   const collaborators = project?.collaborators || [];
@@ -165,7 +167,7 @@ export default async function Project({ params }) {
           {beforePortfolioText?.[lang]}
         </h3>
         <PortfolioClient
-          projects={projects}
+          projects={relatedProjects}
           isBtn={false}
           isProject={true}
           lang={lang}
