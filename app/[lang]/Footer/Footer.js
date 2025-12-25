@@ -54,15 +54,14 @@ export default async function Footer({ lang }) {
               <h3 className="text-white text-[clamp(20px,5.5vw,23px)] font-medium mb-[20px]">
                 {contact?.sectionTitle?.[lang]}
               </h3>
-              <ul className="flex flex-col gap-[5px]">
+              <ul className="flex flex-col gap-[10px]">
                 {contact.items.map((item, idx) => (
                   <li key={idx}>
-                    <Link
+                    <FooterNavLink
                       href={item.url}
+                      label={item?.title?.[lang]}
                       className="text-white text-[clamp(12px,3.5vw,16px)] flex"
-                    >
-                      {item?.title?.[lang]}
-                    </Link>
+                    />
                   </li>
                 ))}
               </ul>

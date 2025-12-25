@@ -107,13 +107,13 @@ export default function PortfolioClient({
 
     // ile px przed wejściem do viewport ma się już pokazać
     const w = window.innerWidth;
+    const vh = window.innerHeight;
 
+    // RESPONSIVE ENTER OFFSET (vh-based)
     const ENTER_OFFSET =
-      w < 640
-        ? 80 // mobile (320–639)
-        : w < 1024
-        ? 140 // tablet (640–1023)
-        : 300; // desktop (lg+)
+      w < 1024
+        ? Math.max(60, vh * 0.15) // mobile + tablet (~15% wysokości)
+        : 300; // desktop
 
     setCardOpacities((prev) =>
       cardRefs.current.map((el, i) => {
