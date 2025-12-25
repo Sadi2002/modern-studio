@@ -4,10 +4,10 @@ import Button from "../../../components/Button";
 import ArrowWhite from "../../../../public/arrow-right-white.png";
 
 import DataProjects from "../../../data/dataProjects";
-import Link from "next/link";
 
 import { urlFor } from "../../../../lib/sanity/client";
-import AnimatedProjectImage from "@/app/components/AnimatedProjectImage";
+
+import ProjectLink from "@/app/components/ProjectLink";
 
 export default async function Projects({ data, lang }) {
   const project = await DataProjects();
@@ -21,15 +21,24 @@ export default async function Projects({ data, lang }) {
         <div className="flex flex-col lg:w-[calc(50%-10px)]">
           <div className="max-w-[80%] mb-[50px] lg:mb-[50px] lg:max-w-[100%]">
             <div className="relative aspect-8/7 overflow-hidden">
-              <AnimatedProjectImage
-                src={urlFor(project[0]?.imgSrc).url()}
-                alt={project[0]?.alt?.[lang]}
-                slug={project[0]?.slug.current}
-                lang={lang}
-                className="object-cover absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-out
-      hover:scale-105"
-                fill
-              />
+              <ProjectLink
+                href={`/${lang}/portfolio/${project[0]?.slug.current}`}
+                imageProps={{
+                  src: urlFor(project[0]?.imgSrc).url(),
+                  alt: project[0]?.alt?.[lang],
+                  slug: project[0]?.slug.current,
+                  lang,
+                  className:
+                    "transition-transform duration-500 ease-out hover:scale-105",
+                }}
+              >
+                <Image
+                  src={urlFor(project[0]?.imgSrc).url()}
+                  alt={project[0]?.alt?.[lang] || ""}
+                  fill
+                  className="object-cover absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-out hover:scale-105"
+                />
+              </ProjectLink>
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight gap-[20px]">
               <span className="font-medium-font-weight">
@@ -43,15 +52,24 @@ export default async function Projects({ data, lang }) {
 
           <div className="w-[86%] flex flex-col items-end self-end mb-[50px] lg:mb-[0px] lg:w-[100%] lg:h-full">
             <div className="flex flex-col justify-end w-full relative aspect-5/3 lg:h-full overflow-hidden">
-              <AnimatedProjectImage
-                src={urlFor(project[1]?.imgSrc).url()}
-                alt={project[1]?.alt?.[lang]}
-                slug={project[1]?.slug.current}
-                lang={lang}
-                className="object-cover absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-out
-      hover:scale-105"
-                fill
-              />
+              <ProjectLink
+                href={`/${lang}/portfolio/${project[1]?.slug.current}`}
+                imageProps={{
+                  src: urlFor(project[1]?.imgSrc).url(),
+                  alt: project[1]?.alt?.[lang],
+                  slug: project[1]?.slug.current,
+                  lang,
+                  className:
+                    "transition-transform duration-500 ease-out hover:scale-105",
+                }}
+              >
+                <Image
+                  src={urlFor(project[1]?.imgSrc).url()}
+                  alt={project[1]?.alt?.[lang] || ""}
+                  fill
+                  className="object-cover absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-out hover:scale-105"
+                />
+              </ProjectLink>
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] gap-[20px]">
               <span className="font-medium-font-weight ">
@@ -67,15 +85,24 @@ export default async function Projects({ data, lang }) {
         <div className="lg:flex lg:flex-col lg:w-[calc(50%-10px)]">
           <div className="w-full mb-[50px] lg:mb-[50px]">
             <div className="relative aspect-8/5 overflow-hidden">
-              <AnimatedProjectImage
-                src={urlFor(project[2]?.imgSrc).url()}
-                alt={project[2]?.alt?.[lang]}
-                slug={project[2]?.slug.current}
-                lang={lang}
-                className="object-cover absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-out
-      hover:scale-105"
-                fill
-              />
+              <ProjectLink
+                href={`/${lang}/portfolio/${project[2]?.slug.current}`}
+                imageProps={{
+                  src: urlFor(project[2]?.imgSrc).url(),
+                  alt: project[2]?.alt?.[lang],
+                  slug: project[2]?.slug.current,
+                  lang,
+                  className:
+                    "transition-transform duration-500 ease-out hover:scale-105",
+                }}
+              >
+                <Image
+                  src={urlFor(project[2]?.imgSrc).url()}
+                  alt={project[2]?.alt?.[lang] || ""}
+                  fill
+                  className="object-cover absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-out hover:scale-105"
+                />
+              </ProjectLink>
             </div>
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] gap-[20px]">
               <span className="font-medium-font-weight">
@@ -89,15 +116,24 @@ export default async function Projects({ data, lang }) {
 
           <div className="max-w-[78%] mb-[30px] lg:w-[100%] lg:max-w-[100%] lg:mb-[60px]">
             <div className="relative aspect-7/8 lg:aspect-8/7 overflow-hidden">
-              <AnimatedProjectImage
-                src={urlFor(project[3]?.imgSrc).url()}
-                alt={project[3]?.alt?.[lang]}
-                slug={project[3]?.slug.current}
-                lang={lang}
-                className="object-cover absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-out
-      hover:scale-105"
-                fill
-              />
+              <ProjectLink
+                href={`/${lang}/portfolio/${project[3]?.slug.current}`}
+                imageProps={{
+                  src: urlFor(project[3]?.imgSrc).url(),
+                  alt: project[3]?.alt?.[lang],
+                  slug: project[3]?.slug.current,
+                  lang,
+                  className:
+                    "transition-transform duration-500 ease-out hover:scale-105",
+                }}
+              >
+                <Image
+                  src={urlFor(project[3]?.imgSrc).url()}
+                  alt={project[3]?.alt?.[lang] || ""}
+                  fill
+                  className="object-cover absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-out hover:scale-105"
+                />
+              </ProjectLink>
             </div>
 
             <div className="flex justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] gap-[20px]">

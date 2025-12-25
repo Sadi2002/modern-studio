@@ -21,6 +21,8 @@ import ArrowWhite from "../../../public/arrow-right-white.png";
 import { urlFor } from "../../../lib/sanity/client";
 import AnimatedProjectImage from "@/app/components/AnimatedProjectImage";
 
+import ProjectLink from "@/app/components/ProjectLink";
+
 export default function PortfolioClient({
   projects = [],
   isProject = false,
@@ -104,7 +106,14 @@ export default function PortfolioClient({
     const viewportHeight = window.innerHeight;
 
     // ile px przed wejściem do viewport ma się już pokazać
-    const ENTER_OFFSET = 300;
+    const w = window.innerWidth;
+
+    const ENTER_OFFSET =
+      w < 640
+        ? 80 // mobile (320–639)
+        : w < 1024
+        ? 140 // tablet (640–1023)
+        : 300; // desktop (lg+)
 
     setCardOpacities((prev) =>
       cardRefs.current.map((el, i) => {
@@ -291,19 +300,24 @@ export default function PortfolioClient({
           >
             <div className="overflow-hidden">
               <div className="relative w-full aspect-[8/6] xl:aspect-[8/5] overflow-hidden">
-                <AnimatedProjectImage
-                  ref={(el) => (imageRefs.current[i] = el)}
-                  src={urlFor(p.imgSrc).url()}
-                  alt={p?.title?.[lang]}
-                  slug={p.slug.current}
-                  lang={lang}
-                  fill
-                  priority={i === 0}
-                  fetchPriority={i === 0 ? "high" : "auto"}
-                  className={
-                    "transition-transform duration-500 ease-out hover:scale-105"
-                  }
-                />
+                <ProjectLink
+                  href={`/${lang}/portfolio/${p.slug.current}`}
+                  imageProps={{
+                    src: urlFor(p.imgSrc).url(),
+                    alt: p?.title?.[lang],
+                    slug: p.slug.current,
+                    lang,
+                    className:
+                      "transition-transform duration-500 ease-out hover:scale-105",
+                  }}
+                >
+                  <Image
+                    src={urlFor(p.imgSrc).url()}
+                    alt={p?.title?.[lang]}
+                    fill
+                    className="object-cover absolute inset-0 transition-transform duration-500 ease-out hover:scale-105"
+                  />
+                </ProjectLink>
               </div>
             </div>
             <div className="flex justify-between mt-[5px] xl:mt-[7px] 2xl:mt-[10px] items-start gap-[20px]">

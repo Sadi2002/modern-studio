@@ -19,10 +19,10 @@ gsap.registerPlugin(CustomEase);
 const slowFastEase = CustomEase.create("slowFastEase", "0.75 0.10 0.22 1");
 
 const CURSOR_SIZE = 80;
-const FOLLOW_LERP = 0.17;
+const FOLLOW_LERP = 0.15;
 
 const AnimatedProjectImage = forwardRef(
-  ({ src, alt, slug, lang, className }, ref) => {
+  ({ src, alt, slug, lang, className, children }, ref) => {
     const imgRef = useRef(null);
     const router = useRouter();
     const isTransitioningRef = useRef(false);
@@ -231,13 +231,19 @@ const AnimatedProjectImage = forwardRef(
         </div>
 
         {/* PROJECT IMAGE */}
-        <Image
-          ref={imgRef}
-          src={src}
-          alt={alt}
-          fill
-          className={`object-cover absolute top-0 left-0 w-full h-full ${className}`}
-        />
+        {children ? (
+          <div ref={imgRef} className="absolute inset-0">
+            {children}
+          </div>
+        ) : (
+          <Image
+            ref={imgRef}
+            src={src}
+            alt={alt}
+            fill
+            className={`object-cover absolute top-0 left-0 w-full h-full ${className}`}
+          />
+        )}
       </div>
     );
   }
