@@ -27,6 +27,8 @@ const AnimatedProjectImage = forwardRef(
     const router = useRouter();
     const isTransitioningRef = useRef(false);
 
+    const [isExiting, setIsExiting] = useState(false);
+
     const isClickingRef = useRef(false);
 
     const cursorCircleRef = useRef(null);
@@ -67,6 +69,7 @@ const AnimatedProjectImage = forwardRef(
       if (isTransitioningRef.current) return;
       isTransitioningRef.current = true;
 
+      setIsExiting(true); // 🔑 KLUCZ
       isClickingRef.current = true;
 
       const img = imgRef.current;
@@ -89,11 +92,14 @@ const AnimatedProjectImage = forwardRef(
         cursorTextWrapperRef.current,
         {
           y: "100%",
+          opacity: 0,
           duration: 0.25,
           ease: "power3.inOut",
         },
         "<"
       );
+
+      tl.set(textRef.current, { display: "none" });
 
       /* 2️⃣ DOPIERO TERAZ IMAGE TRANSITION */
       tl.call(
@@ -174,7 +180,7 @@ const AnimatedProjectImage = forwardRef(
     }, [hovered]);
 
     useEffect(() => {
-      if (!textRef.current) return;
+      if (!textRef.current || isExiting) return;
 
       gsap.to(textRef.current, {
         y: hovered ? "0%" : "100%",
@@ -182,7 +188,7 @@ const AnimatedProjectImage = forwardRef(
         ease: "power3.out",
         delay: hovered ? 0.16 : 0.12,
       });
-    }, [hovered]);
+    }, [hovered, isExiting]);
 
     return (
       <div

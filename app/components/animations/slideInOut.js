@@ -1,14 +1,17 @@
 export function slideInOut() {
   if (!document.startViewTransition) return;
   if (window.__FIRST_LOAD__) return;
-
-  // 👇 jeśli idziemy w "project", to nie animujemy root
   if (window.__VT_KIND__ === "project") return;
+
+  const isIntro = window.__VT_CONTEXT__ === "intro";
 
   document.documentElement.animate(
     [
       { opacity: 1, transform: "translateY(0)" },
-      { opacity: 0.75, transform: "translateY(-35%)" },
+      {
+        opacity: isIntro ? 1 : 0.75,
+        transform: "translateY(-35%)",
+      },
     ],
     {
       duration: 1200,
@@ -30,4 +33,7 @@ export function slideInOut() {
       pseudoElement: "::view-transition-new(root)",
     }
   );
+
+  // 🔄 posprzątaj po sobie
+  window.__VT_CONTEXT__ = null;
 }

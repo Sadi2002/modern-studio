@@ -165,6 +165,21 @@ html.is-revealing .transition-panel--bottom {
   animation: fade-in 0.001s forwards;
 }
 
+@keyframes word-in {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.animate-word-in {
+  animation: word-in 0.7s cubic-bezier(0.75, 0.1, 0.22, 1) forwards;
+}
+
 /* RESPONSYWNOSC */
 
 @media (max-width: 1024px) {
