@@ -45,14 +45,10 @@ export default function Blog({ data, lang }) {
       <div className="md:flex md:flex-col md:justify-between w-full  ">
         <div className="flex flex-col">
           <h3 className="mb-5 text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)]   font-medium uppercase relative after:content-['(03)'] after:absolute after:bottom-[clamp(15px,4vw,25px)] md:after:bottom-[clamp(20px,4vw,25px)] xl:after:bottom-[clamp(20px,4vw,30px)] 2xl:after:top-[-35px] 2xl:after:top-[-35px] after:text-[10px] md:after:text-[12px] xl:text-6xl xl:after:text-[14px] 2xl:text-[80px] 2xl:leading-[80px] lg:font-normal xl:mb-[20px] 2xl:max-w-[1200px]">
-            <RevealAfterTransition delay={0} stagger={50}>
-              {title}
-            </RevealAfterTransition>
+            {title}
           </h3>
           <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[40px] xl:mb-[40px] min-[380px]:max-w-[390px] md:max-w-[500px] ">
-            <RevealAfterTransition delay={0} stagger={5}>
-              {description}
-            </RevealAfterTransition>
+            {description}
           </p>
         </div>
         <div className="flex justify-end">
@@ -86,15 +82,11 @@ export default function Blog({ data, lang }) {
             </div>
             <div className="flex flex flex-col gap-[5px] justify-between mt-[5px]  w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
               <span className="font-medium-font-weight max-w-[65%]">
-                <RevealAfterTransition delay={0} stagger={50}>
-                  {posts[0]?.title?.[lang] ||
-                    "Designing a Luxury Mediterranean Villa"}
-                </RevealAfterTransition>
+                {posts[0]?.title?.[lang] ||
+                  "Designing a Luxury Mediterranean Villa"}
               </span>
               <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-                <RevealAfterTransition delay={0} stagger={50}>
-                  {posts[0]?.date?.[lang] || "March 2025"}
-                </RevealAfterTransition>
+                {posts[0]?.date?.[lang] || "March 2025"}
               </span>
             </div>
           </AnimatedLink>
@@ -116,15 +108,11 @@ export default function Blog({ data, lang }) {
           </AnimatedLink>
           <div className="flex flex flex-col gap-[5px]  justify-between mt-[5px]  w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight ">
             <span className="font-medium-font-weight max-w-[70%]">
-              <RevealAfterTransition delay={0} stagger={50}>
-                {posts[1]?.title?.[lang] ||
-                  "Maximizing Light and Views in Your Mallorca Home"}
-              </RevealAfterTransition>
+              {posts[1]?.title?.[lang] ||
+                "Maximizing Light and Views in Your Mallorca Home"}
             </span>
             <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-              <RevealAfterTransition delay={0} stagger={50}>
-                {posts[1]?.date?.[lang] || "January 2025"}
-              </RevealAfterTransition>
+              {posts[1]?.date?.[lang] || "January 2025"}
             </span>
           </div>
         </div>
@@ -145,15 +133,11 @@ export default function Blog({ data, lang }) {
           </AnimatedLink>
           <div className="flex flex flex-col gap-[5px] justify-between mt-[5px]  w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight ">
             <span className="font-medium-font-weight max-w-[100%]">
-              <RevealAfterTransition delay={0} stagger={50}>
-                {posts[2]?.title?.[lang] ||
-                  "Materials and Finishes Inspired by Mallorca."}
-              </RevealAfterTransition>
+              {posts[2]?.title?.[lang] ||
+                "Materials and Finishes Inspired by Mallorca."}
             </span>
             <span className="text-[#757575] lg:text-[14px] 2xl:text-[16px] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight">
-              <RevealAfterTransition delay={0} stagger={50}>
-                {posts[2]?.date?.[lang] || "August 2024"}
-              </RevealAfterTransition>
+              {posts[2]?.date?.[lang] || "August 2024"}
             </span>
           </div>
         </div>

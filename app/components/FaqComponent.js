@@ -37,9 +37,7 @@ function FaqComponent({ data, lang }) {
           >
             <div className="flex justify-between items-center">
               <span className="block text-[clamp(16px,3.5vw,20px)] font-light leading-[clamp(20px,6vw,2rem)] pr-[15px]">
-                <RevealAfterTransition delay={0} stagger={50}>
-                  {step.title}
-                </RevealAfterTransition>
+                {step.title}
               </span>
               <Image
                 width={20}

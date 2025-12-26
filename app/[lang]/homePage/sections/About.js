@@ -18,21 +18,15 @@ export default function About({ data, lang }) {
     >
       <div className="mx-margin-mobile lg:flex md:mx-tablet lg:mx-small-laptop lg:justify-between xl:justify-between 2xl:mx-desktop">
         <h2 className="text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[20px] max-w-[550px] lg:text-[clamp(2rem,3.5vw,64px)] lg:leading-[clamp(2rem,4vw,64px)] lg:max-w-[700px] lg:w-[50%] 2xl:max-w-[850px] xl:font-normal">
-          <RevealAfterTransition delay={0} stagger={50}>
-            {data?.title?.[lang]}
-          </RevealAfterTransition>
+          {data?.title?.[lang]}
         </h2>
         <div className="flex flex-col items-end lg:items-start lg:w-[50%]">
           <div className="flex flex-col gap-[16px] font-light-font-weight mb-[40px] items-start text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full">
             <p className="lg:max-w-[900px] 2xl:max-w-full">
-              <RevealAfterTransition delay={0} stagger={5}>
-                {data?.subtitle1?.[lang]}
-              </RevealAfterTransition>
+              {data?.subtitle1?.[lang]}
             </p>
             <p className="lg:max-w-[900px] 2xl:max-w-full">
-              <RevealAfterTransition delay={0} stagger={5}>
-                {data?.subtitle2?.[lang]}
-              </RevealAfterTransition>
+              {data?.subtitle2?.[lang]}
             </p>
           </div>
           <AboutButton href={target} label={label} />
