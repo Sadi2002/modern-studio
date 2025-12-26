@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTransitionRouter } from "next-view-transitions";
 import { slideInOut } from "@/app/components/animations/slideInOut";
+import RevealAfterTransition from "./RevealAfterTransition";
 
 export default function AboutButton({ href, label }) {
   const pathname = usePathname();
@@ -23,7 +24,7 @@ export default function AboutButton({ href, label }) {
       }}
     >
       <button className="group relative font-medium-font-weight uppercase text-[clamp(0.75rem,3.5vw,1rem)] leading-none after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:h-[1px] after:w-full">
-        <span className="relative block overflow-hidden">
+        <span className="relative block overflow-hidden leading-[20px]">
           {/* pierwszy */}
           <span className="block leading-[20px] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
             {label}

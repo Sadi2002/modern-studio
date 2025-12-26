@@ -34,8 +34,17 @@ export default function Intro() {
     }, overlayHideTime);
 
     // 4️⃣ KONIEC INTRO — JAK BYŁO
+    const CONTENT_START_OFFSET = 400; // ms przed końcem intro
+
+    // 🔥 START CONTENTU (OVERLAP)
+    const contentStartTimer = setTimeout(() => {
+      window.dispatchEvent(new Event("app-content-start"));
+    }, overlayHideTime + 600 - CONTENT_START_OFFSET);
+
+    // ✅ KONIEC INTRO
     const doneTimer = setTimeout(() => {
       setPhase("done");
+      window.dispatchEvent(new Event("app-ready"));
     }, overlayHideTime + 600);
 
     return () => {

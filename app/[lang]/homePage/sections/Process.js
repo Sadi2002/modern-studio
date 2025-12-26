@@ -8,6 +8,7 @@ import ArrowWhite from "../../../../public/arrow-right-white.png";
 import Button from "../../../components/Button";
 import { urlFor } from "../../../../lib/sanity/client";
 import AboutButton from "@/app/components/AboutButton";
+import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 
 export default function Process({ data, lang }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -33,10 +34,14 @@ export default function Process({ data, lang }) {
         <div className="mb-[40px] lg:mb-0 lg:w-[50%] ">
           {/* Tytuł / opis / przyciski – jak wcześniej */}
           <h3 className="text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium uppercase relative after:content-['(05)'] after:absolute after:bottom-[clamp(15px,4vw,25px)] md:after:bottom-[clamp(20px,4vw,25px)] xl:after:bottom-[clamp(20px,4vw,30px)] 2xl:after:top-[-35px] after:text-[10px] md:after:text-[12px]  2xl:after:top-[-35px] mb-5 xl:text-6xl xl:after:text-[14px] xl:mb-[20px] 2xl:text-[80px] 2xl:leading-[80px] lg:font-normal 2xl:max-w-[1200px]">
-            {data?.title?.[lang]}
+            <RevealAfterTransition delay={0} stagger={50}>
+              {data?.title?.[lang]}
+            </RevealAfterTransition>
           </h3>
           <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[40px] xl:mb-[50px] min-[380px]:max-w-[390px] md:max-w-[400px] lg:max-w-[500px]">
-            {data?.description?.[lang]}
+            <RevealAfterTransition delay={0} stagger={5}>
+              {data?.description?.[lang]}
+            </RevealAfterTransition>
           </p>
 
           <div className="lg:hidden flex justify-end">
@@ -69,7 +74,9 @@ export default function Process({ data, lang }) {
               >
                 <span className="flex gap-[10px] items-center text-[clamp(14px,4.3vw,23px)] leading-[clamp(0.75rem,10vw,2rem)]">
                   <span className="flex">(0{index + 1})</span>{" "}
-                  {step?.title?.[lang]}
+                  <RevealAfterTransition delay={0} stagger={5}>
+                    {step?.title?.[lang]}
+                  </RevealAfterTransition>
                   <Image
                     width={20}
                     height={20}

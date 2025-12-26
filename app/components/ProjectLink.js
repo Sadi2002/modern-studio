@@ -3,6 +3,7 @@
 import AnimatedLink from "@/app/components/AnimatedLink";
 import AnimatedProjectImage from "@/app/components/AnimatedProjectImage";
 import { useIsLg } from "@/app/hooks/useIsLg";
+import RevealAfterTransition from "./RevealAfterTransition";
 
 export default function ProjectLink({
   href,

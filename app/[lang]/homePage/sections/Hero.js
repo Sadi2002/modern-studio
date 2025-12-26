@@ -3,32 +3,36 @@ import arrow from "../../../../public/arrow.png";
 import Button from "@/app/components/Button";
 
 import { urlFor } from "../../../../lib/sanity/client";
+import RevealAfterTransition from "@/app/components/RevealAfterTransition";
+import RevealByLines from "@/app/components/RevealByLines";
+import HeroBackgroundImage from "@/app/components/HeroBackgroundImage";
 
 export default async function Hero({ data, lang }) {
   return (
     <section className="h-[100dvh] relative w-full">
-      {data.backgroundImage && (
-        <Image
-          src={urlFor(data.backgroundImage).url()}
-          alt={data.title}
-          fill
-          className="object-cover"
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-        />
-      )}
+      <div className="absolute inset-0 overflow-hidden">
+        {data.backgroundImage && (
+          <HeroBackgroundImage
+            src={urlFor(data.backgroundImage).url()}
+            alt={data.title}
+          />
+        )}
+      </div>
 
       <div className="absolute inset-0 bg-[rgba(0,0,0,0.55)]"></div>
 
       <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
         <div className="flex flex-col md:items-start absolute bottom-[120px] w-full xl:bottom-[120px] z-20 2xl:bottom-[150px]">
           <h1 className="text-main-white text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[20px] lg:text-[70px] lg:mb-[20px] lg:leading-[70px] xl:text-[100px] xl:font-normal-font-weight xl:leading-[100px] uppercase 2xl:leading-[110px] 2xl:text-[110px] max-w-[520px] lg:max-w-[800px] xl:max-w-[1100px] 2xl:max-w-[1200px]">
-            {data?.title?.[lang] || "Default title."}
+            <RevealAfterTransition delay={0} stagger={50}>
+              {data?.title?.[lang] || "Default title."}
+            </RevealAfterTransition>
           </h1>
 
           <p className="text-main-white font-light-font-weight mb-[40px] text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] max-w-[300px] lg:max-w-[450px] min-[420px]:max-w-[400px] xl:max-w-[600px] xl:mb-[70px]">
-            {data?.subtitle?.[lang] || ""}
+            <RevealAfterTransition delay={0} stagger={20}>
+              {data?.subtitle?.[lang] || ""}
+            </RevealAfterTransition>
           </p>
 
           <Button

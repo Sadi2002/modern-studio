@@ -16,23 +16,38 @@ export default function ParallaxImage({
     const image = imageRef.current;
     if (!image) return;
 
+    // 📐 RESPONSYWNY MNOŻNIK
+    const getMultiplier = () => {
+      const w = window.innerWidth;
+      if (w < 640) return 0.25; // telefon
+      if (w < 1024) return 0.5; // tablet / mały laptop
+      return 1; // desktop
+    };
+
     const handleScroll = () => {
       const wrapper = image.parentElement;
+      if (!wrapper) return;
+
       const rect = wrapper.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
       const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
 
+      const effectiveIntensity = intensity * getMultiplier();
+
       const translateY = Math.min(
-        Math.max(progress * intensity - intensity / 2, -intensity / 2),
-        intensity / 2
+        Math.max(
+          progress * effectiveIntensity - effectiveIntensity / 2,
+          -effectiveIntensity / 2
+        ),
+        effectiveIntensity / 2
       );
 
       image.style.transform = `translateY(${translateY}px) scale(1.15)`;
     };
 
     handleScroll();
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [intensity]);

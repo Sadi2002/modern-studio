@@ -35,5 +35,19 @@ export function slideInOut() {
   );
 
   // 🔄 posprzątaj po sobie
+  // 🔄 posprzątaj po sobie
+  // 🔄 posprzątaj po sobie
   window.__VT_CONTEXT__ = null;
+
+  // 🔥 START CONTENTU — minimalny overlap (jak intro)
+  queueMicrotask(() => {
+    setTimeout(() => {
+      window.dispatchEvent(new Event("app-content-start"));
+    }, 150); // 👈 KLUCZ: 80–150ms
+  });
+
+  // ✅ LOGICZNY KONIEC TRANSITION
+  setTimeout(() => {
+    window.dispatchEvent(new Event("app-ready"));
+  }, 1200);
 }
