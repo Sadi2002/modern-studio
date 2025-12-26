@@ -1,17 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import { useTransitionRouter } from "next-view-transitions";
 
 const words = ["Sadowski", "Studio"];
 
 export default function Intro() {
   const [phase, setPhase] = useState("idle");
   const [hideOverlay, setHideOverlay] = useState(false);
-
-  const router = useTransitionRouter();
-  const pathname = usePathname();
 
   useEffect(() => {
     const ENTER_DURATION = 400;
@@ -30,8 +25,7 @@ export default function Intro() {
       setPhase("exit");
     }, exitStart);
 
-    // 3️⃣ CHOWANIE OVERLAYA
-    // 200ms przed końcem exitu "Studio"
+    // 3️⃣ CHOWANIE OVERLAYA — JAK BYŁO
     const overlayHideTime =
       exitStart + EXIT_DURATION + STAGGER * (words.length - 1) - 200;
 
@@ -39,9 +33,8 @@ export default function Intro() {
       setHideOverlay(true);
     }, overlayHideTime);
 
-    // 4️⃣ NAWIGACJA + cleanup
+    // 4️⃣ KONIEC INTRO — JAK BYŁO
     const doneTimer = setTimeout(() => {
-      router.push(pathname);
       setPhase("done");
     }, overlayHideTime + 600);
 
@@ -51,7 +44,7 @@ export default function Intro() {
       clearTimeout(overlayTimer);
       clearTimeout(doneTimer);
     };
-  }, [pathname, router]);
+  }, []); // 🔑 JEDYNA RÓŻNICA
 
   if (phase === "done") return null;
 
