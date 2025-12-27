@@ -66,6 +66,8 @@ const AnimatedProjectImage = forwardRef(
     };
 
     const startTransition = () => {
+      window.__NAV_KIND__ = "project"; // 👈 TO JEST KLUCZ
+
       window.__IS_TRANSITION_ACTIVE__ = true;
       window.__CONTENT_STARTED__ = false;
       if (isTransitioningRef.current) return;

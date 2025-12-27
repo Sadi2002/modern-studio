@@ -20,13 +20,31 @@ export default function HeroImageTransition() {
     const rect = hero.getBoundingClientRect();
 
     // 🔥 wolno → szybko → precyzyjnie (zjazd)
+    const DURATION = 1.25;
+    const isProject = window.__NAV_KIND__ === "project";
+
+    // 👉 tylko projekty startują wcześniej
+    const CONTENT_PROGRESS = isProject ? 0.45 : 1;
+
     gsap.to(clone, {
       top: rect.top,
       left: rect.left,
       width: rect.width,
       height: rect.height,
-      duration: 1.25,
+      duration: DURATION,
       ease: slowFastEase,
+
+      onUpdate() {
+        // 🔥 WCZEŚNIEJSZY START TYLKO DLA PROJEKTÓW
+        if (
+          this.progress() >= CONTENT_PROGRESS &&
+          !window.__CONTENT_STARTED__
+        ) {
+          window.__CONTENT_STARTED__ = true;
+          window.dispatchEvent(new Event("app-content-start"));
+        }
+      },
+
       onComplete: () => {
         hero.querySelector("img")?.classList.remove("opacity-0");
 
@@ -35,14 +53,16 @@ export default function HeroImageTransition() {
         transitionStore.isTransitioning = false;
 
         document.documentElement.style.pointerEvents = "";
-        if (window.__LENIS__) {
-          window.__LENIS__.start();
+        if (window.__LENIS__) window.__LENIS__.start();
+
+        // 🛡 fallback — jeśli NIE był project
+        if (!isProject && !window.__CONTENT_STARTED__) {
+          window.__CONTENT_STARTED__ = true;
+          window.dispatchEvent(new Event("app-content-start"));
         }
 
-        // 🔥 KLUCZOWA LINIA – START TREŚCI
-        requestAnimationFrame(() => {
-          window.dispatchEvent(new Event("app-content-start"));
-        });
+        // reset trybu po użyciu
+        window.__NAV_KIND__ = "normal";
       },
     });
   }, []);
