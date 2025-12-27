@@ -22,6 +22,7 @@ import { urlFor } from "../../../lib/sanity/client";
 import AnimatedProjectImage from "@/app/components/AnimatedProjectImage";
 
 import ProjectLink from "@/app/components/ProjectLink";
+import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 
 export default function PortfolioClient({
   projects = [],
@@ -264,7 +265,9 @@ export default function PortfolioClient({
               style={{ opacity: headerOpacity }}
               className="transition-opacity duration-150 ease-linear will-change-opacity"
             >
-              {beforeProjectsText?.[lang]}
+              <RevealAfterTransition delay={0} stagger={50}>
+                {beforeProjectsText?.[lang]}
+              </RevealAfterTransition>
             </div>
             {projects.map((p, i) => (
               <div key={i} className="">
@@ -279,7 +282,9 @@ export default function PortfolioClient({
                       opacities[i] < OPACITY_FLOOR * 2 ? "none" : "auto",
                   }}
                 >
-                  {p?.title?.[lang]}
+                  <RevealAfterTransition delay={0} stagger={50}>
+                    {p?.title?.[lang]}
+                  </RevealAfterTransition>
                 </button>
               </div>
             ))}

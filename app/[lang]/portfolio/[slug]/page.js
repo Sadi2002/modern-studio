@@ -15,6 +15,7 @@ import { getFile } from "@sanity/asset-utils";
 import { portfolioPageQuery } from "@/lib/sanity/queries";
 import HeroImageTransition from "@/app/components/HeroImageTransition";
 import HeroImage from "@/app/components/HeroImage";
+import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 
 export async function generateStaticParams() {
   const projects = await dataProjects();
@@ -61,17 +62,23 @@ export default async function Project({ params }) {
         className="flex  w-full justify-between pt-[100px] md:pt-[150px] 2xl:pt-[200px] px-[20px] mb-[40px] lg:mb-[80px] xl:mb-[150px] md:px-[40px] lg:px-[50px] flex-col lg:flex-row "
       >
         <h1 className="text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium uppercase relative mb-5 xl:text-6xl  xl:mb-[20px] 2xl:text-[clamp(60px,4.3vw,5rem)] 2xl:leading-[80px] lg:font-normal 2xl:max-w-[1200px]">
-          {project?.title?.[lang]}
+          <RevealAfterTransition delay={0} stagger={50}>
+            {project?.title?.[lang]}
+          </RevealAfterTransition>
         </h1>
         <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight lg:w-[50%] max-w-[700px] ">
-          {project?.description?.[lang]}
+          <RevealAfterTransition delay={0} stagger={5}>
+            {project?.description?.[lang]}
+          </RevealAfterTransition>
         </p>
       </div>
       <div className="flex flex-col gap-[40px] 2xl:gap-0 lg:flex-row w-full justify-between mb-[40px] xl:mb-[80px] px-[20px] md:px-[40px] lg:px-[50px] 2xl:px-[50px]">
         {project?.location && (
           <div>
             <span className="font-medium-font-weight text-[clamp(16px,4vw,20px)] leading-[clamp(0.75rem,10vw,20px)] 2xl:text-[20px]">
-              {project?.location?.[lang]}
+              <RevealAfterTransition delay={0} stagger={50}>
+                {project?.location?.[lang]}
+              </RevealAfterTransition>
             </span>
           </div>
         )}
@@ -79,10 +86,14 @@ export default async function Project({ params }) {
         {project?.dataCompleted && (
           <div className="flex flex-col text-[clamp(16px,4vw,20px)] leading-[clamp(0.75rem,10vw,20px)] 2xl:text-[20px] gap-[5px] 2xl:gap-[10px]">
             <span className="font-medium-font-weight">
-              {project?.dataCompleted?.[lang]}
+              <RevealAfterTransition delay={0} stagger={50}>
+                {project?.dataCompleted?.[lang]}
+              </RevealAfterTransition>
             </span>
             <span className="font-light-font-weight text-[14px] 2xl:text-[16px]">
-              {project?.year}
+              <RevealAfterTransition delay={0} stagger={50}>
+                {project?.year}
+              </RevealAfterTransition>
             </span>
           </div>
         )}
@@ -90,10 +101,14 @@ export default async function Project({ params }) {
         {project?.typeTitle && (
           <div className="flex flex-col text-[clamp(16px,4vw,20px)] leading-[clamp(0.75rem,10vw,20px)] 2xl:text-[20px] gap-[5px] 2xl:gap-[10px]">
             <span className="font-medium-font-weight">
-              {project?.typeTitle?.[lang]}
+              <RevealAfterTransition delay={0} stagger={50}>
+                {project?.typeTitle?.[lang]}
+              </RevealAfterTransition>
             </span>
             <span className="font-light-font-weight text-[14px] 2xl:text-[16px]">
-              {project?.type?.[lang]}
+              <RevealAfterTransition delay={0} stagger={50}>
+                {project?.type?.[lang]}
+              </RevealAfterTransition>
             </span>
           </div>
         )}
@@ -103,14 +118,18 @@ export default async function Project({ params }) {
             {collaborators.length > 0 && (
               <>
                 <span className="font-medium-font-weight">
-                  {project?.collaboratorsTitle?.[lang]}
+                  <RevealAfterTransition delay={0} stagger={50}>
+                    {project?.collaboratorsTitle?.[lang]}
+                  </RevealAfterTransition>
                 </span>
                 {collaborators.map((c, idx) => (
                   <span
                     key={idx}
                     className="font-light-font-weight text-[14px] 2xl:text-[16px]"
                   >
-                    {c?.title?.[lang]}
+                    <RevealAfterTransition delay={0} stagger={50}>
+                      {c?.title?.[lang]}
+                    </RevealAfterTransition>
                   </span>
                 ))}
               </>

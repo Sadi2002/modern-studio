@@ -33,7 +33,7 @@ export default function HeroBackgroundImage({ src, alt }) {
         duration-[1200ms]
         ease-[cubic-bezier(0.76,0,0.24,1)]
         
-        ${zoomOut ? "scale-100" : "scale-115"}
+        ${zoomOut ? "scale-100" : "scale-105"}
       `}
     />
   );

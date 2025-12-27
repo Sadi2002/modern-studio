@@ -4,6 +4,7 @@
 import ArrowWhite from "../../public/arrow-right-white.png";
 import { useState, useRef } from "react";
 import Button from "../components/Button";
+import RevealAfterTransition from "./RevealAfterTransition";
 
 export default function ContactForm({
   formTitle,
@@ -83,7 +84,9 @@ export default function ContactForm({
       className="space-y-8 max-w-full lg:max-w-[800px]"
     >
       <h2 className="text-[20px] font-medium mb-[20px] lg:mb-[40px]">
-        {formTitle}
+        <RevealAfterTransition delay={0} stagger={50}>
+          {formTitle}
+        </RevealAfterTransition>
       </h2>
 
       <div className="flex flex-col gap-[20px] md:flex-row md:gap-8 max-w-[80%] lg:max-w-full mb-[40px]">
@@ -133,7 +136,9 @@ export default function ContactForm({
           htmlFor="privacy"
           className="text-[clamp(12px,3.35vw,0.9rem)] font-light cursor-pointer"
         >
-          {privacyText}
+          <RevealAfterTransition delay={0} stagger={5}>
+            {privacyText}
+          </RevealAfterTransition>
         </label>
       </div>
 

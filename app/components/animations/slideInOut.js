@@ -43,7 +43,7 @@ export function slideInOut() {
   queueMicrotask(() => {
     setTimeout(() => {
       window.dispatchEvent(new Event("app-content-start"));
-    }, 150); // 👈 KLUCZ: 80–150ms
+    }, 300); // 👈 KLUCZ: 80–150ms
   });
 
   // ✅ LOGICZNY KONIEC TRANSITION

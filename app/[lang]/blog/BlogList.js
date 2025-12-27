@@ -8,6 +8,7 @@ import projekt4 from "../../../public/projekt4-large.webp";
 import { urlFor } from "../../../lib/sanity/client";
 import { useState } from "react";
 import AnimatedLink from "@/app/components/AnimatedLink";
+import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 
 export default function BlogList({ posts, postsSection, lang }) {
   console.log(postsSection);
@@ -78,7 +79,9 @@ export default function BlogList({ posts, postsSection, lang }) {
                 selectedCategory === category ? "underline" : ""
               }`}
             >
-              {category}
+              <RevealAfterTransition delay={0} stagger={50}>
+                {category}
+              </RevealAfterTransition>
             </span>
           ))}
         </div>
