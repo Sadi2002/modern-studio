@@ -66,6 +66,8 @@ const AnimatedProjectImage = forwardRef(
     };
 
     const startTransition = () => {
+      window.__IS_TRANSITION_ACTIVE__ = true;
+      window.__CONTENT_STARTED__ = false;
       if (isTransitioningRef.current) return;
       isTransitioningRef.current = true;
 
@@ -132,8 +134,14 @@ const AnimatedProjectImage = forwardRef(
             duration: 1.05,
             ease: slowFastEase,
             onComplete: () => {
+              // 🔑 oznacz, że to transition GSAP
+              window.__VT_CONTEXT__ = "gsap-project";
+
               window.scrollTo({ top: 0, left: 0 });
-              router.push(`/${lang}/portfolio/${slug}`, { scroll: false });
+
+              router.push(`/${lang}/portfolio/${slug}`, {
+                scroll: false,
+              });
             },
           });
         },

@@ -92,7 +92,7 @@ export default async function Project({ params }) {
             </span>
             <span className="font-light-font-weight text-[14px] 2xl:text-[16px]">
               <RevealAfterTransition delay={0} stagger={50}>
-                {project?.year}
+                {String(project?.year)}
               </RevealAfterTransition>
             </span>
           </div>

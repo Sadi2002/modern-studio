@@ -30,18 +30,19 @@ export default function HeroImageTransition() {
       onComplete: () => {
         hero.querySelector("img")?.classList.remove("opacity-0");
 
-        // 🧹 cleanup clone
         clone.remove();
         transitionStore.clone = null;
         transitionStore.isTransitioning = false;
 
-        // 🔓 ODBLOKUJ INTERAKCJE
         document.documentElement.style.pointerEvents = "";
-
-        // 🔓 ODBLOKUJ SCROLL (LENIS)
         if (window.__LENIS__) {
           window.__LENIS__.start();
         }
+
+        // 🔥 KLUCZOWA LINIA – START TREŚCI
+        requestAnimationFrame(() => {
+          window.dispatchEvent(new Event("app-content-start"));
+        });
       },
     });
   }, []);
