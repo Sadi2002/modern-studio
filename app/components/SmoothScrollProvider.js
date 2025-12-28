@@ -7,6 +7,26 @@ export default function SmoothScrollProvider({ children }) {
   const lenisRef = useRef(null);
 
   useEffect(() => {
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        if (window.__LENIS__) {
+          window.__LENIS__.resize();
+        }
+
+        if (window.ScrollTrigger) {
+          ScrollTrigger.refresh(true);
+        }
+      }
+    };
+
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
+  }, []);
+
+  useEffect(() => {
     const lenis = new Lenis({
       duration: 1,
       smoothWheel: true,

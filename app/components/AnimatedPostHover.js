@@ -27,9 +27,7 @@ export default function AnimatedPostHover({ children }) {
 
   const label = LABELS[lang];
 
-  const wrapperRef = useRef(null);
-
-  // cursor refs
+  // refs
   const cursorRef = useRef(null);
   const cursorCircleRef = useRef(null);
   const cursorTextWrapperRef = useRef(null);
@@ -44,8 +42,6 @@ export default function AnimatedPostHover({ children }) {
   const handleMouseEnter = (e) => {
     mouse.current.x = e.clientX;
     mouse.current.y = e.clientY;
-
-    // 🔑 start dokładnie pod kursorem
     pos.current.x = e.clientX;
     pos.current.y = e.clientY;
 
@@ -54,9 +50,27 @@ export default function AnimatedPostHover({ children }) {
 
   const handleMouseLeave = () => {
     setHovered(false);
+
+    // 🔒 HARD RESET TEKSTU
+    if (textRef.current) {
+      gsap.killTweensOf(textRef.current);
+      gsap.set(textRef.current, {
+        y: "100%",
+        opacity: 1,
+        display: "block",
+      });
+    }
+
+    if (cursorTextWrapperRef.current) {
+      gsap.killTweensOf(cursorTextWrapperRef.current);
+      gsap.set(cursorTextWrapperRef.current, {
+        y: "0%",
+        opacity: 1,
+      });
+    }
   };
 
-  // smooth cursor follow — IDENTYCZNE jak w projektach
+  // smooth cursor follow — 1:1 jak projekty
   useEffect(() => {
     if (!hovered) return;
 
@@ -89,9 +103,11 @@ export default function AnimatedPostHover({ children }) {
     };
   }, [hovered]);
 
-  // slide text — IDENTYCZNY easing i timing
+  // slide tekstu — zabezpieczony
   useEffect(() => {
     if (!textRef.current) return;
+
+    gsap.killTweensOf(textRef.current);
 
     gsap.to(textRef.current, {
       y: hovered ? "0%" : "100%",
@@ -103,7 +119,6 @@ export default function AnimatedPostHover({ children }) {
 
   return (
     <div
-      ref={wrapperRef}
       className="relative"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -112,14 +127,14 @@ export default function AnimatedPostHover({ children }) {
       <div
         ref={cursorRef}
         className="fixed top-0 left-0 z-[9999] pointer-events-none
-          flex flex-col items-center gap-3"
+        flex flex-col items-center gap-3"
       >
-        {/* CIRCLE */}
+        {/* KOŁO */}
         <div
           ref={cursorCircleRef}
           className="flex items-center justify-center
-            rounded-full bg-black
-            transition-transform duration-500 ease-out"
+          rounded-full bg-black
+          transition-transform duration-500 ease-out"
           style={{
             width: `${CURSOR_SIZE}px`,
             height: `${CURSOR_SIZE}px`,
@@ -129,7 +144,7 @@ export default function AnimatedPostHover({ children }) {
           <Image src={ArrowWhite} alt="arrow" className="w-[40px] h-[40px]" />
         </div>
 
-        {/* TEXT */}
+        {/* TEKST */}
         <div
           ref={cursorTextWrapperRef}
           className="overflow-hidden"
@@ -138,7 +153,10 @@ export default function AnimatedPostHover({ children }) {
           <span
             ref={textRef}
             className="block text-black text-sm tracking-wide uppercase"
-            style={{ lineHeight: "20px", transform: "translateY(100%)" }}
+            style={{
+              lineHeight: "20px",
+              transform: "translateY(100%)",
+            }}
           >
             {label}
           </span>

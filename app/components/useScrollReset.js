@@ -7,7 +7,10 @@ export default function useScrollReset() {
   const pathname = usePathname();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "auto" });
-    ScrollTrigger.refresh();
+    if (window.__LENIS__) {
+      window.__LENIS__.scrollTo(0, { immediate: true });
+    }
+
+    ScrollTrigger.refresh(true);
   }, [pathname]);
 }
