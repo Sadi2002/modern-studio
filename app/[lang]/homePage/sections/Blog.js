@@ -12,7 +12,6 @@ import projekt4 from "../../../../public/projekt4-large.webp";
 import { urlFor } from "../../../../lib/sanity/client";
 import Button from "@/app/components/Button";
 import AnimatedLink from "@/app/components/AnimatedLink";
-import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 
 export default function Blog({ data, lang }) {
   if (!data) return null;
@@ -70,14 +69,14 @@ export default function Blog({ data, lang }) {
 
         <div className="w-full mb-[50px] lg:mb-[0] max-w-[80%] lg:max-w-[100%] lg:w-[39%] inline-block">
           <AnimatedLink href={`/${lang}/blog/${posts[0]?.slug.current}`}>
-            <div className=" aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
+            <div className=" aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7] overflow-hidden">
               <Image
                 src={posts[0] ? getImg(posts[0], projekt3) : projekt3}
                 alt={
                   posts[0]?.alt?.[lang] || posts[0]?.title?.[lang] || "pokoj"
                 }
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-500 ease-out hover:scale-105"
               />
             </div>
             <div className="flex flex flex-col gap-[5px] justify-between mt-[5px]  w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
@@ -95,14 +94,14 @@ export default function Blog({ data, lang }) {
         {/* 2 kolumna */}
         <div className="w-full mb-[50px] max-w-[86%] ml-auto lg:ml-0 flex lg:max-w-[100%] lg:mb-[0] lg:w-[30%] inline-block">
           <AnimatedLink href={`/${lang}/blog/${posts[1]?.slug.current}`}>
-            <div className="flex lg:block aspect-[5/3]  lg:aspect-[8/5] relative ">
+            <div className="flex lg:block aspect-[5/3]  lg:aspect-[8/5] overflow-hidden relative ">
               <Image
                 src={posts[1] ? getImg(posts[1], projekt2) : projekt2}
                 alt={
                   posts[1]?.alt?.[lang] || posts[1]?.title?.[lang] || "pokoj"
                 }
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-500 ease-out hover:scale-105"
               />
             </div>
           </AnimatedLink>
@@ -120,14 +119,14 @@ export default function Blog({ data, lang }) {
         {/* 3 kolumna */}
         <div className="max-w-[78%] lg:max-w-[100%] lg:w-[20%] inline-block xl:w-[20%] ">
           <AnimatedLink href={`/${lang}/blog/${posts[1]?.slug.current}`}>
-            <div className="aspect-[7/8]  lg:aspect-[6/8] xl:aspect-[6/8] relative ">
+            <div className="aspect-[7/8]  lg:aspect-[6/8] xl:aspect-[6/8] relative overflow-hidden">
               <Image
                 src={posts[2] ? getImg(posts[2], projekt4) : projekt4}
                 alt={
                   posts[2]?.alt?.[lang] || posts[2]?.title?.[lang] || "pokoj"
                 }
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-500 ease-out hover:scale-105"
               />
             </div>
           </AnimatedLink>
