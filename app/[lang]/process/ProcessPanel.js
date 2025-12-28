@@ -1,3 +1,4 @@
+import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 import Image from "next/image";
 
 export default function ProcessPanel({ index, title, description, image }) {

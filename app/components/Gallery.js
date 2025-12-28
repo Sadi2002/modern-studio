@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import { urlFor } from "../../lib/sanity/client";
 import Image from "next/image";
+import FadeInOnView from "./FadeInOnView";
 
 function buildLayout(gallery) {
   const layout = [];
@@ -35,19 +36,21 @@ export default function ProjectGallery({ gallery }) {
       if (!big) return null;
 
       return (
-        <div
-          key={`big-${big._id || idx}`}
-          className="w-full mb-[10px] md:mb-[16px]"
-        >
-          <div className="relative w-full overflow-hidden aspect-[8/6] lg:aspect-[6/3]">
-            <Image
-              src={urlFor(big).url()}
-              alt={big.alt || "Gallery image"}
-              fill
-              className="object-cover"
-            />
+        <FadeInOnView key={`gallery-${idx}`}>
+          <div
+            key={`big-${big._id || idx}`}
+            className="w-full mb-[10px] md:mb-[16px]"
+          >
+            <div className="relative w-full overflow-hidden aspect-[8/6] lg:aspect-[6/3]">
+              <Image
+                src={urlFor(big).url()}
+                alt={big.alt || "Gallery image"}
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
-        </div>
+        </FadeInOnView>
       );
     }
 
@@ -55,27 +58,29 @@ export default function ProjectGallery({ gallery }) {
     const secondSmall = gallery[block.index + 1];
 
     return (
-      <div
-        key={`pair-${firstSmall._id || idx}`}
-        className="flex flex-col gap-[10px] md:gap-[16px] lg:grid lg:grid-cols-2 mb-[10px] md:mb-[16px]"
-      >
-        {[firstSmall, secondSmall].map(
-          (img, index) =>
-            img && (
-              <div
-                key={index}
-                className="relative overflow-hidden aspect-[8/9] lg:aspect-[6/6]"
-              >
-                <Image
-                  src={urlFor(img).url()}
-                  alt={img.alt || "Gallery image"}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            )
-        )}
-      </div>
+      <FadeInOnView key={`gallery-${idx}`}>
+        <div
+          key={`pair-${firstSmall._id || idx}`}
+          className="flex flex-col gap-[10px] md:gap-[16px] lg:grid lg:grid-cols-2 mb-[10px] md:mb-[16px]"
+        >
+          {[firstSmall, secondSmall].map(
+            (img, index) =>
+              img && (
+                <div
+                  key={index}
+                  className="relative overflow-hidden aspect-[8/9] lg:aspect-[6/6]"
+                >
+                  <Image
+                    src={urlFor(img).url()}
+                    alt={img.alt || "Gallery image"}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              )
+          )}
+        </div>
+      </FadeInOnView>
     );
   });
 
