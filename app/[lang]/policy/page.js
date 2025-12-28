@@ -17,14 +17,10 @@ export default async function page({ params }) {
     <section className="pt-[100px] md:pt-[150px] mx-margin-mobile md:mx-tablet lg:ml-[50px] 2xl:mx-[50px] mb-[80px] xl:mb-[150px]">
       <div className=" mb-[40px]">
         <h1 className="text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] uppercase font-medium mb-[20px] max-w-[500px] xl:max-w-[700px] lg:text-[45px] lg:leading-[45px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] 2xl:max-w-[1200px] 2xl:text-[80px] 2xl:leading-[80px] 2xl:font-normal">
-          <RevealAfterTransition delay={0} stagger={50}>
-            {policySection?.title?.[lang]}
-          </RevealAfterTransition>
+          {policySection?.title?.[lang]}
         </h1>
         <p className="lg:max-w-[75%] xl:max-w-[900px] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)]">
-          <RevealAfterTransition delay={0} stagger={5}>
-            {policySection?.description?.[lang]}
-          </RevealAfterTransition>
+          {policySection?.description?.[lang]}
         </p>
       </div>
       <div className="lg:max-w-[75%] xl:max-w-[900px] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)]">

@@ -139,6 +139,8 @@ const AnimatedProjectImage = forwardRef(
               // 🔑 oznacz, że to transition GSAP
               window.__VT_CONTEXT__ = "gsap-project";
 
+              window.__IS_HISTORY_NAV__ = false;
+
               window.scrollTo({ top: 0, left: 0 });
 
               router.push(`/${lang}/portfolio/${slug}`, {

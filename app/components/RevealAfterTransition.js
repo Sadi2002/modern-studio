@@ -10,14 +10,17 @@ export default function RevealAfterTransition({
   threshold = 0.3, // ile elementu musi być widoczne
   once = true, // animuj tylko raz
 }) {
+  const isHistoryNav =
+    typeof window !== "undefined" && window.__IS_HISTORY_NAV__;
   const ref = useRef(null);
   const [canStart, setCanStart] = useState(false);
   const [inView, setInView] = useState(false);
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(isHistoryNav ? true : false);
 
   // 1️⃣ globalny start (intro / VT)
   useEffect(() => {
     const onGlobalStart = () => setCanStart(true);
+
     window.addEventListener("app-content-start", onGlobalStart);
     return () => window.removeEventListener("app-content-start", onGlobalStart);
   }, []);
@@ -42,6 +45,7 @@ export default function RevealAfterTransition({
 
   // 3️⃣ faktyczny start animacji
   useEffect(() => {
+    if (isHistoryNav) return;
     if (!canStart || !inView || show) return;
 
     const timeoutId = setTimeout(() => {
@@ -49,7 +53,7 @@ export default function RevealAfterTransition({
     }, delay);
 
     return () => clearTimeout(timeoutId);
-  }, [canStart, inView, delay, show]);
+  }, [canStart, inView, delay, show, isHistoryNav]);
 
   if (typeof children !== "string") return children;
 
