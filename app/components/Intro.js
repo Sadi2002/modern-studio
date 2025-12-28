@@ -5,35 +5,44 @@ import { useEffect, useState } from "react";
 const words = ["Sadowski", "Studio"];
 
 export default function Intro() {
-  const [phase, setPhase] = useState("idle");
+  const [phase, setPhase] = useState("lcp");
   const [hideOverlay, setHideOverlay] = useState(false);
 
   useEffect(() => {
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual";
     }
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, []);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-
     const ENTER_DURATION = 400;
     const EXIT_DURATION = 400;
     const STAGGER = 120;
 
-    // 1️⃣ ENTER
-    const enterTimer = setTimeout(() => {
-      setPhase("enter");
-    }, 0);
+    /**
+     * FRAME 1: LCP
+     * tekst istnieje w DOM, ale jest niewidoczny dla usera
+     */
 
-    // 2️⃣ EXIT tekstu
+    // FRAME 2: pokazujemy wrapper, ale tekst nadal jest w IDLE
+    const showWrapper = requestAnimationFrame(() => {
+      setPhase("idle");
+
+      // FRAME 3: dopiero TERAZ startuje animacja (stagger działa)
+      requestAnimationFrame(() => {
+        setPhase("enter");
+      });
+    });
+
+    // EXIT – BEZ ZMIAN
     const exitStart = ENTER_DURATION + STAGGER * (words.length - 1) + 400;
 
     const exitTimer = setTimeout(() => {
       setPhase("exit");
     }, exitStart);
 
-    // 3️⃣ CHOWANIE OVERLAYA — JAK BYŁO
+    // CHOWANIE OVERLAYA — BEZ ZMIAN
     const overlayHideTime =
       exitStart + EXIT_DURATION + STAGGER * (words.length - 1) - 200;
 
@@ -41,27 +50,27 @@ export default function Intro() {
       setHideOverlay(true);
     }, overlayHideTime);
 
-    // 4️⃣ KONIEC INTRO — JAK BYŁO
-    const CONTENT_START_OFFSET = 400; // ms przed końcem intro
+    // START CONTENTU — BEZ ZMIAN
+    const CONTENT_START_OFFSET = 400;
 
-    // 🔥 START CONTENTU (OVERLAP)
     const contentStartTimer = setTimeout(() => {
       window.dispatchEvent(new Event("app-content-start"));
     }, overlayHideTime + 600 - CONTENT_START_OFFSET);
 
-    // ✅ KONIEC INTRO
+    // KONIEC INTRO — BEZ ZMIAN
     const doneTimer = setTimeout(() => {
       setPhase("done");
       window.dispatchEvent(new Event("app-ready"));
     }, overlayHideTime + 600);
 
     return () => {
-      clearTimeout(enterTimer);
+      cancelAnimationFrame(showWrapper);
       clearTimeout(exitTimer);
       clearTimeout(overlayTimer);
+      clearTimeout(contentStartTimer);
       clearTimeout(doneTimer);
     };
-  }, []); // 🔑 JEDYNA RÓŻNICA
+  }, []);
 
   if (phase === "done") return null;
 
@@ -80,7 +89,13 @@ export default function Intro() {
           : "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
       }}
     >
-      <div className="flex gap-[5px] text-white text-5xl md:text-7xl font-semibold">
+      <div
+        className="flex gap-[5px] text-white text-5xl md:text-7xl font-semibold"
+        style={{
+          // 🔑 tylko na 1 frame dla LCP
+          visibility: phase === "lcp" ? "hidden" : "visible",
+        }}
+      >
         {words.map((word, i) => (
           <div key={word} className="overflow-hidden">
             <span
