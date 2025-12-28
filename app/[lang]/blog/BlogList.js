@@ -9,6 +9,7 @@ import { urlFor } from "../../../lib/sanity/client";
 import { useState } from "react";
 import AnimatedLink from "@/app/components/AnimatedLink";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
+import AnimatedPostHover from "@/app/components/AnimatedPostHover";
 
 export default function BlogList({ posts, postsSection, lang }) {
   console.log(postsSection);
@@ -99,28 +100,30 @@ export default function BlogList({ posts, postsSection, lang }) {
           className="max-w-[80%] lg:max-w-full lg:mb-[0] lg:mb-[50px] lg:w-[39%] inline-block"
           style={{ display: match(posts[0]) ? "inline-block" : "none" }}
         >
-          <AnimatedLink href={`/${lang}/blog/${posts[0]?.slug.current}`}>
-            <div className=" aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
-              <Image
-                src={posts[0] ? getImg(posts[0], projekt3) : projekt3}
-                alt={
-                  posts[0]?.alt?.[lang] || posts[0]?.title?.[lang] || "pokoj"
-                }
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 23vw, 80vw"
-              />
-            </div>
-            <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
-              <span className="font-medium-font-weight max-w-[85%]">
-                {posts[0]?.title?.[lang] ||
-                  "Designing a Luxury Mediterranean Villa"}
-              </span>
-              <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px] ">
-                {posts[0]?.date?.[lang] || "March 2025"}
-              </span>
-            </div>
-          </AnimatedLink>
+          <AnimatedPostHover>
+            <AnimatedLink href={`/${lang}/blog/${posts[0]?.slug.current}`}>
+              <div className=" aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7] overflow-hidden">
+                <Image
+                  src={posts[0] ? getImg(posts[0], projekt3) : projekt3}
+                  alt={
+                    posts[0]?.alt?.[lang] || posts[0]?.title?.[lang] || "pokoj"
+                  }
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+                  sizes="(min-width: 1024px) 23vw, 80vw"
+                />
+              </div>
+              <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+                <span className="font-medium-font-weight max-w-[85%]">
+                  {posts[0]?.title?.[lang] ||
+                    "Designing a Luxury Mediterranean Villa"}
+                </span>
+                <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px] ">
+                  {posts[0]?.date?.[lang] || "March 2025"}
+                </span>
+              </div>
+            </AnimatedLink>
+          </AnimatedPostHover>
         </div>
 
         {/* 1 */}
@@ -128,19 +131,21 @@ export default function BlogList({ posts, postsSection, lang }) {
           className="w-full lg:mb-[0] max-w-[86%] ml-auto lg:ml-0 flex lg:max-w-[100%] lg:mb-[0] lg:w-[30%] inline-block"
           style={{ display: match(posts[1]) ? "inline-block" : "none" }}
         >
-          <AnimatedLink href={`/${lang}/blog/${posts[1]?.slug.current}`}>
-            <div className="flex lg:block aspect-[5/3]  lg:aspect-[8/5] relative ">
-              <Image
-                src={posts[1] ? getImg(posts[1], projekt2) : projekt2}
-                alt={
-                  posts[1]?.alt?.[lang] || posts[1]?.title?.[lang] || "pokoj"
-                }
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 23vw, 80vw"
-              />
-            </div>
-          </AnimatedLink>
+          <AnimatedPostHover>
+            <AnimatedLink href={`/${lang}/blog/${posts[1]?.slug.current}`}>
+              <div className="flex lg:block aspect-[5/3]  lg:aspect-[8/5] relative overflow-hidden ">
+                <Image
+                  src={posts[1] ? getImg(posts[1], projekt2) : projekt2}
+                  alt={
+                    posts[1]?.alt?.[lang] || posts[1]?.title?.[lang] || "pokoj"
+                  }
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+                  sizes="(min-width: 1024px) 23vw, 80vw"
+                />
+              </div>
+            </AnimatedLink>
+          </AnimatedPostHover>
           <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
               {posts[1]?.title?.[lang] ||
@@ -157,19 +162,21 @@ export default function BlogList({ posts, postsSection, lang }) {
           className="max-w-[78%] lg:max-w-[100%] lg:w-[20%] inline-block xl:w-[20%]"
           style={{ display: match(posts[2]) ? "inline-block" : "none" }}
         >
-          <AnimatedLink href={`/${lang}/blog/${posts[2]?.slug.current}`}>
-            <div className="aspect-[7/8] lg:aspect-[6/8] xl:aspect-[6/8] relative ">
-              <Image
-                src={posts[2] ? getImg(posts[2], projekt4) : projekt4}
-                alt={
-                  posts[2]?.alt?.[lang] || posts[2]?.title?.[lang] || "pokoj"
-                }
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 23vw, 80vw"
-              />
-            </div>
-          </AnimatedLink>
+          <AnimatedPostHover>
+            <AnimatedLink href={`/${lang}/blog/${posts[2]?.slug.current}`}>
+              <div className="aspect-[7/8] lg:aspect-[6/8] xl:aspect-[6/8] relative overflow-hidden ">
+                <Image
+                  src={posts[2] ? getImg(posts[2], projekt4) : projekt4}
+                  alt={
+                    posts[2]?.alt?.[lang] || posts[2]?.title?.[lang] || "pokoj"
+                  }
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+                  sizes="(min-width: 1024px) 23vw, 80vw"
+                />
+              </div>
+            </AnimatedLink>
+          </AnimatedPostHover>
           <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[100%]">
               {posts[2]?.title?.[lang] ||
@@ -186,17 +193,19 @@ export default function BlogList({ posts, postsSection, lang }) {
           className="w-[80%] ml-auto lg:ml-0 lg:w-[27%] inline-block"
           style={{ display: match(posts[3]) ? "inline-block" : "none" }}
         >
-          <AnimatedLink href={`/${lang}/blog/${posts[3]?.slug.current}`}>
-            <div className="aspect-[8/8] relative xl:aspect-[11/9]">
-              <Image
-                src={posts[3] ? getImg(posts[3], projekt4) : projekt4}
-                alt={posts[3]?.alt?.[lang] || "post image"}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 23vw, 80vw"
-              />
-            </div>
-          </AnimatedLink>
+          <AnimatedPostHover>
+            <AnimatedLink href={`/${lang}/blog/${posts[3]?.slug.current}`}>
+              <div className="aspect-[8/8] relative xl:aspect-[11/9] overflow-hidden">
+                <Image
+                  src={posts[3] ? getImg(posts[3], projekt4) : projekt4}
+                  alt={posts[3]?.alt?.[lang] || "post image"}
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+                  sizes="(min-width: 1024px) 23vw, 80vw"
+                />
+              </div>
+            </AnimatedLink>
+          </AnimatedPostHover>
           <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
               {posts[3]?.title?.[lang] ||
@@ -213,17 +222,19 @@ export default function BlogList({ posts, postsSection, lang }) {
           className="w-[70%] lg:w-[16%] inline-block"
           style={{ display: match(posts[4]) ? "inline-block" : "none" }}
         >
-          <AnimatedLink href={`/${lang}/blog/${posts[4]?.slug.current}`}>
-            <div className="aspect-[8/10] relative xl:aspect-[8/10]">
-              <Image
-                src={posts[4] ? getImg(posts[4], projekt4) : projekt4}
-                alt={posts[4]?.alt?.[lang] || "post image"}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 23vw, 80vw"
-              />
-            </div>
-          </AnimatedLink>
+          <AnimatedPostHover>
+            <AnimatedLink href={`/${lang}/blog/${posts[4]?.slug.current}`}>
+              <div className="aspect-[8/10] relative xl:aspect-[8/10] overflow-hidden">
+                <Image
+                  src={posts[4] ? getImg(posts[4], projekt4) : projekt4}
+                  alt={posts[4]?.alt?.[lang] || "post image"}
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+                  sizes="(min-width: 1024px) 23vw, 80vw"
+                />
+              </div>
+            </AnimatedLink>
+          </AnimatedPostHover>
           <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
               {posts[4]?.title?.[lang] ||
@@ -240,17 +251,19 @@ export default function BlogList({ posts, postsSection, lang }) {
           className="w-[80%] ml-auto lg:ml-0 lg:w-[23%] inline-block"
           style={{ display: match(posts[5]) ? "inline-block" : "none" }}
         >
-          <AnimatedLink href={`/${lang}/blog/${posts[5]?.slug.current}`}>
-            <div className="aspect-[8/5] relative ">
-              <Image
-                src={posts[5] ? getImg(posts[5], projekt4) : projekt4}
-                alt={posts[5]?.alt?.[lang] || "post image"}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 23vw, 80vw"
-              />
-            </div>
-          </AnimatedLink>
+          <AnimatedPostHover>
+            <AnimatedLink href={`/${lang}/blog/${posts[5]?.slug.current}`}>
+              <div className="aspect-[8/5] relative overflow-hidden">
+                <Image
+                  src={posts[5] ? getImg(posts[5], projekt4) : projekt4}
+                  alt={posts[5]?.alt?.[lang] || "post image"}
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+                  sizes="(min-width: 1024px) 23vw, 80vw"
+                />
+              </div>
+            </AnimatedLink>
+          </AnimatedPostHover>
           <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
               {posts[5]?.title?.[lang] ||
@@ -267,17 +280,19 @@ export default function BlogList({ posts, postsSection, lang }) {
           className="w-[65%] lg:w-[20%] inline-block xl:w-[18%]"
           style={{ display: match(posts[6]) ? "inline-block" : "none" }}
         >
-          <AnimatedLink href={`/${lang}/blog/${posts[6]?.slug.current}`}>
-            <div className="aspect-[6/8] xl:aspect-[6/7] relative ">
-              <Image
-                src={posts[6] ? getImg(posts[6], projekt4) : projekt4}
-                alt={posts[6]?.alt?.[lang] || "post image"}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 23vw, 80vw"
-              />
-            </div>
-          </AnimatedLink>
+          <AnimatedPostHover>
+            <AnimatedLink href={`/${lang}/blog/${posts[6]?.slug.current}`}>
+              <div className="aspect-[6/8] xl:aspect-[6/7] relative overflow-hidden">
+                <Image
+                  src={posts[6] ? getImg(posts[6], projekt4) : projekt4}
+                  alt={posts[6]?.alt?.[lang] || "post image"}
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+                  sizes="(min-width: 1024px) 23vw, 80vw"
+                />
+              </div>
+            </AnimatedLink>
+          </AnimatedPostHover>
           <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
             <span className="font-medium-font-weight max-w-[85%]">
               {posts[6]?.title?.[lang] ||

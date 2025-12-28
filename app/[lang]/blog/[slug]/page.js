@@ -12,6 +12,7 @@ import projekt4 from "../../../../public/projekt4-large.webp";
 import Button from "@/app/components/Button";
 import AnimatedLink from "@/app/components/AnimatedLink";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
+import AnimatedPostHover from "@/app/components/AnimatedPostHover";
 
 export const revalidate = 0;
 
@@ -146,59 +147,63 @@ export default async function Post({ params }) {
           {/* 1 kolumna */}
 
           <div className="w-full mb-[50px] max-w-[80%] lg:max-w-[100%] lg:mb-[0] lg:w-[39%] inline-block">
-            <AnimatedLink
-              href={`/${lang}/blog/${relatedPosts[0]?.slug.current}`}
-            >
-              <div className="aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7]">
-                <Image
-                  src={
-                    relatedPosts[0]
-                      ? getImg(relatedPosts[0], projekt3)
-                      : projekt3
-                  }
-                  alt={
-                    relatedPosts[0]?.alt?.[lang] ||
-                    relatedPosts[0]?.title?.[lang] ||
-                    "pokoj"
-                  }
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
-                <span className="font-medium-font-weight max-w-[65%]">
-                  {relatedPosts[0]?.title?.[lang] ||
-                    "Designing a Luxury Mediterranean Villa"}
-                </span>
-                <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
-                  {relatedPosts[0]?.date?.[lang] || "March 2025"}
-                </span>
-              </div>
-            </AnimatedLink>
+            <AnimatedPostHover>
+              <AnimatedLink
+                href={`/${lang}/blog/${relatedPosts[0]?.slug.current}`}
+              >
+                <div className="aspect-[8/7] lg:aspect-[8/8] lg:max-w-[100%] relative xl:aspect-[8/7] overflow-hidden">
+                  <Image
+                    src={
+                      relatedPosts[0]
+                        ? getImg(relatedPosts[0], projekt3)
+                        : projekt3
+                    }
+                    alt={
+                      relatedPosts[0]?.alt?.[lang] ||
+                      relatedPosts[0]?.title?.[lang] ||
+                      "pokoj"
+                    }
+                    fill
+                    className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+                  />
+                </div>
+                <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+                  <span className="font-medium-font-weight max-w-[65%]">
+                    {relatedPosts[0]?.title?.[lang] ||
+                      "Designing a Luxury Mediterranean Villa"}
+                  </span>
+                  <span className="text-[#757575] font-medium-font-weight min-w-[70px] flex justify-start lg:justify-start lg:font-normal-font-weight lg:text-[14px] 2xl:text-[16px]">
+                    {relatedPosts[0]?.date?.[lang] || "March 2025"}
+                  </span>
+                </div>
+              </AnimatedLink>
+            </AnimatedPostHover>
           </div>
 
           {/* 2 kolumna */}
           <div className="w-full mb-[50px] max-w-[86%] ml-auto lg:ml-0 flex lg:max-w-[100%] lg:mb-[0] lg:w-[30%] inline-block">
-            <AnimatedLink
-              href={`/${lang}/blog/${relatedPosts[1]?.slug.current}`}
-            >
-              <div className="flex lg:block aspect-[5/3]  lg:aspect-[8/5] relative ">
-                <Image
-                  src={
-                    relatedPosts[1]
-                      ? getImg(relatedPosts[1], projekt2)
-                      : projekt2
-                  }
-                  alt={
-                    relatedPosts[1]?.alt?.[lang] ||
-                    relatedPosts[1]?.title?.[lang] ||
-                    "pokoj"
-                  }
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </AnimatedLink>
+            <AnimatedPostHover>
+              <AnimatedLink
+                href={`/${lang}/blog/${relatedPosts[1]?.slug.current}`}
+              >
+                <div className="flex lg:block aspect-[5/3]  lg:aspect-[8/5] relative overflow-hidden">
+                  <Image
+                    src={
+                      relatedPosts[1]
+                        ? getImg(relatedPosts[1], projekt2)
+                        : projekt2
+                    }
+                    alt={
+                      relatedPosts[1]?.alt?.[lang] ||
+                      relatedPosts[1]?.title?.[lang] ||
+                      "pokoj"
+                    }
+                    fill
+                    className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+                  />
+                </div>
+              </AnimatedLink>
+            </AnimatedPostHover>
             <div className="flex flex-col gap-[4px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
               <span className="font-medium-font-weight max-w-[70%]">
                 {relatedPosts[1]?.title?.[lang] ||
@@ -212,26 +217,28 @@ export default async function Post({ params }) {
 
           {/* 3 kolumna */}
           <div className="max-w-[78%] lg:max-w-[100%] lg:w-[20%] inline-block xl:w-[20%] ">
-            <AnimatedLink
-              href={`/${lang}/blog/${relatedPosts[2]?.slug.current}`}
-            >
-              <div className="aspect-[7/8]  lg:aspect-[6/8] xl:aspect-[6/8] relative ">
-                <Image
-                  src={
-                    relatedPosts[2]
-                      ? getImg(relatedPosts[2], projekt4)
-                      : projekt4
-                  }
-                  alt={
-                    relatedPosts[2]?.alt?.[lang] ||
-                    relatedPosts[2]?.title?.[lang] ||
-                    "pokoj"
-                  }
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </AnimatedLink>
+            <AnimatedPostHover>
+              <AnimatedLink
+                href={`/${lang}/blog/${relatedPosts[2]?.slug.current}`}
+              >
+                <div className="aspect-[7/8]  lg:aspect-[6/8] xl:aspect-[6/8] relative overflow-hidden">
+                  <Image
+                    src={
+                      relatedPosts[2]
+                        ? getImg(relatedPosts[2], projekt4)
+                        : projekt4
+                    }
+                    alt={
+                      relatedPosts[2]?.alt?.[lang] ||
+                      relatedPosts[2]?.title?.[lang] ||
+                      "pokoj"
+                    }
+                    fill
+                    className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+                  />
+                </div>
+              </AnimatedLink>
+            </AnimatedPostHover>
             <div className="flex flex-col gap-[5px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
               <span className="font-medium-font-weight max-w-[100%]">
                 {relatedPosts[2]?.title?.[lang] ||
