@@ -9,6 +9,14 @@ export default function Intro() {
   const [hideOverlay, setHideOverlay] = useState(false);
 
   useEffect(() => {
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+
     const ENTER_DURATION = 400;
     const EXIT_DURATION = 400;
     const STAGGER = 120;
