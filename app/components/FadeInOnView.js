@@ -32,6 +32,7 @@ export default function FadeInOnView({
   return (
     <div
       ref={ref}
+      className="mb-[10px] lg:mb-[16px]"
       style={{
         opacity: show ? 1 : 0,
         transform: show ? "translateY(0)" : "translateY(12px)",
