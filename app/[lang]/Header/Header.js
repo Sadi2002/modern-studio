@@ -6,7 +6,7 @@ import {
   navigationQuery,
 } from "../../../lib/sanity/queries";
 
-export const revalidate = 0;
+export const revalidate = 3600;
 
 export default async function Header({ lang }) {
   const navigationData = await sanityClient.fetch(navigationQuery);
@@ -27,8 +27,6 @@ export default async function Header({ lang }) {
     legalLinks: navigationMobileData.legalLinks?.links || [],
     socialMedia: navigationMobileData.socialMedia?.socials || [],
   };
-
-  console.log(navigationMobile);
 
   return (
     <header className="fixed z-1000 w-full top-0">

@@ -10,7 +10,7 @@ const DynamicProcess = dynamic(() => import("./homePage/sections/Process"));
 const DynamicBlog = dynamic(() => import("./homePage/sections/Blog"));
 const DynamicFaq = dynamic(() => import("./homePage/sections/Faq"));
 
-export const revalidate = 0;
+export const revalidate = 3600;
 
 export const metadata = {
   title: "Sadowski Studio - Nowoczesna Architektura i Design",
