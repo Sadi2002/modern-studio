@@ -9,19 +9,15 @@ export default function LenisAfterTransitionFix() {
       const lenis = window.__LENIS__;
       if (!lenis) return;
 
-      // 🔓 zawsze odblokuj input
-      document.documentElement.style.pointerEvents = "";
+      lenis.resize();
+      lenis.scrollTo(0, { immediate: true });
 
-      // 🔥 NAJWAŻNIEJSZE
-      lenis.start();
-
-      // 🔥 poczekaj aż layout się ustabilizuje
       requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          lenis.resize();
-          ScrollTrigger.refresh(true);
-        });
+        lenis.start();
+        window.__SCROLL_LOCKED__ = false;
       });
+
+      ScrollTrigger.refresh();
     };
 
     window.addEventListener("app-ready", onReady);

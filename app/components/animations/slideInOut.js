@@ -3,6 +3,9 @@ export function slideInOut() {
   if (window.__FIRST_LOAD__) return;
   if (window.__VT_KIND__ === "project") return;
 
+  window.__SCROLL_LOCKED__ = true;
+  window.__LENIS__?.stop();
+
   const isIntro = window.__VT_CONTEXT__ === "intro";
 
   document.documentElement.animate(

@@ -7,6 +7,23 @@ export default function SmoothScrollProvider({ children }) {
   const lenisRef = useRef(null);
 
   useEffect(() => {
+    const preventScroll = (e) => {
+      if (window.__SCROLL_LOCKED__) {
+        e.preventDefault();
+        return false;
+      }
+    };
+
+    window.addEventListener("wheel", preventScroll, { passive: false });
+    window.addEventListener("touchmove", preventScroll, { passive: false });
+
+    return () => {
+      window.removeEventListener("wheel", preventScroll);
+      window.removeEventListener("touchmove", preventScroll);
+    };
+  }, []);
+
+  useEffect(() => {
     const onVisibilityChange = () => {
       if (document.visibilityState === "visible") {
         if (window.__LENIS__) {
