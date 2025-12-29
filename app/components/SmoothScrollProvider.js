@@ -14,7 +14,7 @@ export default function SmoothScrollProvider({ children }) {
         }
 
         if (window.ScrollTrigger) {
-          ScrollTrigger.refresh(true);
+          ScrollTrigger.refresh();
         }
       }
     };
@@ -24,6 +24,17 @@ export default function SmoothScrollProvider({ children }) {
     return () => {
       document.removeEventListener("visibilitychange", onVisibilityChange);
     };
+  }, []);
+
+  useEffect(() => {
+    const onVisibility = () => {
+      if (document.visibilityState === "visible") {
+        document.documentElement.style.pointerEvents = "";
+      }
+    };
+
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => document.removeEventListener("visibilitychange", onVisibility);
   }, []);
 
   useEffect(() => {

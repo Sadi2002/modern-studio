@@ -4,7 +4,7 @@ import Button from "@/app/components/Button";
 
 import { urlFor } from "../../../../lib/sanity/client";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
-import RevealByLines from "@/app/components/RevealByLines";
+
 import HeroBackgroundImage from "@/app/components/HeroBackgroundImage";
 
 export default async function Hero({ data, lang }) {

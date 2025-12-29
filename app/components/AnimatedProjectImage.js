@@ -103,7 +103,7 @@ const AnimatedProjectImage = forwardRef(
       if (!img) return;
 
       document.documentElement.style.pointerEvents = "none";
-      if (window.__LENIS__) window.__LENIS__.stop();
+      // if (window.__LENIS__) window.__LENIS__.stop();
 
       const tl = gsap.timeline();
 
