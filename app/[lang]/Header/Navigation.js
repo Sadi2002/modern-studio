@@ -116,6 +116,13 @@ export default function Navigation({ data, dataMobile, lang }) {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    // ⬅️ ZA KAŻDYM RAZEM, GDY ZMIENIA SIĘ STRONA
+    setIsOpen(false);
+    setShowMobileHeader(false);
+    setShowLines(false);
+  }, [pathname]);
+
   if (!data) return null;
 
   // TU ZOSTAWIAM WSZYSTKIE TWOJE STYLE KOLORÓW BEZ ZMIAN
