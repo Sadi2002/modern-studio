@@ -78,7 +78,7 @@ export default async function Footer({ lang }) {
         />
 
         <span className="text-[clamp(12px,3.5vw,16px)] leading-[20px]  text-white">
-          <FadeInMobile>{footer?.copyrightText?.[lang]}</FadeInMobile>
+          {footer?.copyrightText?.[lang]}
         </span>
       </div>
     </footer>

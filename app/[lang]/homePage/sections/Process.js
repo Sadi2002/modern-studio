@@ -46,23 +46,19 @@ export default function Process({ data, lang }) {
           </FadeInMobile>
 
           <div className="lg:hidden flex justify-end">
-            <FadeInMobile>
-              <AboutButton href={target} label={label} />
-            </FadeInMobile>
+            <AboutButton href={target} label={label} />
           </div>
 
           <div className="hidden lg:flex lg:justify-end">
-            <FadeInMobile>
-              <Button
-                arrow={ArrowWhite}
-                linkTo={`/${lang}/${data?.button?.buttonLink}`}
-                bgColor="main-black"
-                textColor="main-white"
-                additionalStyles="hidden md:self-end lg:flex"
-              >
-                {data?.button?.buttonLabel?.[lang]}
-              </Button>
-            </FadeInMobile>
+            <Button
+              arrow={ArrowWhite}
+              linkTo={`/${lang}/${data?.button?.buttonLink}`}
+              bgColor="main-black"
+              textColor="main-white"
+              additionalStyles="hidden md:self-end lg:flex"
+            >
+              {data?.button?.buttonLabel?.[lang]}
+            </Button>
           </div>
 
           {/* Lista kroków pod nagłówkiem */}

@@ -157,19 +157,16 @@ export default async function Projects({ data, lang }) {
                 {data?.subtitle?.[lang]}
               </p>
             </FadeInMobile>
-            <div>
-              <FadeInMobile>
-                <Button
-                  arrow={ArrowWhite}
-                  linkTo={`/${lang}/${data?.button?.buttonLink}`}
-                  bgColor="main-black"
-                  textColor="main-white"
-                  additionalStyles="md:self-end"
-                >
-                  {data?.button?.buttonLabel?.[lang]}
-                </Button>
-              </FadeInMobile>
-            </div>
+
+            <Button
+              arrow={ArrowWhite}
+              linkTo={`/${lang}/${data?.button?.buttonLink}`}
+              bgColor="main-black"
+              textColor="main-white"
+              additionalStyles="md:self-end"
+            >
+              {data?.button?.buttonLabel?.[lang]}
+            </Button>
           </div>
         </div>
       </div>

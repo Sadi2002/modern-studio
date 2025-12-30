@@ -31,11 +31,8 @@ export default function About({ data, lang }) {
               </p>
             </FadeInMobile>
           </div>
-          <div>
-            <FadeInMobile>
-              <AboutButton href={target} label={label} />
-            </FadeInMobile>
-          </div>
+
+          <AboutButton href={target} label={label} />
         </div>
       </div>
 

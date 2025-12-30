@@ -5,6 +5,7 @@ import ArrowWhite from "../../public/arrow-right-white.png";
 import { useState, useRef } from "react";
 import Button from "../components/Button";
 import RevealAfterTransition from "./RevealAfterTransition";
+import FadeInMobile from "./FadeInMobile";
 
 export default function ContactForm({
   formTitle,
@@ -142,7 +143,11 @@ export default function ContactForm({
         </label>
       </div>
 
-      {status && <p className="text-sm mt-2">{status}</p>}
+      {status && (
+        <FadeInMobile>
+          <p className="text-sm mt-2">{status}</p>
+        </FadeInMobile>
+      )}
 
       <div className="flex justify-end">
         <Button

@@ -36,19 +36,15 @@ export default async function Hero({ data, lang }) {
             </RevealAfterTransition>
           </p>
 
-          <div className="flex justify-end md:justify-start">
-            <FadeInMobile>
-              <Button
-                arrow={arrow}
-                linkTo={`#${data?.button?.buttonLink}`}
-                bgColor="main-white"
-                textColor="main-black"
-                additionalStyles="self-end md:self-start"
-              >
-                {data?.button?.buttonLabel?.[lang] || "Click"}
-              </Button>
-            </FadeInMobile>
-          </div>
+          <Button
+            arrow={arrow}
+            linkTo={`#${data?.button?.buttonLink}`}
+            bgColor="main-white"
+            textColor="main-black"
+            additionalStyles="self-end md:self-start"
+          >
+            {data?.button?.buttonLabel?.[lang] || "Click"}
+          </Button>
         </div>
       </div>
 

@@ -1,4 +1,5 @@
 import AwardRow from "@/app/components/AwardRow";
+import FadeInMobile from "@/app/components/FadeInMobile";
 
 export default function FifthSection({ data, lang }) {
   if (!data) return null;
@@ -25,9 +26,11 @@ export default function FifthSection({ data, lang }) {
 
   return (
     <section className="mx-margin-mobile md:mx-tablet lg:mx-desktop lg:mx-small-laptop 2xl:mx-desktop mb-[80px] xl:mb-[110px] ">
-      <span className="block mb-[10px] md:mb-[20px] text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,5.5vw,1.5rem)] font-light-font-weight">
-        {title}
-      </span>
+      <FadeInMobile>
+        <span className="block mb-[10px] md:mb-[20px] text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,5.5vw,1.5rem)] font-light-font-weight">
+          {title}
+        </span>
+      </FadeInMobile>
       {awards.map((award, i) => (
         <AwardRow key={i} {...award} />
       ))}

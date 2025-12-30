@@ -2,6 +2,7 @@ import Button from "@/app/components/Button";
 import ArrowWhite from "../../../../public/arrow-right-white.png";
 import TeamMember from "@/app/components/TeamMember";
 import { urlFor } from "../../../../lib/sanity/client";
+import FadeInMobile from "@/app/components/FadeInMobile";
 
 export default function ThirdSection({ data, lang }) {
   console.log(data);
@@ -30,12 +31,16 @@ export default function ThirdSection({ data, lang }) {
   return (
     <section className="mx-margin-mobile flex flex-col md:mx-tablet gap-[40px] lg:gap-[80px]  lg:justify-between lg:mx-small-laptop mb-[80px] xl:mb-[150px]">
       <div>
-        <h3 className="text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium uppercase relative  mb-5 xl:text-6xl xl:leading-[60px] xl:mb-[20px] 2xl:text-[80px] 2xl:leading-[80px] lg:font-normal 2xl:max-w-[1200px]">
-          {data?.title?.[lang]}
-        </h3>
-        <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[40px] xl:mb-[50px] min-[380px]:max-w-[390px] md:max-w-[400px] lg:max-w-[500px]">
-          {data?.description?.[lang]}
-        </p>
+        <FadeInMobile>
+          <h3 className="text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium uppercase relative  mb-5 xl:text-6xl xl:leading-[60px] xl:mb-[20px] 2xl:text-[80px] 2xl:leading-[80px] lg:font-normal 2xl:max-w-[1200px]">
+            {data?.title?.[lang]}
+          </h3>
+        </FadeInMobile>
+        <FadeInMobile>
+          <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] w-full font-light-font-weight mb-[40px] xl:mb-[50px] min-[380px]:max-w-[390px] md:max-w-[400px] lg:max-w-[500px]">
+            {data?.description?.[lang]}
+          </p>
+        </FadeInMobile>
         <div className="flex justify-end lg:justify-start">
           <Button
             arrow={ArrowWhite}

@@ -16,6 +16,7 @@ import { portfolioPageQuery } from "@/lib/sanity/queries";
 import HeroImageTransition from "@/app/components/HeroImageTransition";
 import HeroImage from "@/app/components/HeroImage";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
+import FadeInMobile from "@/app/components/FadeInMobile";
 
 export async function generateStaticParams() {
   const projects = await dataProjects();
@@ -182,9 +183,11 @@ export default async function Project({ params }) {
       </div>
 
       <div className="mt-[80px] lg:mt-[0]">
-        <h3 className="text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium uppercase relative mb-5 lg:text-6xl  lg:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal mx-margin-mobile md:mx-tablet lg:hidden">
-          {beforePortfolioText?.[lang]}
-        </h3>
+        <FadeInMobile>
+          <h3 className="text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium uppercase relative mb-5 lg:text-6xl  lg:mb-10 2xl:mb-[50px] 2xl:text-[80px] 2xl:font-normal mx-margin-mobile md:mx-tablet lg:hidden">
+            {beforePortfolioText?.[lang]}
+          </h3>
+        </FadeInMobile>
         <PortfolioClient
           projects={relatedProjects}
           isBtn={false}

@@ -56,17 +56,15 @@ export default function Blog({ data, lang }) {
           </FadeInMobile>
         </div>
         <div className="flex justify-end">
-          <FadeInMobile>
-            <Button
-              arrow={ArrowWhite}
-              linkTo={`/${lang}/${buttonLink}`}
-              bgColor="main-black"
-              textColor="main-white"
-              additionalStyles="mb-[40px] ml-auto mr-0 md:max-h-[50px] self-end"
-            >
-              {buttonLabel}
-            </Button>
-          </FadeInMobile>
+          <Button
+            arrow={ArrowWhite}
+            linkTo={`/${lang}/${buttonLink}`}
+            bgColor="main-black"
+            textColor="main-white"
+            additionalStyles="mb-[40px] ml-auto mr-0 md:max-h-[50px] self-end"
+          >
+            {buttonLabel}
+          </Button>
         </div>
       </div>
 

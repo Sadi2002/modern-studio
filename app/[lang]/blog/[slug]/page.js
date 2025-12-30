@@ -12,6 +12,7 @@ import projekt4 from "../../../../public/projekt4-large.webp";
 import Button from "@/app/components/Button";
 import AnimatedLink from "@/app/components/AnimatedLink";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
+import FadeInMobile from "@/app/components/FadeInMobile";
 
 export const revalidate = 0;
 
@@ -110,12 +111,18 @@ export default async function Post({ params }) {
           {blog.longDescription.contentBlocks.map((content, index) => {
             return (
               <div key={index}>
-                <h3 className="mb-[20px] text-[clamp(23px,5.5vw,36px)] leading-[clamp(32px,7vw,42px)] md:leading-[clamp(36px,10vw,42px)] max-w-[85%] md:max-w-[75%] font-medium-font-weight lg:font-normal ">
-                  {content?.title?.[lang]}
-                </h3>
+                <FadeInMobile>
+                  <h3 className="mb-[20px] text-[clamp(23px,5.5vw,36px)] leading-[clamp(32px,7vw,42px)] md:leading-[clamp(36px,10vw,42px)] max-w-[85%] md:max-w-[75%] font-medium-font-weight lg:font-normal ">
+                    {content?.title?.[lang]}
+                  </h3>
+                </FadeInMobile>
                 <div className="flex flex-col gap-[16px] font-light-font-weight text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)]">
                   {content.paragraphs.map((paragraph, pIndex) => {
-                    return <p key={pIndex}>{paragraph?.[lang]}</p>;
+                    return (
+                      <FadeInMobile key={pIndex}>
+                        <p key={pIndex}>{paragraph?.[lang]}</p>{" "}
+                      </FadeInMobile>
+                    );
                   })}
                 </div>
               </div>
@@ -124,23 +131,27 @@ export default async function Post({ params }) {
         </div>
       </div>
       <div>
-        <h3 className="text-[clamp(1.5rem,8vw,3rem)] uppercase leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[20px] xl:mb-[20px] max-w-[500px] lg:text-[45px] lg:leading-[45 px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] xl:max-w-[600px] 2xl:max-w-[1200px] 2xl:font-normal 2xl:text-[clamp(60px,4.3vw,5rem)] 2xl:leading-[80px] 2xl:w-[850px] uppercase">
-          {postsSection?.seeOtherBlogs?.seeOtherBlogsLabel?.[lang]}
-        </h3>
+        <FadeInMobile>
+          <h3 className="text-[clamp(1.5rem,8vw,3rem)] uppercase leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[20px] xl:mb-[20px] max-w-[500px] lg:text-[45px] lg:leading-[45 px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] xl:max-w-[600px] 2xl:max-w-[1200px] 2xl:font-normal 2xl:text-[clamp(60px,4.3vw,5rem)] 2xl:leading-[80px] 2xl:w-[850px] uppercase">
+            {postsSection?.seeOtherBlogs?.seeOtherBlogsLabel?.[lang]}
+          </h3>
+        </FadeInMobile>
         <div className="hidden lg:flex justify-end">
-          <Button
-            arrow={ArrowWhite}
-            linkTo={`/${lang}/${postsSection?.seeOtherBlogs?.button?.seeOtherBlogsButtonLink}`}
-            bgColor="main-black"
-            textColor="main-white"
-            additionalStyles="ml-auto mr-0 mb-[40px] md:max-h-[50px] self-end"
-          >
-            {
-              postsSection?.seeOtherBlogs?.button?.seeOtherBlogsButtonLabel?.[
-                lang
-              ]
-            }
-          </Button>
+          <FadeInMobile>
+            <Button
+              arrow={ArrowWhite}
+              linkTo={`/${lang}/${postsSection?.seeOtherBlogs?.button?.seeOtherBlogsButtonLink}`}
+              bgColor="main-black"
+              textColor="main-white"
+              additionalStyles="ml-auto mr-0 mb-[40px] md:max-h-[50px] self-end"
+            >
+              {
+                postsSection?.seeOtherBlogs?.button?.seeOtherBlogsButtonLabel?.[
+                  lang
+                ]
+              }
+            </Button>
+          </FadeInMobile>
         </div>
         <div className="flex flex-col justify-between lg:flex-row mb-[40px] lg:mb-0">
           {/* 1 kolumna */}
