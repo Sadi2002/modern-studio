@@ -126,7 +126,7 @@ export default function AnimatedPostHover({ children }) {
       {/* CUSTOM CURSOR */}
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 z-[9999] pointer-events-none
+        className="fixed top-0 left-0 z-[9998] pointer-events-none
         flex flex-col items-center gap-3"
       >
         {/* KOŁO */}
