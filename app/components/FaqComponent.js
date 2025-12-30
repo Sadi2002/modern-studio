@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import RevealAfterTransition from "./RevealAfterTransition";
+import FadeInMobile from "./FadeInMobile";
 
 function FaqComponent({ data, lang }) {
   const items = (data?.items || [])
@@ -37,7 +38,7 @@ function FaqComponent({ data, lang }) {
           >
             <div className="flex justify-between items-center">
               <span className="block text-[clamp(16px,3.5vw,20px)] font-light leading-[clamp(20px,6vw,2rem)] pr-[15px]">
-                {step.title}
+                <FadeInMobile>{step.title}</FadeInMobile>
               </span>
               <Image
                 width={20}

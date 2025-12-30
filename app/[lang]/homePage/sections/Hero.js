@@ -6,6 +6,7 @@ import { urlFor } from "../../../../lib/sanity/client";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 
 import HeroBackgroundImage from "@/app/components/HeroBackgroundImage";
+import FadeInMobile from "@/app/components/FadeInMobile";
 
 export default async function Hero({ data, lang }) {
   return (
@@ -35,15 +36,19 @@ export default async function Hero({ data, lang }) {
             </RevealAfterTransition>
           </p>
 
-          <Button
-            arrow={arrow}
-            linkTo={`#${data?.button?.buttonLink}`}
-            bgColor="main-white"
-            textColor="main-black"
-            additionalStyles="self-end md:self-start"
-          >
-            {data?.button?.buttonLabel?.[lang] || "Click"}
-          </Button>
+          <div className="flex justify-end md:justify-start">
+            <FadeInMobile>
+              <Button
+                arrow={arrow}
+                linkTo={`#${data?.button?.buttonLink}`}
+                bgColor="main-white"
+                textColor="main-black"
+                additionalStyles="self-end md:self-start"
+              >
+                {data?.button?.buttonLabel?.[lang] || "Click"}
+              </Button>
+            </FadeInMobile>
+          </div>
         </div>
       </div>
 

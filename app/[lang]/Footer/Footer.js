@@ -7,6 +7,7 @@ import { footerQuery } from "../../../lib/sanity/queries";
 import { urlFor } from "../../../lib/sanity/client";
 
 import FooterNavLink from "@/app/components/FooterNavLink";
+import FadeInMobile from "@/app/components/FadeInMobile";
 
 export const revalidate = 0;
 
@@ -77,7 +78,7 @@ export default async function Footer({ lang }) {
         />
 
         <span className="text-[clamp(12px,3.5vw,16px)] leading-[20px]  text-white">
-          {footer?.copyrightText?.[lang]}
+          <FadeInMobile>{footer?.copyrightText?.[lang]}</FadeInMobile>
         </span>
       </div>
     </footer>
