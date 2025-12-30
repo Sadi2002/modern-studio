@@ -21,11 +21,9 @@ export default function FourthSection({ data, lang }) {
           </h3>
         </FadeInMobile>
 
-        <FadeInMobile>
-          <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] self-end md:max-w-[50%] lg:max-w-[50%] xl:max-w-[35%]">
-            {data?.description?.[lang]}
-          </p>
-        </FadeInMobile>
+        <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] self-end md:max-w-[50%] lg:max-w-[50%] xl:max-w-[35%]">
+          <FadeInMobile>{data?.description?.[lang]}</FadeInMobile>
+        </p>
       </div>
     </section>
   );
