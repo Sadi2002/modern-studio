@@ -7,15 +7,17 @@ export default function RevealAfterTransition({
   delay = 0,
   duration = 700,
   stagger = 80,
-  threshold = 0.3, // ile elementu musi być widoczne
-  once = true, // animuj tylko raz
+  threshold = 0.3,
+  once = true,
+  fallbackMs = 1800, // 👈 daj dłużej niż typowy start VT
 }) {
   const isHistoryNav =
     typeof window !== "undefined" && window.__IS_HISTORY_NAV__;
+
   const ref = useRef(null);
   const [canStart, setCanStart] = useState(false);
   const [inView, setInView] = useState(false);
-  const [show, setShow] = useState(isHistoryNav ? true : false);
+  const [show, setShow] = useState(isHistoryNav);
 
   // 1️⃣ globalny start (intro / VT)
   useEffect(() => {
@@ -24,6 +26,18 @@ export default function RevealAfterTransition({
     window.addEventListener("app-content-start", onGlobalStart);
     return () => window.removeEventListener("app-content-start", onGlobalStart);
   }, []);
+
+  // 🛟 FAILSAFE: pokaż treść TYLKO jeśli start nigdy nie nadejdzie
+  useEffect(() => {
+    if (isHistoryNav || show) return;
+
+    const t = setTimeout(() => {
+      // 🔥 klucz: nie zabijaj animacji, jeśli start już przyszedł
+      if (!canStart) setShow(true);
+    }, fallbackMs);
+
+    return () => clearTimeout(t);
+  }, [isHistoryNav, show, canStart, fallbackMs]);
 
   // 2️⃣ IntersectionObserver
   useEffect(() => {

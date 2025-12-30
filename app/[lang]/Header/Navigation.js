@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { useTransitionRouter } from "next-view-transitions";
 import { slideInOut } from "../../components/animations/slideInOut";
+import MobileMenuReveal from "@/app/components/MobileMenuReveal";
 
 export default function Navigation({ data, dataMobile, lang }) {
   const isSameRoute = (href) => {
@@ -19,6 +20,10 @@ export default function Navigation({ data, dataMobile, lang }) {
   const [isOpen, setIsOpen] = useState(false);
   const [hideNav, setHideNav] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+  const [showMobileHeader, setShowMobileHeader] = useState(false);
+  const [showLines, setShowLines] = useState(false);
+
   const lastScrollY = useRef(0);
 
   const SUPPORTED_LANGS = ["en", "pl", "de"];
@@ -26,7 +31,27 @@ export default function Navigation({ data, dataMobile, lang }) {
     SUPPORTED_LANGS.find((l) => pathname.startsWith(`/${l}`)) || "en";
   const availableLangs = SUPPORTED_LANGS.filter((l) => l !== currentLang);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => {
+    if (isOpen) {
+      // CLOSE
+      setShowLines(false);
+      setShowMobileHeader(false);
+      setIsOpen(false);
+    } else {
+      // OPEN
+      setIsOpen(true);
+
+      // 🔥 header po 100ms
+      setTimeout(() => {
+        setShowMobileHeader(true);
+      }, 100);
+
+      // 🔥 linie / linki później
+      setTimeout(() => {
+        setShowLines(true);
+      }, 600);
+    }
+  };
 
   const getHomeLink = () => `/${currentLang}`;
 
@@ -154,125 +179,133 @@ export default function Navigation({ data, dataMobile, lang }) {
       </div>
 
       {/* MOBILE MENU */}
-      {isOpen && (
-        <div className="h-[100dvh] w-full fixed top-0 left-0 z-50 lg:hidden bg-main-black text-main-white">
-          <div className="flex justify-between items-center pt-mobile-navigation-top px-[20px] md:px-[40px] md:text-logo-font-size ">
-            <Link
-              href={getHomeLink()}
-              onClick={(e) => {
-                const target = getHomeLink(); // `/${currentLang}`
+      {/* MOBILE MENU HEADER (nie animowany) */}
 
-                if (pathname === target) {
-                  // jesteś już na home → tylko zamknij menu
-                  toggleMenu();
-                  return;
-                }
-
-                e.preventDefault();
-
-                router.push(target, {
-                  onTransitionReady: () => {
-                    slideInOut();
-                    toggleMenu(); // zamykamy menu po starcie animacji
-                  },
-                });
-              }}
-            >
+      <div
+        className={`fixed top-0 left-0 z-[60] w-full lg:hidden text-main-white ${
+          showMobileHeader ? "pointer-events-auto" : "pointer-events-none"
+        }`}
+        style={{
+          opacity: showMobileHeader ? 1 : 0,
+          transform: showMobileHeader ? "translateY(0)" : "translateY(-6px)",
+          transition: "opacity 300ms ease, transform 300ms ease",
+        }}
+      >
+        <div className="flex justify-between items-center pt-mobile-navigation-top px-[20px] md:px-[40px] md:text-logo-font-size">
+          <Link
+            href={getHomeLink()}
+            onClick={(e) => {
+              const target = getHomeLink();
+              if (pathname === target) {
+                toggleMenu();
+                return;
+              }
+              e.preventDefault();
+              toggleMenu();
+              router.push(target, { onTransitionReady: slideInOut });
+            }}
+          >
+            <MobileMenuReveal isOpen={isOpen} delay={0}>
               {dataMobile.logo}
-            </Link>
+            </MobileMenuReveal>
+          </Link>
 
-            <div className="flex flex-row-reverse gap-[30px]">
-              <span
-                className="uppercase text-[14px] text-white font-medium-font-weight cursor-pointer md:text-[16px]"
-                onClick={toggleMenu}
-              >
+          <div className="flex flex-row-reverse gap-[30px]">
+            <span
+              className="uppercase text-[14px] text-white font-medium-font-weight cursor-pointer md:text-[16px]"
+              onClick={toggleMenu}
+            >
+              <MobileMenuReveal isOpen={isOpen} delay={0}>
                 {dataMobile?.closeIcon}
-              </span>
-              <div className="flex lg:hidden items-center justify-end gap-2 uppercase text-[14px] md:text-[16px] text-white">
-                {availableLangs.map((l, idx) => (
-                  <div key={l} className="flex items-center gap-2">
-                    <Link
-                      href={getLangSwitcherLink(l)}
-                      onClick={(e) => {
-                        const target = getLangSwitcherLink(l);
+              </MobileMenuReveal>
+            </span>
 
-                        if (pathname === target) {
-                          // ten sam język → tylko zamknij menu
+            <div className="flex lg:hidden items-center justify-end gap-2 uppercase text-[14px] md:text-[16px] text-white">
+              {availableLangs.map((l, idx) => (
+                <div key={l} className="flex items-center gap-2">
+                  <Link
+                    href={getLangSwitcherLink(l)}
+                    onClick={(e) => {
+                      const target = getLangSwitcherLink(l);
+                      if (pathname === target) {
+                        toggleMenu();
+                        return;
+                      }
+                      e.preventDefault();
+                      router.push(target, {
+                        onTransitionReady: () => {
+                          slideInOut();
                           toggleMenu();
-                          return;
-                        }
-
-                        e.preventDefault();
-
-                        router.push(target, {
-                          onTransitionReady: () => {
-                            slideInOut();
-                            toggleMenu(); // zamykamy menu po starcie animacji
-                          },
-                        });
-                      }}
-                    >
+                        },
+                      });
+                    }}
+                  >
+                    <MobileMenuReveal isOpen={isOpen} delay={0}>
                       {l}
-                    </Link>
+                    </MobileMenuReveal>
+                  </Link>
 
-                    {idx < availableLangs.length - 1 && <span>/</span>}
-                  </div>
-                ))}
-              </div>
+                  {idx < availableLangs.length - 1 && (
+                    <span>
+                      <MobileMenuReveal isOpen={isOpen} delay={0}>
+                        /
+                      </MobileMenuReveal>
+                    </span>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
+        </div>
+      </div>
 
-          <ul className="flex flex-col gap-[5px] absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(20px,6vw,40px)] font-normal-font-weight uppercase border-t border-[rgba(255,255,255,0.2)] max-w-[50%] ">
-            {dataMobile.links.map((link, index) => (
-              <li
-                key={index}
-                className="border-b border-[rgba(255,255,255,0.2)] py-[15px]"
-              >
-                <Link
-                  href={`/${lang}/${getLocalizedLink(link?.href)}`}
-                  className="pl-[20px] md:pl-[40px]"
-                  onClick={(e) => {
-                    const target = `/${lang}/${getLocalizedLink(link?.href)}`;
+      <div
+        className="fixed top-0 left-0 z-50 lg:hidden h-[100dvh] w-full bg-main-black text-main-white
+             transition-transform duration-[1200ms]
+             ease-[cubic-bezier(0.75,0.10,0.22,1)]"
+        style={{
+          transform: isOpen ? "translateY(0%)" : "translateY(-100%)",
+          pointerEvents: isOpen ? "auto" : "none",
+        }}
+      >
+        {/* <div className="flex justify-between items-center pt-mobile-navigation-top px-[20px] md:px-[40px] md:text-logo-font-size ">
+          <Link
+            href={getHomeLink()}
+            onClick={(e) => {
+              const target = getHomeLink(); // `/${currentLang}`
 
-                    if (isSameRoute(target)) return;
+              if (pathname === target) {
+                // jesteś już na home → tylko zamknij menu
+                toggleMenu();
+                return;
+              }
 
-                    e.preventDefault();
+              e.preventDefault();
 
-                    router.push(target, {
-                      onTransitionReady: () => {
-                        slideInOut();
-                        setIsOpen(false);
-                      },
-                    });
-                  }}
-                >
-                  {link?.label?.[lang]}
-                </Link>
-              </li>
-            ))}
-          </ul>
+              toggleMenu();
+              router.push(target, { onTransitionReady: slideInOut });
+            }}
+          >
+            {dataMobile.logo}
+          </Link>
 
-          <div className="absolute bottom-[20px] left-0 w-full flex justify-between items-end px-[20px] md:px-[40px]">
-            <ul className="flex flex-col text-[14px] gap-[8px] md:text-[16px]">
-              {dataMobile.socialMedia.map((social, index) => (
-                <li key={index}>
-                  <Link target="_blank" href={social?.url}>
-                    {social?.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <ul className="flex flex-col text-[12px] gap-[8px] text-right md:text-[14px]">
-              {dataMobile.legalLinks.map((legal, index) => {
-                const target = `/${lang}/${legal?.href}`;
-
-                return (
+          <div className="flex flex-row-reverse gap-[30px]">
+            <span
+              className="uppercase text-[14px] text-white font-medium-font-weight cursor-pointer md:text-[16px]"
+              onClick={toggleMenu}
+            >
+              {dataMobile?.closeIcon}
+            </span>
+            <div className="flex lg:hidden items-center justify-end gap-2 uppercase text-[14px] md:text-[16px] text-white">
+              {availableLangs.map((l, idx) => (
+                <div key={l} className="flex items-center gap-2">
                   <Link
-                    key={index}
-                    href={target}
+                    href={getLangSwitcherLink(l)}
                     onClick={(e) => {
+                      const target = getLangSwitcherLink(l);
+
                       if (pathname === target) {
-                        // ta sama strona → tylko zamknij menu
+                        // ten sam język → tylko zamknij menu
                         toggleMenu();
                         return;
                       }
@@ -282,19 +315,115 @@ export default function Navigation({ data, dataMobile, lang }) {
                       router.push(target, {
                         onTransitionReady: () => {
                           slideInOut();
-                          toggleMenu(); // zamykamy menu PO starcie animacji
+                          toggleMenu(); // zamykamy menu po starcie animacji
                         },
                       });
                     }}
                   >
-                    {legal?.label?.[lang]}
+                    {l}
                   </Link>
-                );
-              })}
-            </ul>
+
+                  {idx < availableLangs.length - 1 && <span>/</span>}
+                </div>
+              ))}
+            </div>
           </div>
+        </div> */}
+
+        <ul className="relative flex flex-col gap-[5px] absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(20px,6vw,40px)] font-normal-font-weight uppercase max-w-[50%]">
+          <span
+            className="absolute top-0 left-0 h-[1px] w-full bg-[rgba(255,255,255,0.2)] pointer-events-none"
+            style={{
+              opacity: showLines ? 1 : 0,
+              transition: "opacity 400ms ease",
+            }}
+          />
+
+          {dataMobile.links.map((link, index) => (
+            <li key={index} className="relative py-[15px] overflow-hidden">
+              {/* 🔹 LINIA POD KAŻDYM LINKIEM */}
+              <span
+                className="absolute left-0 bottom-0 h-[1px] w-full bg-[rgba(255,255,255,0.2)] pointer-events-none"
+                style={{
+                  opacity: showLines ? 1 : 0,
+                  transition: "opacity 400ms ease",
+                }}
+              />
+
+              <Link
+                href={`/${lang}/${getLocalizedLink(link?.href)}`}
+                className="pl-[20px] md:pl-[40px]"
+                onClick={(e) => {
+                  const target = `/${lang}/${getLocalizedLink(link?.href)}`;
+                  if (isSameRoute(target)) return;
+
+                  e.preventDefault();
+                  router.push(target, {
+                    onTransitionReady: () => {
+                      slideInOut();
+                      setIsOpen(false);
+                    },
+                  });
+                }}
+              >
+                <MobileMenuReveal
+                  isOpen={isOpen}
+                  delay={600}
+                  staggerIndex={index}
+                >
+                  {link?.label?.[lang]}
+                </MobileMenuReveal>
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className="absolute bottom-[20px] left-0 w-full flex justify-between items-end px-[20px] md:px-[40px]">
+          <ul className="flex flex-col text-[14px] gap-[8px] md:text-[16px]">
+            {dataMobile.socialMedia.map((social, index) => (
+              <li key={index}>
+                <Link target="_blank" href={social?.url}>
+                  <MobileMenuReveal isOpen={isOpen} delay={600}>
+                    {social?.title}
+                  </MobileMenuReveal>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <ul className="flex flex-col text-[12px] gap-[8px] text-right md:text-[14px]">
+            {dataMobile.legalLinks.map((legal, index) => {
+              const target = `/${lang}/${legal?.href}`;
+
+              return (
+                <Link
+                  key={index}
+                  href={target}
+                  onClick={(e) => {
+                    if (pathname === target) {
+                      // ta sama strona → tylko zamknij menu
+                      toggleMenu();
+                      return;
+                    }
+
+                    e.preventDefault();
+
+                    router.push(target, {
+                      onTransitionReady: () => {
+                        slideInOut();
+                        toggleMenu(); // zamykamy menu PO starcie animacji
+                      },
+                    });
+                  }}
+                >
+                  <MobileMenuReveal isOpen={isOpen} delay={600}>
+                    {legal?.label?.[lang]}
+                  </MobileMenuReveal>
+                </Link>
+              );
+            })}
+          </ul>
         </div>
-      )}
+      </div>
 
       {/* DESKTOP MENU */}
       <div className="hidden lg:flex gap-[80px]">
