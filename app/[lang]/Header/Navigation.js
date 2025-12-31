@@ -347,7 +347,7 @@ export default function Navigation({ data, dataMobile, lang }) {
           />
 
           {dataMobile.links.map((link, index) => (
-            <li key={index} className="relative py-[15px] overflow-hidden">
+            <li key={index} className="relative overflow-hidden">
               {/* 🔹 LINIA POD KAŻDYM LINKIEM */}
               <span
                 className="absolute left-0 bottom-0 h-[1px] w-full bg-[rgba(255,255,255,0.2)] pointer-events-none"
@@ -359,7 +359,7 @@ export default function Navigation({ data, dataMobile, lang }) {
 
               <Link
                 href={`/${lang}/${getLocalizedLink(link?.href)}`}
-                className="pl-[20px] md:pl-[40px]"
+                className="pl-[20px] block py-[15px] md:pl-[40px]"
                 onClick={(e) => {
                   const target = `/${lang}/${getLocalizedLink(link?.href)}`;
                   if (isSameRoute(target)) return;
