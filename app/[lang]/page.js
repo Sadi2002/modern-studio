@@ -24,6 +24,7 @@ export default async function Home({ params }) {
   const homePageData = await sanityClient.fetch(homePageQuery);
 
   const { heroSection } = homePageData;
+
   const { aboutSection } = homePageData;
   const { projectsSection } = homePageData;
   const { processSection } = homePageData;
@@ -33,11 +34,13 @@ export default async function Home({ params }) {
   return (
     <>
       <Hero data={heroSection} lang={lang} />
-      <DynamicAbout data={aboutSection} lang={lang} />
-      <DynamicProjects data={projectsSection} lang={lang} />
-      <DynamicProcess data={processSection} lang={lang} />
-      <DynamicBlog data={blogSection} lang={lang} />
-      <DynamicFaq data={faqSection} lang={lang} />
+      <div className="relative bg-white top-0 left-0 z-[99]">
+        <DynamicAbout data={aboutSection} lang={lang} />
+        <DynamicProjects data={projectsSection} lang={lang} />
+        <DynamicProcess data={processSection} lang={lang} />
+        <DynamicBlog data={blogSection} lang={lang} />
+        <DynamicFaq data={faqSection} lang={lang} />
+      </div>
     </>
   );
 }

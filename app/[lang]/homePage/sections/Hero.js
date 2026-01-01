@@ -10,7 +10,7 @@ import FadeInMobile from "@/app/components/FadeInMobile";
 
 export default async function Hero({ data, lang }) {
   return (
-    <section className="h-[100dvh] relative w-full">
+    <section className="h-[100dvh] sticky overflow-hidden top-0 left-0 w-full ">
       <div className="absolute inset-0 overflow-hidden">
         {data.backgroundImage && (
           <HeroBackgroundImage

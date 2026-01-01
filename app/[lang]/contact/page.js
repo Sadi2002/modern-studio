@@ -57,7 +57,7 @@ export default async function Contact({ params }) {
             {title}
           </RevealAfterTransition>
         </h1>
-        <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight mb-[40px] lg:mb-[40px] xl:max-w-[700px]">
+        <p className="text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] font-light-font-weight mb-[40px] md:max-w-[650px] lg:mb-[40px] xl:max-w-[700px]">
           <RevealAfterTransition delay={0} stagger={5}>
             {description}
           </RevealAfterTransition>
@@ -75,29 +75,25 @@ export default async function Contact({ params }) {
       </div>
       <div className=" lg:bg-black flex lg:pt-[40px] px-[20px] pb-[70px] md:px-[40px] lg:p-0 lg:mt-[100px] lg:h-[100dvh] w-[100% relative lg:ml-auto lg:w-[clamp(30rem,3vw,10rem)] 2xl:w-[clamp(36rem,35vw,50%)]">
         <div className="lg:text-main-white  text-[14px] flex flex-col lg:ml-[40px] xl:ml-[40px] 2xl:ml-[60px] md:text-[18px] space-y-4 lg:absolute bottom-[200px]">
-          <FadeInMobile>
-            <span className="mb-[10px]">
-              {additional?.email?.emailLabel?.[lang]}:&nbsp;
-              <Link href={`mailto:${additional?.email?.emailAddress}`}>
-                {additional?.email?.emailAddress}
-              </Link>
-            </span>
-          </FadeInMobile>
-          <FadeInMobile>
-            <span className="mb-[10px]">
-              {additional?.phone?.phoneLabel?.[lang]}:&nbsp;
-              <Link href={`tel:${additional?.phone?.phoneNumber}`}>
-                {additional?.phone?.phoneNumber}
-              </Link>
-            </span>
-          </FadeInMobile>
-          <FadeInMobile>
-            <span className="mb-[10px]">
-              <Link target="_blank" href={facebookUrl}>
-                {facebookLabel}
-              </Link>
-            </span>
-          </FadeInMobile>
+          <span className="mb-[10px]">
+            {additional?.email?.emailLabel?.[lang]}:&nbsp;
+            <Link href={`mailto:${additional?.email?.emailAddress}`}>
+              {additional?.email?.emailAddress}
+            </Link>
+          </span>
+
+          <span className="mb-[10px]">
+            {additional?.phone?.phoneLabel?.[lang]}:&nbsp;
+            <Link href={`tel:${additional?.phone?.phoneNumber}`}>
+              {additional?.phone?.phoneNumber}
+            </Link>
+          </span>
+
+          <span className="mb-[10px]">
+            <Link target="_blank" href={facebookUrl}>
+              {facebookLabel}
+            </Link>
+          </span>
         </div>
       </div>
     </section>

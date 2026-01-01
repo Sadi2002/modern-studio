@@ -2,16 +2,44 @@
 
 import Image from "next/image";
 import arrow from "../../../public/arrow.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRef } from "react";
 
 export default function PortfolioDetails({ lang, details, detailsLabel }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+  const wrapperRef = useRef(null);
+
+  const handleToggle = () => {
+    if (isOpen) {
+      setIsClosing(true);
+      setIsOpen(false);
+    } else {
+      setIsOpen(true);
+    }
+  };
+
+  useEffect(() => {
+    if (!isOpen && isClosing && wrapperRef.current) {
+      const y =
+        wrapperRef.current.getBoundingClientRect().top +
+        window.scrollY -
+        window.innerHeight * 0.5;
+
+      window.scrollTo({
+        top: y,
+        behavior: "auto",
+      });
+
+      setIsClosing(false);
+    }
+  }, [isOpen, isClosing]);
 
   if (!details || details.length === 0) return null;
 
   return (
-    <div>
+    <div ref={wrapperRef}>
       {/* WRAPPER Z ANIMACJĄ WYSOKOŚCI + OPACITY */}
       <div
         className={`
@@ -44,7 +72,7 @@ export default function PortfolioDetails({ lang, details, detailsLabel }) {
 
       <div className="px-[20px] md:px-[40px] lg:px-[50px] 2xl:px-[50px]">
         <button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={handleToggle}
           className="group relative ml-auto flex items-center gap-2 cursor-pointer font-medium-font-weight uppercase text-[clamp(0.75rem,3.5vw,1rem)] leading-none
   after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:h-[1px] after:w-full"
         >
