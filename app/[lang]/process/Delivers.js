@@ -40,16 +40,18 @@ export default function Delivers({ data, lang }) {
           <Image
             className="object-cover"
             fill
-            src={urlFor(data?.imageSmall).url()}
-            alt={`${data?.altSmallImg}`}
+            sizes="(min-width: 1024px) 35vw, 60vw"
+            src={urlFor(data?.imageSmall).width(800).quality(90).url()}
+            alt={data?.altSmallImg}
           />
         </div>
         <div className="w-[75%] lg:w-[60%] lg:h-[75%] xl:w-[85%] 2xl:w-[75%] xl:h-[100%] relative aspect-8/8 overflow-hidden">
           <Image
             className="object-cover"
             fill
-            src={urlFor(data?.imageLarge).url()}
-            alt={`${data?.altLargeImg}`}
+            sizes="(min-width: 1024px) 60vw, 100vw"
+            src={urlFor(data?.imageLarge).width(1600).quality(90).url()}
+            alt={data?.altLargeImg}
           />
         </div>
       </div>
