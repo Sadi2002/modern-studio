@@ -78,22 +78,22 @@ export default function Process({ data, lang }) {
                     <span className="flex">(0{index + 1})</span>
                   </FadeInMobile>
                   <FadeInMobile>{step?.title?.[lang]}</FadeInMobile>
-                  <Image
+                  {/* <Image
                     width={20}
                     height={20}
                     src="/chev.png"
                     alt="Arrow Icon"
                     className="mr-[10px] lg:hidden"
-                  />
+                  /> */}
                 </span>
 
                 {/* MOBILE: rozwijany opis + obrazek */}
-                <div
+                {/* <div
                   className={`lg:hidden ${
                     activeIndex === index ? "mt-[20px]" : "hidden"
                   }`}
-                >
-                  {step.imgSrc && (
+                > */}
+                {/* {step.imgSrc && (
                     <Image
                       src={urlFor(step.imgSrc).url()}
                       alt={step?.alt?.[lang] || ""}
@@ -109,8 +109,8 @@ export default function Process({ data, lang }) {
         }
       `}
                     />
-                  )}
-                </div>
+                  )} */}
+                {/* </div> */}
               </div>
             ))}
           </div>

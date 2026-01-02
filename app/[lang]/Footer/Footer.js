@@ -19,13 +19,13 @@ export default async function Footer({ lang }) {
   return (
     <footer className="bg-main-black pb-[30px]">
       <div className="lg:flex ">
-        <div className="flex justify-center mb-[5px] lg:w-[100%] p-[50px] h-[300px] lg:h-auto lg:p-0 lg:pt-0">
+        <div className="flex justify-center mb-[5px] lg:w-[100%] lg:pt-0">
           <Image
             src={urlFor(footer.logo).url()}
             alt="footer"
-            width={320}
-            height={500}
-            className="object-contain md:w-[400px]"
+            width={220}
+            height={165}
+            className="object-cover md:w-[400px]"
           />
         </div>
         <div className="border-t border-[rgba(255,255,255,.2)] w-[70%] mb-[70px] lg:pt-[80px] lg:mb-0 lg:border-none ">
@@ -49,7 +49,7 @@ export default async function Footer({ lang }) {
         className="mx-margin-mobile md:mx-tablet   justify-between  mb-[50px] lg:border-t lg:border-[rgba(255,255,255,0.2)] lg:justify-start lg:gap-x-[50px] lg:pt-[15px] lg:mx-0 lg:mb-[80px]
        xl:justify-between "
       >
-        <div className="flex gap-x-[10px] flex-wrap justify-between min-[436px]:gap-x-[50px] gap-y-[50px] lg:mx-[50px] lg:pt-[40px] lg:max-w-[65%] xl:justify-between 2xl:max-w-[45%]">
+        <div className="flex flex-wrap justify-between min-[436px]:gap-x-[50px] gap-y-[50px] lg:mx-[50px] lg:pt-[40px] lg:max-w-[65%] xl:justify-between 2xl:max-w-[45%]">
           {footer.quickContact.map((contact, index) => (
             <div key={index}>
               <h3 className="text-white text-[clamp(20px,5.5vw,23px)] font-medium mb-[20px]">
@@ -78,7 +78,7 @@ export default async function Footer({ lang }) {
         />
 
         <span className="text-[clamp(12px,3.5vw,16px)] leading-[20px]  text-white">
-          {footer?.copyrightText?.[lang]}
+          <FadeInMobile>{footer?.copyrightText?.[lang]}</FadeInMobile>
         </span>
       </div>
     </footer>
