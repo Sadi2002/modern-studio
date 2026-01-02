@@ -24,8 +24,12 @@ export default function HeroBackgroundImage({ src, alt }) {
     return () => window.removeEventListener("app-content-start", onReady);
   }, []);
 
-  // 🔥 PARALLAX SCROLL (PRAWIDŁOWY)
+  // parallax – ZOSTAJE
   useEffect(() => {
+    const isDesktop = window.innerWidth >= 1024;
+
+    if (!isDesktop) return;
+
     const onScroll = () => {
       scrollY.current = window.scrollY;
     };
@@ -37,17 +41,13 @@ export default function HeroBackgroundImage({ src, alt }) {
       }
 
       const vh = window.innerHeight;
-
-      // progress 0 → 1 na wysokości hero
       const progress = Math.min(scrollY.current / vh, 1);
-
-      // DUŻY PARALLAX
-      const maxTranslate = vh * 0.4; // 40% viewportu
+      const maxTranslate = vh * 0.4;
 
       wrapperRef.current.style.transform = `
-  translateY(${-progress * maxTranslate}px)
-  scale(${zoomOut ? 1 : 1.05})
-`;
+        translateY(${-progress * maxTranslate}px)
+        scale(${zoomOut ? 1 : 1.05})
+      `;
 
       raf.current = requestAnimationFrame(animate);
     };
@@ -63,6 +63,7 @@ export default function HeroBackgroundImage({ src, alt }) {
 
   return (
     <div ref={wrapperRef} className="absolute inset-0 will-change-transform">
+      {/* 🔒 ZAWSZE AKTYWNE PRZYCIEMNIENIE */}
       <Image
         src={src}
         alt={alt}
@@ -70,14 +71,17 @@ export default function HeroBackgroundImage({ src, alt }) {
         priority
         sizes="100vw"
         className={`
-          object-cover
-          will-change-transform
-          transition-transform
-          duration-[1200ms]
-          ease-[cubic-bezier(0.76,0,0.24,1)]
-          ${zoomOut ? "scale-100" : "scale-105"}
-        `}
+    object-cover
+    will-change-transform
+    transition-transform
+    duration-[1200ms]
+    ease-[cubic-bezier(0.76,0,0.24,1)]
+    ${zoomOut ? "scale-100" : "scale-105"}
+    z-0
+  `}
       />
+
+      <div className="absolute inset-0 bg-[rgba(0,0,0,0.4)] z-10 pointer-events-none" />
     </div>
   );
 }
