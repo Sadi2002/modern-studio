@@ -1,4 +1,3 @@
-import Image from "next/image";
 import arrow from "../../../../public/arrow.png";
 import Button from "@/app/components/Button";
 
@@ -6,7 +5,6 @@ import { urlFor } from "../../../../lib/sanity/client";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 
 import HeroBackgroundImage from "@/app/components/HeroBackgroundImage";
-import FadeInMobile from "@/app/components/FadeInMobile";
 import HeroScrollEffects from "@/app/components/HeroScrollEffects";
 
 export default async function Hero({ data, lang }) {
@@ -21,6 +19,8 @@ export default async function Hero({ data, lang }) {
           />
         )}
       </div>
+
+      {/* <div className="absolute inset-0 z-0 will-change-transform bg-[rgba(0,0,0,0.30)]" /> */}
 
       <HeroScrollEffects>
         <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
@@ -48,11 +48,11 @@ export default async function Hero({ data, lang }) {
             </Button>
           </div>
         </div>
-
-        <span className="absolute bottom-5 left-0 mx-margin-mobile font-normal-font-weight text-[#c6c6c6] text-[10px] md:mx-tablet md:bottom-[50px] md:left-auto md:right-0 md:text-[14px] opacity-[64%] 2xl:mx-desktop">
-          ({data?.scrollDown?.[lang] || "Scroll down"})
-        </span>
       </HeroScrollEffects>
+
+      <span className="absolute bottom-5 left-0 mx-margin-mobile font-normal-font-weight text-[#c6c6c6] text-[10px] md:mx-tablet md:bottom-[50px] md:left-auto md:right-0 md:text-[14px] opacity-[64%] 2xl:mx-desktop">
+        ({data?.scrollDown?.[lang] || "Scroll down"})
+      </span>
     </section>
   );
 }

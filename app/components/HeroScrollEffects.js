@@ -33,7 +33,7 @@ export default function HeroScrollEffects({ children }) {
       // OVERLAY
       if (overlayRef.current) {
         overlayRef.current.style.backgroundColor = `rgba(0,0,0,${
-          0.55 + progress * 0.25
+          0.4 + progress * 0.5
         })`;
       }
 
