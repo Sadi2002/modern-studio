@@ -140,7 +140,7 @@ export default function Navigation({ data, dataMobile, lang }) {
       }`}
     >
       {/* LOGO */}
-      <span className={`md:text-logo-font-size xl:text-[26px] ${logoColor}`}>
+      <span className={`md:text-logo-font-size ${logoColor}`}>
         <Link
           href={getHomeLink()} // = `/${currentLang}`
           onClick={(e) => {

@@ -80,7 +80,7 @@ export default function Intro() {
           : "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
       }}
     >
-      <div className="flex gap-[5px] text-white text-5xl md:text-7xl font-semibold">
+      <div className="flex gap-[5px] lg:gap-[10px] text-white text-5xl md:text-7xl font-semibold">
         {words.map((word, i) => (
           <div key={word} className="overflow-hidden">
             <span
@@ -89,7 +89,7 @@ export default function Intro() {
                 transition-all duration-700
                 ease-[cubic-bezier(0.75,0.10,0.22,1)]
                 font-light-font-weight
-                text-[23px] lg:text-[26px]
+                text-[23px] lg:text-[30px]
 
                 ${phase === "idle" ? "translate-y-full opacity-0" : ""}
                 ${phase === "enter" ? "translate-y-0 opacity-100" : ""}

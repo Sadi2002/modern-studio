@@ -19,13 +19,13 @@ export default async function Footer({ lang }) {
   return (
     <footer className="bg-main-black pb-[30px]">
       <div className="lg:flex ">
-        <div className="flex justify-center mb-[5px] lg:w-[100%] lg:pt-0">
+        <div className="flex justify-center mb-[5px] lg:w-[100%] p-[50px] h-[300px] lg:h-auto lg:p-0 lg:pt-0">
           <Image
             src={urlFor(footer.logo).url()}
             alt="footer"
-            width={220}
-            height={165}
-            className="object-cover md:w-[400px]"
+            width={320}
+            height={500}
+            className="object-contain md:w-[400px]"
           />
         </div>
         <div className="border-t border-[rgba(255,255,255,.2)] w-[70%] mb-[70px] lg:pt-[80px] lg:mb-0 lg:border-none ">
