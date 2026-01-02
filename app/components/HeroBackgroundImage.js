@@ -45,9 +45,8 @@ export default function HeroBackgroundImage({ src, alt }) {
       const maxTranslate = vh * 0.4;
 
       wrapperRef.current.style.transform = `
-        translateY(${-progress * maxTranslate}px)
-        scale(${zoomOut ? 1 : 1.05})
-      `;
+  translateY(${-progress * maxTranslate}px)
+`;
 
       raf.current = requestAnimationFrame(animate);
     };

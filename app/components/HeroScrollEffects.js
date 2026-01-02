@@ -13,22 +13,6 @@ export default function HeroScrollEffects({ children }) {
   useEffect(() => {
     const isDesktop = window.innerWidth >= 1024;
 
-    // ❌ MOBILE / TABLET – NIC SIĘ NIE RUSZA
-    if (!isDesktop) {
-      if (contentRef.current) {
-        contentRef.current.style.transform = "translateY(0px)";
-        contentRef.current.style.opacity = "1";
-      }
-      if (bgRef.current) {
-        bgRef.current.style.transform = "translateY(0px)";
-      }
-      // if (overlayRef.current) {
-      //   overlayRef.current.style.backgroundColor = "rgba(0,0,0,0.4)";
-      // }
-      return;
-    }
-
-    // ✅ DESKTOP – SCROLL ACTIVE
     const onScroll = () => {
       scrollY.current = window.scrollY;
     };
@@ -37,15 +21,19 @@ export default function HeroScrollEffects({ children }) {
       const vh = window.innerHeight;
       const progress = Math.min(scrollY.current / vh, 1);
 
-      if (contentRef.current) {
-        contentRef.current.style.transform = `translateY(${progress * 60}px)`;
-        contentRef.current.style.opacity = 1 - progress * 0.4;
+      // 🖥 DESKTOP – wszystkie animacje
+      if (isDesktop) {
+        if (contentRef.current) {
+          contentRef.current.style.transform = `translateY(${progress * 60}px)`;
+          contentRef.current.style.opacity = 1 - progress * 0.4;
+        }
+
+        if (bgRef.current) {
+          bgRef.current.style.transform = `translateY(${progress * 60}px)`;
+        }
       }
 
-      if (bgRef.current) {
-        bgRef.current.style.transform = `translateY(${progress * 60}px)`;
-      }
-
+      // 📱 MOBILE + 🖥 DESKTOP – TYLKO PRZYCIEMNIENIE
       if (overlayRef.current) {
         overlayRef.current.style.backgroundColor = `rgba(0,0,0,${
           0.4 + progress * 0.5
