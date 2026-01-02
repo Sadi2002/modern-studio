@@ -16,6 +16,7 @@ export default async function ProcessPage({ params }) {
   }
 
   const { welcomeSection, processesSection } = processPageData;
+  const { deliversSection } = processPageData;
 
   return (
     <>
@@ -24,7 +25,7 @@ export default async function ProcessPage({ params }) {
         stepsSection={processesSection}
         lang={lang}
       />
-      <Delivers />
+      <Delivers data={deliversSection} lang={lang} />
     </>
   );
 }
