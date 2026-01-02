@@ -16,12 +16,11 @@ export default function ParallaxImage({
     const image = imageRef.current;
     if (!image) return;
 
-    // 📐 RESPONSYWNY MNOŻNIK
     const getMultiplier = () => {
       const w = window.innerWidth;
-      if (w < 640) return 0.25; // telefon
-      if (w < 1024) return 0.5; // tablet / mały laptop
-      return 1; // desktop
+      if (w < 640) return 0.25;
+      if (w < 1024) return 0.5;
+      return 1;
     };
 
     const handleScroll = () => {
@@ -31,16 +30,20 @@ export default function ParallaxImage({
       const rect = wrapper.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
+      // progres 0–1
       const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
 
       const effectiveIntensity = intensity * getMultiplier();
 
-      const translateY = Math.min(
-        Math.max(
-          progress * effectiveIntensity - effectiveIntensity / 2,
-          -effectiveIntensity / 2
-        ),
-        effectiveIntensity / 2
+      // 🔒 KLUCZ: bezpieczny zakres (max kilka % wysokości)
+      const maxSafeTranslate = rect.height * 0.025; // 2.5%
+
+      const rawTranslate =
+        progress * effectiveIntensity - effectiveIntensity / 2;
+
+      const translateY = Math.max(
+        Math.min(rawTranslate, maxSafeTranslate),
+        -maxSafeTranslate
       );
 
       image.style.transform = `translateY(${translateY}px)`;
@@ -53,7 +56,7 @@ export default function ParallaxImage({
   }, [intensity]);
 
   return (
-    <div className="relative w-full h-full overflow-hidden">
+    <div className="absolute inset-0 overflow-hidden">
       <Image
         ref={imageRef}
         src={src}

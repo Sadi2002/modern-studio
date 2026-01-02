@@ -1,5 +1,6 @@
 import { sanityClient } from "../../../lib/sanity/client";
 import { processPageQuery } from "../../../lib/sanity/queries";
+import Delivers from "./Delivers";
 import ProcessClient from "./ProcessClient";
 
 export const revalidate = 0;
@@ -17,10 +18,13 @@ export default async function ProcessPage({ params }) {
   const { welcomeSection, processesSection } = processPageData;
 
   return (
-    <ProcessClient
-      welcomeSection={welcomeSection}
-      stepsSection={processesSection}
-      lang={lang}
-    />
+    <>
+      <ProcessClient
+        welcomeSection={welcomeSection}
+        stepsSection={processesSection}
+        lang={lang}
+      />
+      <Delivers />
+    </>
   );
 }

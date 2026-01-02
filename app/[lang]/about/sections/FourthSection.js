@@ -1,17 +1,18 @@
 import Image from "next/image";
 import { urlFor } from "../../../../lib/sanity/client";
 import FadeInMobile from "@/app/components/FadeInMobile";
+import ParallaxImage from "@/app/components/ParallaxImage";
 
 export default function FourthSection({ data, lang }) {
   return (
     <section className="relative w-full mb-[40px] xl:mb-[80px] px-[20px] md:px-[40px] lg:px-[50px] h-[400px] min-h-[400px] min-[500px]:min-h-[500px] min-[500px]:h-[500px] md:h-[550px] lg:h-[650px]">
       <div className="bg-[rgba(0,0,0,0.59)] w-full h-full absolute inset-0 z-100" />
 
-      <Image
+      <ParallaxImage
         src={urlFor(data.image).url()}
         alt="projekt"
         className="object-cover h-full z-10"
-        fill
+        intensity={60}
       />
 
       <div className="flex flex-col w-full h-full relative z-150 text-white py-[clamp(60px,10vw,80px)] lg:py-[100px] justify-between">

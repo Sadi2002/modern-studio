@@ -51,8 +51,8 @@ export default function ModelLoader({ modelUrl, setLoading, fullscreen }) {
 
   // ustawienia zoom i kąt
   const minDistance = 2; // minimalny zoom
-  const maxDistance = 5; // maksymalny zoom
-  const maxPolarAngle = Math.PI / 2; // max 90° pionowo (nie patrz pod model)
+  const maxDistance = 4; // maksymalny zoom
+  const maxPolarAngle = Math.PI / 2.5; // max 90° pionowo (nie patrz pod model)
   const minPolarAngle = 0; // opcjonalnie od góry
 
   return (

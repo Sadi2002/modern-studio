@@ -20,7 +20,7 @@ export default async function Footer({ lang }) {
     <footer className="bg-main-black pb-[30px]">
       <div className="lg:flex ">
         <div className="flex justify-center mb-[5px] lg:w-[100%] lg:pt-0">
-          <div className="w-[200px] sm:w-[250px] md:w-[250px] lg:w-[400px] flex items-center">
+          <div className="w-[250px] lg:w-[400px] flex items-center">
             <Image
               src={urlFor(footer.logo).url()}
               alt="footer"

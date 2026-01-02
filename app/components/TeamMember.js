@@ -13,8 +13,15 @@ export default function TeamMember({
     <div
       className={`flex flex-col lg:w-[23%] xl:w-[23%] gap-[5px] md:w-[75%] ${wrapperClass}`}
     >
-      <div className="relative flex flex-col aspect-[7/8] xl:aspect-[9/10] 2xl:aspect-[15/16]">
-        <Image src={image} alt={name} className="object-cover" fill />
+      <div className="relative flex flex-col aspect-[7/8] xl:aspect-[9/10] 2xl:aspect-[15/16] overflow-hidden">
+        <Link target="_blank" href={instagram}>
+          <Image
+            src={image}
+            alt={name}
+            className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+            fill
+          />
+        </Link>
       </div>
       <div className="flex justify-between lg:min-h-[72px]">
         <div className="flex flex-col pr-[15px]">
