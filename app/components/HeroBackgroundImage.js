@@ -81,7 +81,7 @@ export default function HeroBackgroundImage({ src, alt }) {
   `}
       />
 
-      <div className="absolute inset-0 bg-[rgba(0,0,0,0.4)] z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-[rgba(0,0,0,0.3)] z-10 pointer-events-none" />
     </div>
   );
 }

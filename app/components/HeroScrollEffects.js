@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react";
 
 export default function HeroScrollEffects({ children }) {
+  const contentRef = useRef(null);
+  const bgRef = useRef(null);
   const overlayRef = useRef(null);
 
   const scrollY = useRef(0);
@@ -11,6 +13,22 @@ export default function HeroScrollEffects({ children }) {
   useEffect(() => {
     const isDesktop = window.innerWidth >= 1024;
 
+    // ❌ MOBILE / TABLET – NIC SIĘ NIE RUSZA
+    if (!isDesktop) {
+      if (contentRef.current) {
+        contentRef.current.style.transform = "translateY(0px)";
+        contentRef.current.style.opacity = "1";
+      }
+      if (bgRef.current) {
+        bgRef.current.style.transform = "translateY(0px)";
+      }
+      // if (overlayRef.current) {
+      //   overlayRef.current.style.backgroundColor = "rgba(0,0,0,0.4)";
+      // }
+      return;
+    }
+
+    // ✅ DESKTOP – SCROLL ACTIVE
     const onScroll = () => {
       scrollY.current = window.scrollY;
     };
@@ -19,20 +37,19 @@ export default function HeroScrollEffects({ children }) {
       const vh = window.innerHeight;
       const progress = Math.min(scrollY.current / vh, 1);
 
-      if (overlayRef.current) {
-        // 📱 mobile – tylko przyciemnienie
-        if (!isDesktop) {
-          overlayRef.current.style.backgroundColor = `rgba(0,0,0,${
-            0.4 + progress * 0.3
-          })`;
-        }
+      if (contentRef.current) {
+        contentRef.current.style.transform = `translateY(${progress * 60}px)`;
+        contentRef.current.style.opacity = 1 - progress * 0.4;
+      }
 
-        // 🖥 desktop – jak było
-        if (isDesktop) {
-          overlayRef.current.style.backgroundColor = `rgba(0,0,0,${
-            0.4 + progress * 0.5
-          })`;
-        }
+      if (bgRef.current) {
+        bgRef.current.style.transform = `translateY(${progress * 60}px)`;
+      }
+
+      if (overlayRef.current) {
+        overlayRef.current.style.backgroundColor = `rgba(0,0,0,${
+          0.4 + progress * 0.5
+        })`;
       }
 
       raf.current = requestAnimationFrame(animate);
@@ -43,19 +60,27 @@ export default function HeroScrollEffects({ children }) {
 
     return () => {
       window.removeEventListener("scroll", onScroll);
-      if (raf.current) cancelAnimationFrame(raf.current);
+      cancelAnimationFrame(raf.current);
     };
   }, []);
 
   return (
     <>
+      {/* overlay */}
       <div
         ref={overlayRef}
         className="absolute inset-0 z-10 pointer-events-none"
         style={{ backgroundColor: "rgba(0,0,0,0.4)" }}
       />
 
-      <div className="absolute inset-0 z-20 pointer-events-none">
+      {/* background */}
+      <div ref={bgRef} className="absolute inset-0 z-0 will-change-transform" />
+
+      {/* content */}
+      <div
+        ref={contentRef}
+        className="absolute inset-0 z-20 pointer-events-none will-change-transform"
+      >
         <div className="pointer-events-auto h-full">{children}</div>
       </div>
     </>
