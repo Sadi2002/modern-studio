@@ -6,12 +6,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ProcessPanel from "./ProcessPanel";
 import FirstSection from "./FirstSection";
 import { urlFor } from "../../../lib/sanity/client";
+import FadeInOnce from "@/app/components/FadeInOnce";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ProcessClient({ welcomeSection, stepsSection, lang }) {
   const containerRef = useRef(null);
-  const scrollTriggerRef = useRef(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -80,13 +80,15 @@ export default function ProcessClient({ welcomeSection, stepsSection, lang }) {
         </div>
 
         {steps.map((step, i) => (
-          <ProcessPanel
-            key={i}
-            index={i + 1}
-            title={step?.title}
-            description={step?.description}
-            image={step.image}
-          />
+          <FadeInOnce key={i} delay={i * 0.08}>
+            <ProcessPanel
+              key={i}
+              index={i + 1}
+              title={step?.title}
+              description={step?.description}
+              image={step.image}
+            />
+          </FadeInOnce>
         ))}
       </div>
     </div>

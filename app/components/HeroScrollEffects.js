@@ -36,7 +36,7 @@ export default function HeroScrollEffects({ children }) {
       // 📱 MOBILE + 🖥 DESKTOP – TYLKO PRZYCIEMNIENIE
       if (overlayRef.current) {
         overlayRef.current.style.backgroundColor = `rgba(0,0,0,${
-          0.4 + progress * 0.5
+          0.3 + progress * 0.5
         })`;
       }
 
@@ -58,7 +58,7 @@ export default function HeroScrollEffects({ children }) {
       <div
         ref={overlayRef}
         className="absolute inset-0 z-10 pointer-events-none"
-        style={{ backgroundColor: "rgba(0,0,0,0.4)" }}
+        style={{ backgroundColor: "rgba(0,0,0,0.3)" }}
       />
 
       {/* background */}
