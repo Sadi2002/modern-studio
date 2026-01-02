@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { urlFor } from "../../../../lib/sanity/client";
 import FadeInMobile from "@/app/components/FadeInMobile";
+import ParallaxImage from "@/app/components/ParallaxImage";
 
 export default function SecondSection({ data, lang }) {
   return (
@@ -24,11 +25,17 @@ export default function SecondSection({ data, lang }) {
             </div>
           </div>
           <div className="relative aspect-[5/4]">
-            <Image
+            {/* <Image
               src={urlFor(data.leftBox.image).url()}
               alt={data?.leftBox?.alt?.[lang] || "projekt"}
               className="object-cover absolute top-0 left-0 w-full h-full px-[20px] md:px-[40px] lg:px-[50px] 2xl:px-[50px]"
               fill
+            /> */}
+            <ParallaxImage
+              src={urlFor(data.leftBox.image).url()}
+              alt={data?.leftBox?.alt?.[lang] || "projekt"}
+              intensity={100}
+              className="object-cover absolute top-0 left-0 w-full h-full px-[20px] md:px-[40px] lg:px-[50px] 2xl:px-[50px]"
             />
           </div>
         </div>
@@ -54,6 +61,12 @@ export default function SecondSection({ data, lang }) {
               alt={data?.rightBox?.alt?.[lang] || "projekt"}
               className="object-cover absolute top-0 left-0 w-full h-full  px-[20px] md:px-[40px] 2xl:px-[50px]"
               fill
+            />
+            <ParallaxImage
+              src={urlFor(data.rightBox.image).url()}
+              alt={data?.rightBox?.alt?.[lang] || "projekt"}
+              intensity={100}
+              className="object-cover absolute top-0 left-0 w-full h-full  px-[20px] md:px-[40px] 2xl:px-[50px]"
             />
           </div>
         </div>

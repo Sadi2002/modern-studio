@@ -20,14 +20,21 @@ export default async function Footer({ lang }) {
     <footer className="bg-main-black pb-[30px]">
       <div className="lg:flex ">
         <div className="flex justify-center mb-[5px] lg:w-[100%] lg:pt-0">
-          <Image
-            src={urlFor(footer.logo).url()}
-            alt="footer"
-            width={220}
-            height={165}
-            className="object-cover md:w-[400px]"
-          />
+          <div className="w-[200px] sm:w-[250px] md:w-[250px] lg:w-[400px] flex items-center">
+            <Image
+              src={urlFor(footer.logo).url()}
+              alt="footer"
+              width={400}
+              height={300}
+              sizes="(max-width: 640px) 120px,
+             (max-width: 768px) 160px,
+             (max-width: 1024px) 220px,
+             400px"
+              className="w-full h-auto object-contain"
+            />
+          </div>
         </div>
+
         <div className="border-t border-[rgba(255,255,255,.2)] w-[70%] mb-[70px] lg:pt-[80px] lg:mb-0 lg:border-none ">
           <ul>
             {footer.navLinks.map((link, index) => (

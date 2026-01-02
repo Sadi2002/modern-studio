@@ -43,7 +43,7 @@ export default function ParallaxImage({
         effectiveIntensity / 2
       );
 
-      image.style.transform = `translateY(${translateY}px) scale(1.15)`;
+      image.style.transform = `translateY(${translateY}px)`;
     };
 
     handleScroll();
