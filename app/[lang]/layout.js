@@ -19,16 +19,18 @@ export default async function RootLayout({ children, params }) {
 
   return (
     <>
-      <SmoothScrollProvider>
-        <Header lang={lang} />
-        <main className={poppins.className}>
+      <Header lang={lang} />
+
+      <main className={poppins.className}>
+        <SmoothScrollProvider>
           <LenisScrollReset />
           <HistoryTransitionHandler />
           <LenisAfterTransitionFix />
           {children}
-        </main>
-        <Footer lang={lang} />
-      </SmoothScrollProvider>
+        </SmoothScrollProvider>
+      </main>
+
+      <Footer lang={lang} />
     </>
   );
 }
