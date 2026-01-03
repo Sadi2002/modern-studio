@@ -9,9 +9,6 @@ import { buttonSectionData } from "../data/sectionsData/homePage/buttonSectionDa
 import Hero from "./homePage/sections/Hero";
 import dynamic from "next/dynamic";
 
-import { sanityClient } from "../../lib/sanity/client";
-import { homePageQuery } from "../../lib/sanity/queries";
-
 const DynamicAbout = dynamic(() => import("./homePage/sections/About"));
 const DynamicProjects = dynamic(() => import("./homePage/sections/Projects"));
 const DynamicProcess = dynamic(() => import("./homePage/sections/Process"));
@@ -21,7 +18,9 @@ const DynamicButtonSection = dynamic(() =>
   import("./homePage/sections/ButtonSection")
 );
 
-export const revalidate = 3600;
+export async function generateStaticParams() {
+  return [{ lang: "pl" }, { lang: "en" }, { lang: "de" }];
+}
 
 export const metadata = {
   title: "Sadowski Studio - Nowoczesna Architektura i Design",
@@ -30,18 +29,7 @@ export const metadata = {
 };
 
 export default async function Home({ params }) {
-  const getParams = await params;
-  const lang = getParams.lang;
-  const homePageData = await sanityClient.fetch(homePageQuery);
-
-  const { heroSection } = homePageData;
-
-  const { aboutSection } = homePageData;
-  const { projectsSection } = homePageData;
-  const { processSection } = homePageData;
-  const { blogSection } = homePageData;
-  const { faqSection } = homePageData;
-  const { buttonSection } = homePageData;
+  const { lang } = await params;
 
   return (
     <>
