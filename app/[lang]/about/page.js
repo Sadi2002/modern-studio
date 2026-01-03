@@ -10,6 +10,7 @@ const DynamicSecondSection = dynamic(() => import("./sections/SecondSection"));
 const DynamicThirdSection = dynamic(() => import("./sections/ThirdSection"));
 const DynamicFourthSection = dynamic(() => import("./sections/FourthSection"));
 const DynamicFifthSection = dynamic(() => import("./sections/FifthSection"));
+const DynamicButtonSection = dynamic(() => import("./sections/ButtonSection"));
 
 export const metadata = {
   title: "Sadowski Studio - Nowoczesna Architektura i Design",
@@ -28,6 +29,7 @@ export default async function About({ params }) {
   const { teamSection } = aboutPageData;
   const { awardsSection } = aboutPageData;
   const { overviewSection } = aboutPageData;
+  const { buttonSection } = aboutPageData;
 
   return (
     <>
@@ -36,6 +38,7 @@ export default async function About({ params }) {
       <DynamicThirdSection data={teamSection} lang={lang} />
       <DynamicFourthSection data={awardsSection} lang={lang} />
       <DynamicFifthSection data={overviewSection} lang={lang} />
+      <DynamicButtonSection data={buttonSection} lang={lang} />
     </>
   );
 }

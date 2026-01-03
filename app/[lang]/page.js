@@ -9,6 +9,9 @@ const DynamicProjects = dynamic(() => import("./homePage/sections/Projects"));
 const DynamicProcess = dynamic(() => import("./homePage/sections/Process"));
 const DynamicBlog = dynamic(() => import("./homePage/sections/Blog"));
 const DynamicFaq = dynamic(() => import("./homePage/sections/Faq"));
+const DynamicButtonSection = dynamic(() =>
+  import("./homePage/sections/ButtonSection")
+);
 
 export const revalidate = 3600;
 
@@ -30,6 +33,7 @@ export default async function Home({ params }) {
   const { processSection } = homePageData;
   const { blogSection } = homePageData;
   const { faqSection } = homePageData;
+  const { buttonSection } = homePageData;
 
   return (
     <>
@@ -40,6 +44,7 @@ export default async function Home({ params }) {
         <DynamicProcess data={processSection} lang={lang} />
         <DynamicBlog data={blogSection} lang={lang} />
         <DynamicFaq data={faqSection} lang={lang} />
+        <DynamicButtonSection data={buttonSection} lang={lang} />
       </div>
     </>
   );

@@ -63,7 +63,11 @@ export default function RevealAfterTransition({
     if (!canStart || !inView || show) return;
 
     const timeoutId = setTimeout(() => {
-      setShow(true);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setShow(true);
+        });
+      });
     }, delay);
 
     return () => clearTimeout(timeoutId);
