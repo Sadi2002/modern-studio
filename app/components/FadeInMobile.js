@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function FadeInMobile({
+export default function FadeIn({
   children,
   duration = 700,
   delay = 0,
@@ -12,22 +12,9 @@ export default function FadeInMobile({
 }) {
   const ref = useRef(null);
   const [show, setShow] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
-  // 🔒 SPRAWDZAMY WIDTH TYLKO RAZ
   useEffect(() => {
-    const mobile = window.innerWidth < 1024;
-    setIsMobile(mobile);
-
-    // 👉 desktop: pokaż od razu, bez animacji
-    if (!mobile) {
-      setShow(true);
-    }
-  }, []);
-
-  // 👉 OBSERVER TYLKO NA MOBILE
-  useEffect(() => {
-    if (!isMobile || !ref.current) return;
+    if (!ref.current) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -41,7 +28,7 @@ export default function FadeInMobile({
 
     observer.observe(ref.current);
     return () => observer.disconnect();
-  }, [isMobile, threshold, once]);
+  }, [threshold, once]);
 
   return (
     <div
@@ -49,12 +36,11 @@ export default function FadeInMobile({
       style={{
         opacity: show ? 1 : 0,
         transform: show ? "translateY(0px)" : `translateY(${y}px)`,
-        transition: isMobile
-          ? `
-              opacity ${duration}ms cubic-bezier(0.75,0.10,0.22,1) ${delay}ms,
-              transform ${duration}ms cubic-bezier(0.75,0.10,0.22,1) ${delay}ms
-            `
-          : "none",
+        transition: `
+          opacity ${duration}ms cubic-bezier(0.75,0.10,0.22,1) ${delay}ms,
+          transform ${duration}ms cubic-bezier(0.75,0.10,0.22,1) ${delay}ms
+        `,
+        willChange: "opacity, transform",
       }}
     >
       {children}

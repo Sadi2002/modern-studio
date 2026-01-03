@@ -9,6 +9,10 @@ export default function Intro() {
   const [hideOverlay, setHideOverlay] = useState(false);
 
   useEffect(() => {
+    window.__LAYOUT_LOCKED__ = true;
+  }, []);
+
+  useEffect(() => {
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual";
     }
@@ -52,6 +56,7 @@ export default function Intro() {
     // ✅ KONIEC INTRO
     const doneTimer = setTimeout(() => {
       setPhase("done");
+      window.__LAYOUT_LOCKED__ = false;
       window.dispatchEvent(new Event("app-ready"));
     }, overlayHideTime + 600);
 
