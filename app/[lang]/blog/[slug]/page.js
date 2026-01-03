@@ -132,7 +132,7 @@ export default async function Post({ params }) {
       </div>
       <div>
         <FadeInMobile>
-          <h3 className="text-[clamp(1.5rem,8vw,3rem)] uppercase leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[20px] xl:mb-[20px] max-w-[500px] lg:text-[45px] lg:leading-[45 px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] xl:max-w-[600px] 2xl:max-w-[1200px] 2xl:font-normal 2xl:text-[clamp(60px,4.3vw,5rem)] 2xl:leading-[80px] 2xl:w-[850px] uppercase">
+          <h3 className="text-[clamp(1.5rem,8vw,3rem)] uppercase leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[20px] xl:mb-[40px] max-w-[500px] lg:text-[45px] lg:leading-[45 px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] xl:max-w-[600px] 2xl:max-w-[1200px] 2xl:font-normal 2xl:text-[clamp(60px,4.3vw,5rem)] 2xl:leading-[80px] 2xl:w-[850px] uppercase">
             {postsSection?.seeOtherBlogs?.seeOtherBlogsLabel?.[lang]}
           </h3>
         </FadeInMobile>

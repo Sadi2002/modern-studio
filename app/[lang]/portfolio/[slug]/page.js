@@ -153,14 +153,9 @@ export default async function Project({ params }) {
             data-hero-image
             className="relative w-full aspect-[8/6] lg:aspect-[6/3] "
           >
-            <HeroImage src={urlFor(project.imgSrc).url()} alt="pokój" />
+            <HeroImage src={project.imgSrc} alt="pokój" />
 
-            {modelUrl && (
-              <Model
-                imgSrc={urlFor(project.imgSrc).url()}
-                modelUrl={modelUrl}
-              />
-            )}
+            {modelUrl && <Model imgSrc={project.imgSrc} modelUrl={modelUrl} />}
           </div>
           <div className="flex justify-between gap-[10px] md:gap-[16px] mt-[10px] md:mt-[16px]">
             <ProjectGallery

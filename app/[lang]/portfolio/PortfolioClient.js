@@ -309,7 +309,7 @@ export default function PortfolioClient({
                   ref={(el) => (imageRefs.current[i] = el)}
                   href={`/${lang}/portfolio/${p.slug.current}`}
                   imageProps={{
-                    src: urlFor(p.imgSrc).url(),
+                    src: p.imgSrc,
                     alt: p?.title?.[lang],
                     slug: p.slug.current,
                     lang,
@@ -318,7 +318,7 @@ export default function PortfolioClient({
                   }}
                 >
                   <Image
-                    src={urlFor(p.imgSrc).url()}
+                    src={p.imgSrc}
                     alt={p?.title?.[lang]}
                     fill
                     className="object-cover absolute inset-0 transition-transform duration-500 ease-out hover:scale-105"

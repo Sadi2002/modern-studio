@@ -63,6 +63,7 @@ export default function ParallaxImage({
         alt={alt}
         fill
         priority={priority}
+        placeholder="blur"
         className={`object-cover will-change-transform ${className}`}
       />
     </div>

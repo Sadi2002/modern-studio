@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { urlFor } from "../../lib/sanity/client";
+
 import Image from "next/image";
 import FadeInOnView from "./FadeInOnView";
 
@@ -23,6 +23,7 @@ function buildLayout(gallery) {
 }
 
 export default function ProjectGallery({ gallery }) {
+  console.log(gallery);
   const layout = useMemo(() => {
     if (!gallery || gallery.length === 0) return [];
     return buildLayout(gallery);
@@ -34,6 +35,7 @@ export default function ProjectGallery({ gallery }) {
     if (block.type === "one") {
       const big = gallery[block.index];
       if (!big) return null;
+      console.log(big);
 
       return (
         <FadeInOnView key={`gallery-${idx}`}>
@@ -43,8 +45,8 @@ export default function ProjectGallery({ gallery }) {
           >
             <div className="relative w-full overflow-hidden aspect-[8/6] lg:aspect-[6/3]">
               <Image
-                src={urlFor(big).url()}
-                alt={big.alt || "Gallery image"}
+                src={big?.image?.src}
+                alt={big?.image?.alt || "Gallery image"}
                 fill
                 className="object-cover"
               />
@@ -71,8 +73,8 @@ export default function ProjectGallery({ gallery }) {
                   className="relative overflow-hidden aspect-[8/9] lg:aspect-[6/6]"
                 >
                   <Image
-                    src={urlFor(img).url()}
-                    alt={img.alt || "Gallery image"}
+                    src={img?.image?.src}
+                    alt={img?.image?.alt || "Gallery image"}
                     fill
                     className="object-cover"
                   />

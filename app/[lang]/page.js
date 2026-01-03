@@ -1,3 +1,8 @@
+import { heroSectionData } from "../data/sectionsData/homePage/heroSectionData";
+import { aboutSectionData } from "../data/sectionsData/homePage/aboutSectionData";
+import { projectsSectionData } from "../data/sectionsData/homePage/projectsSectionData";
+import { processSectionData } from "../data/sectionsData/homePage/processSectionData";
+
 import Hero from "./homePage/sections/Hero";
 import dynamic from "next/dynamic";
 
@@ -37,11 +42,11 @@ export default async function Home({ params }) {
 
   return (
     <>
-      <Hero data={heroSection} lang={lang} />
+      <Hero data={heroSectionData} lang={lang} />
       <div className="relative bg-white top-0 left-0 z-[99]">
-        <DynamicAbout data={aboutSection} lang={lang} />
-        <DynamicProjects data={projectsSection} lang={lang} />
-        <DynamicProcess data={processSection} lang={lang} />
+        <DynamicAbout data={aboutSectionData} lang={lang} />
+        <DynamicProjects data={projectsSectionData} lang={lang} />
+        <DynamicProcess data={processSectionData} lang={lang} />
         <DynamicBlog data={blogSection} lang={lang} />
         <DynamicFaq data={faqSection} lang={lang} />
         <DynamicButtonSection data={buttonSection} lang={lang} />

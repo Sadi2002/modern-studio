@@ -35,11 +35,7 @@ export default function About({ data, lang }) {
       </div>
 
       <div className="relative max-w-[90%] xl:w-[80%] aspect-[3/1.7]">
-        <ParallaxImage
-          src={urlFor(data.aboutImage).url()}
-          alt="pokój"
-          intensity={200}
-        />
+        <ParallaxImage src={data.aboutImage} alt="pokój" intensity={200} />
       </div>
     </section>
   );

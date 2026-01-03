@@ -29,7 +29,7 @@ export default async function Projects({ data, lang }) {
               <ProjectLink
                 href={`/${lang}/portfolio/${project[0]?.slug.current}`}
                 imageProps={{
-                  src: urlFor(project[0]?.imgSrc).url(),
+                  src: project[0]?.imgSrc,
                   alt: project[0]?.alt?.[lang],
                   slug: project[0]?.slug.current,
                   lang,
@@ -38,9 +38,10 @@ export default async function Projects({ data, lang }) {
                 }}
               >
                 <Image
-                  src={urlFor(project[0]?.imgSrc).url()}
+                  src={project[0]?.imgSrc}
                   alt={project[0]?.alt?.[lang] || ""}
                   fill
+                  placeholder="blur"
                   className="object-cover absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-out hover:scale-105"
                 />
               </ProjectLink>
@@ -60,7 +61,7 @@ export default async function Projects({ data, lang }) {
               <ProjectLink
                 href={`/${lang}/portfolio/${project[1]?.slug.current}`}
                 imageProps={{
-                  src: urlFor(project[1]?.imgSrc).url(),
+                  src: project[1]?.imgSrc,
                   alt: project[1]?.alt?.[lang],
                   slug: project[1]?.slug.current,
                   lang,
@@ -69,9 +70,10 @@ export default async function Projects({ data, lang }) {
                 }}
               >
                 <Image
-                  src={urlFor(project[1]?.imgSrc).url()}
+                  src={project[1]?.imgSrc}
                   alt={project[1]?.alt?.[lang] || ""}
                   fill
+                  placeholder="blur"
                   className="object-cover absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-out hover:scale-105"
                 />
               </ProjectLink>
@@ -93,7 +95,7 @@ export default async function Projects({ data, lang }) {
               <ProjectLink
                 href={`/${lang}/portfolio/${project[2]?.slug.current}`}
                 imageProps={{
-                  src: urlFor(project[2]?.imgSrc).url(),
+                  src: project[2]?.imgSrc,
                   alt: project[2]?.alt?.[lang],
                   slug: project[2]?.slug.current,
                   lang,
@@ -102,9 +104,10 @@ export default async function Projects({ data, lang }) {
                 }}
               >
                 <Image
-                  src={urlFor(project[2]?.imgSrc).url()}
+                  src={project[2]?.imgSrc}
                   alt={project[2]?.alt?.[lang] || ""}
                   fill
+                  placeholder="blur"
                   className="object-cover absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-out hover:scale-105"
                 />
               </ProjectLink>
@@ -124,7 +127,7 @@ export default async function Projects({ data, lang }) {
               <ProjectLink
                 href={`/${lang}/portfolio/${project[3]?.slug.current}`}
                 imageProps={{
-                  src: urlFor(project[3]?.imgSrc).url(),
+                  src: project[3]?.imgSrc,
                   alt: project[3]?.alt?.[lang],
                   slug: project[3]?.slug.current,
                   lang,
@@ -133,9 +136,10 @@ export default async function Projects({ data, lang }) {
                 }}
               >
                 <Image
-                  src={urlFor(project[3]?.imgSrc).url()}
+                  src={project[3]?.imgSrc}
                   alt={project[3]?.alt?.[lang] || ""}
                   fill
+                  placeholder="blur"
                   className="object-cover absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-out hover:scale-105"
                 />
               </ProjectLink>

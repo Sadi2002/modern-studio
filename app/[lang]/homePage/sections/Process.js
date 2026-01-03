@@ -125,7 +125,7 @@ export default function Process({ data, lang }) {
                   step.imgSrc && (
                     <Image
                       key={step._key ?? index}
-                      src={urlFor(step.imgSrc).url()}
+                      src={step.imgSrc}
                       alt={step?.alt?.[lang] || ""}
                       fill
                       priority={index === 0}

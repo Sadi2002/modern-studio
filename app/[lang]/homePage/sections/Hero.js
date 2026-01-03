@@ -8,15 +8,13 @@ import HeroBackgroundImage from "@/app/components/HeroBackgroundImage";
 import HeroScrollEffects from "@/app/components/HeroScrollEffects";
 
 export default async function Hero({ data, lang }) {
+  console.log(data);
   return (
     <section className="h-[100dvh] sticky top-0 w-full overflow-hidden">
       {/* background image */}
       <div className="absolute inset-0">
         {data.backgroundImage && (
-          <HeroBackgroundImage
-            src={urlFor(data.backgroundImage).url()}
-            alt={data.title}
-          />
+          <HeroBackgroundImage src={data.backgroundImage} alt={data.title} />
         )}
       </div>
 
