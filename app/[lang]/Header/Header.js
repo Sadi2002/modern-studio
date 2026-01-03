@@ -1,4 +1,6 @@
 import Navigation from "./Navigation";
+import { navigationMobileData } from "@/app/data/sectionsData/navigation/mobile/navigationMobileData";
+import { navigationDesktopData } from "@/app/data/sectionsData/navigation/desktop/navigationDesktopData";
 
 import { sanityClient } from "../../../lib/sanity/client";
 import {
@@ -16,7 +18,7 @@ export default async function Header({ lang }) {
     links: navigationData.links?.items || [],
   };
 
-  const navigationMobileData = await sanityClient.fetch(navigationMobileQuery);
+  // const navigationMobileData = await sanityClient.fetch(navigationMobileQuery);
   // const navigationMobile = navigationMobileData;
 
   const navigationMobile = {
@@ -30,7 +32,11 @@ export default async function Header({ lang }) {
 
   return (
     <header className="fixed z-1000 w-full top-0">
-      <Navigation data={navigation} dataMobile={navigationMobile} lang={lang} />
+      <Navigation
+        data={navigationDesktopData}
+        dataMobile={navigationMobileData}
+        lang={lang}
+      />
     </header>
   );
 }

@@ -8,6 +8,7 @@ import { slideInOut } from "../../components/animations/slideInOut";
 import MobileMenuReveal from "@/app/components/MobileMenuReveal";
 
 export default function Navigation({ data, dataMobile, lang }) {
+  console.log(data);
   const isSameRoute = (href) => {
     return href === pathname;
   };
@@ -158,7 +159,7 @@ export default function Navigation({ data, dataMobile, lang }) {
             });
           }}
         >
-          {data.logo}
+          {data.logo.logoLabel}
         </Link>
       </span>
 
@@ -213,7 +214,7 @@ export default function Navigation({ data, dataMobile, lang }) {
             }}
           >
             <MobileMenuReveal isOpen={isOpen} delay={0}>
-              {dataMobile.logo}
+              {dataMobile.logo.logoLabel}
             </MobileMenuReveal>
           </Link>
 
@@ -223,7 +224,7 @@ export default function Navigation({ data, dataMobile, lang }) {
               onClick={toggleMenu}
             >
               <MobileMenuReveal isOpen={isOpen} delay={0}>
-                {dataMobile?.closeIcon}
+                {dataMobile?.closeIcon?.[lang]}
               </MobileMenuReveal>
             </span>
 
@@ -346,7 +347,7 @@ export default function Navigation({ data, dataMobile, lang }) {
             }}
           />
 
-          {dataMobile.links.map((link, index) => (
+          {dataMobile.links.items.map((link, index) => (
             <li key={index} className="relative overflow-hidden">
               {/* 🔹 LINIA POD KAŻDYM LINKIEM */}
               <span
@@ -387,7 +388,7 @@ export default function Navigation({ data, dataMobile, lang }) {
 
         <div className="absolute bottom-[20px] left-0 w-full flex justify-between items-end px-[20px] md:px-[40px]">
           <ul className="flex flex-col text-[14px] gap-[8px] md:text-[16px]">
-            {dataMobile.socialMedia.map((social, index) => (
+            {dataMobile.socialMedia.socials.map((social, index) => (
               <li key={index}>
                 <Link target="_blank" href={social?.url}>
                   <MobileMenuReveal isOpen={isOpen} delay={600}>
@@ -398,7 +399,7 @@ export default function Navigation({ data, dataMobile, lang }) {
             ))}
           </ul>
           <ul className="flex flex-col text-[12px] gap-[8px] text-right md:text-[14px]">
-            {dataMobile.legalLinks.map((legal, index) => {
+            {dataMobile.legalLinks.links.map((legal, index) => {
               const target = `/${lang}/${legal?.href}`;
 
               return (
@@ -437,7 +438,7 @@ export default function Navigation({ data, dataMobile, lang }) {
         <ul
           className={`hidden lg:flex gap-between-navigation-links items-center xl:gap-between-navigation-links-xl ${linkColor} `}
         >
-          {data.links.map((link, index) => (
+          {data.links.items.map((link, index) => (
             <li key={index}>
               <Link
                 onClick={(e) => {
