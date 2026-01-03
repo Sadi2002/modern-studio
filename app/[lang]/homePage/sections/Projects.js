@@ -151,7 +151,7 @@ export default async function Projects({ data, lang }) {
             </div>
           </div>
 
-          <div className="leading-[26px] flex flex-col gap-[40px] items-end lg:gap-[40px] xl:gap-[50px]">
+          <div className="leading-[26px] flex flex-col gap-[40px] items-end lg:gap-[40px] xl:gap-[50px] lg:justift-start md:items-start">
             <FadeInMobile>
               <p className="self-start text-[clamp(14px,3.5vw,18px)] leading-[clamp(20px,10vw,24px)] min-[900px]:max-w-[750px] lg:ml-10 lg:leading-[28px] md:leading-[28px] md:max-w-[600px] font-light-font-weight  xl:max-w-[600px] xl:text-[20px] xl:leading-[34px] 2xl:text-[23px] 2xl:leading-[36px] 2xl:max-w-[800px]">
                 {data?.subtitle?.[lang]}

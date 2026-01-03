@@ -74,9 +74,9 @@ export default function Process({ data, lang }) {
                 }}
               >
                 <span className="flex gap-[10px] items-center text-[clamp(14px,4.3vw,23px)] leading-[clamp(0.75rem,10vw,2rem)]">
-                  <FadeInMobile>
-                    <span className="flex">(0{index + 1})</span>
-                  </FadeInMobile>
+                  {/* <FadeInMobile> */}
+                  <span className="flex">(0{index + 1})</span>
+                  {/* </FadeInMobile> */}
                   <FadeInMobile>{step?.title?.[lang]}</FadeInMobile>
                   {/* <Image
                     width={20}

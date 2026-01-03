@@ -6,7 +6,7 @@ export default function RootLayout({ children }) {
   return (
     <ViewTransitions>
       <html lang="en">
-        <body>
+        <body className="max-w-[1920px] mx-auto">
           <Intro />
           {children}
         </body>

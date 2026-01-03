@@ -46,12 +46,12 @@ export default function BlogList({ posts, postsSection, lang }) {
 
   return (
     <div>
-      <div className="w-full lg:w-[25%] flex flex-col mb-[80px] lg:mb-0 relative lg:absolute lg:top-[150px] 2xl:top-[200px] lg:right-[50px]">
+      <div className="w-full max-w-[600px] lg:w-[25%] flex flex-col mb-[80px] lg:mb-0 relative lg:absolute lg:top-[150px] 2xl:top-[200px] lg:right-[50px]">
         <div className="relative border-b border-[rgb(0,0,0)] pb-[5px]">
           <input
             type="text"
             placeholder={postsSection?.searchPlaceholder?.[lang]}
-            className="w-[90%] focus:outline-none pl-[10px] placeholder:text-[clamp(0.85rem,3.35vw,1rem)] placeholder:leading-[clamp(0.75rem,10vw,1.5rem)]"
+            className="w-[90%] pr-[20px] focus:outline-none pl-[10px] placeholder:text-[clamp(0.85rem,3.35vw,1rem)] placeholder:leading-[clamp(0.75rem,10vw,1.5rem)]"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />

@@ -56,7 +56,7 @@ export default async function Footer({ lang }) {
         className="mx-margin-mobile md:mx-tablet   justify-between  mb-[50px] lg:border-t lg:border-[rgba(255,255,255,0.2)] lg:justify-start lg:gap-x-[50px] lg:pt-[15px] lg:mx-0 lg:mb-[80px]
        xl:justify-between "
       >
-        <div className="flex flex-wrap justify-between min-[436px]:gap-x-[50px] gap-y-[50px] lg:mx-[50px] lg:pt-[40px] lg:max-w-[65%] xl:justify-between 2xl:max-w-[45%]">
+        <div className="flex gap-x-[20px] flex-wrap justify-between min-[436px]:gap-x-[50px] gap-y-[50px] lg:mx-[50px] lg:pt-[40px] lg:max-w-[65%] xl:justify-between 2xl:max-w-[45%]">
           {footer.quickContact.map((contact, index) => (
             <div key={index}>
               <h3 className="text-white text-[clamp(20px,5.5vw,23px)] font-medium mb-[20px]">

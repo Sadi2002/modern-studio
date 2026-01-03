@@ -7,8 +7,8 @@ import ParallaxImage from "@/app/components/ParallaxImage";
 export default function SecondSection({ data, lang }) {
   return (
     <section id="more" className="mb-[80px] xl:mb-[150px]">
-      <div className="flex flex-col gap-[40px] lg:flex-row lg:justify-between">
-        <div className="w-full lg:w-[45%]">
+      <div className="flex flex-col gap-[40px] lg:gap-[0] md:gap-[80px] lg:flex-row lg:justify-between">
+        <div className="w-full lg:w-[50%] xl:w-[45%]">
           <div className="mx-margin-mobile md:mx-tablet lg:mx-desktop 2xl:mx-[50px]">
             <FadeInMobile>
               <h3 className="text-[clamp(23px,5.5vw,36px)] leading-[clamp(32px,10vw,48px)] font-medium-font-weight lg:font-normal mb-[20px] ">
@@ -39,10 +39,10 @@ export default function SecondSection({ data, lang }) {
             />
           </div>
         </div>
-        <div className="lg:pt-[200px] lg:w-[45%]">
+        <div className="lg:pt-[200px] lg:w-[50%] xl:w-[45%]">
           <div className="mx-margin-mobile md:mx-tablet 2xl:mx-[50px]">
             <FadeInMobile>
-              <h3 className="text-[clamp(23px,5.5vw,36px)] leading-[clamp(32px,10vw,32px)] font-medium-font-weight lg:font-normal mb-[20px] ">
+              <h3 className="text-[clamp(23px,5.5vw,36px)] leading-[clamp(32px,10vw,48px)] font-medium-font-weight lg:font-normal mb-[20px] ">
                 {data?.rightBox?.title?.[lang]}
               </h3>
             </FadeInMobile>

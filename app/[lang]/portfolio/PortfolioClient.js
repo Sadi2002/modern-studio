@@ -306,6 +306,7 @@ export default function PortfolioClient({
             <div className="overflow-hidden">
               <div className="relative w-full aspect-[8/6] xl:aspect-[8/5] overflow-hidden">
                 <ProjectLink
+                  ref={(el) => (imageRefs.current[i] = el)}
                   href={`/${lang}/portfolio/${p.slug.current}`}
                   imageProps={{
                     src: urlFor(p.imgSrc).url(),

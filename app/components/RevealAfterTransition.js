@@ -78,7 +78,7 @@ export default function RevealAfterTransition({
   const words = children.trim().split(/\s+/);
 
   return (
-    <span ref={ref} className="inline-block overflow-hidden">
+    <span ref={ref} className="inline-block">
       {words.map((word, index) => (
         <span
           key={index}

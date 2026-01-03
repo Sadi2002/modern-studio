@@ -135,7 +135,7 @@ export default function Navigation({ data, dataMobile, lang }) {
 
   return (
     <nav
-      className={`flex items-center justify-between px-[20px] lg:mx-desktop pt-mobile-navigation-top md:px-[40px] lg:px-0 2xl:mx-desktop lg:pt-desktop-navigation-top transition-transform duration-500 ease-in-out ${
+      className={`max-w-[1920px] m-0 flex items-center justify-between px-[20px] lg:px-[50px] pt-mobile-navigation-top md:px-[40px] lg:px-0 2xl:px-[50px] lg:pt-desktop-navigation-top transition-transform duration-500 ease-in-out ${
         hideNav ? "-translate-y-full" : "translate-y-0"
       }`}
     >
@@ -198,7 +198,7 @@ export default function Navigation({ data, dataMobile, lang }) {
           transition: "opacity 300ms ease, transform 300ms ease",
         }}
       >
-        <div className="flex justify-between items-center pt-mobile-navigation-top px-[20px] md:px-[40px] md:text-logo-font-size">
+        <div className="flex justify-between items-center pt-mobile-navigation-top px-[20px] md:px-[40px] md:text-logo-font-size gap-[10px]">
           <Link
             href={getHomeLink()}
             onClick={(e) => {

@@ -67,7 +67,7 @@ export default async function Post({ params }) {
         <div>
           <div className=" flex flex-col lg:flex-row justify-between lg:items-end mb-[40px] md:mb-[40px] lg:mb-[0px] gap-[20px]">
             <div className=" lg:max-w-[1000px] 2xl:max-w-[1200px]">
-              <h1 className="text-[clamp(23px,7vw,36px)] leading-[clamp(32px,10vw,42px)] font-medium mb-[20px] xl:mb-[20px] max-w-[600px] lg:text-[45px] lg:leading-[55px] lg:max-w-[600px] lg:w-[100%] xl:text-[60px] xl:leading-[75px] xl:max-w-[1100px] 2xl:max-w-[1100px] lg:font-normal 2xl:text-[clamp(60px,4.3vw,5rem)] 2xl:leading-[clamp(60px,5.5vw,6.5rem)] ">
+              <h1 className="text-[clamp(23px,7vw,36px)] leading-[clamp(32px,9vw,42px)] font-medium mb-[20px] xl:mb-[20px] max-w-[600px] lg:text-[45px] lg:leading-[55px] lg:max-w-[600px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] xl:max-w-[1100px] 2xl:max-w-[1100px] lg:font-normal 2xl:text-[clamp(60px,4.3vw,5rem)] 2xl:leading-[clamp(60px,4.5vw,6.5rem)] ">
                 <RevealAfterTransition delay={0} stagger={50}>
                   {blog?.title?.[lang]}
                 </RevealAfterTransition>
@@ -80,7 +80,7 @@ export default async function Post({ params }) {
             </div>
           </div>
           <div className="flex flex-col-reverse lg:flex-col lg:items-end lg:gap-[56px]  mb-[40px] lg:mb-[80px]">
-            <div className="flex justify-between lg:justify-end w-full lg:w-[40%] lg:relative lg:top-[-25px] flex flex-col lg:flex-row lg:items-center gap-[5px] lg:gap-[10px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight">
+            <div className="flex justify-between lg:justify-end w-full lg:w-[40%] lg:relative lg:top-[-25px] flex flex-col lg:items-end gap-[5px] lg:gap-[10px] justify-between mt-[5px] w-full text-[clamp(12px,3.35vw,1rem)] 2xl:text-[18px] font-normal-font-weight lg:flex-col">
               <div className="flex gap-[5px] ">
                 <span className="font-medium-font-weight">
                   <RevealAfterTransition delay={0} stagger={5}>
@@ -112,7 +112,7 @@ export default async function Post({ params }) {
             return (
               <div key={index}>
                 <FadeInMobile>
-                  <h3 className="mb-[20px] text-[clamp(23px,5.5vw,36px)] leading-[clamp(32px,7vw,42px)] md:leading-[clamp(36px,10vw,42px)] max-w-[85%] md:max-w-[75%] font-medium-font-weight lg:font-normal ">
+                  <h3 className="mb-[20px] text-[clamp(23px,5.5vw,30px)] leading-[clamp(32px,7vw,42px)] md:leading-[clamp(36px,10vw,42px)] lg:text-[36px] max-w-[85%] md:max-w-[75%] font-medium-font-weight lg:font-normal ">
                     {content?.title?.[lang]}
                   </h3>
                 </FadeInMobile>
