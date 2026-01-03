@@ -9,12 +9,12 @@ import projekt2 from "../../../../public/projekt2-large.webp";
 import projekt3 from "../../../../public/projekt3-large.webp";
 import projekt4 from "../../../../public/projekt4-large.webp";
 
-import { urlFor } from "../../../../lib/sanity/client";
 import Button from "@/app/components/Button";
 import AnimatedLink from "@/app/components/AnimatedLink";
 import FadeInMobile from "@/app/components/FadeInMobile";
 
 export default function Blog({ data, lang }) {
+  console.log(data);
   if (!data) return null;
 
   const title = data?.title?.[lang] || "Blog";
@@ -27,12 +27,14 @@ export default function Blog({ data, lang }) {
   // w Sanity: posts = array of {post: {...}}
   const posts =
     data.posts?.map((item) => item.post ?? item).filter(Boolean) || [];
+  console.log(posts);
 
   // helper do obrazka z Sanity + fallback
   const getImg = (post, fallback) => {
+    console.log(post);
     if (post?.imgSrc) {
       try {
-        return urlFor(post.imgSrc).url();
+        return post.imgSrc;
       } catch {
         return fallback;
       }

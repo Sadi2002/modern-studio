@@ -37,7 +37,7 @@ export const navigationDesktopData = {
           en: "Blog",
           de: "Blog",
         },
-        href: "/blog",
+        href: "blog",
       },
       {
         label: {
@@ -45,7 +45,7 @@ export const navigationDesktopData = {
           en: "Contact",
           de: "Kontakt",
         },
-        href: "/contact",
+        href: "contact",
       },
     ],
   },

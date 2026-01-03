@@ -1,5 +1,6 @@
 import { sanityClient } from "../../lib/sanity/client";
 import { blogPageQuery, homePageQuery } from "../../lib/sanity/queries";
+import { blogSectionData } from "./sectionsData/homePage/blogSectionData";
 
 export default async function dataBlog() {
   try {
@@ -9,7 +10,7 @@ export default async function dataBlog() {
     ]);
 
     const posts = [
-      ...(homePageData?.blogSection?.posts || []),
+      ...(blogSectionData.posts || []),
       ...(blogPageData?.postsSection?.posts || []),
     ];
 

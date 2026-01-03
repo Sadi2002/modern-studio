@@ -3,6 +3,7 @@ import { blogPageQuery } from "@/lib/sanity/queries";
 import { sanityClient } from "../../../lib/sanity/client";
 import BlogList from "./BlogList";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
+import { blogSectionData } from "@/app/data/sectionsData/homePage/blogSectionData";
 
 export const revalidate = 0;
 
@@ -31,7 +32,7 @@ export default async function Blog({ params }) {
           </p>
         </div>
       </div>
-      <BlogList posts={posts} postsSection={postsSection} lang={lang} />
+      <BlogList posts={posts} postsSection={blogSectionData} lang={lang} />
     </section>
   );
 }

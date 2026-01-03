@@ -32,9 +32,9 @@ export default function BlogList({ posts, postsSection, lang }) {
   const categories = [...new Set(posts.map((p) => p?.category?.[lang]))];
 
   const getImg = (post, fallback) => {
-    if (post?.imgSrc) {
+    if (post?.imgSrc?.src) {
       try {
-        return urlFor(post.imgSrc).url();
+        return post.imgSrc;
       } catch {
         return fallback;
       }

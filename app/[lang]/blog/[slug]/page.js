@@ -13,6 +13,7 @@ import Button from "@/app/components/Button";
 import AnimatedLink from "@/app/components/AnimatedLink";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 import FadeInMobile from "@/app/components/FadeInMobile";
+import { blogSectionData } from "@/app/data/sectionsData/homePage/blogSectionData";
 
 export const revalidate = 0;
 
@@ -31,7 +32,7 @@ export default async function Post({ params }) {
     return [...posts].sort(() => Math.random() - 0.5).slice(0, count);
   }
 
-  const { postsSection } = blogPageData;
+  const { postsSection } = blogSectionData;
 
   console.log(postsSection);
 
@@ -53,7 +54,7 @@ export default async function Post({ params }) {
   const getImg = (post, fallback) => {
     if (post?.imgSrc) {
       try {
-        return urlFor(post.imgSrc).url();
+        return post.imgSrc?.src;
       } catch {
         return fallback;
       }
@@ -99,7 +100,7 @@ export default async function Post({ params }) {
 
             <div className="relative aspect-[16/9] w-full mb-[5px] lg:mb-[0]">
               <Image
-                src={urlFor(blog.imgSrc).url()}
+                src={blog.imgSrc?.src}
                 alt="projekt"
                 fill
                 className="object-cover"
