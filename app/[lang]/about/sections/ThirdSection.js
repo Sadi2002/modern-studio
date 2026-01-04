@@ -16,7 +16,7 @@ export default function ThirdSection({ data, lang }) {
         if (!m) return null;
 
         return {
-          image: m.photo ? urlFor(m.photo).url() : "/person1.png", // fallback gdy brak zdjęcia
+          image: m.photo, // fallback gdy brak zdjęcia
           name: m?.fullName?.[lang],
           role: m?.role?.[lang] || "",
           instagram: m.instagram || null,

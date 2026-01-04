@@ -8,7 +8,7 @@ export default function FourthSection({ data, lang }) {
   return (
     <section className="relative w-full mb-[40px] xl:mb-[80px] px-[20px] md:px-[40px] lg:px-[50px] h-[400px] min-h-[400px] min-[500px]:min-h-[500px] min-[500px]:h-[500px] md:h-[550px] lg:h-[650px]">
       <ParallaxImageWithOverlay
-        src={urlFor(data.image).url()}
+        src={data.image}
         alt="projekt"
         intensity={130}
         overlay="rgba(0,0,0,0.59)"

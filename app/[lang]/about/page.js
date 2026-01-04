@@ -1,11 +1,10 @@
 import dynamic from "next/dynamic";
-
-import { sanityClient } from "../../../lib/sanity/client";
-import { aboutPageQuery } from "@/lib/sanity/queries";
-
 import { welcomeSectionData } from "../../data/sectionsData/aboutPage/welcomeSectionData";
-
-export const revalidate = 0;
+import { moreInformationSectionData } from "@/app/data/sectionsData/aboutPage/moreInformationSectionData";
+import { teamSectionData } from "@/app/data/sectionsData/aboutPage/teamSectionData";
+import { awardsSectionData } from "@/app/data/sectionsData/aboutPage/awardsSectionData";
+import { overviewSectionData } from "@/app/data/sectionsData/aboutPage/overviewSectionData";
+import { buttonSectionData } from "@/app/data/sectionsData/aboutPage/buttonSectionData";
 
 const DynamicFirstSection = dynamic(() => import("./sections/FirstSection"));
 const DynamicSecondSection = dynamic(() => import("./sections/SecondSection"));
@@ -27,15 +26,13 @@ export const metadata = {
 export default async function About({ params }) {
   const { lang } = await params;
 
-  const aboutPageData = await sanityClient.fetch(aboutPageQuery);
-
   const welcomeSection = welcomeSectionData;
+  const moreInformationSection = moreInformationSectionData;
 
-  const { moreInformationSection } = aboutPageData;
-  const { teamSection } = aboutPageData;
-  const { awardsSection } = aboutPageData;
-  const { overviewSection } = aboutPageData;
-  const { buttonSection } = aboutPageData;
+  const teamSection = teamSectionData;
+  const awardsSection = awardsSectionData;
+  const overviewSection = overviewSectionData;
+  const buttonSection = buttonSectionData;
 
   return (
     <>
