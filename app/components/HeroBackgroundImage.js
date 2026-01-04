@@ -28,6 +28,8 @@ export default function HeroBackgroundImage({ src, alt }) {
   useEffect(() => {
     const isDesktop = window.innerWidth >= 1024;
 
+    if (!window.__PERF_READY__) return;
+
     if (!isDesktop) return;
 
     const onScroll = () => {

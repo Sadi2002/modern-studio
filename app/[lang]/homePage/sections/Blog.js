@@ -1,7 +1,5 @@
 "use client";
-
 import Image from "next/image";
-import Link from "next/link";
 import ArrowWhite from "../../../../public/arrow-right-white.png";
 
 import projekt1 from "../../../../public/projekt1-large.webp";
