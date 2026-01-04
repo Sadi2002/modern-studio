@@ -5,10 +5,6 @@ import DataProjects from "../../../data/dataProjects";
 import ProjectLink from "@/app/components/ProjectLink";
 import FadeInMobile from "@/app/components/FadeInMobile";
 
-export async function generateStaticParams() {
-  return [{ lang: "pl" }, { lang: "en" }, { lang: "de" }];
-}
-
 export default function Projects({ data, lang }) {
   const project = DataProjects();
 
