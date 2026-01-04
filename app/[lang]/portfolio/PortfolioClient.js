@@ -4,22 +4,16 @@ export const revalidate = 0;
 import { usePathname } from "next/navigation";
 
 import Image from "next/image";
-import Link from "next/link";
 import {
   useCallback,
   useEffect,
   useLayoutEffect,
-  useMemo,
   useRef,
   useState,
 } from "react";
 
-import dataProjects from "../../data/dataProjects";
 import Button from "../../components/Button";
 import ArrowWhite from "../../../public/arrow-right-white.png";
-
-import { urlFor } from "../../../lib/sanity/client";
-import AnimatedProjectImage from "@/app/components/AnimatedProjectImage";
 
 import ProjectLink from "@/app/components/ProjectLink";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";

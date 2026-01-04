@@ -1,5 +1,3 @@
-export const dynamic = "force-static";
-
 import ArrowWhite from "../../../../public/arrow-right-white.png";
 
 import ProjectGallery from "../../../components/Gallery";
@@ -34,10 +32,8 @@ export default async function Project({ params }) {
 
   const portfolioPageData = projectPageTextsData;
 
-  const { beforeProjectsText } = portfolioPageData;
-  const { detailsLabel } = portfolioPageData;
-  const { button } = portfolioPageData;
-  const { beforePortfolioText } = portfolioPageData;
+  const { beforeProjectsText, detailsLabel, button, beforePortfolioText } =
+    portfolioPageData;
 
   const projects = dataProjects();
 

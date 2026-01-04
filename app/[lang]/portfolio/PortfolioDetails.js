@@ -3,7 +3,6 @@
 import Image from "next/image";
 import arrow from "../../../public/arrow.png";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { useRef } from "react";
 
 export default function PortfolioDetails({ lang, details, detailsLabel }) {

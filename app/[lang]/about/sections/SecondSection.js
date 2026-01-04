@@ -1,6 +1,4 @@
 import Image from "next/image";
-
-import { urlFor } from "../../../../lib/sanity/client";
 import FadeInMobile from "@/app/components/FadeInMobile";
 import ParallaxImage from "@/app/components/ParallaxImage";
 

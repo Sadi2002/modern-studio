@@ -1,19 +1,17 @@
 import Link from "next/link";
-import ArrowWhite from "../../../public/arrow-right-white.png";
-import Button from "../../components/Button";
-import { sanityClient } from "../../../lib/sanity/client";
-import { contactPageQuery } from "@/lib/sanity/queries";
 import ContactForm from "../../components/ContactForm";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
-import FadeInMobile from "@/app/components/FadeInMobile";
+import { contactSectionData } from "@/app/data/sectionsData/contactPage/contactSectionData";
 
-export const revalidate = 0;
+export async function generateStaticParams() {
+  return [{ lang: "pl" }, { lang: "en" }, { lang: "de" }];
+}
 
 export default async function Contact({ params }) {
-  const getParams = await params;
+  const { lang } = await params;
 
-  const lang = getParams.lang;
-  const contactPageData = await sanityClient.fetch(contactPageQuery);
+  const contactPageData = contactSectionData;
+  console.log(contactPageData);
 
   const section = contactPageData?.contactSection || {};
 
@@ -70,16 +68,20 @@ export default async function Contact({ params }) {
       <div className=" lg:bg-black flex lg:pt-[40px] px-[20px] pb-[70px] md:px-[40px] lg:p-0 lg:mt-[100px] lg:h-[100dvh] w-[100% relative lg:ml-auto lg:w-[clamp(30rem,3vw,10rem)] 2xl:w-[clamp(36rem,35vw,50%)]">
         <div className="lg:text-main-white  text-[14px] flex flex-col lg:ml-[40px] xl:ml-[40px] 2xl:ml-[60px] md:text-[18px] space-y-4 lg:absolute bottom-[200px]">
           <span className="mb-[10px]">
-            {additional?.email?.emailLabel?.[lang]}:&nbsp;
-            <Link href={`mailto:${additional?.email?.emailAddress}`}>
-              {additional?.email?.emailAddress}
+            {contactPageData?.additionalInfo?.email?.emailLabel?.[lang]}:&nbsp;
+            <Link
+              href={`mailto:${contactPageData?.additionalInfo?.email?.emailAddress}`}
+            >
+              {email}
             </Link>
           </span>
 
           <span className="mb-[10px]">
-            {additional?.phone?.phoneLabel?.[lang]}:&nbsp;
-            <Link href={`tel:${additional?.phone?.phoneNumber}`}>
-              {additional?.phone?.phoneNumber}
+            {contactPageData?.additionalInfo?.phone?.phoneLabel?.[lang]}:&nbsp;
+            <Link
+              href={`tel:${contactPageData?.additionalInfo?.phone?.phoneNumber}`}
+            >
+              {phone}
             </Link>
           </span>
 

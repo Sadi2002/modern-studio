@@ -1,11 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import projekt2 from "../../../public/projekt2-large.webp";
 import projekt3 from "../../../public/projekt3-large.webp";
 import projekt4 from "../../../public/projekt4-large.webp";
-import { urlFor } from "../../../lib/sanity/client";
 import { useState } from "react";
 import AnimatedLink from "@/app/components/AnimatedLink";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
@@ -31,7 +29,7 @@ export default function BlogList({ posts, postsSection, lang }) {
   const categories = [...new Set(posts.map((p) => p?.category?.[lang]))];
 
   const getImg = (post, fallback) => {
-    if (post?.imgSrc?.src) {
+    if (post?.imgSrc) {
       try {
         return post.imgSrc;
       } catch {

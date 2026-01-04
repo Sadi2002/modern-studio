@@ -1,7 +1,4 @@
-import Image from "next/image";
-import { urlFor } from "../../../../lib/sanity/client";
 import FadeInMobile from "@/app/components/FadeInMobile";
-import ParallaxImage from "@/app/components/ParallaxImage";
 import ParallaxImageWithOverlay from "@/app/components/ParallaxImageWithOverlay";
 
 export default function FourthSection({ data, lang }) {
