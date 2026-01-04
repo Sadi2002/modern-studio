@@ -9,32 +9,6 @@ export default function Intro() {
   const [hideOverlay, setHideOverlay] = useState(false);
 
   useEffect(() => {
-    const disableBFCache = () => {
-      // hack wymagany przez specyfikację
-    };
-
-    window.addEventListener("beforeunload", disableBFCache);
-
-    return () => {
-      window.removeEventListener("beforeunload", disableBFCache);
-    };
-  }, []);
-
-  useEffect(() => {
-    const handlePageShow = (e) => {
-      if (e.persisted) {
-        window.location.reload();
-      }
-    };
-
-    window.addEventListener("pageshow", handlePageShow);
-
-    return () => {
-      window.removeEventListener("pageshow", handlePageShow);
-    };
-  }, []);
-
-  useEffect(() => {
     window.__LAYOUT_LOCKED__ = true;
   }, []);
 
