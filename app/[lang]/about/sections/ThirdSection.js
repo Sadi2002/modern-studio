@@ -5,7 +5,6 @@ import { urlFor } from "../../../../lib/sanity/client";
 import FadeInMobile from "@/app/components/FadeInMobile";
 
 export default function ThirdSection({ data, lang }) {
-  console.log(data);
   // data = teamSection z Sanity
   const membersRaw = data?.members || [];
 

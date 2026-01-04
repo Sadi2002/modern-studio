@@ -2,10 +2,10 @@ import Button from "@/app/components/Button";
 import Image from "next/image";
 import ArrowWhite from "../../../../public/arrow-right-white.png";
 
-import { urlFor } from "../../../../lib/sanity/client";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 
 export default function FirstSection({ data, lang }) {
+  console.log(data);
   return (
     <section className="pt-[100px] md:pt-[150px] xl:pt-[100px] w-full mb-[40px] md:mb-[80px] xl:mb-[150px] relative ">
       <div className="hidden lg:flex justify-center items-center w-[70px] h-[70px] rounded-[500px] bg-black absolute bottom-[30px] left-[50%] translate-x-[-50%] cursor-pointer">
@@ -51,7 +51,7 @@ export default function FirstSection({ data, lang }) {
 
         <div className="relative aspect-[5/6] md:aspect-[6/7] max-w-[80%] w-[80%]  xl:aspect-[5/8]  lg:w-[45%] lg:aspect-[4/5] lg:h-[calc(100dvh-100px)] 2xl:w-[46%]">
           <Image
-            src={urlFor(data.image).url()}
+            src={data.image}
             alt="projekt"
             className="object-cover absolute top-0 left-0 w-full h-full"
             fill

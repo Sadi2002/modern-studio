@@ -45,7 +45,7 @@ export const footerData = {
     {
       title: {
         pl: "Blog",
-        en: "PoBlogrtfolio",
+        en: "Blog",
         de: "Blog",
       },
       url: {
@@ -142,7 +142,7 @@ export const footerData = {
             en: "Instagram",
             de: "Instagram",
           },
-          url: "https://www.instagram.com/sadowskistudio",
+          url: "https://www.instagram.com/sadowski_studio/",
         },
       ],
     },

@@ -3,6 +3,8 @@ import dynamic from "next/dynamic";
 import { sanityClient } from "../../../lib/sanity/client";
 import { aboutPageQuery } from "@/lib/sanity/queries";
 
+import { welcomeSectionData } from "../../data/sectionsData/aboutPage/welcomeSectionData";
+
 export const revalidate = 0;
 
 const DynamicFirstSection = dynamic(() => import("./sections/FirstSection"));
@@ -12,6 +14,10 @@ const DynamicFourthSection = dynamic(() => import("./sections/FourthSection"));
 const DynamicFifthSection = dynamic(() => import("./sections/FifthSection"));
 const DynamicButtonSection = dynamic(() => import("./sections/ButtonSection"));
 
+export async function generateStaticParams() {
+  return [{ lang: "pl" }, { lang: "en" }, { lang: "de" }];
+}
+
 export const metadata = {
   title: "Sadowski Studio - Nowoczesna Architektura i Design",
   description:
@@ -19,12 +25,12 @@ export const metadata = {
 };
 
 export default async function About({ params }) {
-  const getParams = await params;
-  const lang = getParams.lang;
+  const { lang } = await params;
 
   const aboutPageData = await sanityClient.fetch(aboutPageQuery);
 
-  const { welcomeSection } = aboutPageData;
+  const welcomeSection = welcomeSectionData;
+
   const { moreInformationSection } = aboutPageData;
   const { teamSection } = aboutPageData;
   const { awardsSection } = aboutPageData;
