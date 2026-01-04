@@ -70,7 +70,6 @@ export default function HeroBackgroundImage({ src, alt }) {
         fill
         priority
         sizes="100vw"
-        placeholder="blur"
         className={`
     object-cover
     will-change-transform
