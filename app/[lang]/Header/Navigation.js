@@ -140,7 +140,7 @@ export default function Navigation({ data, dataMobile, lang }) {
       }`}
     >
       {/* LOGO */}
-      {/* <span className={`md:text-logo-font-size ${logoColor}`}>
+      <span className={`md:text-logo-font-size ${logoColor}`}>
         <Link
           href={getHomeLink()} // = `/${currentLang}`
           onClick={(e) => {
@@ -159,7 +159,7 @@ export default function Navigation({ data, dataMobile, lang }) {
         >
           {data.logo.logoLabel}
         </Link>
-      </span> */}
+      </span>
 
       {/* MOBILE BURGER */}
       <div className="flex items-center flex-row-reverse gap-[40px] absolute right-0  md:right-[20px]">
