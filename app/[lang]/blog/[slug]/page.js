@@ -47,7 +47,7 @@ export default async function Post({ params }) {
   const getImg = (post, fallback) => {
     if (post?.imgSrc) {
       try {
-        return post.imgSrc?.src;
+        return post?.imgSrc;
       } catch {
         return fallback;
       }
@@ -96,6 +96,7 @@ export default async function Post({ params }) {
                 src={blog.imgSrc.src}
                 alt="projekt"
                 fill
+                priority
                 className="object-cover"
               />
             </div>
@@ -167,6 +168,7 @@ export default async function Post({ params }) {
                     "pokoj"
                   }
                   fill
+                  placeholder="blur"
                   className="object-cover transition-transform duration-500 ease-out hover:scale-105"
                 />
               </div>
@@ -200,6 +202,7 @@ export default async function Post({ params }) {
                     "pokoj"
                   }
                   fill
+                  placeholder="blur"
                   className="object-cover transition-transform duration-500 ease-out hover:scale-105"
                 />
               </div>
@@ -234,6 +237,7 @@ export default async function Post({ params }) {
                     "pokoj"
                   }
                   fill
+                  placeholder="blur"
                   className="object-cover transition-transform duration-500 ease-out hover:scale-105"
                 />
               </div>
