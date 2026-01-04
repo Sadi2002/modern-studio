@@ -73,7 +73,7 @@ export default function Intro() {
   return (
     <div
       className={`
-        fixed inset-0 z-[9999] bg-black
+        fixed inset-0 z-[99999] bg-black
         flex items-center justify-center
         transition-all duration-[1200ms]
         ease-[cubic-bezier(0.75,0.10,0.22,1)]
