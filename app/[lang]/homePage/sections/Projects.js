@@ -5,8 +5,8 @@ import DataProjects from "../../../data/dataProjects";
 import ProjectLink from "@/app/components/ProjectLink";
 import FadeInMobile from "@/app/components/FadeInMobile";
 
-export default async function Projects({ data, lang }) {
-  const project = await DataProjects();
+export default function Projects({ data, lang }) {
+  const project = DataProjects();
 
   return (
     <section className="mx-margin-mobile md:mx-tablet lg:mx-small-laptop mb-[80px] xl:mb-[150px]">

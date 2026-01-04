@@ -1,5 +1,5 @@
-export const revalidate = 0;
-import Image from "next/image";
+export const dynamic = "force-static";
+
 import ArrowWhite from "../../../../public/arrow-right-white.png";
 
 import ProjectGallery from "../../../components/Gallery";
@@ -7,36 +7,39 @@ import PortfolioClient from "../PortfolioClient";
 
 import dataProjects from "../../../data/dataProjects";
 
-import { sanityClient, urlFor } from "../../../../lib/sanity/client";
 import Button from "@/app/components/Button";
 import PortfolioDetails from "../PortfolioDetails";
 import Model from "./Model";
-import { getFile } from "@sanity/asset-utils";
-import { portfolioPageQuery } from "@/lib/sanity/queries";
+
 import HeroImageTransition from "@/app/components/HeroImageTransition";
 import HeroImage from "@/app/components/HeroImage";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 import FadeInMobile from "@/app/components/FadeInMobile";
+import { projectPageTextsData } from "@/app/data/sectionsData/singleProject/projectPageTextsData";
 
 export async function generateStaticParams() {
-  const projects = await dataProjects();
+  const langs = ["pl", "en", "de"];
+  const projects = dataProjects();
 
-  return projects.map((project) => ({ slug: project.slug.current }));
+  return langs.flatMap((lang) =>
+    projects.map((project) => ({
+      lang,
+      slug: project.slug.current,
+    }))
+  );
 }
 
 export default async function Project({ params }) {
-  const getParams = await params;
-  const lang = getParams.lang;
+  const { lang, slug } = await params;
 
-  const portfolioPageData = await sanityClient.fetch(portfolioPageQuery);
+  const portfolioPageData = projectPageTextsData;
 
   const { beforeProjectsText } = portfolioPageData;
   const { detailsLabel } = portfolioPageData;
   const { button } = portfolioPageData;
   const { beforePortfolioText } = portfolioPageData;
 
-  const { slug } = await params;
-  const projects = await dataProjects();
+  const projects = dataProjects();
 
   const project = projects.find((project) => project.slug.current === slug);
 
