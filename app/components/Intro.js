@@ -9,6 +9,22 @@ export default function Intro() {
   const [hideOverlay, setHideOverlay] = useState(false);
 
   useEffect(() => {
+    const handlePageShow = (event) => {
+      if (event.persisted) {
+        // strona wróciła z bfcache → RESET INTRO
+        setPhase("idle");
+        setHideOverlay(false);
+      }
+    };
+
+    window.addEventListener("pageshow", handlePageShow);
+
+    return () => {
+      window.removeEventListener("pageshow", handlePageShow);
+    };
+  }, []);
+
+  useEffect(() => {
     window.__LAYOUT_LOCKED__ = true;
   }, []);
 
