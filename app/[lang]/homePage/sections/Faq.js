@@ -1,6 +1,5 @@
 import FadeInMobile from "@/app/components/FadeInMobile";
 import FaqComponent from "@/app/components/FaqComponent";
-import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 
 export default function Faq({ data, lang }) {
   if (!data) return null;

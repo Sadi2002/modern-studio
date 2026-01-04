@@ -2,20 +2,15 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-
 import ArrowWhite from "../../../../public/arrow-right-white.png";
 import Button from "../../../components/Button";
-import { urlFor } from "../../../../lib/sanity/client";
 import AboutButton from "@/app/components/AboutButton";
-import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 import FadeInMobile from "@/app/components/FadeInMobile";
 
 export default function Process({ data, lang }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeIndexDesktop, setActiveIndexDesktop] = useState(0);
 
-  // data = processSection z Sanity
   const steps = data?.steps || [];
 
   if (!steps.length) {
@@ -74,49 +69,16 @@ export default function Process({ data, lang }) {
                 }}
               >
                 <span className="flex gap-[10px] items-center text-[clamp(14px,4.3vw,23px)] leading-[clamp(0.75rem,10vw,2rem)]">
-                  {/* <FadeInMobile> */}
-                  <span className="flex">(0{index + 1})</span>
-                  {/* </FadeInMobile> */}
+                  <span className="flex">
+                    <FadeInMobile>(0{index + 1})</FadeInMobile>
+                  </span>
                   <FadeInMobile>{step?.title?.[lang]}</FadeInMobile>
-                  {/* <Image
-                    width={20}
-                    height={20}
-                    src="/chev.png"
-                    alt="Arrow Icon"
-                    className="mr-[10px] lg:hidden"
-                  /> */}
                 </span>
-
-                {/* MOBILE: rozwijany opis + obrazek */}
-                {/* <div
-                  className={`lg:hidden ${
-                    activeIndex === index ? "mt-[20px]" : "hidden"
-                  }`}
-                > */}
-                {/* {step.imgSrc && (
-                    <Image
-                      src={urlFor(step.imgSrc).url()}
-                      alt={step?.alt?.[lang] || ""}
-                      width={600}
-                      height={400}
-                      loading="eager"
-                      sizes="100vw"
-                      className={`object-cover w-full max-h-[500px] transition-opacity duration-300
-        ${
-          activeIndex === index
-            ? "opacity-100"
-            : "opacity-0 absolute top-0 left-0"
-        }
-      `}
-                    />
-                  )} */}
-                {/* </div> */}
               </div>
             ))}
           </div>
         </div>
 
-        {/* PRAWY DIV: sticky obraz + opis na desktopie */}
         <div className="hidden lg:flex lg:w-[40%] items-end">
           <div className=" lg:mt-[70px] lg:w-full xl:mt-[100px] 2xl:mt-[130px] ">
             <div className="relative aspect-8/5 mb-[40px] lg:w-[100%] lg:h-[300px] lg:mb-0 2xl:h-[400px] lg:aspect-8/7">

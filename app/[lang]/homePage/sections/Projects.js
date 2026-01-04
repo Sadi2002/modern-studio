@@ -1,15 +1,8 @@
-export const revalidate = 0;
 import Image from "next/image";
 import Button from "../../../components/Button";
 import ArrowWhite from "../../../../public/arrow-right-white.png";
-
 import DataProjects from "../../../data/dataProjects";
-
-import { urlFor } from "../../../../lib/sanity/client";
-
 import ProjectLink from "@/app/components/ProjectLink";
-import RevealAfterTransition from "@/app/components/RevealAfterTransition";
-import RevealImageLiftOnScroll from "@/app/components/RevealImageLiftOnScroll";
 import FadeInMobile from "@/app/components/FadeInMobile";
 
 export default async function Projects({ data, lang }) {

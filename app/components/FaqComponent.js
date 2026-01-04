@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import RevealAfterTransition from "./RevealAfterTransition";
 import FadeInMobile from "./FadeInMobile";
 
 function FaqComponent({ data, lang }) {

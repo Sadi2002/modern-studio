@@ -62,7 +62,6 @@ export default function HeroBackgroundImage({ src, alt }) {
 
   return (
     <div ref={wrapperRef} className="absolute inset-0 will-change-transform">
-      {/* 🔒 ZAWSZE AKTYWNE PRZYCIEMNIENIE */}
       <Image
         src={src}
         alt={alt}

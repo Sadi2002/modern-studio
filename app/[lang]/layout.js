@@ -20,7 +20,6 @@ export default async function RootLayout({ children, params }) {
   return (
     <>
       <Header lang={lang} />
-
       <main className={poppins.className}>
         <SmoothScrollProvider>
           <LenisScrollReset />
@@ -29,7 +28,6 @@ export default async function RootLayout({ children, params }) {
           {children}
         </SmoothScrollProvider>
       </main>
-
       <Footer lang={lang} />
     </>
   );

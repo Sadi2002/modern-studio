@@ -1,4 +1,3 @@
-import { urlFor } from "../../../../lib/sanity/client";
 import AboutButton from "@/app/components/AboutButton";
 import ParallaxImage from "@/app/components/ParallaxImage";
 import FadeInMobile from "@/app/components/FadeInMobile";

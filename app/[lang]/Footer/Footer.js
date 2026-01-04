@@ -1,28 +1,20 @@
 import Image from "next/image";
-import Link from "next/link";
-
-import { sanityClient } from "../../../lib/sanity/client";
-import { footerQuery } from "../../../lib/sanity/queries";
-
-import { urlFor } from "../../../lib/sanity/client";
-
+import { footerData } from "@/app/data/sectionsData/footer/footerData";
 import FooterNavLink from "@/app/components/FooterNavLink";
 import FadeInMobile from "@/app/components/FadeInMobile";
 
 export const revalidate = 0;
 
 export default async function Footer({ lang }) {
-  const footerData = await sanityClient.fetch(footerQuery);
   const footer = footerData;
   console.log(footer);
-
   return (
     <footer className="bg-main-black pb-[30px]">
       <div className="lg:flex ">
         <div className="flex justify-center mb-[5px] lg:w-[100%] lg:pt-0">
           <div className="w-[250px] md:w-[300px] lg:w-[400px] flex items-center">
             <Image
-              src={urlFor(footer.logo).url()}
+              src={footer.logo}
               alt="footer"
               width={400}
               height={300}
@@ -84,7 +76,7 @@ export default async function Footer({ lang }) {
           className="text-[clamp(12px,3.5vw,16px)] text-white"
         />
 
-        <span className="text-[clamp(12px,3.5vw,16px)] leading-[20px]  text-white">
+        <span className="text-[clamp(12px,3.5vw,16px)] leading-[30px] text-white">
           <FadeInMobile>{footer?.copyrightText?.[lang]}</FadeInMobile>
         </span>
       </div>

@@ -276,68 +276,6 @@ export default function Navigation({ data, dataMobile, lang }) {
           pointerEvents: isOpen ? "auto" : "none",
         }}
       >
-        {/* <div className="flex justify-between items-center pt-mobile-navigation-top px-[20px] md:px-[40px] md:text-logo-font-size ">
-          <Link
-            href={getHomeLink()}
-            onClick={(e) => {
-              const target = getHomeLink(); // `/${currentLang}`
-
-              if (pathname === target) {
-                // jesteś już na home → tylko zamknij menu
-                toggleMenu();
-                return;
-              }
-
-              e.preventDefault();
-
-              toggleMenu();
-              router.push(target, { onTransitionReady: slideInOut });
-            }}
-          >
-            {dataMobile.logo}
-          </Link>
-
-          <div className="flex flex-row-reverse gap-[30px]">
-            <span
-              className="uppercase text-[14px] text-white font-medium-font-weight cursor-pointer md:text-[16px]"
-              onClick={toggleMenu}
-            >
-              {dataMobile?.closeIcon}
-            </span>
-            <div className="flex lg:hidden items-center justify-end gap-2 uppercase text-[14px] md:text-[16px] text-white">
-              {availableLangs.map((l, idx) => (
-                <div key={l} className="flex items-center gap-2">
-                  <Link
-                    href={getLangSwitcherLink(l)}
-                    onClick={(e) => {
-                      const target = getLangSwitcherLink(l);
-
-                      if (pathname === target) {
-                        // ten sam język → tylko zamknij menu
-                        toggleMenu();
-                        return;
-                      }
-
-                      e.preventDefault();
-
-                      router.push(target, {
-                        onTransitionReady: () => {
-                          slideInOut();
-                          toggleMenu(); // zamykamy menu po starcie animacji
-                        },
-                      });
-                    }}
-                  >
-                    {l}
-                  </Link>
-
-                  {idx < availableLangs.length - 1 && <span>/</span>}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div> */}
-
         <ul className="relative flex flex-col gap-[5px] absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(20px,6vw,40px)] font-normal-font-weight uppercase max-w-[50%]">
           <span
             className="absolute top-0 left-0 h-[1px] w-full bg-[rgba(255,255,255,0.2)] pointer-events-none"
@@ -408,7 +346,6 @@ export default function Navigation({ data, dataMobile, lang }) {
                   href={target}
                   onClick={(e) => {
                     if (pathname === target) {
-                      // ta sama strona → tylko zamknij menu
                       toggleMenu();
                       return;
                     }
@@ -418,7 +355,7 @@ export default function Navigation({ data, dataMobile, lang }) {
                     router.push(target, {
                       onTransitionReady: () => {
                         slideInOut();
-                        toggleMenu(); // zamykamy menu PO starcie animacji
+                        toggleMenu();
                       },
                     });
                   }}
@@ -481,7 +418,6 @@ export default function Navigation({ data, dataMobile, lang }) {
                   const target = getLangSwitcherLink(l);
 
                   if (pathname === target) {
-                    // klik w aktualny język → brak animacji
                     return;
                   }
 
