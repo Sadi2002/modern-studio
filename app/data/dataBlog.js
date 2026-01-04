@@ -1,22 +1,11 @@
-import { sanityClient } from "../../lib/sanity/client";
-import { blogPageQuery, homePageQuery } from "../../lib/sanity/queries";
 import { blogSectionData } from "./sectionsData/homePage/blogSectionData";
+import { postsSectionData } from "./sectionsData/blogPage/postsSectionData";
 
-export default async function dataBlog() {
-  try {
-    const [homePageData, blogPageData] = await Promise.all([
-      sanityClient.fetch(homePageQuery),
-      sanityClient.fetch(blogPageQuery),
-    ]);
+export default function dataBlog() {
+  const posts = [
+    ...(blogSectionData.posts || []),
+    ...(postsSectionData.posts || []),
+  ];
 
-    const posts = [
-      ...(blogSectionData.posts || []),
-      ...(blogPageData?.postsSection?.posts || []),
-    ];
-
-    return posts;
-  } catch (error) {
-    console.error("Error", error);
-    return [];
-  }
+  return posts;
 }

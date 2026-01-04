@@ -1,19 +1,18 @@
 import dataBlog from "../../data/dataBlog";
-import { blogPageQuery } from "@/lib/sanity/queries";
-import { sanityClient } from "../../../lib/sanity/client";
 import BlogList from "./BlogList";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 import { blogSectionData } from "@/app/data/sectionsData/homePage/blogSectionData";
+import { postsSectionData } from "@/app/data/sectionsData/blogPage/postsSectionData";
 
-export const revalidate = 0;
+export async function generateStaticParams() {
+  return [{ lang: "pl" }, { lang: "en" }, { lang: "de" }];
+}
 
 export default async function Blog({ params }) {
-  const getParams = await params;
-  const lang = getParams.lang;
-  const blogPageData = await sanityClient.fetch(blogPageQuery);
-  const { postsSection } = blogPageData;
+  const { lang } = await params;
+  const postsSection = postsSectionData;
 
-  const posts = await dataBlog();
+  const posts = dataBlog();
 
   return (
     <section className="px-[20px] pt-[100px] md:px-[40px] md:pt-[150px] 2xl:pt-[200px] lg:px-[50px] mb-[80px] xl:mb-[150px] relative">

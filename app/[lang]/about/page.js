@@ -28,7 +28,6 @@ export default async function About({ params }) {
 
   const welcomeSection = welcomeSectionData;
   const moreInformationSection = moreInformationSectionData;
-
   const teamSection = teamSectionData;
   const awardsSection = awardsSectionData;
   const overviewSection = overviewSectionData;

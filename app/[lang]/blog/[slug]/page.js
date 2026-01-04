@@ -1,11 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import ArrowWhite from "../../../../public/arrow-right-white.png";
 import dataBlog from "@/app/data/dataBlog";
-import { sanityClient } from "../../../../lib/sanity/client";
-import { blogPageQuery, blogPostQuery } from "@/lib/sanity/queries";
-import { urlFor } from "../../../../lib/sanity/client";
-import projekt1 from "../../../../public/projekt1-large.webp";
 import projekt2 from "../../../../public/projekt2-large.webp";
 import projekt3 from "../../../../public/projekt3-large.webp";
 import projekt4 from "../../../../public/projekt4-large.webp";
@@ -14,32 +9,36 @@ import AnimatedLink from "@/app/components/AnimatedLink";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 import FadeInMobile from "@/app/components/FadeInMobile";
 import { blogSectionData } from "@/app/data/sectionsData/homePage/blogSectionData";
-
-export const revalidate = 0;
+import { postsSectionData } from "@/app/data/sectionsData/blogPage/postsSectionData";
 
 export async function generateStaticParams() {
-  const posts = await dataBlog();
+  const langs = ["pl", "en", "de"];
+  const posts = dataBlog();
 
-  return posts.map((post) => ({ slug: post.slug.current }));
+  return langs.flatMap((lang) =>
+    posts.map((post) => ({
+      lang,
+      slug: post.slug.current,
+    }))
+  );
 }
 
 export default async function Post({ params }) {
-  const getParams = await params;
-  const lang = getParams.lang;
-  const blogPageData = await sanityClient.fetch(blogPageQuery);
+  const { lang, slug } = await params;
 
   function getRandomPosts(posts, count) {
     return [...posts].sort(() => Math.random() - 0.5).slice(0, count);
   }
 
-  const { postsSection } = blogSectionData;
+  const postsSection = blogSectionData;
 
-  const whatsLanguage = lang === "en" ? "/blog" : `/${lang}/blog`;
+  const postSection = postsSectionData;
+  console.log(postSection);
 
-  const { slug } = await params;
-  const posts = await dataBlog();
+  const posts = dataBlog();
 
   const blog = posts.find((post) => post.slug.current === slug);
+
   const relatedPosts = getRandomPosts(
     posts.filter((post) => post.slug.current !== slug),
     3
@@ -94,7 +93,7 @@ export default async function Post({ params }) {
 
             <div className="relative aspect-[16/9] w-full mb-[5px] lg:mb-[0]">
               <Image
-                src={blog.imgSrc?.src}
+                src={blog.imgSrc.src}
                 alt="projekt"
                 fill
                 className="object-cover"
@@ -128,20 +127,20 @@ export default async function Post({ params }) {
       <div>
         <FadeInMobile>
           <h3 className="text-[clamp(1.5rem,8vw,3rem)] uppercase leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[20px] xl:mb-[40px] max-w-[500px] lg:text-[45px] lg:leading-[45 px] lg:max-w-[500px] lg:w-[100%] xl:text-[60px] xl:leading-[60px] xl:max-w-[600px] 2xl:max-w-[1200px] 2xl:font-normal 2xl:text-[clamp(60px,4.3vw,5rem)] 2xl:leading-[80px] 2xl:w-[850px] uppercase">
-            {postsSection?.seeOtherBlogs?.seeOtherBlogsLabel?.[lang]}
+            {postSection?.seeOtherBlogs?.seeOtherBlogsLabel?.[lang]}
           </h3>
         </FadeInMobile>
         <div className="hidden lg:flex justify-end">
           <FadeInMobile>
             <Button
               arrow={ArrowWhite}
-              linkTo={`/${lang}/${postsSection?.seeOtherBlogs?.button?.seeOtherBlogsButtonLink}`}
+              linkTo={`/${lang}/${postSection?.seeOtherBlogs?.button?.seeOtherBlogsButtonLink}`}
               bgColor="main-black"
               textColor="main-white"
               additionalStyles="ml-auto mr-0 mb-[40px] md:max-h-[50px] self-end"
             >
               {
-                postsSection?.seeOtherBlogs?.button?.seeOtherBlogsButtonLabel?.[
+                postSection?.seeOtherBlogs?.button?.seeOtherBlogsButtonLabel?.[
                   lang
                 ]
               }
