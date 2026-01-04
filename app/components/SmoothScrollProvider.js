@@ -8,7 +8,6 @@ export default function SmoothScrollProvider({ children }) {
   const rafRef = useRef(null);
   const [enabled, setEnabled] = useState(false);
 
-  // ⛔ NIE BLOKUJ scrolla przed LCP
   useEffect(() => {
     if (!enabled) return;
 
