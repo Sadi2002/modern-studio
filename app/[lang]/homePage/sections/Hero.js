@@ -1,40 +1,31 @@
 import arrow from "../../../../public/arrow.png";
 import Button from "@/app/components/Button";
-
-import { urlFor } from "../../../../lib/sanity/client";
-import RevealAfterTransition from "@/app/components/RevealAfterTransition";
-
 import HeroBackgroundImage from "@/app/components/HeroBackgroundImage";
 import HeroScrollEffects from "@/app/components/HeroScrollEffects";
+import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 
 export default async function Hero({ data, lang }) {
   console.log(data);
   return (
     <section className="h-[100dvh] sticky top-0 w-full overflow-hidden">
-      {/* background image */}
       <div className="absolute inset-0">
         {data.backgroundImage && (
           <HeroBackgroundImage src={data.backgroundImage} alt={data.title} />
         )}
       </div>
-
-      {/* <div className="absolute inset-0 z-0 will-change-transform bg-[rgba(0,0,0,0.30)]" /> */}
-
       <HeroScrollEffects>
         <div className="mx-margin-mobile flex flex-col h-full relative md:mx-tablet lg:mx-small-laptop 2xl:mx-desktop">
           <div className="flex flex-col md:items-start absolute bottom-[120px] w-full xl:bottom-[120px] z-20 2xl:bottom-[150px]">
-            <h1 className="text-main-white text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[20px] lg:text-[70px] lg:mb-[20px] lg:leading-[70px] xl:text-[100px] xl:font-normal-font-weight xl:leading-[100px] uppercase 2xl:leading-[110px] 2xl:text-[110px] max-w-[530px] lg:max-w-[800px] xl:max-w-[1100px] 2xl:max-w-[1200px]">
+            <h1 className="hero-reveal text-main-white text-[clamp(1.5rem,8vw,3rem)] leading-[clamp(2.2rem,10vw,3.5rem)] font-medium mb-[20px] lg:text-[70px] lg:mb-[20px] lg:leading-[70px] xl:text-[100px] xl:font-normal-font-weight xl:leading-[100px] uppercase 2xl:leading-[110px] 2xl:text-[110px] max-w-[530px] lg:max-w-[800px] xl:max-w-[1100px] 2xl:max-w-[1200px]">
               {/* <RevealAfterTransition delay={0} stagger={50}> */}
               {data?.title?.[lang] || "Default title."}
               {/* </RevealAfterTransition> */}
             </h1>
-
-            <p className="text-main-white font-light-font-weight mb-[40px] text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] max-w-[300px] lg:max-w-[450px] min-[420px]:max-w-[400px] xl:max-w-[600px] xl:mb-[70px]">
+            <p className="hero-reveal text-main-white font-light-font-weight mb-[40px] text-[clamp(12px,3.35vw,1rem)] leading-[clamp(0.75rem,10vw,1.5rem)] max-w-[300px] lg:max-w-[450px] min-[420px]:max-w-[400px] xl:max-w-[600px] xl:mb-[70px]">
               {/* <RevealAfterTransition delay={0} stagger={5}> */}
               {data?.subtitle?.[lang] || ""}
               {/* </RevealAfterTransition> */}
             </p>
-
             <Button
               arrow={arrow}
               linkTo={`#${data?.button?.buttonLink}`}
@@ -47,7 +38,6 @@ export default async function Hero({ data, lang }) {
           </div>
         </div>
       </HeroScrollEffects>
-
       <span className="absolute bottom-5 left-0 mx-margin-mobile font-normal-font-weight text-[#c6c6c6] text-[10px] md:mx-tablet md:bottom-[50px] md:left-auto md:right-0 md:text-[14px] opacity-[64%] 2xl:mx-desktop">
         ({data?.scrollDown?.[lang] || "Scroll down"})
       </span>

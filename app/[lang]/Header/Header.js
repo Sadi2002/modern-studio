@@ -4,7 +4,7 @@ import { navigationDesktopData } from "@/app/data/sectionsData/navigation/deskto
 
 export default function Header({ lang }) {
   return (
-    <header className="fixed top-0 w-full z-50 h-[80px]">
+    <header className="fixed top-0 w-full z-9999 h-[80px]">
       <Navigation
         data={navigationDesktopData}
         dataMobile={navigationMobileData}
