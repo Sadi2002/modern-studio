@@ -3,11 +3,8 @@ import { footerData } from "@/app/data/sectionsData/footer/footerData";
 import FooterNavLink from "@/app/components/FooterNavLink";
 import FadeInMobile from "@/app/components/FadeInMobile";
 
-export const revalidate = 0;
-
-export default async function Footer({ lang }) {
+export default function Footer({ lang }) {
   const footer = footerData;
-  console.log(footer);
   return (
     <footer className="bg-main-black pb-[30px]">
       <div className="lg:flex ">
