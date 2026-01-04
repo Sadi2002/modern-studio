@@ -8,7 +8,6 @@ import { slideInOut } from "../../components/animations/slideInOut";
 import MobileMenuReveal from "@/app/components/MobileMenuReveal";
 
 export default function Navigation({ data, dataMobile, lang }) {
-  console.log(data);
   const isSameRoute = (href) => {
     return href === pathname;
   };
@@ -141,14 +140,13 @@ export default function Navigation({ data, dataMobile, lang }) {
       }`}
     >
       {/* LOGO */}
-      <span className={`md:text-logo-font-size ${logoColor}`}>
+      {/* <span className={`md:text-logo-font-size ${logoColor}`}>
         <Link
           href={getHomeLink()} // = `/${currentLang}`
           onClick={(e) => {
             const target = getHomeLink(); // `/${currentLang}`
 
             if (pathname === target) {
-              // jesteś już na home → nie odpalaj animacji
               return;
             }
 
@@ -161,7 +159,7 @@ export default function Navigation({ data, dataMobile, lang }) {
         >
           {data.logo.logoLabel}
         </Link>
-      </span>
+      </span> */}
 
       {/* MOBILE BURGER */}
       <div className="flex items-center flex-row-reverse gap-[40px] absolute right-0  md:right-[20px]">
