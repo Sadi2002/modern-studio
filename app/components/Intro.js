@@ -9,11 +9,21 @@ export default function Intro() {
   const [hideOverlay, setHideOverlay] = useState(false);
 
   useEffect(() => {
-    const handlePageShow = (event) => {
-      if (event.persisted) {
-        // strona wróciła z bfcache → RESET INTRO
-        setPhase("idle");
-        setHideOverlay(false);
+    const disableBFCache = () => {
+      // hack wymagany przez specyfikację
+    };
+
+    window.addEventListener("beforeunload", disableBFCache);
+
+    return () => {
+      window.removeEventListener("beforeunload", disableBFCache);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handlePageShow = (e) => {
+      if (e.persisted) {
+        window.location.reload();
       }
     };
 
