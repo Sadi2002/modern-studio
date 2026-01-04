@@ -12,7 +12,7 @@ import Footer from "./Footer/Footer";
 import LenisScrollReset from "../components/LenisScrollReset";
 import HistoryTransitionHandler from "../hooks/HistoryTransitionHandler";
 import LenisAfterTransitionFix from "../components/LenisAfterTransitionFix";
-import LazySmoothScroll from "../components/LazySmoothScroll";
+import SmoothScrollProvider from "../components/SmoothScrollProvider";
 
 export default async function RootLayout({ children, params }) {
   const getParams = await params;
@@ -22,12 +22,12 @@ export default async function RootLayout({ children, params }) {
     <>
       <Header lang={lang} />
       <main className={poppins.className}>
-        <LazySmoothScroll>
+        <SmoothScrollProvider>
           <LenisScrollReset />
           <HistoryTransitionHandler />
           <LenisAfterTransitionFix />
           {children}
-        </LazySmoothScroll>
+        </SmoothScrollProvider>
       </main>
       <Footer lang={lang} />
     </>
