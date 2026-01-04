@@ -24,7 +24,6 @@ const exitFullscreen = () => {
 };
 
 export default function Model({ imgSrc, modelUrl }) {
-  console.log(modelUrl);
   const [show3D, setShow3D] = useState(false);
   const [loading, setLoading] = useState(false);
   const [fullscreen, setFullscreen] = useState(false);

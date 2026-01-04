@@ -12,7 +12,6 @@ import AnimatedLink from "@/app/components/AnimatedLink";
 import FadeInMobile from "@/app/components/FadeInMobile";
 
 export default function Blog({ data, lang }) {
-  console.log(data);
   if (!data) return null;
 
   const title = data?.title?.[lang] || "Blog";
@@ -25,11 +24,9 @@ export default function Blog({ data, lang }) {
   // w Sanity: posts = array of {post: {...}}
   const posts =
     data.posts?.map((item) => item.post ?? item).filter(Boolean) || [];
-  console.log(posts);
 
   // helper do obrazka z Sanity + fallback
   const getImg = (post, fallback) => {
-    console.log(post);
     if (post?.imgSrc) {
       try {
         return post.imgSrc;

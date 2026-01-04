@@ -11,7 +11,6 @@ export default async function page({ params }) {
   const policyPageData = await sanityClient.fetch(policyQuery);
 
   const { policySection } = policyPageData;
-  console.log(policySection);
 
   return (
     <section className="pt-[100px] md:pt-[150px] mx-margin-mobile md:mx-tablet lg:ml-[50px] 2xl:mx-[50px] mb-[80px] xl:mb-[150px]">

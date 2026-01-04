@@ -37,13 +37,10 @@ export default async function Project({ params }) {
 
   const { slug } = await params;
   const projects = await dataProjects();
-  console.log(projects);
 
   const project = projects.find((project) => project.slug.current === slug);
 
   const relatedProjects = projects.filter((p) => p.slug.current !== slug);
-
-  console.log(project);
 
   const collaborators = project?.collaborators || [];
 

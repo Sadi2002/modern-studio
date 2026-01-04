@@ -19,7 +19,6 @@ export default async function Portfolio({ params }) {
 
   const { beforeProjectsText, viewDetails, button, beforePortfolioText } =
     portfolioPageData;
-  console.log(portfolioPageData);
 
   return (
     <PortfolioClient

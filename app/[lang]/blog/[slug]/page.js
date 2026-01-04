@@ -34,16 +34,10 @@ export default async function Post({ params }) {
 
   const { postsSection } = blogSectionData;
 
-  console.log(postsSection);
-
   const whatsLanguage = lang === "en" ? "/blog" : `/${lang}/blog`;
-
-  console.log(lang);
 
   const { slug } = await params;
   const posts = await dataBlog();
-
-  console.log(posts);
 
   const blog = posts.find((post) => post.slug.current === slug);
   const relatedPosts = getRandomPosts(

@@ -5,7 +5,6 @@ import ArrowWhite from "../../../public/arrow-right-white.png";
 import { urlFor } from "../../../lib/sanity/client";
 
 export default function Delivers({ data, lang }) {
-  console.log(data);
   return (
     <section className="lg:border-t lg:border-[rgba(0,0,0,0.2)] pt-[40px] lg:pt-[100px] w-screen mb-[80px] md:mb-[80px] lg:mb-[80px] xl:mb-[150px] xl:pt-[150px] relative flex justify-between">
       <div className="w-full lg:flex lg:justify-between lg:items-center lg:w-[65%]">

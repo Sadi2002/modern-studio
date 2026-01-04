@@ -26,7 +26,6 @@ function useIsMobile() {
 function ModelContent({ modelUrl, setLoading }) {
   const ref = useRef();
 
-  console.log(modelUrl);
   const gltf = useGLTF(modelUrl);
   const { isMobile } = useIsMobile();
   const scale = isMobile ? 1 : 1;

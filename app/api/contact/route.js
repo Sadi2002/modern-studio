@@ -32,7 +32,6 @@ export async function POST(req) {
 
     return new Response(null, { status: 200 });
   } catch (error) {
-    console.error(error);
     return new Response(JSON.stringify({ error: "EMAIL_SEND_FAILED" }), {
       status: 500,
     });

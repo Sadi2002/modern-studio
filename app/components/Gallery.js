@@ -23,7 +23,6 @@ function buildLayout(gallery) {
 }
 
 export default function ProjectGallery({ gallery }) {
-  console.log(gallery);
   const layout = useMemo(() => {
     if (!gallery || gallery.length === 0) return [];
     return buildLayout(gallery);
@@ -35,7 +34,6 @@ export default function ProjectGallery({ gallery }) {
     if (block.type === "one") {
       const big = gallery[block.index];
       if (!big) return null;
-      console.log(big);
 
       return (
         <FadeInOnView key={`gallery-${idx}`}>

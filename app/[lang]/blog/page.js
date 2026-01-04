@@ -12,9 +12,8 @@ export default async function Blog({ params }) {
   const lang = getParams.lang;
   const blogPageData = await sanityClient.fetch(blogPageQuery);
   const { postsSection } = blogPageData;
-  console.log(postsSection);
+
   const posts = await dataBlog();
-  console.log(posts);
 
   return (
     <section className="px-[20px] pt-[100px] md:px-[40px] md:pt-[150px] 2xl:pt-[200px] lg:px-[50px] mb-[80px] xl:mb-[150px] relative">

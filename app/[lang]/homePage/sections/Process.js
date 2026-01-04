@@ -14,7 +14,6 @@ export default function Process({ data, lang }) {
   const steps = data?.steps || [];
 
   if (!steps.length) {
-    console.log("Process: brak steps w data", data);
     return null;
   }
 

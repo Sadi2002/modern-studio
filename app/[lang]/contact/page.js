@@ -11,15 +11,11 @@ export const revalidate = 0;
 
 export default async function Contact({ params }) {
   const getParams = await params;
-  console.log(getParams);
+
   const lang = getParams.lang;
   const contactPageData = await sanityClient.fetch(contactPageQuery);
 
-  console.log(contactPageData);
-
   const section = contactPageData?.contactSection || {};
-
-  console.log(section);
 
   const title = section?.title?.[lang] || "Let’s create the unforgettable";
   const description =
@@ -46,8 +42,6 @@ export default async function Contact({ params }) {
   const phone = additional.phone || "+48 414 512 859";
   const facebookLabel = additional.facebookLabel || "Facebook";
   const facebookUrl = additional.facebookUrl || "https://google.com";
-
-  console.log(additional);
 
   return (
     <section className="flex flex-col gap-[40px] lg:gap-0 lg:flex-row w-full lg:items-center lg:mt-[100px] lg:h-[calc(100dvh-100px)]">

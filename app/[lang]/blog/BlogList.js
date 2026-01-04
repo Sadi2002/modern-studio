@@ -11,7 +11,6 @@ import AnimatedLink from "@/app/components/AnimatedLink";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 
 export default function BlogList({ posts, postsSection, lang }) {
-  console.log(postsSection);
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(null);
 
