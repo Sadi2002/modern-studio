@@ -48,12 +48,6 @@ export default function SecondSection({ data, lang }) {
             </div>
           </div>
           <div className="relative aspect-[6/4] 2xl:aspect-[7/4]">
-            <Image
-              src={data.rightBox.image}
-              alt={data?.rightBox?.alt?.[lang] || "projekt"}
-              className="object-cover absolute top-0 left-0 w-full h-full  px-[20px] md:px-[40px] 2xl:px-[50px]"
-              fill
-            />
             <ParallaxImage
               src={data.rightBox.image}
               alt={data?.rightBox?.alt?.[lang] || "projekt"}

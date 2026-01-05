@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import FadeInMobile from "./FadeInMobile";
+import chev from "../../public/chev.png";
 
 function FaqComponent({ data, lang }) {
   const items = (data?.items || [])
@@ -42,7 +43,8 @@ function FaqComponent({ data, lang }) {
               <Image
                 width={20}
                 height={20}
-                src="/chev.png"
+                placeholder="blur"
+                src={chev}
                 alt="Arrow Icon"
                 className={`mr-[10px] transition-transform duration-300 ${
                   isOpen ? "rotate-180" : ""

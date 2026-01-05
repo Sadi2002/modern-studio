@@ -56,7 +56,12 @@ export default function HoverCursor({ arrow }) {
         opacity: visible ? 1 : 0,
       }}
     >
-      <Image src={arrow} alt="arrow" className="w-[20px] h-[20px]" />
+      <Image
+        src={arrow}
+        alt="arrow"
+        className="w-[20px] h-[20px]"
+        placeholder="blur"
+      />
     </div>
   );
 }

@@ -77,6 +77,7 @@ export default function Blog({ data, lang }) {
                   posts[0]?.alt?.[lang] || posts[0]?.title?.[lang] || "pokoj"
                 }
                 fill
+                placeholder="blur"
                 className="object-cover transition-transform duration-500 ease-out hover:scale-105"
               />
             </div>
@@ -102,6 +103,7 @@ export default function Blog({ data, lang }) {
                   posts[1]?.alt?.[lang] || posts[1]?.title?.[lang] || "pokoj"
                 }
                 fill
+                placeholder="blur"
                 className="object-cover transition-transform duration-500 ease-out hover:scale-105"
               />
             </div>
@@ -128,6 +130,7 @@ export default function Blog({ data, lang }) {
                   posts[2]?.alt?.[lang] || posts[2]?.title?.[lang] || "pokoj"
                 }
                 fill
+                placeholder="blur"
                 className="object-cover transition-transform duration-500 ease-out hover:scale-105"
               />
             </div>

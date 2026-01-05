@@ -7,11 +7,13 @@ import projekt4 from "../../../public/projekt4-large.webp";
 import { useState } from "react";
 import AnimatedLink from "@/app/components/AnimatedLink";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
+import lupka from "../../../public/lupka.png";
 
 export default function BlogList({ posts, postsSection, lang }) {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(null);
 
+  console.log(postsSection);
   // sprawdza tytuł + kategorię
   const match = (post) => {
     if (!post) return false;
@@ -56,8 +58,9 @@ export default function BlogList({ posts, postsSection, lang }) {
           <Image
             width={24}
             height={24}
-            src="/lupka.png"
+            src={lupka}
             alt="Lupka"
+            placeholder="blur"
             className="object-cover absolute top-[40%] right-[15px] translate-y-[-50%]"
           />
         </div>

@@ -80,6 +80,7 @@ export default function Model({ imgSrc, modelUrl }) {
         src={imgSrc || "/placeholder.jpg"}
         alt="pokój"
         fill
+        placeholder="blur"
         className={`object-cover transition-opacity duration-500 z-10 ${
           show3D && !loading ? "opacity-0" : "opacity-100"
         }`}

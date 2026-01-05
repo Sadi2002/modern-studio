@@ -30,7 +30,7 @@ export default async function Blog({ params }) {
           </p>
         </div>
       </div>
-      <BlogList posts={posts} postsSection={blogSectionData} lang={lang} />
+      <BlogList posts={posts} postsSection={postsSection} lang={lang} />
     </section>
   );
 }

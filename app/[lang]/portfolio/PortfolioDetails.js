@@ -95,6 +95,7 @@ export default function PortfolioDetails({ lang, details, detailsLabel }) {
             src={arrow}
             alt="Arrow Icon"
             className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] relative top-[0.5px]"
+            placeholder="blur"
           />
         </button>
       </div>

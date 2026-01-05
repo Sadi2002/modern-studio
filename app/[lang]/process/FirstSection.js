@@ -13,6 +13,7 @@ export default function FirstSection({ data, lang }) {
           width={45}
           height={45}
           className="rotate-35"
+          placeholder="blur"
         />
       </div>
       <div className="lg:flex lg:justify-between lg:items-center">

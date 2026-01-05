@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import linkedInIcon from "../../public/linkedIn.png";
+import instagramIcon from "../../public/instagram.png";
 
 export default function TeamMember({
   image,
@@ -37,22 +39,24 @@ export default function TeamMember({
           {instagram && (
             <Link target="_blank" href={instagram}>
               <Image
-                src="/instagram.png"
+                src={instagramIcon}
                 alt={`Instagram of ${name}`}
                 width={20}
                 height={20}
                 className="object-cover"
+                placeholder="blur"
               />
             </Link>
           )}
           {linkedin && (
             <Link target="_blank" href={linkedin}>
               <Image
-                src="/linkedIn.png"
+                src={linkedInIcon}
                 alt={`LinkedIn of ${name}`}
                 width={20}
                 height={20}
                 className="object-cover"
+                placeholder="blur"
               />
             </Link>
           )}

@@ -141,7 +141,12 @@ export default function AnimatedPostHover({ children }) {
             transform: hovered ? "scale(1)" : "scale(0)",
           }}
         >
-          <Image src={ArrowWhite} alt="arrow" className="w-[40px] h-[40px]" />
+          <Image
+            src={ArrowWhite}
+            alt="arrow"
+            className="w-[40px] h-[40px]"
+            placeholder="blur"
+          />
         </div>
 
         {/* TEKST */}
