@@ -274,7 +274,7 @@ export default function Navigation({ data, dataMobile, lang }) {
           pointerEvents: isOpen ? "auto" : "none",
         }}
       >
-        <ul className="relative flex flex-col gap-[5px] absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(20px,6vw,40px)] font-normal-font-weight uppercase max-w-[50%]">
+        <div className="relative flex flex-col gap-[5px] absolute top-[50%] left-0 transform -translate-y-1/2 w-full text-[clamp(20px,6vw,40px)] font-normal-font-weight uppercase max-w-[50%]">
           <span
             className="absolute top-0 left-0 h-[1px] w-full bg-[rgba(255,255,255,0.2)] pointer-events-none"
             style={{
@@ -320,7 +320,7 @@ export default function Navigation({ data, dataMobile, lang }) {
               </Link>
             </li>
           ))}
-        </ul>
+        </div>
 
         <div className="absolute bottom-[20px] left-0 w-full flex justify-between items-end px-[20px] md:px-[40px]">
           <ul className="flex flex-col text-[14px] gap-[8px] md:text-[16px]">
@@ -334,7 +334,7 @@ export default function Navigation({ data, dataMobile, lang }) {
               </li>
             ))}
           </ul>
-          <ul className="flex flex-col text-[12px] gap-[8px] text-right md:text-[14px]">
+          <span className="flex flex-col text-[12px] gap-[8px] text-right md:text-[14px]">
             {dataMobile.legalLinks.links.map((legal, index) => {
               const target = `/${lang}/${legal?.href}`;
 
@@ -364,7 +364,7 @@ export default function Navigation({ data, dataMobile, lang }) {
                 </Link>
               );
             })}
-          </ul>
+          </span>
         </div>
       </div>
 
