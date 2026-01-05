@@ -2,7 +2,6 @@ import Button from "@/app/components/Button";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 import Image from "next/image";
 import ArrowWhite from "../../../public/arrow-right-white.png";
-import { urlFor } from "../../../lib/sanity/client";
 
 export default function Delivers({ data, lang }) {
   return (
