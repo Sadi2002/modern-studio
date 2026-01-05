@@ -23,7 +23,7 @@ export const deliversSectionData = {
     buttonLink: "contact",
   },
 
-  imageSmall: deliversImageSmall,
+  imageSmall: deliversImageLarge,
 
   altSmallImg: {
     pl: "Detal architektoniczny",
@@ -31,7 +31,7 @@ export const deliversSectionData = {
     de: "Architektonisches Detail",
   },
 
-  imageLarge: deliversImageLarge,
+  imageLarge: deliversImageSmall,
 
   altLargeImg: {
     pl: "Nowoczesny projekt architektoniczny",
