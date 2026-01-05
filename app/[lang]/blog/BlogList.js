@@ -104,6 +104,7 @@ export default function BlogList({ posts, postsSection, lang }) {
                   posts[0]?.alt?.[lang] || posts[0]?.title?.[lang] || "pokoj"
                 }
                 fill
+                placeholder="blur"
                 className="object-cover transition-transform duration-500 ease-out hover:scale-105"
                 sizes="(min-width: 1024px) 23vw, 80vw"
               />
@@ -133,6 +134,7 @@ export default function BlogList({ posts, postsSection, lang }) {
                   posts[1]?.alt?.[lang] || posts[1]?.title?.[lang] || "pokoj"
                 }
                 fill
+                placeholder="blur"
                 className="object-cover transition-transform duration-500 ease-out hover:scale-105"
                 sizes="(min-width: 1024px) 23vw, 80vw"
               />
@@ -163,6 +165,7 @@ export default function BlogList({ posts, postsSection, lang }) {
                   posts[2]?.alt?.[lang] || posts[2]?.title?.[lang] || "pokoj"
                 }
                 fill
+                placeholder="blur"
                 className="object-cover transition-transform duration-500 ease-out hover:scale-105"
                 sizes="(min-width: 1024px) 23vw, 80vw"
               />
@@ -191,6 +194,7 @@ export default function BlogList({ posts, postsSection, lang }) {
                 src={posts[3] ? getImg(posts[3], projekt4) : projekt4}
                 alt={posts[3]?.alt?.[lang] || "post image"}
                 fill
+                placeholder="blur"
                 className="object-cover transition-transform duration-500 ease-out hover:scale-105"
                 sizes="(min-width: 1024px) 23vw, 80vw"
               />
@@ -219,6 +223,7 @@ export default function BlogList({ posts, postsSection, lang }) {
                 src={posts[4] ? getImg(posts[4], projekt4) : projekt4}
                 alt={posts[4]?.alt?.[lang] || "post image"}
                 fill
+                placeholder="blur"
                 className="object-cover transition-transform duration-500 ease-out hover:scale-105"
                 sizes="(min-width: 1024px) 23vw, 80vw"
               />
@@ -247,6 +252,7 @@ export default function BlogList({ posts, postsSection, lang }) {
                 src={posts[5] ? getImg(posts[5], projekt4) : projekt4}
                 alt={posts[5]?.alt?.[lang] || "post image"}
                 fill
+                placeholder="blur"
                 className="object-cover transition-transform duration-500 ease-out hover:scale-105"
                 sizes="(min-width: 1024px) 23vw, 80vw"
               />
@@ -275,6 +281,7 @@ export default function BlogList({ posts, postsSection, lang }) {
                 src={posts[6] ? getImg(posts[6], projekt4) : projekt4}
                 alt={posts[6]?.alt?.[lang] || "post image"}
                 fill
+                placeholder="blur"
                 className="object-cover transition-transform duration-500 ease-out hover:scale-105"
                 sizes="(min-width: 1024px) 23vw, 80vw"
               />

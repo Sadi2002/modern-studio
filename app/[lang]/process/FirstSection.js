@@ -48,7 +48,7 @@ export default function FirstSection({ data, lang }) {
             className="object-cover absolute
                 top-0 left-0 w-full h-full"
             fill
-            priority
+            placeholder="blur"
           />
         </div>
       </div>

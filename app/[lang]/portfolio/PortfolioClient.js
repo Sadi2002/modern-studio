@@ -315,6 +315,7 @@ export default function PortfolioClient({
                     src={p.imgSrc}
                     alt={p?.title?.[lang]}
                     fill
+                    placeholder="blur"
                     className="object-cover absolute inset-0 transition-transform duration-500 ease-out hover:scale-105"
                   />
                 </ProjectLink>

@@ -23,6 +23,7 @@ function buildLayout(gallery) {
 }
 
 export default function ProjectGallery({ gallery }) {
+  console.log(gallery);
   const layout = useMemo(() => {
     if (!gallery || gallery.length === 0) return [];
     return buildLayout(gallery);
@@ -43,10 +44,11 @@ export default function ProjectGallery({ gallery }) {
           >
             <div className="relative w-full overflow-hidden aspect-[8/6] lg:aspect-[6/3]">
               <Image
-                src={big?.image?.src}
+                src={big?.image}
                 alt={big?.image?.alt || "Gallery image"}
                 fill
                 className="object-cover"
+                placeholder="blur"
               />
             </div>
           </div>
@@ -71,10 +73,11 @@ export default function ProjectGallery({ gallery }) {
                   className="relative overflow-hidden aspect-[8/9] lg:aspect-[6/6]"
                 >
                   <Image
-                    src={img?.image?.src}
+                    src={img?.image}
                     alt={img?.image?.alt || "Gallery image"}
                     fill
                     className="object-cover"
+                    placeholder="blur"
                   />
                 </div>
               )

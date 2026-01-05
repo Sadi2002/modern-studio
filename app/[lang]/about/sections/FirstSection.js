@@ -55,8 +55,7 @@ export default function FirstSection({ data, lang }) {
             alt="projekt"
             className="object-cover absolute top-0 left-0 w-full h-full"
             fill
-            priority
-            fetchPriority="high"
+            placeholder="blur"
           />
         </div>
       </div>

@@ -25,7 +25,13 @@ export default function ProcessPanel({ index, title, description, image }) {
         </div>
       </div>
       <div className="relative aspect-[6/4] md:aspect-[5/3] max-w-[100%] md:max-w-[80%] w-[100%] lg:aspect-[7/4]">
-        <Image src={image} alt={title} fill className="object-cover" />
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover"
+          placeholder="blur"
+        />
       </div>
     </div>
   );

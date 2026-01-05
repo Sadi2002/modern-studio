@@ -15,6 +15,7 @@ export default function Footer({ lang }) {
               alt="footer"
               width={400}
               height={300}
+              placeholder="blur"
               sizes="(max-width: 640px) 120px,
              (max-width: 768px) 160px,
              (max-width: 1024px) 220px,

@@ -19,7 +19,7 @@ export default function HeroImage({ src, alt }) {
       src={src}
       alt={alt}
       fill
-      priority
+      placeholder="blur"
       className={`object-cover ${hidden ? "opacity-0" : "opacity-100"}`}
     />
   );

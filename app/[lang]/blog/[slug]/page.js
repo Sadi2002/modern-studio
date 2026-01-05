@@ -96,7 +96,7 @@ export default async function Post({ params }) {
                 src={blog.imgSrc.src}
                 alt="projekt"
                 fill
-                priority
+                placeholder="blur"
                 className="object-cover"
               />
             </div>

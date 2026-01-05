@@ -42,6 +42,7 @@ export default function Delivers({ data, lang }) {
               sizes="(min-width: 1024px) 35vw, 60vw"
               src={data?.imageSmall}
               alt={data?.altSmallImg}
+              placeholder="blur"
             />
           </div>
         </div>
@@ -53,6 +54,7 @@ export default function Delivers({ data, lang }) {
               sizes="(min-width: 1024px) 60vw, 100vw"
               src={data?.imageLarge}
               alt={data?.altLargeImg}
+              placeholder="blur"
             />
           </div>
         </div>

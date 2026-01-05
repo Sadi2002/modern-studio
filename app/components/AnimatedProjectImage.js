@@ -266,6 +266,7 @@ const AnimatedProjectImage = forwardRef(
             src={src}
             alt={alt}
             fill
+            placeholder="blur"
             className={`object-cover absolute inset-0 ${className}`}
           />
         )}
