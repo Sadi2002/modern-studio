@@ -39,11 +39,12 @@ export default async function Contact({ params }) {
     contactPageData?.privacyPolicyText?.[lang] ||
     "I accept the privacy policy.";
 
-  const additional = section.additionalInfo || {};
-  const email = additional.email || "kontakt@sadowskistudio.com";
-  const phone = additional.phone || "+48 414 512 859";
-  const facebookLabel = additional.facebookLabel || "Facebook";
-  const facebookUrl = additional.facebookUrl || "https://google.com";
+  console.log(contactPageData);
+
+  const facebookLabel =
+    contactPageData.additionalInfo.facebookLabel || "Facebook";
+  const facebookUrl =
+    contactPageData.additionalInfo.facebookUrl || "https://google.com";
 
   return (
     <section className="flex flex-col gap-[40px] lg:gap-0 lg:flex-row w-full lg:items-center lg:mt-[100px] lg:h-[calc(100dvh-100px)]">
@@ -76,7 +77,7 @@ export default async function Contact({ params }) {
             <Link
               href={`mailto:${contactPageData?.additionalInfo?.email?.emailAddress}`}
             >
-              {email}
+              {contactPageData?.additionalInfo?.email?.emailAddress}
             </Link>
           </span>
 
@@ -85,7 +86,7 @@ export default async function Contact({ params }) {
             <Link
               href={`tel:${contactPageData?.additionalInfo?.phone?.phoneNumber}`}
             >
-              {phone}
+              {contactPageData?.additionalInfo?.phone?.phoneNumber}
             </Link>
           </span>
 

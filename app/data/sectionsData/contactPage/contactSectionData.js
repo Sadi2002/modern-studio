@@ -62,7 +62,7 @@ export const contactSectionData = {
         en: "Phone",
         de: "Telefon",
       },
-      phoneNumber: "+48 123 456 789",
+      phoneNumber: "+48 517 805 944",
     },
 
     facebookLabel: "Facebook",

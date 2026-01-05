@@ -79,18 +79,18 @@ export const footerData = {
         {
           title: {
             pl: "kontakt@sadowskistudio.pl",
-            en: "contact@sadowskistudio.pl",
+            en: "kontakt@sadowskistudio.pl",
             de: "kontakt@sadowskistudio.pl",
           },
           url: "mailto:kontakt@sadowskistudio.pl",
         },
         {
           title: {
-            pl: "+48 123 456 789",
-            en: "+48 123 456 789",
-            de: "+48 123 456 789",
+            pl: "+48 517 805 944",
+            en: "+48 517 805 944",
+            de: "+48 517 805 944",
           },
-          url: "tel:+48123456789",
+          url: "tel:+48517805944",
         },
       ],
     },
@@ -104,19 +104,19 @@ export const footerData = {
       items: [
         {
           title: {
-            pl: "kontakt@sadowskistudio.pl",
-            en: "contact@sadowskistudio.pl",
-            de: "kontakt@sadowskistudio.pl",
+            pl: "Złota 44, Warszawa",
+            en: "Złota 44, Warsaw",
+            de: "Złota 44, Warschau",
           },
           url: "mailto:kontakt@sadowskistudio.pl",
         },
         {
           title: {
-            pl: "+48 123 456 789",
-            en: "+48 123 456 789",
-            de: "+48 123 456 789",
+            pl: "+48 517 805 944",
+            en: "+48 517 805 944",
+            de: "+48 517 805 944",
           },
-          url: "tel:+48123456789",
+          url: "tel:+48517805944",
         },
       ],
     },
