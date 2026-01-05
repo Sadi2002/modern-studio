@@ -19,7 +19,7 @@ export default async function Contact({ params }) {
   const title =
     contactPageData?.title?.[lang] || "Let’s create the unforgettable";
   const description =
-    section?.description?.[lang] ||
+    contactPageData?.description?.[lang] ||
     "For all inquiries, please contact our team. We are ready to discuss new projects, answer your questions, and explore how we can bring your";
   const formTitle = contactPageData?.formTitle?.[lang] || "Send a message";
   const nameLabel = contactPageData?.nameLabel?.[lang] || "Name";
