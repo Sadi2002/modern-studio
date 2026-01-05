@@ -20,6 +20,7 @@ export default function TeamMember({
             alt={name}
             className="object-cover transition-transform duration-500 ease-out hover:scale-105"
             fill
+            placeholder="blur"
           />
         </Link>
       </div>
