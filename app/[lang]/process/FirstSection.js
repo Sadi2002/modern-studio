@@ -33,7 +33,7 @@ export default function FirstSection({ data, lang }) {
           <div className="flex justify-end lg:justify-start mb-[40px]">
             <Button
               arrow={ArrowWhite}
-              linkTo={`#${data?.button?.buttonLink}`}
+              linkTo={`/${lang}/${data?.button?.buttonLink}`}
               bgColor="main-black"
               textColor="main-white"
               additionalStyles="md:self-end"

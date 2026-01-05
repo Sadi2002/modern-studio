@@ -15,11 +15,11 @@ export const welcomeSectionData = {
 
   button: {
     buttonLabel: {
-      pl: "Czytaj więcej",
-      en: "Read more",
-      de: "Mehr lesen",
+      pl: "Skontaktuj się z nami",
+      en: "Get in touch",
+      de: "Kontaktieren Sie uns",
     },
-    buttonLink: "#",
+    buttonLink: "contact",
   },
 
   image: welcomeImage,

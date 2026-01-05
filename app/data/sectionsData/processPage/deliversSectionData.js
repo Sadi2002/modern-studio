@@ -9,9 +9,9 @@ export const deliversSectionData = {
   },
 
   description1: {
-    pl: "Poznaj ludzi stojących za studiem. Jesteśmy multidyscyplinarnym zespołem, zjednoczonym wspólnym podejściem do projektowania, współpracy oraz dbałością o detale na każdym etapie procesu.",
-    en: "Get to know the people behind the studio. We are a multidisciplinary team united by a shared approach to design, collaboration, and attention to detail at every stage of the process.",
-    de: "Lernen Sie die Menschen hinter dem Studio kennen. Wir sind ein multidisziplinäres Team, vereint durch einen gemeinsamen Ansatz in Design, Zusammenarbeit und Liebe zum Detail in jeder Phase des Prozesses.",
+    pl: "Jasno określony kierunek projektu oparty na realnym zrozumieniu potrzeb, priorytetów i kontekstu. Proces porządkuje decyzje, eliminuje przypadkowość i pozwala wypracować spójną wizję, która prowadzi cały projekt od pierwszej rozmowy aż do finalnej realizacji.",
+    en: "A clearly defined project direction based on a genuine understanding of needs, priorities, and context. The process brings clarity to decisions, removes randomness, and allows for the development of a coherent vision that guides the project from the first conversation through to final delivery.",
+    de: "Eine klar definierte Projektausrichtung, die auf einem echten Verständnis von Bedürfnissen, Prioritäten und Kontext basiert. Der Prozess strukturiert Entscheidungen, reduziert Zufälligkeit und ermöglicht die Entwicklung einer stimmigen Vision, die das Projekt vom ersten Gespräch bis zur finalen Umsetzung begleitet.",
   },
 
   button: {
