@@ -11,28 +11,33 @@ export default async function Contact({ params }) {
   const { lang } = await params;
 
   const contactPageData = contactSectionData;
+  console.log(contactPageData);
 
   const section = contactPageData?.contactSection || {};
+  console.log(section);
 
-  const title = section?.title?.[lang] || "Let’s create the unforgettable";
+  const title =
+    contactPageData?.title?.[lang] || "Let’s create the unforgettable";
   const description =
     section?.description?.[lang] ||
     "For all inquiries, please contact our team. We are ready to discuss new projects, answer your questions, and explore how we can bring your";
-  const formTitle = section?.formTitle?.[lang] || "Send a message";
-  const nameLabel = section?.nameLabel?.[lang] || "Name";
-  const emailLabel = section?.emailLabel?.[lang] || "Email";
-  const messageLabel = section?.messageLabel?.[lang] || "Message";
-  const submitLabel = section?.submitLabel?.[lang] || "Send message";
+  const formTitle = contactPageData?.formTitle?.[lang] || "Send a message";
+  const nameLabel = contactPageData?.nameLabel?.[lang] || "Name";
+  const emailLabel = contactPageData?.emailLabel?.[lang] || "Email";
+  const messageLabel = contactPageData?.messageLabel?.[lang] || "Message";
+  const submitLabel = contactPageData?.submitLabel?.[lang] || "Send message";
 
   const thankYouMessage =
-    section?.thankYouMessage?.[lang] ||
+    contactPageData?.thankYouMessage?.[lang] ||
     "Your message has been sent successfully.";
 
   const errorMessage =
-    section?.errorMessage?.[lang] || "An error occurred. Please try again.";
+    contactPageData?.errorMessage?.[lang] ||
+    "An error occurred. Please try again.";
 
   const privacyText =
-    section?.privacyPolicyText?.[lang] || "I accept the privacy policy.";
+    contactPageData?.privacyPolicyText?.[lang] ||
+    "I accept the privacy policy.";
 
   const additional = section.additionalInfo || {};
   const email = additional.email || "kontakt@sadowskistudio.com";
