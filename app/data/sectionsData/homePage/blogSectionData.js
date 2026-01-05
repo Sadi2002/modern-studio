@@ -43,7 +43,7 @@ export const blogSectionData = {
         contentBlocks: [
           {
             title: {
-              pl: "Architektura jako rama codziennego życias",
+              pl: "Architektura jako rama codziennego życia",
               en: "Architecture as a Framework for Daily Living",
               de: "Architektur als Rahmen des täglichen Lebens",
             },
