@@ -11,7 +11,6 @@ export default async function Contact({ params }) {
   const { lang } = await params;
 
   const contactPageData = contactSectionData;
-  console.log(contactPageData);
 
   const section = contactPageData?.contactSection || {};
 

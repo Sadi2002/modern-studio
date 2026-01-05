@@ -41,7 +41,7 @@ export default function Delivers({ data, lang }) {
               className="object-cover"
               fill
               sizes="(min-width: 1024px) 35vw, 60vw"
-              src={urlFor(data?.imageSmall).width(800).quality(90).url()}
+              src={data?.imageSmall}
               alt={data?.altSmallImg}
             />
           </div>
@@ -52,7 +52,7 @@ export default function Delivers({ data, lang }) {
               className="object-cover"
               fill
               sizes="(min-width: 1024px) 60vw, 100vw"
-              src={urlFor(data?.imageLarge).width(1600).quality(90).url()}
+              src={data?.imageLarge}
               alt={data?.altLargeImg}
             />
           </div>

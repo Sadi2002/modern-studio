@@ -1,4 +1,3 @@
-// components/ContactForm.js
 "use client";
 
 import ArrowWhite from "../../public/arrow-right-white.png";

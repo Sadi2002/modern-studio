@@ -1,8 +1,6 @@
 import Button from "../../components/Button";
 import Image from "next/image";
 import ArrowWhite from "../../../public/arrow-right-white.png";
-
-import { urlFor } from "../../../lib/sanity/client";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 
 export default function FirstSection({ data, lang }) {
@@ -45,7 +43,7 @@ export default function FirstSection({ data, lang }) {
         </div>
         <div className="relative aspect-[5/6] md:aspect-[6/7] max-w-[80%] w-[80%]  xl:aspect-[5/8]  lg:w-[45%] lg:aspect-[4/5] lg:h-[calc(100vh-100px)] 2xl:w-[46%]">
           <Image
-            src={urlFor(data.image).url()}
+            src={data.image}
             alt={data?.alt?.[lang] || "First Section Image"}
             className="object-cover absolute
                 top-0 left-0 w-full h-full"

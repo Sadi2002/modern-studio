@@ -5,13 +5,14 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ProcessPanel from "./ProcessPanel";
 import FirstSection from "./FirstSection";
-import { urlFor } from "../../../lib/sanity/client";
 import FadeInOnce from "@/app/components/FadeInOnce";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ProcessClient({ welcomeSection, stepsSection, lang }) {
   const containerRef = useRef(null);
+
+  console.log(stepsSection);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -57,7 +58,7 @@ export default function ProcessClient({ welcomeSection, stepsSection, lang }) {
 
         return {
           title: item?.title?.[lang],
-          image: item?.image ? urlFor(item.image).url() : "/consultation.jpg",
+          image: item.image,
           description: [
             item?.description1?.[lang] || "",
             item?.description2?.[lang] || "",
@@ -65,6 +66,8 @@ export default function ProcessClient({ welcomeSection, stepsSection, lang }) {
         };
       })
       .filter(Boolean) || [];
+
+  console.log(steps);
 
   return (
     <div className="lg:overflow-hidden">

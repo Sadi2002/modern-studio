@@ -1,22 +1,23 @@
-import { sanityClient } from "../../../lib/sanity/client";
-import { processPageQuery } from "../../../lib/sanity/queries";
 import Delivers from "./Delivers";
 import ProcessClient from "./ProcessClient";
+import { welcomeSectionData } from "@/app/data/sectionsData/processPage/welcomeSectionData";
+import { processesSectionData } from "../../data/sectionsData/processPage/processesSectionData";
+import { deliversSectionData } from "@/app/data/sectionsData/processPage/deliversSectionData";
 
-export const revalidate = 0;
+export async function generateStaticParams() {
+  return [{ lang: "pl" }, { lang: "en" }, { lang: "de" }];
+}
 
 export default async function ProcessPage({ params }) {
-  const getParams = await params;
-  const lang = getParams.lang;
+  const { lang } = await params;
 
-  const processPageData = await sanityClient.fetch(processPageQuery);
+  const welcomeSection = welcomeSectionData;
+  const processesSection = processesSectionData;
+  const deliversSection = deliversSectionData;
 
-  if (!processPageData) {
+  if (!welcomeSection || !processesSection || !deliversSection) {
     return null;
   }
-
-  const { welcomeSection, processesSection } = processPageData;
-  const { deliversSection } = processPageData;
 
   return (
     <>

@@ -1,16 +1,13 @@
-import RevealAfterTransition from "@/app/components/RevealAfterTransition";
-import { sanityClient } from "../../../lib/sanity/client";
-import { policyQuery } from "../../../lib/sanity/queries";
+import { policySectionData } from "@/app/data/sectionsData/policy/policySectionData";
 
-export const revalidate = 0;
+export async function generateStaticParams() {
+  return [{ lang: "pl" }, { lang: "en" }, { lang: "de" }];
+}
 
 export default async function page({ params }) {
-  const getParams = await params;
-  const lang = getParams.lang;
+  const { lang } = await params;
 
-  const policyPageData = await sanityClient.fetch(policyQuery);
-
-  const { policySection } = policyPageData;
+  const policySection = policySectionData;
 
   return (
     <section className="pt-[100px] md:pt-[150px] mx-margin-mobile md:mx-tablet lg:ml-[50px] 2xl:mx-[50px] mb-[80px] xl:mb-[150px]">
