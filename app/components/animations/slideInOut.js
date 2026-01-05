@@ -10,10 +10,10 @@ export function slideInOut() {
 
   document.documentElement.animate(
     [
-      { opacity: 1, transform: "translateY(0)" },
+      { opacity: 1, transform: "translate3d(0, 0, 0)" },
       {
         opacity: isIntro ? 1 : 0.75,
-        transform: "translateY(-35%)",
+        transform: "translate3d(0, -35%, 0)",
       },
     ],
     {
