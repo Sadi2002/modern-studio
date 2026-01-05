@@ -118,7 +118,7 @@ export const postsSectionData = {
           },
           {
             title: {
-              pl: "Zrównoważona architektura jako przyszłość mias",
+              pl: "Zrównoważona architektura jako przyszłość miast",
               en: "Sustainable Architecture as the Future of Cities",
               de: "Nachhaltige Architektur als Zukunft der Städte",
             },
