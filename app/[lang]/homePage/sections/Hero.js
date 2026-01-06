@@ -1,8 +1,10 @@
 import arrow from "../../../../public/arrow.png";
-import Button from "@/app/components/Button";
 import HeroBackgroundImage from "@/app/components/HeroBackgroundImage";
 import HeroScrollEffects from "@/app/components/HeroScrollEffects";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
+import ScrollToSectionGSAP from "@/app/components/ScrollToSectionGSAP";
+import Image from "next/image";
+import Link from "next/link";
 
 export default async function Hero({ data, lang }) {
   return (
@@ -25,15 +27,31 @@ export default async function Hero({ data, lang }) {
                 {data?.subtitle?.[lang]}
               </RevealAfterTransition>
             </p>
-            <Button
-              arrow={arrow}
-              linkTo={`#${data?.button?.buttonLink}`}
-              bgColor="main-white"
-              textColor="main-black"
-              additionalStyles="self-end md:self-start"
+            <ScrollToSectionGSAP
+              targetId="about"
+              duration={1.8}
+              ease="power3.out"
             >
-              {data?.button?.buttonLabel?.[lang]}
-            </Button>
+              <button
+                className={`group cursor-pointer inline-flex gap-2 justify-center items-center leading-none bg-white rounded-[500px] px-[clamp(1rem,3.35vw,1.5rem)] py-[clamp(0.5rem,3.35vw,0.7rem)] text-black font-medium text-[clamp(0.75rem,3.35vw,1rem)] self-end md:self-start`}
+              >
+                <span className="relative overflow-hidden block">
+                  <span className="block leading-[20px] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full will-change-transform">
+                    {data?.button?.buttonLabel?.[lang]}
+                  </span>
+                  <span className="absolute leading-[20px] left-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full will-change-transform">
+                    {data?.button?.buttonLabel?.[lang]}
+                  </span>
+                </span>
+
+                <Image
+                  src={arrow}
+                  alt="Arrow Icon"
+                  className="w-[clamp(1.5rem,3.35vw,1.7rem)] h-[clamp(1.5rem,3.35vw,1.7rem)] relative top-[0.5px]"
+                  placeholder="blur"
+                />
+              </button>
+            </ScrollToSectionGSAP>
           </div>
         </div>
       </HeroScrollEffects>
