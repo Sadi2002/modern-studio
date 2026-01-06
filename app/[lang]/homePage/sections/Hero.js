@@ -4,7 +4,6 @@ import HeroScrollEffects from "@/app/components/HeroScrollEffects";
 import RevealAfterTransition from "@/app/components/RevealAfterTransition";
 import ScrollToSectionGSAP from "@/app/components/ScrollToSectionGSAP";
 import Image from "next/image";
-import Link from "next/link";
 
 export default async function Hero({ data, lang }) {
   return (
