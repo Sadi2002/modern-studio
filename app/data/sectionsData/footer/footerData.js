@@ -78,11 +78,11 @@ export const footerData = {
       items: [
         {
           title: {
-            pl: "kontakt@sadowskistudio.pl",
-            en: "kontakt@sadowskistudio.pl",
-            de: "kontakt@sadowskistudio.pl",
+            pl: "kontakt@sadowskistudio.com",
+            en: "kontakt@sadowskistudio.com",
+            de: "kontakt@sadowskistudio.com",
           },
-          url: "mailto:kontakt@sadowskistudio.pl",
+          url: "mailto:kontakt@sadowskistudio.com",
         },
         {
           title: {
@@ -108,7 +108,7 @@ export const footerData = {
             en: "Złota 44, Warsaw",
             de: "Złota 44, Warschau",
           },
-          url: "mailto:kontakt@sadowskistudio.pl",
+          url: "mailto:kontakt@sadowskistudio.com",
         },
         {
           title: {
