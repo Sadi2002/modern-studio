@@ -25,24 +25,31 @@ function useIsMobile() {
 
 function ModelContent({ modelUrl, setLoading }) {
   const ref = useRef();
-
   const gltf = useGLTF("/model.glb");
-  const { isMobile } = useIsMobile();
-  const scale = isMobile ? 1 : 1;
+
+  // ⬇️ KLON SCENY – NAJWAŻNIEJSZE
+  const scene = gltf.scene.clone(true);
 
   useFrame((_, delta) => {
-    if (ref.current) ref.current.rotation.y += delta * 0.2;
+    if (ref.current) {
+      ref.current.rotation.y += delta * 0.1;
+    }
   });
 
   useEffect(() => {
-    setLoading(false);
-    gltf.scene.traverse((c) => {
+    // 🔁 HARD RESET ROTACJI
+    if (ref.current) {
+      ref.current.rotation.set(0, 0, 0);
+    }
+
+    scene.traverse((c) => {
       if (c.isMesh) c.material.side = THREE.DoubleSide;
     });
-    gltf.scene.scale.set(scale, scale, scale);
-  }, [gltf, scale, setLoading]);
 
-  return <primitive ref={ref} object={gltf.scene} />;
+    setLoading(false);
+  }, [scene, setLoading]);
+
+  return <primitive ref={ref} object={scene} />;
 }
 
 export default function ModelLoader({ modelUrl, setLoading, fullscreen }) {
@@ -56,7 +63,7 @@ export default function ModelLoader({ modelUrl, setLoading, fullscreen }) {
 
   return (
     <Canvas
-      camera={{ position: [0, 0.8, 1.8] }}
+      camera={{ position: [0, 0.5, 1] }}
       style={{
         width: "100%",
         height: "100%",

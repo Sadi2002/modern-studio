@@ -51,6 +51,7 @@ export default function Model({ imgSrc }) {
   const [fullscreen, setFullscreen] = useState(false);
   const [isLg, setIsLg] = useState(false);
   const containerRef = useRef(null);
+  const [modelKey, setModelKey] = useState(0);
 
   const pathname = usePathname();
 
@@ -82,8 +83,11 @@ export default function Model({ imgSrc }) {
   }, []);
 
   const toggle3D = () => {
-    if (!show3D) setShow3D(true), setLoading(true);
-    else {
+    if (!show3D) {
+      setModelKey((k) => k + 1); // ⬅️ reset sceny
+      setShow3D(true);
+      setLoading(true);
+    } else {
       if (fullscreen) exitFullscreen();
       setShow3D(false);
     }
@@ -121,7 +125,11 @@ export default function Model({ imgSrc }) {
         }`}
       >
         {show3D && (
-          <ModelLoader setLoading={setLoading} fullscreen={fullscreen} />
+          <ModelLoader
+            key={modelKey}
+            setLoading={setLoading}
+            fullscreen={fullscreen}
+          />
         )}
       </div>
 
