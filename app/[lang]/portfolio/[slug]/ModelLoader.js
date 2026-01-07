@@ -26,7 +26,7 @@ function useIsMobile() {
 function ModelContent({ modelUrl, setLoading }) {
   const ref = useRef();
 
-  const gltf = useGLTF(modelUrl);
+  const gltf = useGLTF("/model.glb");
   const { isMobile } = useIsMobile();
   const scale = isMobile ? 1 : 1;
 
@@ -49,14 +49,14 @@ export default function ModelLoader({ modelUrl, setLoading, fullscreen }) {
   const { isLg } = useIsMobile();
 
   // ustawienia zoom i kąt
-  const minDistance = 2; // minimalny zoom
-  const maxDistance = 4; // maksymalny zoom
+  const minDistance = 1.5; // minimalny zoom
+  const maxDistance = 2; // maksymalny zoom
   const maxPolarAngle = Math.PI / 2.5; // max 90° pionowo (nie patrz pod model)
   const minPolarAngle = 0; // opcjonalnie od góry
 
   return (
     <Canvas
-      camera={{ position: [0, 1, 3] }}
+      camera={{ position: [0, 0.8, 1.8] }}
       style={{
         width: "100%",
         height: "100%",

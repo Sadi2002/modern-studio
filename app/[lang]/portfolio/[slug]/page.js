@@ -43,13 +43,7 @@ export default async function Project({ params }) {
 
   const collaborators = project?.collaborators || [];
 
-  const modelUrl = project?.model3D?.asset?._ref
-    ? `https://cdn.sanity.io/files/${
-        process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-      }/${process.env.NEXT_PUBLIC_SANITY_DATASET}/${
-        project.model3D.asset._ref.split("-")[1]
-      }.glb`
-    : null;
+  console.log(project);
 
   return (
     <section className="flex flex-col pb-[0px]">
@@ -151,7 +145,7 @@ export default async function Project({ params }) {
           >
             <HeroImage src={project.imgSrc} alt="pokój" />
 
-            {modelUrl && <Model imgSrc={project.imgSrc} modelUrl={modelUrl} />}
+            <Model imgSrc={project.imgSrc} />
           </div>
           <div className="flex justify-between gap-[10px] md:gap-[16px] mt-[10px] md:mt-[16px]">
             <ProjectGallery

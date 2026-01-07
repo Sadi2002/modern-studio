@@ -32,7 +32,7 @@ export const portfolioSectionData = {
       },
 
       imgSrc: project5MainImage,
-      model3D: null,
+      model3D: "model.glb",
 
       alt: {
         pl: "Nowoczesna, parterowa rezydencja o prostej, horyzontalnej formie, otwarta dużymi przeszkleniami na suchy, naturalny krajobraz. Wnętrza utrzymane są w jasnej, stonowanej kolorystyce z wykorzystaniem naturalnych materiałów.",
@@ -198,7 +198,7 @@ export const portfolioSectionData = {
       },
 
       imgSrc: project6MainImage,
-      model3D: null,
+      model3D: "model.glb",
 
       alt: {
         pl: "Nowoczesna rezydencja skupiona wokół wewnętrznego dziedzińca, z dużymi przeszkleniami i miękkim światłem dziennym. Wnętrza są minimalistyczne, spokojne i harmonijnie połączone z zielenią.",

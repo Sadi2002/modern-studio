@@ -12,8 +12,6 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ProcessClient({ welcomeSection, stepsSection, lang }) {
   const containerRef = useRef(null);
 
-  console.log(stepsSection);
-
   useEffect(() => {
     if (!containerRef.current) return;
 

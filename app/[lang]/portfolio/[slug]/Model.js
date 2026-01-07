@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import ModelLoader from "./ModelLoader";
+import { usePathname } from "next/navigation";
 
 const getFullscreenElement = () =>
   document.fullscreenElement ||
@@ -23,12 +24,40 @@ const exitFullscreen = () => {
   else if (document.msExitFullscreen) document.msExitFullscreen();
 };
 
-export default function Model({ imgSrc, modelUrl }) {
+const labels = {
+  pl: {
+    show3d: "Zobacz w 3D",
+    hide3d: "Opuść 3D",
+    enterFullscreen: "Pełny Ekran",
+    exitFullscreen: "Opuść Pełny Ekran",
+  },
+  en: {
+    show3d: "View in 3D",
+    hide3d: "Exit 3D",
+    enterFullscreen: "Fullscreen",
+    exitFullscreen: "Exit Fullscreen",
+  },
+  de: {
+    show3d: "In 3D ansehen",
+    hide3d: "3D verlassen",
+    enterFullscreen: "Vollbild",
+    exitFullscreen: "Vollbild verlassen",
+  },
+};
+
+export default function Model({ imgSrc }) {
   const [show3D, setShow3D] = useState(false);
   const [loading, setLoading] = useState(false);
   const [fullscreen, setFullscreen] = useState(false);
   const [isLg, setIsLg] = useState(false);
   const containerRef = useRef(null);
+
+  const pathname = usePathname();
+
+  const langFromUrl = pathname?.split("/")[1];
+  const lang = ["pl", "en", "de"].includes(langFromUrl) ? langFromUrl : "pl";
+
+  const t = labels[lang];
 
   // breakpoint
   useEffect(() => {
@@ -92,11 +121,7 @@ export default function Model({ imgSrc, modelUrl }) {
         }`}
       >
         {show3D && (
-          <ModelLoader
-            setLoading={setLoading}
-            fullscreen={fullscreen}
-            modelUrl={modelUrl}
-          />
+          <ModelLoader setLoading={setLoading} fullscreen={fullscreen} />
         )}
       </div>
 
@@ -112,14 +137,14 @@ export default function Model({ imgSrc, modelUrl }) {
             onClick={toggleFullscreen}
             className="px-6 py-2 bg-white rounded-full shadow hover:bg-gray-200"
           >
-            {fullscreen ? "Opuść Pełny Ekran" : "Pełny Ekran"}
+            {fullscreen ? t.exitFullscreen : t.enterFullscreen}
           </button>
         )}
         <button
           onClick={toggle3D}
           className="px-6 py-2 bg-white rounded-full shadow hover:bg-gray-200"
         >
-          {show3D ? "Opuść 3D" : "Zobacz w 3D"}
+          {show3D ? t.hide3d : t.show3d}
         </button>
       </div>
     </div>

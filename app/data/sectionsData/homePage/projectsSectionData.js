@@ -71,7 +71,7 @@ export const projectsSectionData = {
       },
 
       imgSrc: project1MainImage,
-      model3D: null,
+      model3D: "model.glb",
 
       alt: {
         pl: "Na wzgórzu stoi nowoczesny, elegancki dom z dużymi oknami. Przed nim taras z widokiem na zieloną dolinę. Niebo jest ciepłe, zachodzące słońce rozświetla dom i wzgórza. Całość wygląda spokojnie i luksusowo.",
@@ -249,7 +249,7 @@ export const projectsSectionData = {
       },
 
       imgSrc: project2MainImage,
-      model3D: null,
+      model3D: "model.glb",
 
       alt: {
         pl: "Aurora Natura to luksusowa rezydencja, w której minimalizm spotyka naturę. Dom daje poczucie spokoju, harmonii i przestrzeni. Można poczuć naturalne materiały, delikatne tekstury i subtelny zapach drewna oraz roślin. Wnętrza są ciche, wypełnione łagodnymi dźwiękami otoczenia – szelest liści, szum wody.",
@@ -427,7 +427,7 @@ export const projectsSectionData = {
       },
 
       imgSrc: project3MainImage,
-      model3D: null,
+      model3D: "model.glb",
 
       alt: {
         pl: "Villa Serenità to przestrzeń pełna spokoju i harmonii. Duże przeszklenia pozwalają poczuć kontakt z otoczeniem. Wnętrza są ciche, z naturalnymi materiałami: drewno, kamień i delikatne tekstury.",
@@ -605,7 +605,7 @@ export const projectsSectionData = {
       },
 
       imgSrc: project4MainImage,
-      model3D: null,
+      model3D: "model.glb",
 
       alt: {
         pl: "Nowoczesna, minimalistyczna przestrzeń dzienna z dużymi przeszkleniami, otwarta na naturalny krajobraz. Neutralna paleta barw, naturalne materiały i miękkie formy mebli tworzą spokojną, harmonijną atmosferę. Światło dzienne odgrywa kluczową rolę, podkreślając relację między wnętrzem a otoczeniem.",
