@@ -2,7 +2,8 @@
 
 import { Suspense, useRef, useEffect, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { OrbitControls, useGLTF, Environment } from "@react-three/drei";
+
 import * as THREE from "three";
 
 function useIsMobile() {
@@ -21,6 +22,19 @@ function useIsMobile() {
   }, []);
 
   return { isMobile, isLg };
+}
+
+function Floor() {
+  return (
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.01, 0]}>
+      <planeGeometry args={[50, 50]} />
+      <meshStandardMaterial
+        color="rgb(217,217,217)"
+        roughness={1}
+        metalness={0}
+      />
+    </mesh>
+  );
 }
 
 function ModelContent({ modelUrl, setLoading }) {
@@ -56,14 +70,14 @@ export default function ModelLoader({ modelUrl, setLoading, fullscreen }) {
   const { isLg } = useIsMobile();
 
   // ustawienia zoom i kąt
-  const minDistance = 1.5; // minimalny zoom
-  const maxDistance = 2; // maksymalny zoom
-  const maxPolarAngle = Math.PI / 2.5; // max 90° pionowo (nie patrz pod model)
+  const minDistance = 9; // minimalny zoom
+  const maxDistance = 9; // maksymalny zoom
+  const maxPolarAngle = Math.PI / 2.2; // max 90° pionowo (nie patrz pod model)
   const minPolarAngle = 0; // opcjonalnie od góry
 
   return (
     <Canvas
-      camera={{ position: [0, 0.5, 1] }}
+      camera={{ position: [0, 0, 5] }}
       style={{
         width: "100%",
         height: "100%",
@@ -72,9 +86,9 @@ export default function ModelLoader({ modelUrl, setLoading, fullscreen }) {
       }}
       gl={{ preserveDrawingBuffer: true }}
     >
-      <ambientLight intensity={0.8} />
-      <directionalLight position={[5, 5, 5]} intensity={1} />
-      <directionalLight position={[-5, 5, -5]} intensity={0.5} />
+      <Environment files="/hill.hdr" background={false} />
+
+      <ambientLight intensity={4} />
 
       <OrbitControls
         enableRotate={true} // zawsze obrót
@@ -87,6 +101,7 @@ export default function ModelLoader({ modelUrl, setLoading, fullscreen }) {
       />
 
       <Suspense fallback={null}>
+        <Floor />
         <ModelContent setLoading={setLoading} modelUrl={modelUrl} />
       </Suspense>
     </Canvas>
