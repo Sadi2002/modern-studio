@@ -46,7 +46,7 @@ function ModelContent({ modelUrl, setLoading }) {
 
   useFrame((_, delta) => {
     if (ref.current) {
-      // ref.current.rotation.y += delta * 0.1;
+      ref.current.rotation.y += delta * 0.02;
     }
   });
 
