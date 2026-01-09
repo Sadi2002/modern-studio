@@ -26,13 +26,13 @@ function useIsMobile() {
 
 function Floor() {
   return (
-    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.01, 0]}>
-      <planeGeometry args={[50, 50]} />
-      <meshStandardMaterial
-        color="rgb(217,217,217)"
-        roughness={1}
-        metalness={0}
-      />
+    <mesh
+      rotation={[-Math.PI / 2, 0, 0]}
+      position={[0, -0.01, 0]}
+      receiveShadow
+    >
+      <planeGeometry args={[100, 100]} />
+      <meshStandardMaterial color="#ccc" roughness={1} metalness={0} />
     </mesh>
   );
 }
@@ -46,7 +46,7 @@ function ModelContent({ modelUrl, setLoading }) {
 
   useFrame((_, delta) => {
     if (ref.current) {
-      ref.current.rotation.y += delta * 0.1;
+      // ref.current.rotation.y += delta * 0.1;
     }
   });
 
@@ -57,7 +57,12 @@ function ModelContent({ modelUrl, setLoading }) {
     }
 
     scene.traverse((c) => {
-      if (c.isMesh) c.material.side = THREE.DoubleSide;
+      if (c.isMesh) {
+        c.castShadow = true;
+        c.receiveShadow = true;
+        c.material.side = THREE.DoubleSide;
+        c.material.needsUpdate = true;
+      }
     });
 
     setLoading(false);
@@ -70,25 +75,34 @@ export default function ModelLoader({ modelUrl, setLoading, fullscreen }) {
   const { isLg } = useIsMobile();
 
   // ustawienia zoom i kąt
-  const minDistance = 9; // minimalny zoom
-  const maxDistance = 9; // maksymalny zoom
-  const maxPolarAngle = Math.PI / 2.2; // max 90° pionowo (nie patrz pod model)
+  const minDistance = 50; // minimalny zoom
+  const maxDistance = 20; // maksymalny zoom
+  const maxPolarAngle = Math.PI / 2.17; // max 90° pionowo (nie patrz pod model)
   const minPolarAngle = 0; // opcjonalnie od góry
 
   return (
     <Canvas
-      camera={{ position: [0, 0, 5] }}
+      shadows
+      camera={{ position: [-9, 0, 4] }}
       style={{
         width: "100%",
         height: "100%",
         background: "#f3f4f6",
         touchAction: "none",
       }}
-      gl={{ preserveDrawingBuffer: true }}
+      gl={{
+        preserveDrawingBuffer: true,
+        physicallyCorrectLights: true,
+      }}
     >
-      <Environment files="/hill.hdr" background={false} />
+      <Environment files="/horn.hdr" background={false} />
+      {/* <pointLight intensity={10} position={[12, 5.5, 3]} color={"yellow"} /> */}
 
-      <ambientLight intensity={4} />
+      {/* FILL LIGHT */}
+      <directionalLight intensity={2} position={[-5, 3, 5]} />
+
+      {/* RIM / BACK LIGHT */}
+      <directionalLight intensity={0.8} position={[0, 5, -10]} />
 
       <OrbitControls
         enableRotate={true} // zawsze obrót
