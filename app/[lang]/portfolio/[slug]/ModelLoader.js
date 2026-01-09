@@ -83,7 +83,7 @@ export default function ModelLoader({ modelUrl, setLoading, fullscreen }) {
   return (
     <Canvas
       shadows
-      camera={{ position: [-9, 0, 4] }}
+      camera={{ position: [0, 0, 4] }}
       style={{
         width: "100%",
         height: "100%",
@@ -99,10 +99,10 @@ export default function ModelLoader({ modelUrl, setLoading, fullscreen }) {
       {/* <pointLight intensity={10} position={[12, 5.5, 3]} color={"yellow"} /> */}
 
       {/* FILL LIGHT */}
-      <directionalLight intensity={2} position={[-5, 3, 5]} />
+      <directionalLight intensity={5} position={[-5, 3, 5]} />
 
       {/* RIM / BACK LIGHT */}
-      <directionalLight intensity={0.8} position={[0, 5, -10]} />
+      <directionalLight intensity={5} position={[0, 5, -10]} />
 
       <OrbitControls
         enableRotate={true} // zawsze obrót
