@@ -41,7 +41,7 @@ export const overviewSectionData = {
         de: "European Property Awards",
       },
       awardLocation: {
-        pl: "London",
+        pl: "Londyn",
         en: "London",
         de: "London",
       },
@@ -54,9 +54,9 @@ export const overviewSectionData = {
         de: "ArchDaily Building of the Year",
       },
       awardLocation: {
-        pl: "Zurich",
+        pl: "Zurych",
         en: "Zurich",
-        de: "Zurich",
+        de: "Zürich",
       },
       awardYear: 2021,
     },

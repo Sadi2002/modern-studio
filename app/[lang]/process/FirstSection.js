@@ -30,8 +30,13 @@ export default function FirstSection({ data, lang }) {
                 {data?.description1?.[lang]}
               </RevealAfterTransition>
             </p>
+            <p>
+              <RevealAfterTransition delay={0} stagger={5}>
+                {data?.description2?.[lang]}
+              </RevealAfterTransition>
+            </p>
           </div>
-          <div className="flex justify-end lg:justify-start mb-[40px]">
+          {/* <div className="flex justify-end lg:justify-start mb-[40px]">
             <ScrollToSectionGSAP
               targetId="more"
               duration={1.8}
@@ -67,7 +72,7 @@ export default function FirstSection({ data, lang }) {
             >
               {data?.button?.buttonLabel?.[lang]}
             </Button> */}
-          </div>
+          {/* </div>  */}
         </div>
         <div className="relative aspect-[5/6] md:aspect-[6/7] max-w-[80%] w-[80%]  xl:aspect-[5/8]  lg:w-[45%] lg:aspect-[4/5] lg:h-[calc(100vh-100px)] 2xl:w-[46%]">
           <Image
