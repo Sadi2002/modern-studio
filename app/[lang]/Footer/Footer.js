@@ -49,10 +49,10 @@ export default function Footer({ lang }) {
         <div className="flex gap-x-[20px] flex-wrap justify-between min-[436px]:gap-x-[50px] gap-y-[50px] lg:mx-[50px] lg:pt-[40px] lg:max-w-[65%] xl:justify-between 2xl:max-w-[45%]">
           {footer.quickContact.map((contact, index) => (
             <div key={index}>
-              <h3 className="text-white text-[clamp(20px,5.5vw,23px)] font-medium mb-[20px]">
+              <h3 className="text-white text-[clamp(20px,5.5vw,23px)] font-medium mb-[10px]">
                 {contact?.sectionTitle?.[lang]}
               </h3>
-              <ul className="flex flex-col gap-[10px]">
+              <ul className="flex flex-col gap-[0px]">
                 {contact.items.map((item, idx) => (
                   <li key={idx}>
                     <FooterNavLink

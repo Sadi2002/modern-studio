@@ -82,6 +82,7 @@ export default function ModelLoader({ modelUrl, setLoading, fullscreen }) {
 
   return (
     <Canvas
+      frameloop="demand"
       shadows
       camera={{ position: [0, 0, 4] }}
       style={{
