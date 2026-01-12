@@ -46,7 +46,7 @@ function ModelContent({ modelUrl, setLoading }) {
 
   useFrame((_, delta) => {
     if (ref.current) {
-      ref.current.rotation.y += delta * 0.02;
+      ref.current.rotation.y += delta * 0.05;
     }
   });
 
@@ -82,7 +82,6 @@ export default function ModelLoader({ modelUrl, setLoading, fullscreen }) {
 
   return (
     <Canvas
-      frameloop="demand"
       shadows
       camera={{ position: [0, 0, 4] }}
       style={{
