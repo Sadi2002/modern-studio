@@ -391,12 +391,12 @@ export default function Navigation({ data, dataMobile, lang }) {
               >
                 <span className="relative block overflow-hidden">
                   {/* pierwszy */}
-                  <span className="block leading-[20px] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
+                  <span className="block leading-[24px] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
                     {link?.label?.[lang]}
                   </span>
 
                   {/* drugi */}
-                  <span className="absolute leading-[20px] left-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
+                  <span className="absolute leading-[24px] left-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
                     {link?.label?.[lang]}
                   </span>
                 </span>

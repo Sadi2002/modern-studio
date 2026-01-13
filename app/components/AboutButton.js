@@ -26,12 +26,12 @@ export default function AboutButton({ href, label }) {
       <button className="group relative font-medium-font-weight uppercase text-[clamp(0.75rem,3.5vw,1rem)] leading-none after:content-[''] after:bg-main-black after:absolute after:bottom-[-0.5px] after:left-0 after:h-[1px] after:w-full">
         <span className="relative block overflow-hidden leading-[20px]">
           {/* pierwszy */}
-          <span className="block leading-[20px] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
+          <span className="block leading-[24px] cursor-pointer transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
             {label}
           </span>
 
           {/* drugi */}
-          <span className="absolute leading-[20px] left-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
+          <span className="absolute leading-[24px] cursor-pointer left-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full">
             {label}
           </span>
         </span>
