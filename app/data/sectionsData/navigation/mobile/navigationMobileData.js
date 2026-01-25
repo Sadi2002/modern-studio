@@ -64,7 +64,7 @@ export const navigationMobileData = {
       },
       {
         title: "Instagram",
-        url: "https://www.instagram.com/sadowskistudio",
+        url: "https://www.instagram.com/sadowski_studio/",
       },
       {
         title: "LinkedIn",

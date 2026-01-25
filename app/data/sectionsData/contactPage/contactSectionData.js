@@ -53,7 +53,7 @@ export const contactSectionData = {
         en: "Email",
         de: "E-Mail",
       },
-      emailAddress: "kontakt@sadowskistudio.pl",
+      emailAddress: "kontakt@sadowskistudio.com",
     },
 
     phone: {
