@@ -116,3 +116,5 @@ export default function ModelLoader({ modelUrl, setLoading, fullscreen }) {
     </Canvas>
   );
 }
+
+useGLTF.preload("/model.glb");
