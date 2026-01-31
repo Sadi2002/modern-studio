@@ -74,7 +74,7 @@ function ModelContent({ modelUrl, setLoading }) {
 export default function ModelLoader({ modelUrl, setLoading, fullscreen }) {
   const { isLg } = useIsMobile();
 
-  // ustawienia zoom i kąt
+  // ustawienia zoom i kąt.
   const minDistance = 50; // minimalny zoom
   const maxDistance = 20; // maksymalny zoom
   const maxPolarAngle = Math.PI / 2.17; // max 90° pionowo (nie patrz pod model)
