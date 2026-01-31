@@ -82,6 +82,8 @@ export default function FirstSection({ data, lang }) {
                 top-0 left-0 w-full h-full"
             fill
             placeholder="blur"
+            priority
+            fetchPriority="high"
           />
         </div>
       </div>
