@@ -53,7 +53,7 @@ export const contactSectionData = {
         en: "Email",
         de: "E-Mail",
       },
-      emailAddress: "kontakt@sadowskistudio.com",
+      emailAddress: "kontakt@modernstudio.com",
     },
 
     phone: {
@@ -62,11 +62,11 @@ export const contactSectionData = {
         en: "Phone",
         de: "Telefon",
       },
-      phoneNumber: "+48 517 805 944",
+      phoneNumber: "+48 742 252 958",
     },
 
     facebookLabel: "Facebook",
-    facebookUrl: "https://www.facebook.com/profile.php?id=61585645652699",
+    facebookUrl: "https://www.facebook.com",
   },
 
   // Komunikaty po wysłaniu formularza
@@ -84,8 +84,8 @@ export const contactSectionData = {
 
   // Tekst polityki prywatności pod formularzem
   privacyPolicyText: {
-    pl: "Wyrażam zgodę na przetwarzanie moich danych osobowych przez Sadowski Studio w celu udzielenia odpowiedzi na zapytanie przesłane za pośrednictwem formularza kontaktowego.",
-    en: "I consent to the processing of my personal data by Sadowski Studio for the purpose of responding to the inquiry submitted via the contact form.",
-    de: "Ich willige in die Verarbeitung meiner personenbezogenen Daten durch Sadowski Studio zum Zweck der Beantwortung der über das Kontaktformular übermittelten Anfrage ein.",
+    pl: "Wyrażam zgodę na przetwarzanie moich danych osobowych przez modern Studio w celu udzielenia odpowiedzi na zapytanie przesłane za pośrednictwem formularza kontaktowego.",
+    en: "I consent to the processing of my personal data by modern Studio for the purpose of responding to the inquiry submitted via the contact form.",
+    de: "Ich willige in die Verarbeitung meiner personenbezogenen Daten durch modern Studio zum Zweck der Beantwortung der über das Kontaktformular übermittelten Anfrage ein.",
   },
 };

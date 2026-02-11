@@ -2,7 +2,7 @@
 
 export const navigationMobileData = {
   logo: {
-    logoLabel: "Sadowski Studio",
+    logoLabel: "Modern Studio",
   },
 
   closeIcon: {
@@ -60,11 +60,11 @@ export const navigationMobileData = {
     socials: [
       {
         title: "Facebook",
-        url: "https://www.facebook.com/profile.php?id=61585645652699&locale=pl_PL",
+        url: "https://www.facebook.com/",
       },
       {
         title: "Instagram",
-        url: "https://www.instagram.com/sadowski_studio/",
+        url: "https://www.instagram.com/",
       },
       {
         title: "LinkedIn",

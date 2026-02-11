@@ -2,7 +2,7 @@
 
 export const navigationDesktopData = {
   logo: {
-    logoLabel: "Sadowski Studio",
+    logoLabel: "Modern Studio",
   },
 
   links: {

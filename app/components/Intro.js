@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const words = ["Sadowski", "Studio"];
+const words = ["Modern", "Studio"];
 
 export default function Intro() {
   const [phase, setPhase] = useState("idle");

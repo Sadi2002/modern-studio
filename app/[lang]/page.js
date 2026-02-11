@@ -22,9 +22,9 @@ export async function generateStaticParams() {
 }
 
 export const metadata = {
-  title: "Sadowski Studio - Nowoczesna Architektura i Design",
+  title: "Modern Studio - Nowoczesna Architektura i Design",
   description:
-    "Odkryj Sadowski Studio - Twoje źródło nowoczesnej architektury i designu. Tworzymy przestrzenie, które inspirują i zachwycają.",
+    "Odkryj Modern Studio - Twoje źródło nowoczesnej architektury i designu. Tworzymy przestrzenie, które inspirują i zachwycają.",
 };
 
 export default async function Home({ params }) {

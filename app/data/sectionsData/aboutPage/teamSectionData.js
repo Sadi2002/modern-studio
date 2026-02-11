@@ -46,8 +46,8 @@ export const teamSectionData = {
         de: "Kreativdirektorin",
       },
 
-      instagram: "https://www.instagram.com/sadowski_studio/",
-      linkedin: "https://www.instagram.com/sadowski_studio/",
+      instagram: "https://www.instagram.com/modern_studio/",
+      linkedin: "https://www.instagram.com/modern_studio/",
     },
 
     {
@@ -65,8 +65,8 @@ export const teamSectionData = {
         de: "Leitender Innenarchitekt",
       },
 
-      instagram: "https://www.instagram.com/sadowski_studio/",
-      linkedin: "https://www.instagram.com/sadowski_studio/",
+      instagram: "https://www.instagram.com/modern_studio/",
+      linkedin: "https://www.instagram.com/modern_studio/",
     },
 
     {
@@ -84,8 +84,8 @@ export const teamSectionData = {
         de: "Projektmanagerin",
       },
 
-      instagram: "https://www.instagram.com/sadowski_studio/",
-      linkedin: "https://www.instagram.com/sadowski_studio/",
+      instagram: "https://www.instagram.com/modern_studio/",
+      linkedin: "https://www.instagram.com/modern_studio/",
     },
 
     {
@@ -103,8 +103,8 @@ export const teamSectionData = {
         de: "Technischer Planer",
       },
 
-      instagram: "https://www.instagram.com/sadowski_studio/",
-      linkedin: "https://www.instagram.com/sadowski_studio/",
+      instagram: "https://www.instagram.com/modern_studio/",
+      linkedin: "https://www.instagram.com/modern_studio/",
     },
     {
       photo: member5Image,
@@ -121,8 +121,8 @@ export const teamSectionData = {
         de: "Spezialistin für Materialien",
       },
 
-      instagram: "https://www.instagram.com/sadowski_studio/",
-      linkedin: "https://www.instagram.com/sadowski_studio/",
+      instagram: "https://www.instagram.com/modern_studio/",
+      linkedin: "https://www.instagram.com/modern_studio/",
     },
     {
       photo: member6Image,
@@ -139,8 +139,8 @@ export const teamSectionData = {
         de: "Baukoordination",
       },
 
-      instagram: "https://www.instagram.com/sadowski_studio/",
-      linkedin: "https://www.instagram.com/sadowski_studio/",
+      instagram: "https://www.instagram.com/modern_studio/",
+      linkedin: "https://www.instagram.com/modern_studio/",
     },
   ],
 };

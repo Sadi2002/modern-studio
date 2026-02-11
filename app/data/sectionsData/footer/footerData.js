@@ -1,7 +1,7 @@
 import footerLogo from "../../../../public/sectionsData/footer/footerLogo.png";
 
 export const footerData = {
-  title: "Sadowski Studio – Footer",
+  title: "modern Studio – Footer",
 
   logo: footerLogo,
 
@@ -78,19 +78,19 @@ export const footerData = {
       items: [
         {
           title: {
-            pl: "kontakt@sadowskistudio.com",
-            en: "kontakt@sadowskistudio.com",
-            de: "kontakt@sadowskistudio.com",
+            pl: "kontakt@modernstudio.com",
+            en: "kontakt@modernstudio.com",
+            de: "kontakt@modernstudio.com",
           },
-          url: "mailto:kontakt@sadowskistudio.com",
+          url: "mailto:kontakt@modernstudio.com",
         },
         {
           title: {
-            pl: "+48 517 805 944",
-            en: "+48 517 805 944",
-            de: "+48 517 805 944",
+            pl: "+48 742 252 958",
+            en: "+48 742 252 958",
+            de: "+48 742 252 958",
           },
-          url: "tel:+48517805944",
+          url: "tel:+48742252958",
         },
       ],
     },
@@ -104,19 +104,19 @@ export const footerData = {
       items: [
         {
           title: {
-            pl: "Złota 44, Warszawa",
-            en: "Złota 44, Warsaw",
-            de: "Złota 44, Warschau",
+            pl: "Kościuszki 11, Warszawa",
+            en: "Kościuszki 11, Warsaw",
+            de: "Kościuszki 11, Warschau",
           },
-          url: "mailto:kontakt@sadowskistudio.com",
+          url: "mailto:kontakt@modernstudio.com",
         },
         {
           title: {
-            pl: "+48 517 805 944",
-            en: "+48 517 805 944",
-            de: "+48 517 805 944",
+            pl: "+48 742 252 958",
+            en: "+48 742 252 958",
+            de: "+48 742 252 958",
           },
-          url: "tel:+48517805944",
+          url: "tel:+48742252958",
         },
       ],
     },
@@ -134,7 +134,7 @@ export const footerData = {
             en: "Facebook",
             de: "Facebook",
           },
-          url: "https://www.facebook.com/profile.php?id=61585645652699&locale=pl_PL",
+          url: "https://www.facebook.com",
         },
         {
           title: {
@@ -142,7 +142,7 @@ export const footerData = {
             en: "Instagram",
             de: "Instagram",
           },
-          url: "https://www.instagram.com/sadowski_studio/",
+          url: "https://www.instagram.com",
         },
       ],
     },
