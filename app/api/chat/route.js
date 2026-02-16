@@ -10,7 +10,7 @@ export async function POST(req) {
   try {
     const { message, history } = await req.json();
 
-    // 🔐 FILTR TEMATYCZNY – BACKENDOWA OCHRONA
+    // 🔐 FILTR TEMATYCZNY – BACKENDOWA OCHRON
     const keywords = [
       "dom",
       "budowa",
